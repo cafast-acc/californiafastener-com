@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import Image from "next/image";
 import "@/styles/cf-product-page.css";
 import "@/styles/cf-structural-fasteners.css";
 import { CfNav } from "@/components/CfNav";
@@ -57,9 +58,13 @@ export default function StructuralFastenersPage() {
           </div>
           <div className="pp-hero-image">
             <div className="pp-hero-image-tag">F3125 Gr A325 · Type 1 · Hot-dip galvanized</div>
-            <Img
+            <Image
               src="/assets/product-structural.png"
               alt="Structural heavy hex bolt with hardened washer and heavy hex nut"
+              width={1469}
+              height={889}
+              priority
+              sizes="(max-width: 1000px) 100vw, 750px"
             />
           </div>
         </div>

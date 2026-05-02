@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import "@/styles/cf-homepage.css";
 import { CfNav } from "@/components/CfNav";
 import { CfFooter } from "@/components/CfFooter";
@@ -89,7 +90,13 @@ export default function HomePage() {
       {/* INDUSTRIAL FASTENERS — split (image left, alt bg) */}
       <section className="split split--alt">
         <div className="split-image">
-          <Img src="/assets/product-industrial.png" alt="Industrial hex bolt and nut" />
+          <Image
+            src="/assets/product-industrial.png"
+            alt="Industrial hex bolt and nut"
+            width={1536}
+            height={1016}
+            sizes="(max-width: 1000px) 90vw, 600px"
+          />
         </div>
         <div className="split-text">
           <div className="feat-eyebrow">Industrial Fasteners</div>
@@ -131,14 +138,26 @@ export default function HomePage() {
           <Link href="/spec-library" className="cf-link" style={{ color: "var(--ink)" }}>View specs</Link>
         </div>
         <div className="feat-image">
-          <Img src="/assets/product-structural.png" alt="A325 hex bolt render" />
+          <Image
+            src="/assets/product-structural.png"
+            alt="A325 hex bolt render"
+            width={1469}
+            height={889}
+            sizes="(max-width: 1100px) 100vw, 1100px"
+          />
         </div>
       </section>
 
       {/* ANCHOR BOLTS — split */}
       <section className="split split--anchor">
         <div className="split-image">
-          <Img src="/assets/product-anchor.png" alt="Headed anchor bolt with nut and template plate" />
+          <Image
+            src="/assets/product-anchor.png"
+            alt="Headed anchor bolt with nut and template plate"
+            width={1587}
+            height={1258}
+            sizes="(max-width: 1000px) 90vw, 600px"
+          />
         </div>
         <div className="split-text">
           <div className="feat-eyebrow">Anchor Bolts</div>
@@ -235,10 +254,13 @@ export default function HomePage() {
           </div>
           <div className="specialty-image">
             <div className="specialty-image-tag">Lindapter Hollo-Bolt HB1</div>
-            <Img
+            <Image
               src="/assets/product-hollobolt.png"
               alt="Lindapter Hollo-Bolt HB1 expansion bolt"
               className="specialty-image-hero"
+              width={1029}
+              height={951}
+              sizes="(max-width: 860px) 100vw, 600px"
             />
           </div>
         </div>
