@@ -3,66 +3,60 @@
 import { useState } from "react";
 
 /**
- * Visual placeholder for inline product-page quote forms (structural-fasteners,
- * industrial-fasteners, etc.). Mirrors the design's demo behavior — clicking
- * submit just changes the button text.
+ * Visual placeholder for inline product-page quote forms. Mirrors the
+ * design's demo behavior — clicking submit just changes the button text.
  *
  * Real submission is deferred to Jotform per the project plan; when that's
  * wired up, replace this with a restyled Jotform embed (hidden fields,
- * Jotform's CSS hooks pointed at `.{prefix}-form-*`).
+ * Jotform's CSS hooks pointed at `.pp-form-*`).
  *
- * Each product page uses its own classPrefix (`sf`, `if`, …) so the styling
- * lives in that page's per-page CSS file and stays scoped.
+ * Layout classes (`pp-form-*`, `pp-quote-form`) live in cf-product-page.css
+ * and adapt automatically to the section's `.pp-quote--alt` modifier when
+ * the parent section uses an inverted background.
  */
 type Props = {
-  classPrefix: "sf" | "if";
   textareaLabel: string;
   textareaPlaceholder: string;
 };
 
-export function QuoteFormPlaceholder({ classPrefix, textareaLabel, textareaPlaceholder }: Props) {
+export function QuoteFormPlaceholder({ textareaLabel, textareaPlaceholder }: Props) {
   const [sent, setSent] = useState(false);
-  const cn = (suffix: string) => `${classPrefix}-${suffix}`;
 
   return (
     <form
-      className={cn("quote-form")}
+      className="pp-quote-form"
       onSubmit={(e) => {
         e.preventDefault();
         setSent(true);
       }}
     >
-      <div className={cn("form-row")}>
-        <div className={cn("form-field")}>
+      <div className="pp-form-row">
+        <div className="pp-form-field">
           <label>Name</label>
           <input type="text" name="name" required />
         </div>
-        <div className={cn("form-field")}>
+        <div className="pp-form-field">
           <label>Company</label>
           <input type="text" name="company" />
         </div>
       </div>
-      <div className={cn("form-row")}>
-        <div className={cn("form-field")}>
+      <div className="pp-form-row">
+        <div className="pp-form-field">
           <label>Email</label>
           <input type="email" name="email" required />
         </div>
-        <div className={cn("form-field")}>
+        <div className="pp-form-field">
           <label>Phone</label>
           <input type="tel" name="phone" />
         </div>
       </div>
-      <div className={cn("form-row")}>
-        <div className={`${cn("form-field")} ${cn("form-field--full")}`}>
+      <div className="pp-form-row">
+        <div className="pp-form-field pp-form-field--full">
           <label>{textareaLabel}</label>
           <textarea name="message" placeholder={textareaPlaceholder} />
         </div>
       </div>
-      <button
-        type="submit"
-        className={`cf-pill cf-pill--blue ${cn("form-submit")}`}
-        disabled={sent}
-      >
+      <button type="submit" className="cf-pill cf-pill--blue pp-form-submit" disabled={sent}>
         {sent ? "Sent ✓" : "Send quote request"}
       </button>
     </form>

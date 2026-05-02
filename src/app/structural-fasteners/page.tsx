@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import "@/styles/cf-product-page.css";
 import "@/styles/cf-structural-fasteners.css";
 import { CfNav } from "@/components/CfNav";
 import { CfFooter } from "@/components/CfFooter";
@@ -18,28 +19,28 @@ export default function StructuralFastenersPage() {
       <CfNav />
 
       {/* HERO */}
-      <section className="sf-hero">
-        <div className="sf-hero-inner">
-          <div className="sf-hero-text">
-            <div className="sf-breadcrumb">
+      <section className="pp-hero">
+        <div className="pp-hero-inner">
+          <div className="pp-hero-text">
+            <div className="pp-breadcrumb">
               <Link href="/">Home</Link>
               <span>/</span>
               <Link href="/products">Products</Link>
               <span>/</span>
               Structural Fasteners
             </div>
-            <div className="sf-eyebrow">Structural Fasteners</div>
+            <div className="pp-eyebrow">Structural Fasteners</div>
             <h1>
               Bolts that hold up
               <br />
               the <i>steel.</i>
             </h1>
-            <p className="sf-hero-sub">
+            <p className="pp-hero-sub">
               High-strength structural bolts, nuts, washers, and anchor rod for steel-frame
               buildings, bridges, and heavy infrastructure. F3125 (A325 / A490), TC bolts, F1554 —
               galvanized or plain, full RCSC documentation.
             </p>
-            <div className="sf-hero-ctas">
+            <div className="pp-hero-ctas">
               <Link href="/quote" className="cf-pill cf-pill--blue">
                 Request a Quote
               </Link>
@@ -47,15 +48,15 @@ export default function StructuralFastenersPage() {
                 View products ↓
               </a>
             </div>
-            <div className="sf-hero-stats">
+            <div className="pp-hero-stats">
               <HeroStat val="F3125" label="A325 / A490 / F1852 / F2280" />
               <HeroStat val="F1554" label="Gr 36 / 55 / 105" />
               <HeroStat val="A563" label="Gr DH heavy hex" />
               <HeroStat val="RCSC" label="Tested assemblies" />
             </div>
           </div>
-          <div className="sf-hero-image">
-            <div className="sf-hero-image-tag">F3125 Gr A325 · Type 1 · Hot-dip galvanized</div>
+          <div className="pp-hero-image">
+            <div className="pp-hero-image-tag">F3125 Gr A325 · Type 1 · Hot-dip galvanized</div>
             <Img
               src="/assets/product-structural.png"
               alt="Structural heavy hex bolt with hardened washer and heavy hex nut"
@@ -65,24 +66,24 @@ export default function StructuralFastenersPage() {
       </section>
 
       {/* TRUST BAR */}
-      <div className="sf-trustbar" aria-hidden="true">
-        <div className="sf-trustbar-track">
+      <div className="pp-trustbar" aria-hidden="true">
+        <div className="pp-trustbar-track">
           <TrustItems />
           <TrustItems />
         </div>
       </div>
 
       {/* POSITIONING */}
-      <section className="sf-intro">
-        <div className="sf-intro-inner">
-          <div className="sf-intro-lead">
+      <section className="pp-intro">
+        <div className="pp-intro-inner">
+          <div className="pp-intro-lead">
             <h2>
               The bolts that connect
               <br />
               steel to <i>steel.</i>
             </h2>
           </div>
-          <div className="sf-intro-body">
+          <div className="pp-intro-body">
             <p>
               Structural Fasteners is the family of high-strength bolts, heavy hex nuts, hardened
               washers, and anchor rod that show up on bolted steel connections — beam-to-column,
@@ -103,8 +104,8 @@ export default function StructuralFastenersPage() {
       </section>
 
       {/* PRODUCTS */}
-      <section className="sf-products" id="products">
-        <div className="sf-products-header">
+      <section className="pp-products" id="products">
+        <div className="pp-products-header">
           <div className="eyebrow">What we stock</div>
           <h2>
             Six product families.
@@ -116,7 +117,7 @@ export default function StructuralFastenersPage() {
             together as tested assemblies.
           </p>
         </div>
-        <div className="sf-products-grid">
+        <div className="pp-products-grid">
           <ProductCard
             pnum="01 / Heavy hex structural"
             img="/assets/if-stamp-105.webp"
@@ -172,9 +173,9 @@ export default function StructuralFastenersPage() {
       </section>
 
       {/* GRADES — grouped by family */}
-      <section className="sf-grades" id="grades">
-        <div className="sf-grades-inner">
-          <div className="sf-grades-header">
+      <section className="pp-grades" id="grades">
+        <div className="pp-grades-inner">
+          <div className="pp-grades-header">
             <h2>
               Specs and grades,
               <br />
@@ -411,9 +412,9 @@ export default function StructuralFastenersPage() {
       </section>
 
       {/* TRACEABILITY */}
-      <section className="sf-trace">
-        <div className="sf-trace-inner">
-          <div className="sf-trace-header">
+      <section className="pp-trace pp-trace--alt">
+        <div className="pp-trace-inner">
+          <div className="pp-trace-header">
             <div className="eyebrow">Documentation</div>
             <h2>
               What <i>ships</i> with the bolts.
@@ -423,7 +424,7 @@ export default function StructuralFastenersPage() {
               and lot, with the documentation a structural inspector or DOT engineer expects to see.
             </p>
           </div>
-          <div className="sf-trace-grid">
+          <div className="pp-trace-grid">
             <TraceCard
               num="01"
               title="Material Test Reports"
@@ -449,9 +450,9 @@ export default function StructuralFastenersPage() {
       </section>
 
       {/* CROSS-LINKS */}
-      <section className="sf-cross">
-        <div className="sf-cross-inner">
-          <div className="sf-cross-header">
+      <section className="pp-cross">
+        <div className="pp-cross-inner">
+          <div className="pp-cross-header">
             <h2>
               Looking for something
               <br />a little <i>different?</i>
@@ -461,7 +462,7 @@ export default function StructuralFastenersPage() {
               step over, start here instead.
             </p>
           </div>
-          <div className="sf-cross-grid">
+          <div className="pp-cross-grid">
             <CrossLink
               href="/anchor-bolts"
               question="Foundation anchors, embed plates, signposts?"
@@ -503,9 +504,9 @@ export default function StructuralFastenersPage() {
       </section>
 
       {/* QUOTE FORM */}
-      <section className="sf-quote">
-        <div className="sf-quote-inner">
-          <div className="sf-quote-text">
+      <section className="pp-quote">
+        <div className="pp-quote-inner">
+          <div className="pp-quote-text">
             <div className="eyebrow">Request a quote</div>
             <h2>
               Send the <i>BOM.</i>
@@ -517,14 +518,13 @@ export default function StructuralFastenersPage() {
               specialist will come back with priced, packaged-per-connection kits — usually inside
               24 hours.
             </p>
-            <div className="sf-quote-contact">
+            <div className="pp-quote-contact">
               Prefer to talk it through?
               <b>707.741.3277</b>
               <b>sales@californiafastener.com</b>
             </div>
           </div>
           <QuoteFormPlaceholder
-            classPrefix="sf"
             textareaLabel="Project & bolt schedule"
             textareaPlaceholder="Project type, F3125 grade, sizes, finish, quantities — or paste the bolt schedule."
           />
@@ -532,9 +532,9 @@ export default function StructuralFastenersPage() {
       </section>
 
       {/* CTA BAND */}
-      <section className="sf-cta">
-        <div className="sf-cta-inner">
-          <div className="sf-cta-eyebrow">Talk to a bolt specialist</div>
+      <section className="pp-cta">
+        <div className="pp-cta-inner">
+          <div className="pp-cta-eyebrow">Talk to a bolt specialist</div>
           <h2>
             Hold the steel.
             <br />
@@ -544,7 +544,7 @@ export default function StructuralFastenersPage() {
             From a single heavy hex kit to a full bridge-deck package with RoCap, DTI test data, and
             Buy America documentation — we&apos;ve shipped the package before.
           </p>
-          <div className="sf-cta-ctas">
+          <div className="pp-cta-ctas">
             <Link href="/quote" className="cf-pill cf-pill--blue-light">
               Request a Quote
             </Link>
@@ -563,8 +563,8 @@ export default function StructuralFastenersPage() {
 function HeroStat({ val, label }: { val: string; label: string }) {
   return (
     <div>
-      <div className="sf-hero-stat-val">{val}</div>
-      <div className="sf-hero-stat-label">{label}</div>
+      <div className="pp-hero-stat-val">{val}</div>
+      <div className="pp-hero-stat-label">{label}</div>
     </div>
   );
 }
@@ -589,23 +589,23 @@ function ProductCard({
   metaRest: string;
 }) {
   return (
-    <div className="sf-product-card">
-      <div className="sf-product-photo">
+    <div className="pp-product-card">
+      <div className="pp-product-photo">
         <span className="pnum">{pnum}</span>
         {img ? (
           <Img src={img} alt={imgAlt ?? ""} />
         ) : placeholder ? (
-          <div className="sf-ph-placeholder">
+          <div className="pp-ph-placeholder">
             {placeholder[0]}
             <br />
             {placeholder[1]}
           </div>
         ) : null}
       </div>
-      <div className="sf-product-body">
+      <div className="pp-product-body">
         <h3>{title}</h3>
         <p>{desc}</p>
-        <div className="sf-product-meta">
+        <div className="pp-product-meta">
           <b>{metaBold}</b>
           {metaRest}
         </div>
@@ -628,25 +628,25 @@ function Family({
   specs: Spec[];
 }) {
   return (
-    <div className="sf-family">
-      <div className="sf-family-label">
+    <div className="pp-family">
+      <div className="pp-family-label">
         <div className="num">{num}</div>
         <h3>{title}</h3>
         <p>{blurb}</p>
       </div>
-      <div className="sf-family-cards">
+      <div className="pp-family-cards">
         {specs.map((s) => (
-          <div key={s.name} className="sf-spec-card">
-            <div className="sf-spec-tag">
+          <div key={s.name} className="pp-spec-card">
+            <div className="pp-spec-tag">
               {s.family}
               <span className="name">{s.name}</span>
-              <ul className="sf-spec-grades">
+              <ul className="pp-spec-grades">
                 {s.tags.map((t) => (
                   <li key={t}>{t}</li>
                 ))}
               </ul>
             </div>
-            <div className="sf-spec-body">
+            <div className="pp-spec-body">
               <p>{s.body}</p>
             </div>
           </div>
@@ -691,7 +691,7 @@ function RcscCard({ num, title, desc }: { num: string; title: string; desc: stri
 
 function TraceCard({ num, title, desc }: { num: string; title: string; desc: string }) {
   return (
-    <div className="sf-trace-card">
+    <div className="pp-trace-card">
       <div className="num">{num}</div>
       <h4>{title}</h4>
       <p>{desc}</p>
@@ -711,7 +711,7 @@ function CrossLink({
   spec: string;
 }) {
   return (
-    <Link href={href} className="sf-cross-card">
+    <Link href={href} className="pp-cross-card">
       <div className="question">{question}</div>
       <h4>{title}</h4>
       <div className="spec">{spec}</div>
@@ -777,7 +777,7 @@ function TrustItems() {
   return (
     <>
       {items.map((it) => (
-        <div key={it.label} className="sf-trust-item">
+        <div key={it.label} className="pp-trust-item">
           <svg viewBox="0 0 24 24">{it.svg}</svg>
           <span>{it.label}</span>
         </div>

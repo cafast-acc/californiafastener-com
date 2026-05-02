@@ -1,0 +1,194 @@
+/* ─────────────────────────────────────────────────────────
+   Shared product-page CSS skeleton — used by /anchor-bolts,
+   /structural-fasteners, /industrial-fasteners and any future
+   product page. Class prefix: .pp-*
+
+   The product pages all share the same template:
+     pp-hero  → pp-trustbar?  → pp-intro?  → pp-products?
+     pp-grades  → ${page-unique sections}  → pp-trace?  → pp-cross
+     → pp-quote?  → pp-cta
+
+   Where a section has two color variants (e.g. bg vs bg-alt for
+   alternating section backgrounds), use the .pp-X--alt modifier.
+   Where the column count varies (trace 4 vs 5), use --N modifiers
+   (.pp-trace-grid--five).
+
+   Page-specific CSS files import this and only need to define their
+   genuinely unique sections (e.g. sf-joint, if-exotic, ab-values).
+   ───────────────────────────────────────────────────────── */
+
+/* ── HERO ──────────────────────────────────────────────── */
+.pp-hero { padding: 80px 40px 0; background: linear-gradient(180deg, var(--bg) 0%, var(--bg-alt) 100%); overflow: hidden; }
+.pp-hero-inner { max-width: 1440px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1.05fr; gap: 80px; align-items: center; min-height: 720px; }
+.pp-hero-text { padding: 40px 0; }
+.pp-breadcrumb { font-size: 13px; color: var(--mid); margin-bottom: 24px; }
+.pp-breadcrumb a { color: var(--mid); text-decoration: none; }
+.pp-breadcrumb a:hover { color: var(--ink); }
+.pp-breadcrumb span { margin: 0 8px; color: var(--rule); }
+.pp-eyebrow { font-size: 15px; font-weight: 500; color: var(--blue-dark); margin-bottom: 20px; display: inline-flex; align-items: center; gap: 10px; }
+.pp-eyebrow::before { content: ''; width: 20px; height: 1px; background: var(--blue-dark); }
+.pp-hero h1 { font-size: clamp(56px, 6.5vw, 104px); font-weight: 600; line-height: 0.98; letter-spacing: -0.04em; color: var(--ink); margin-bottom: 24px; }
+.pp-hero h1 i { color: var(--blue-dark); }
+.pp-hero-sub { font-size: 22px; color: var(--ink-soft); line-height: 1.35; max-width: 580px; margin-bottom: 36px; letter-spacing: -0.015em; }
+.pp-hero-ctas { display: flex; gap: 20px; align-items: center; margin-bottom: 48px; flex-wrap: wrap; }
+.pp-hero-stats { display: grid; grid-template-columns: repeat(4, 1fr); max-width: 640px; padding-top: 28px; border-top: 1px solid var(--rule-soft); }
+.pp-hero-stat-val { font-size: 28px; font-weight: 600; letter-spacing: -0.02em; line-height: 1; margin-bottom: 6px; }
+.pp-hero-stat-label { font-size: 11px; color: var(--mid); letter-spacing: 0.02em; text-transform: uppercase; line-height: 1.3; }
+
+.pp-hero-image { background: #E8E6E1; border-radius: 24px 0 0 0; min-height: 720px; margin-right: calc((100vw - 1440px) / -2); display: flex; align-items: center; justify-content: center; overflow: hidden; position: relative; }
+@media (max-width: 1480px) { .pp-hero-image { margin-right: -40px; } }
+.pp-hero-image img { width: 110%; height: auto; max-height: 95%; object-fit: contain; filter: drop-shadow(0 30px 50px rgba(0,0,0,0.2)); }
+.pp-hero-image-tag { position: absolute; top: 24px; left: 24px; background: rgba(255,255,255,0.92); backdrop-filter: blur(8px); padding: 8px 14px; border-radius: 100px; font-size: 11px; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; color: var(--ink); }
+
+/* ── TRUST BAR (pause-on-hover marquee with SVG icons) ── */
+.pp-trustbar { background: var(--white); padding: 26px 0; overflow: hidden; border-top: 1px solid var(--rule-soft); border-bottom: 1px solid var(--rule-soft); }
+.pp-trustbar-track { display: flex; width: max-content; animation: pp-trust-scroll 45s linear infinite; }
+.pp-trustbar:hover .pp-trustbar-track { animation-play-state: paused; }
+.pp-trust-item { display: flex; align-items: center; gap: 14px; padding: 0 48px; border-right: 1px solid var(--rule-soft); flex-shrink: 0; }
+.pp-trust-item svg { width: 26px; height: 26px; stroke: var(--blue-dark); fill: none; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; flex-shrink: 0; }
+.pp-trust-item span { font-weight: 600; font-size: 15px; color: var(--ink); letter-spacing: -0.005em; white-space: nowrap; }
+@keyframes pp-trust-scroll { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+
+/* ── POSITIONING INTRO ─────────────────────────────────── */
+.pp-intro { padding: 112px 40px; border-bottom: 1px solid var(--rule-soft); }
+.pp-intro-inner { max-width: 1240px; margin: 0 auto; display: grid; grid-template-columns: 1.15fr 1fr; gap: 80px; align-items: start; }
+.pp-intro-lead h2 { font-size: clamp(36px, 3.8vw, 56px); font-weight: 600; line-height: 1.05; letter-spacing: -0.03em; margin-bottom: 20px; }
+.pp-intro-lead h2 i { color: var(--blue-dark); }
+.pp-intro-body p { font-size: 18px; color: var(--ink-soft); line-height: 1.55; letter-spacing: -0.005em; margin-bottom: 18px; max-width: 560px; }
+.pp-intro-body p em { font-style: normal; color: var(--mid); font-size: 15px; display: block; margin-top: 8px; }
+
+/* ── PRODUCT GRID (3-col, with placeholder pattern) ─────── */
+.pp-products { background: var(--bg-alt); padding: 120px 40px; }
+.pp-products-header { max-width: 1200px; margin: 0 auto 56px; }
+.pp-products-header .eyebrow { font-size: 14px; color: var(--blue-dark); font-weight: 500; margin-bottom: 14px; }
+.pp-products-header h2 { font-size: clamp(40px, 4.5vw, 64px); font-weight: 600; letter-spacing: -0.03em; line-height: 1.05; max-width: 820px; margin-bottom: 16px; }
+.pp-products-header h2 i { color: var(--blue-dark); }
+.pp-products-header p { font-size: 19px; color: var(--ink-soft); max-width: 640px; line-height: 1.4; letter-spacing: -0.01em; }
+
+.pp-products-grid { max-width: 1280px; margin: 0 auto; display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+.pp-product-card { background: var(--bg); border-radius: 24px; overflow: hidden; display: flex; flex-direction: column; transition: transform 0.3s ease; }
+.pp-product-card:hover { transform: translateY(-4px); }
+.pp-product-photo { background: #E8E6E1; aspect-ratio: 4 / 3; position: relative; overflow: hidden; display: flex; align-items: center; justify-content: center; }
+.pp-product-photo img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+.pp-product-photo .pnum { position: absolute; top: 18px; left: 18px; font-family: var(--cf-font-mono); font-size: 11px; color: var(--mid); letter-spacing: 0.04em; z-index: 2; }
+.pp-product-photo .pp-ph-placeholder { width: 100%; height: 100%; background: repeating-linear-gradient(45deg, rgba(0,0,0,0.02), rgba(0,0,0,0.02) 10px, rgba(0,0,0,0.055) 10px, rgba(0,0,0,0.055) 20px); display: flex; align-items: center; justify-content: center; color: var(--mid); font-family: var(--cf-font-mono); font-size: 11px; letter-spacing: 0.04em; text-transform: uppercase; text-align: center; padding: 0 24px; }
+.pp-product-body { padding: 26px 28px 30px; display: flex; flex-direction: column; flex: 1; }
+.pp-product-body h3 { font-size: 22px; font-weight: 600; letter-spacing: -0.02em; line-height: 1.15; margin-bottom: 8px; }
+.pp-product-body p { font-size: 14px; color: var(--ink-soft); line-height: 1.5; letter-spacing: -0.005em; margin-bottom: 18px; }
+.pp-product-meta { margin-top: auto; padding-top: 14px; border-top: 1px solid var(--rule-soft); font-size: 12px; color: var(--mid); letter-spacing: -0.005em; line-height: 1.45; }
+.pp-product-meta b { color: var(--ink); font-weight: 500; }
+
+/* ── GRADES — grouped by family (sticky labels) ────────── */
+.pp-grades { padding: 120px 40px; }
+.pp-grades-inner { max-width: 1240px; margin: 0 auto; }
+.pp-grades-header { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: end; margin-bottom: 64px; }
+.pp-grades-header h2 { font-size: clamp(36px, 4vw, 56px); font-weight: 600; letter-spacing: -0.03em; line-height: 1.05; }
+.pp-grades-header h2 i { color: var(--blue-dark); }
+.pp-grades-header p { font-size: 17px; color: var(--ink-soft); line-height: 1.5; max-width: 460px; }
+
+.pp-family { padding: 48px 0; border-top: 1px solid var(--rule-soft); display: grid; grid-template-columns: 280px 1fr; gap: 64px; align-items: start; }
+.pp-family:last-child { border-bottom: 1px solid var(--rule-soft); }
+.pp-family-label { position: sticky; top: 80px; }
+.pp-family-label .num { font-family: var(--cf-font-mono); font-size: 11px; color: var(--blue-dark); letter-spacing: 0.06em; text-transform: uppercase; margin-bottom: 10px; }
+.pp-family-label h3 { font-size: 26px; font-weight: 600; letter-spacing: -0.02em; line-height: 1.1; margin-bottom: 12px; }
+.pp-family-label p { font-size: 14px; color: var(--mid); line-height: 1.5; }
+.pp-family-cards { display: grid; gap: 14px; }
+.pp-spec-card { background: var(--bg-alt); border-radius: 18px; padding: 28px 32px; display: grid; grid-template-columns: 180px 1fr; gap: 36px; align-items: start; }
+.pp-spec-tag { font-family: var(--cf-font-mono); font-size: 12px; color: var(--blue-dark); letter-spacing: 0.04em; }
+.pp-spec-tag .name { font-size: 18px; font-weight: 600; color: var(--ink); letter-spacing: -0.01em; display: block; font-family: var(--cf-font-display); margin-top: 4px; margin-bottom: 8px; }
+.pp-spec-grades { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 4px; padding: 0; }
+.pp-spec-grades li { list-style: none; padding: 4px 10px; background: var(--bg); border-radius: 100px; font-size: 11px; font-weight: 500; color: var(--ink); letter-spacing: 0.01em; }
+.pp-spec-body p { font-size: 15px; color: var(--ink-soft); line-height: 1.55; letter-spacing: -0.005em; }
+
+/* ── TRACEABILITY (default 4-col; --five for 5-col variant) */
+.pp-trace { padding: 120px 40px; }
+.pp-trace-inner { max-width: 1240px; margin: 0 auto; }
+.pp-trace-header { max-width: 820px; margin-bottom: 56px; }
+.pp-trace-header .eyebrow { font-size: 14px; color: var(--blue-dark); font-weight: 500; margin-bottom: 14px; }
+.pp-trace-header h2 { font-size: clamp(36px, 4vw, 56px); font-weight: 600; letter-spacing: -0.03em; line-height: 1.05; margin-bottom: 16px; }
+.pp-trace-header h2 i { color: var(--blue-dark); }
+.pp-trace-header p { font-size: 18px; color: var(--ink-soft); line-height: 1.5; max-width: 680px; }
+.pp-trace-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; }
+.pp-trace-grid--five { grid-template-columns: repeat(5, 1fr); }
+.pp-trace-card { background: var(--bg-alt); border-radius: 18px; padding: 28px 24px 32px; display: flex; flex-direction: column; min-height: 220px; }
+/* When the trace section sits on the alt bg (--alt variant), card bg flips */
+.pp-trace--alt { background: var(--bg-alt); }
+.pp-trace--alt .pp-trace-card { background: var(--bg); }
+.pp-trace-card .num { font-family: var(--cf-font-mono); font-size: 11px; color: var(--blue-dark); letter-spacing: 0.06em; margin-bottom: 32px; }
+.pp-trace-card h4 { font-size: 17px; font-weight: 600; letter-spacing: -0.015em; line-height: 1.2; margin-bottom: 10px; }
+.pp-trace-card p { font-size: 13px; color: var(--ink-soft); line-height: 1.45; letter-spacing: -0.005em; }
+
+/* ── CROSS-LINKS (default = section bg, alt = bg-alt) ──── */
+.pp-cross { padding: 112px 40px; }
+.pp-cross--alt { background: var(--bg-alt); }
+.pp-cross-inner { max-width: 1240px; margin: 0 auto; }
+.pp-cross-header { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: end; margin-bottom: 48px; }
+.pp-cross-header h2 { font-size: clamp(32px, 3.6vw, 48px); font-weight: 600; letter-spacing: -0.03em; line-height: 1.05; max-width: 500px; }
+.pp-cross-header h2 i { color: var(--blue-dark); }
+.pp-cross-header p { font-size: 16px; color: var(--ink-soft); line-height: 1.5; max-width: 460px; }
+.pp-cross-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
+/* Default card bg = bg-alt (when section is on plain bg). --alt section flips card to bg. */
+.pp-cross-card { background: var(--bg-alt); border-radius: 18px; padding: 28px 30px 30px; display: flex; flex-direction: column; text-decoration: none; color: inherit; transition: transform 0.25s ease, box-shadow 0.25s ease; border: 1px solid transparent; }
+.pp-cross--alt .pp-cross-card { background: var(--bg); }
+.pp-cross-card:hover { transform: translateY(-3px); box-shadow: 0 12px 28px rgba(0,0,0,0.06); border-color: var(--rule-soft); }
+.pp-cross-card .question { font-size: 12px; color: var(--mid); letter-spacing: -0.005em; margin-bottom: 8px; line-height: 1.4; }
+.pp-cross-card h4 { font-size: 19px; font-weight: 600; letter-spacing: -0.015em; margin-bottom: 6px; color: var(--ink); display: flex; align-items: center; justify-content: space-between; gap: 12px; }
+.pp-cross-card h4::after { content: '→'; color: var(--blue-dark); font-weight: 400; transition: transform 0.2s ease; }
+.pp-cross-card:hover h4::after { transform: translateX(3px); }
+.pp-cross-card .spec { font-family: var(--cf-font-mono); font-size: 11px; color: var(--mid); letter-spacing: 0.04em; }
+
+/* ── QUOTE FORM (default = bg-alt section / bg form / bg-alt inputs) */
+.pp-quote { padding: 120px 40px; background: var(--bg-alt); }
+.pp-quote--alt { background: var(--bg); }
+.pp-quote-inner { max-width: 1100px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1.1fr; gap: 80px; align-items: start; }
+.pp-quote-text .eyebrow { font-size: 14px; color: var(--blue-dark); font-weight: 500; margin-bottom: 14px; }
+.pp-quote-text h2 { font-size: clamp(36px, 4vw, 56px); font-weight: 600; letter-spacing: -0.03em; line-height: 1.05; margin-bottom: 18px; }
+.pp-quote-text h2 i { color: var(--blue-dark); }
+.pp-quote-text p { font-size: 17px; color: var(--ink-soft); line-height: 1.55; max-width: 420px; margin-bottom: 28px; }
+.pp-quote-contact { padding-top: 20px; border-top: 1px solid var(--rule-soft); font-size: 13px; color: var(--mid); line-height: 1.8; }
+.pp-quote-contact b { display: block; color: var(--ink); font-weight: 500; font-size: 14px; margin-top: 4px; }
+.pp-quote-form { background: var(--bg); border-radius: 24px; padding: 36px 40px 40px; }
+.pp-quote--alt .pp-quote-form { background: var(--bg-alt); }
+.pp-form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-bottom: 14px; }
+.pp-form-field { display: flex; flex-direction: column; }
+.pp-form-field--full { grid-column: 1 / -1; }
+.pp-form-field label { font-size: 11px; font-weight: 500; color: var(--mid); letter-spacing: 0.04em; text-transform: uppercase; margin-bottom: 6px; }
+.pp-form-field input, .pp-form-field textarea { background: var(--bg-alt); border: 1px solid var(--rule-soft); border-radius: 10px; padding: 12px 14px; font-family: inherit; font-size: 15px; color: var(--ink); letter-spacing: -0.005em; transition: border-color 0.15s; }
+.pp-quote--alt .pp-form-field input, .pp-quote--alt .pp-form-field textarea { background: var(--bg); }
+.pp-form-field input:focus, .pp-form-field textarea:focus { outline: none; border-color: var(--blue-dark); }
+.pp-form-field textarea { resize: vertical; min-height: 120px; line-height: 1.5; }
+.pp-form-submit { margin-top: 10px; }
+
+/* ── CTA BAND ──────────────────────────────────────────── */
+.pp-cta { padding: 112px 40px; background: var(--dark-1); color: var(--dark-text); position: relative; overflow: hidden; }
+.pp-cta::before { content: ''; position: absolute; inset: 0; background: radial-gradient(ellipse 60% 50% at 30% 50%, rgba(56,182,255,0.12), transparent 70%), radial-gradient(ellipse 50% 40% at 80% 100%, rgba(140,82,255,0.10), transparent 70%); pointer-events: none; }
+.pp-cta-inner { max-width: 1040px; margin: 0 auto; text-align: center; position: relative; z-index: 1; }
+.pp-cta-eyebrow { font-size: 14px; color: var(--blue); font-weight: 500; margin-bottom: 16px; }
+.pp-cta h2 { font-size: clamp(44px, 5.5vw, 80px); font-weight: 600; letter-spacing: -0.035em; line-height: 1.02; margin-bottom: 22px; }
+.pp-cta h2 i { color: var(--blue); }
+.pp-cta-inner > p { font-size: 20px; color: var(--dark-mid); max-width: 620px; margin: 0 auto 32px; line-height: 1.4; }
+.pp-cta-ctas { display: flex; gap: 18px; justify-content: center; flex-wrap: wrap; }
+
+/* ── RESPONSIVE ────────────────────────────────────────── */
+@media (max-width: 1200px) {
+  .pp-products-grid { grid-template-columns: repeat(2, 1fr); }
+  .pp-trace-grid { grid-template-columns: repeat(2, 1fr); }
+  .pp-trace-grid--five { grid-template-columns: repeat(3, 1fr); }
+  .pp-cross-grid { grid-template-columns: repeat(2, 1fr); }
+  .pp-family { grid-template-columns: 1fr; gap: 28px; }
+  .pp-family-label { position: static; }
+  .pp-spec-card { grid-template-columns: 1fr; gap: 14px; }
+}
+@media (max-width: 1000px) {
+  .pp-hero-inner, .pp-intro-inner, .pp-grades-header, .pp-cross-header, .pp-quote-inner { grid-template-columns: 1fr; gap: 40px; }
+  .pp-hero-image { margin-right: 0; border-radius: 24px; min-height: 480px; }
+  .pp-products-grid { grid-template-columns: 1fr; }
+  .pp-trace-grid, .pp-trace-grid--five { grid-template-columns: 1fr 1fr; }
+  .pp-cross-grid { grid-template-columns: 1fr; }
+  .pp-form-row { grid-template-columns: 1fr; }
+}
+@media (max-width: 680px) {
+  .pp-trust-item { padding: 0 32px; }
+  .pp-trust-item span { font-size: 13px; }
+  .pp-trust-item svg { width: 22px; height: 22px; }
+}

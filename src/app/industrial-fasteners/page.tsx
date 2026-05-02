@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import "@/styles/cf-product-page.css";
 import "@/styles/cf-industrial-fasteners.css";
 import { CfNav } from "@/components/CfNav";
 import { CfFooter } from "@/components/CfFooter";
@@ -18,17 +19,17 @@ export default function IndustrialFastenersPage() {
       <CfNav />
 
       {/* HERO */}
-      <section className="if-hero">
-        <div className="if-hero-inner">
-          <div className="if-hero-text">
-            <div className="if-breadcrumb">
+      <section className="pp-hero">
+        <div className="pp-hero-inner">
+          <div className="pp-hero-text">
+            <div className="pp-breadcrumb">
               <Link href="/">Home</Link>
               <span>/</span>
               <Link href="/products">Products</Link>
               <span>/</span>
               Industrial Fasteners
             </div>
-            <div className="if-eyebrow">Industrial Fasteners</div>
+            <div className="pp-eyebrow">Industrial Fasteners</div>
             <h1>
               Bolts, nuts &amp; washers
               <br />
@@ -36,11 +37,11 @@ export default function IndustrialFastenersPage() {
               <br />
               assembly.
             </h1>
-            <p className="if-hero-sub">
+            <p className="pp-hero-sub">
               Socket head, heavy hex, and the nuts and washers that go with them. Carbon, alloy, and
               stainless grades — stocked deep, shipped same day, and backed with full MTRs.
             </p>
-            <div className="if-hero-ctas">
+            <div className="pp-hero-ctas">
               <Link href="/quote" className="cf-pill cf-pill--blue">
                 Request a Quote
               </Link>
@@ -48,15 +49,15 @@ export default function IndustrialFastenersPage() {
                 View products ↓
               </a>
             </div>
-            <div className="if-hero-stats">
+            <div className="pp-hero-stats">
               <HeroStat val="A193" label="B7 / B16 / B8 / B8M" />
               <HeroStat val="A194" label="2H / 4 / 7 / 8 / 8M" />
               <HeroStat val="F436" label="Hardened washers" />
               <HeroStat val="MTRs" label="With every shipment" />
             </div>
           </div>
-          <div className="if-hero-image">
-            <div className="if-hero-image-tag">A193 B8M · 316 Stainless · Heavy Hex</div>
+          <div className="pp-hero-image">
+            <div className="pp-hero-image-tag">A193 B8M · 316 Stainless · Heavy Hex</div>
             <Img
               src="/assets/if-stamp-316.webp"
               alt="Heavy hex bolt head stamped CA 316, A193 B8M 316 stainless"
@@ -66,24 +67,24 @@ export default function IndustrialFastenersPage() {
       </section>
 
       {/* TRUST BAR */}
-      <div className="if-trustbar" aria-hidden="true">
-        <div className="if-trustbar-track">
+      <div className="pp-trustbar" aria-hidden="true">
+        <div className="pp-trustbar-track">
           <TrustItems />
           <TrustItems />
         </div>
       </div>
 
       {/* POSITIONING */}
-      <section className="if-intro">
-        <div className="if-intro-inner">
-          <div className="if-intro-lead">
+      <section className="pp-intro">
+        <div className="pp-intro-inner">
+          <div className="pp-intro-lead">
             <h2>
               The hardware that runs through
               <br />
               almost <i>every project.</i>
             </h2>
           </div>
-          <div className="if-intro-body">
+          <div className="pp-intro-body">
             <p>
               Industrial Fasteners is our catch-all for the mechanical and process assembly hardware
               that runs through almost every project we quote — socket head cap screws, heavy hex
@@ -102,8 +103,8 @@ export default function IndustrialFastenersPage() {
       </section>
 
       {/* PRODUCTS */}
-      <section className="if-products" id="products">
-        <div className="if-products-header">
+      <section className="pp-products" id="products">
+        <div className="pp-products-header">
           <div className="eyebrow">What we stock</div>
           <h2>
             Six product families.
@@ -115,7 +116,7 @@ export default function IndustrialFastenersPage() {
             standard and heavy pattern.
           </p>
         </div>
-        <div className="if-products-grid">
+        <div className="pp-products-grid">
           <ProductCard
             pnum="01 / SHCS"
             placeholder={["Product shot", "Socket head cap screw"]}
@@ -171,9 +172,9 @@ export default function IndustrialFastenersPage() {
       </section>
 
       {/* GRADES — grouped by family */}
-      <section className="if-grades" id="grades">
-        <div className="if-grades-inner">
-          <div className="if-grades-header">
+      <section className="pp-grades" id="grades">
+        <div className="pp-grades-inner">
+          <div className="pp-grades-header">
             <h2>
               Grades and specs,
               <br />
@@ -239,8 +240,8 @@ export default function IndustrialFastenersPage() {
           />
 
           {/* Stainless family — same Family component, but with a hero photo card injected at the top */}
-          <div className="if-family if-family--stainless">
-            <div className="if-family-label">
+          <div className="pp-family pp-family--stainless">
+            <div className="pp-family-label">
               <div className="num">Family 03</div>
               <h3>Stainless steel</h3>
               <p>
@@ -248,9 +249,9 @@ export default function IndustrialFastenersPage() {
                 marine, pulp &amp; paper, wastewater.
               </p>
             </div>
-            <div className="if-family-cards">
-              <div className="if-spec-card if-spec-card--hero">
-                <div className="if-spec-photo">
+            <div className="pp-family-cards">
+              <div className="pp-spec-card pp-spec-card--hero">
+                <div className="pp-spec-photo">
                   <Img src="/assets/if-stamp-316.webp" alt="CA 316 head stamp — A193 B8M" />
                   <Img src="/assets/if-stamp-b8-rod.webp" alt="CA B8 rod stamp — A193 B8" />
                 </div>
@@ -371,9 +372,9 @@ export default function IndustrialFastenersPage() {
       </section>
 
       {/* TRACEABILITY */}
-      <section className="if-trace">
-        <div className="if-trace-inner">
-          <div className="if-trace-header">
+      <section className="pp-trace">
+        <div className="pp-trace-inner">
+          <div className="pp-trace-header">
             <div className="eyebrow">Traceability &amp; documentation</div>
             <h2>
               What <i>ships</i> with the bolts.
@@ -385,7 +386,7 @@ export default function IndustrialFastenersPage() {
               before.
             </p>
           </div>
-          <div className="if-trace-grid">
+          <div className="pp-trace-grid pp-trace-grid--five">
             <TraceCard
               num="01"
               title="Material Test Reports"
@@ -416,9 +417,9 @@ export default function IndustrialFastenersPage() {
       </section>
 
       {/* CROSS-LINKS */}
-      <section className="if-cross">
-        <div className="if-cross-inner">
-          <div className="if-cross-header">
+      <section className="pp-cross pp-cross--alt">
+        <div className="pp-cross-inner">
+          <div className="pp-cross-header">
             <h2>
               Not sure this is
               <br />
@@ -429,7 +430,7 @@ export default function IndustrialFastenersPage() {
               worlds, start there instead.
             </p>
           </div>
-          <div className="if-cross-grid">
+          <div className="pp-cross-grid">
             <CrossLink
               href="/structural-fasteners"
               question="Building or bridge construction?"
@@ -471,9 +472,9 @@ export default function IndustrialFastenersPage() {
       </section>
 
       {/* QUOTE FORM */}
-      <section className="if-quote">
-        <div className="if-quote-inner">
-          <div className="if-quote-text">
+      <section className="pp-quote pp-quote--alt">
+        <div className="pp-quote-inner">
+          <div className="pp-quote-text">
             <div className="eyebrow">Request a quote</div>
             <h2>
               Send the <i>drawing.</i>
@@ -484,14 +485,13 @@ export default function IndustrialFastenersPage() {
               Send the drawing, the spec callouts, or just a rough description of the job. A bolt
               specialist will come back with a quote, usually inside 24 hours.
             </p>
-            <div className="if-quote-contact">
+            <div className="pp-quote-contact">
               Prefer to talk it through?
               <b>707.741.3277</b>
               <b>sales@californiafastener.com</b>
             </div>
           </div>
           <QuoteFormPlaceholder
-            classPrefix="if"
             textareaLabel="How can we help?"
             textareaPlaceholder="Spec callouts, grades, quantities, drawing notes — or paste a BOM."
           />
@@ -499,9 +499,9 @@ export default function IndustrialFastenersPage() {
       </section>
 
       {/* CTA BAND */}
-      <section className="if-cta">
-        <div className="if-cta-inner">
-          <div className="if-cta-eyebrow">Talk to a bolt specialist</div>
+      <section className="pp-cta">
+        <div className="pp-cta-inner">
+          <div className="pp-cta-eyebrow">Talk to a bolt specialist</div>
           <h2>
             Know the spec.
             <br />
@@ -511,7 +511,7 @@ export default function IndustrialFastenersPage() {
             From a single heavy hex to a full bolted joint kit with MTRs, First Article, and PMI —
             we&apos;ve shipped the package before.
           </p>
-          <div className="if-cta-ctas">
+          <div className="pp-cta-ctas">
             <Link href="/quote" className="cf-pill cf-pill--blue-light">
               Request a Quote
             </Link>
@@ -530,8 +530,8 @@ export default function IndustrialFastenersPage() {
 function HeroStat({ val, label }: { val: string; label: string }) {
   return (
     <div>
-      <div className="if-hero-stat-val">{val}</div>
-      <div className="if-hero-stat-label">{label}</div>
+      <div className="pp-hero-stat-val">{val}</div>
+      <div className="pp-hero-stat-label">{label}</div>
     </div>
   );
 }
@@ -556,23 +556,23 @@ function ProductCard({
   metaRest: string;
 }) {
   return (
-    <div className="if-product-card">
-      <div className="if-product-photo">
+    <div className="pp-product-card">
+      <div className="pp-product-photo">
         <span className="pnum">{pnum}</span>
         {img ? (
           <Img src={img} alt={imgAlt ?? ""} />
         ) : placeholder ? (
-          <div className="if-ph-placeholder">
+          <div className="pp-ph-placeholder">
             {placeholder[0]}
             <br />
             {placeholder[1]}
           </div>
         ) : null}
       </div>
-      <div className="if-product-body">
+      <div className="pp-product-body">
         <h3>{title}</h3>
         <p>{desc}</p>
-        <div className="if-product-meta">
+        <div className="pp-product-meta">
           <b>{metaBold}</b>
           {metaRest}
         </div>
@@ -595,13 +595,13 @@ function Family({
   specs: Spec[];
 }) {
   return (
-    <div className="if-family">
-      <div className="if-family-label">
+    <div className="pp-family">
+      <div className="pp-family-label">
         <div className="num">{num}</div>
         <h3>{title}</h3>
         <p>{blurb}</p>
       </div>
-      <div className="if-family-cards">
+      <div className="pp-family-cards">
         {specs.map((s) => (
           <SpecCard key={s.name} family={s.family} name={s.name} tags={s.tags} body={s.body} />
         ))}
@@ -622,17 +622,17 @@ function SpecCard({
   body: string;
 }) {
   return (
-    <div className="if-spec-card">
-      <div className="if-spec-tag">
+    <div className="pp-spec-card">
+      <div className="pp-spec-tag">
         {family}
         <span className="name">{name}</span>
-        <ul className="if-spec-grades">
+        <ul className="pp-spec-grades">
           {tags.map((t) => (
             <li key={t}>{t}</li>
           ))}
         </ul>
       </div>
-      <div className="if-spec-body">
+      <div className="pp-spec-body">
         <p>{body}</p>
       </div>
     </div>
@@ -641,7 +641,7 @@ function SpecCard({
 
 function TraceCard({ num, title, desc }: { num: string; title: string; desc: string }) {
   return (
-    <div className="if-trace-card">
+    <div className="pp-trace-card">
       <div className="num">{num}</div>
       <h4>{title}</h4>
       <p>{desc}</p>
@@ -661,7 +661,7 @@ function CrossLink({
   spec: string;
 }) {
   return (
-    <Link href={href} className="if-cross-card">
+    <Link href={href} className="pp-cross-card">
       <div className="question">{question}</div>
       <h4>{title}</h4>
       <div className="spec">{spec}</div>
@@ -726,7 +726,7 @@ function TrustItems() {
   return (
     <>
       {items.map((it) => (
-        <div key={it.label} className="if-trust-item">
+        <div key={it.label} className="pp-trust-item">
           <svg viewBox="0 0 24 24">{it.svg}</svg>
           <span>{it.label}</span>
         </div>
