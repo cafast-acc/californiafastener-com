@@ -1,0 +1,201 @@
+/* ─────────────────────────────────────────────────────────
+   California Fastener — Colors & Type tokens
+   Extracted from _shared.css. Safe to import anywhere.
+   ───────────────────────────────────────────────────────── */
+
+:root {
+  /* ── Warm neutrals ──────────────────────────────────── */
+  --cf-bg:        #FBFAF7;  /* page background — warm off-white */
+  --cf-bg-alt:    #F5F3EE;  /* section alt bg */
+  --cf-bg-cream:  #EFEBE2;  /* callout / image-bed cream */
+  --cf-ink:       #1D1D1F;  /* primary text — Apple near-black */
+  --cf-ink-soft:  #424245;  /* secondary text */
+  --cf-mid:       #6E6E73;  /* tertiary text / metadata */
+  --cf-mid-soft:  #86868B;  /* quaternary text */
+  --cf-rule:      #D2D2D0;  /* default rule / divider */
+  --cf-rule-soft: #E6E4DF;  /* subtle rule / card border */
+  --cf-white:     #FFFFFF;
+
+  /* ── Dark mode bits ─────────────────────────────────── */
+  --cf-black:     #000000;
+  --cf-dark-1:    #0B0B0D;  /* true dark — hero / CNC */
+  --cf-dark-2:    #141417;  /* slightly-lifted dark */
+  --cf-dark-text: #F5F5F7;  /* primary on dark */
+  --cf-dark-mid:  #A1A1A6;  /* secondary on dark */
+
+  /* ── Accent colors (used SPARINGLY) ─────────────────────
+     Rule of thumb:
+       • Light backgrounds → --cf-blue-dark (steel) for primary accents
+       • Dark backgrounds  → --cf-blue (light) as the accent pop
+     Purple is reserved for CNC machining context only.     */
+  --cf-blue:        #38B6FF;  /* light blue — dark-bg accent */
+  --cf-blue-dark:   #1C52A3;  /* steel blue — light-bg primary */
+  --cf-blue-hover:  #15407F;
+  --cf-purple:      #8C52FF;  /* CNC accent */
+  --cf-purple-dark: #6B37D6;
+
+  /* ── Semantic aliases ───────────────────────────────── */
+  --cf-fg-1:   var(--cf-ink);
+  --cf-fg-2:   var(--cf-ink-soft);
+  --cf-fg-3:   var(--cf-mid);
+  --cf-fg-4:   var(--cf-mid-soft);
+
+  /* ── Typography families ────────────────────────────── */
+  --cf-font-display:
+    "SF Pro Display", -apple-system, BlinkMacSystemFont,
+    "Helvetica Neue", Helvetica, Arial, sans-serif;
+  --cf-font-text:
+    "SF Pro Text", -apple-system, BlinkMacSystemFont,
+    "Helvetica Neue", Helvetica, Arial, sans-serif;
+  --cf-font-serif:
+    "New York", "Iowan Old Style", Georgia, "Times New Roman", serif;
+  --cf-font-mono:
+    "SF Mono", ui-monospace, "Menlo", Consolas, monospace;
+
+  /* ── Type scale (Apple-like, tight tracking) ───────────
+     Numbers are px. Use clamp() for hero-display on full pages. */
+  --cf-h1-size: clamp(56px, 7.5vw, 112px);   /* display */
+  --cf-h1-weight: 600;
+  --cf-h1-track: -0.04em;
+  --cf-h1-lh: 0.96;
+
+  --cf-h2-size: clamp(40px, 4.5vw, 64px);
+  --cf-h2-weight: 600;
+  --cf-h2-track: -0.03em;
+  --cf-h2-lh: 1.05;
+
+  --cf-h3-size: 28px;
+  --cf-h3-weight: 600;
+  --cf-h3-track: -0.02em;
+  --cf-h3-lh: 1.15;
+
+  --cf-lede-size: 22px;
+  --cf-lede-weight: 400;
+  --cf-lede-track: -0.015em;
+  --cf-lede-lh: 1.3;
+
+  --cf-body-size: 17px;
+  --cf-body-weight: 400;
+  --cf-body-track: -0.015em;
+  --cf-body-lh: 1.45;
+
+  --cf-small-size: 13px;
+  --cf-small-weight: 400;
+  --cf-small-track: -0.005em;
+
+  --cf-mono-size: 11px;
+  --cf-mono-track: 0.12em;   /* ALL-CAPS kicker tracking */
+
+  /* ── Radii ───────────────────────────────────────────── */
+  --cf-radius-sm: 6px;     /* spec pill, input */
+  --cf-radius-md: 8px;     /* button, small card */
+  --cf-radius-lg: 14px;    /* nav menu, mid card */
+  --cf-radius-xl: 24px;    /* hero image, big card */
+  --cf-radius-pill: 980px; /* CTA pill */
+
+  /* ── Shadows (use sparingly; mostly borders) ────────── */
+  --cf-shadow-sm: 0 1px 2px rgba(0,0,0,0.06);
+  --cf-shadow-md: 0 4px 14px rgba(0,0,0,0.06);
+  --cf-shadow-lg: 0 20px 50px rgba(0,0,0,0.10), 0 2px 8px rgba(0,0,0,0.04);
+  --cf-shadow-xl: 0 20px 60px rgba(0,0,0,0.18);
+  --cf-shadow-dark: 0 20px 50px rgba(0,0,0,0.5);
+
+  /* ── Spacing scale ──────────────────────────────────── */
+  --cf-space-1: 4px;
+  --cf-space-2: 8px;
+  --cf-space-3: 12px;
+  --cf-space-4: 16px;
+  --cf-space-5: 24px;
+  --cf-space-6: 32px;
+  --cf-space-7: 48px;
+  --cf-space-8: 64px;
+  --cf-space-9: 80px;
+  --cf-space-10: 120px;
+
+  /* ── Motion ─────────────────────────────────────────── */
+  --cf-ease: cubic-bezier(0.2, 0, 0.1, 1);
+  --cf-dur-fast: 150ms;
+  --cf-dur-base: 200ms;
+  --cf-dur-slow: 600ms;
+  --cf-dur-rise: 900ms;
+}
+
+/* ── Semantic type classes ────────────────────────────── */
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: var(--cf-font-display);
+  font-feature-settings: "ss01", "cv01";
+  background: var(--cf-bg);
+  color: var(--cf-ink);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+
+.cf-t-display {
+  font-family: var(--cf-font-display);
+  font-size: var(--cf-h1-size);
+  font-weight: var(--cf-h1-weight);
+  letter-spacing: var(--cf-h1-track);
+  line-height: var(--cf-h1-lh);
+  color: var(--cf-ink);
+}
+.cf-t-display i,
+.cf-t-display .cf-italic {
+  /* Retired the serif-italic treatment — but <i> still carries the
+     accent color (steel blue) as a single-word emphasis on light bg. */
+  font-family: inherit;
+  font-style: normal;
+  font-weight: inherit;
+  color: var(--cf-blue-dark);
+}
+
+.cf-t-h2 {
+  font-family: var(--cf-font-display);
+  font-size: var(--cf-h2-size);
+  font-weight: var(--cf-h2-weight);
+  letter-spacing: var(--cf-h2-track);
+  line-height: var(--cf-h2-lh);
+  color: var(--cf-ink);
+}
+.cf-t-h3 {
+  font-family: var(--cf-font-display);
+  font-size: var(--cf-h3-size);
+  font-weight: var(--cf-h3-weight);
+  letter-spacing: var(--cf-h3-track);
+  line-height: var(--cf-h3-lh);
+  color: var(--cf-ink);
+}
+.cf-t-lede {
+  font-family: var(--cf-font-display);
+  font-size: var(--cf-lede-size);
+  font-weight: var(--cf-lede-weight);
+  letter-spacing: var(--cf-lede-track);
+  line-height: var(--cf-lede-lh);
+  color: var(--cf-ink-soft);
+  max-width: 680px;
+}
+.cf-t-body {
+  font-family: var(--cf-font-text);
+  font-size: var(--cf-body-size);
+  font-weight: var(--cf-body-weight);
+  letter-spacing: var(--cf-body-track);
+  line-height: var(--cf-body-lh);
+  color: var(--cf-ink-soft);
+}
+.cf-t-small {
+  font-size: var(--cf-small-size);
+  color: var(--cf-mid);
+  letter-spacing: var(--cf-small-track);
+}
+.cf-t-mono,
+.cf-t-kicker {
+  font-family: var(--cf-font-mono);
+  font-size: var(--cf-mono-size);
+  letter-spacing: var(--cf-mono-track);
+  text-transform: uppercase;
+  color: var(--cf-blue-dark);
+  font-weight: 500;
+}
+.cf-t-kicker b { color: var(--cf-ink); font-weight: 600; }

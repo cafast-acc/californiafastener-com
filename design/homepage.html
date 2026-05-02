@@ -1,0 +1,1238 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<link rel="icon" type="image/png" href="assets/cf-logo-black.png" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>California Fastener</title>
+<link rel="stylesheet" href="_shared.css" />
+<style>
+  /* ─── HERO (v1: cinematic, full-bleed) ───────────────── */
+  .hero-v1 {
+    padding: 56px 0 0;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+    background: linear-gradient(180deg, var(--bg) 0%, var(--bg-alt) 100%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .hero-v1-copy {
+    padding: 0 40px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+  }
+  .hero-v1-eyebrow {
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--mid);
+    letter-spacing: -0.01em;
+    margin-bottom: 14px;
+  }
+  .hero-v1-eyebrow i { color: var(--blue-dark); font-style: normal; font-weight: 600; }
+  .hero-v1 h1 {
+    font-size: clamp(64px, 9vw, 128px);
+    font-weight: 600;
+    line-height: 0.98;
+    letter-spacing: -0.045em;
+    color: var(--ink);
+    margin-bottom: 16px;
+    max-width: 1100px;
+  }
+  .hero-v1 h1 .accent-blue { color: var(--blue-dark); }
+  .hero-v1 h1 .accent-purple { color: var(--purple-dark); }
+  .hero-v1-sub {
+    font-size: 22px;
+    font-weight: 400;
+    color: var(--ink-soft);
+    line-height: 1.3;
+    max-width: 640px;
+    letter-spacing: -0.015em;
+    margin-bottom: 22px;
+  }
+  .hero-v1-ctas {
+    display: flex;
+    gap: 28px;
+    align-items: center;
+    margin-bottom: 36px;
+  }
+  .hero-v1-image {
+    width: 100%;
+    aspect-ratio: 21 / 9;
+    background: #0B0B0D;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+  }
+  .hero-v1-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: none;
+  }
+  .hero-v1-image::after {
+    content: '';
+    position: absolute; inset: 0;
+    background: linear-gradient(180deg, rgba(0,0,0,0.0) 40%, rgba(0,0,0,0.35) 100%);
+    pointer-events: none;
+  }
+  .hero-v1-image-specs {
+    position: absolute;
+    left: 40px;
+    bottom: 28px;
+    z-index: 2;
+    text-align: left;
+    display: flex;
+    gap: 40px;
+    font-size: 12px;
+    color: rgba(255,255,255,0.75);
+    letter-spacing: -0.01em;
+  }
+  .hero-v1-image-specs strong {
+    display: block;
+    font-size: 14px;
+    font-weight: 600;
+    color: #fff;
+    margin-bottom: 2px;
+  }
+
+  /* ─── Stats band (big numerals) ─────────────────────── */
+  .stats-band {
+    padding: 96px 40px;
+    background: var(--bg);
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 0;
+    max-width: 1440px;
+    margin: 0 auto;
+  }
+  .stat-cell {
+    text-align: left;
+    border-right: 1px solid var(--rule-soft);
+    padding: 0 32px;
+  }
+  .stat-cell:first-child { padding-left: 0; }
+  .stat-cell:last-child { border-right: none; padding-right: 0; }
+  .stat-num {
+    font-size: clamp(56px, 6vw, 88px);
+    font-weight: 600;
+    line-height: 0.95;
+    letter-spacing: -0.045em;
+    color: var(--ink);
+    margin-bottom: 14px;
+  }
+  .stat-num-blue { color: var(--blue-dark); }
+  .stat-num-purple { color: var(--purple-dark); }
+  .stat-label {
+    font-size: 15px;
+    color: var(--mid);
+    font-weight: 400;
+    line-height: 1.4;
+    letter-spacing: -0.01em;
+  }
+
+  /* ─── Logos ticker ──────────────────────────────────── */
+  .logos-strip {
+    padding: 32px 0;
+    border-top: 1px solid var(--rule-soft);
+    border-bottom: 1px solid var(--rule-soft);
+    overflow: hidden;
+    position: relative;
+  }
+  .logos-strip::before, .logos-strip::after {
+    content: '';
+    position: absolute; top: 0; bottom: 0; width: 120px;
+    z-index: 2; pointer-events: none;
+  }
+  .logos-strip::before { left: 0; background: linear-gradient(90deg, var(--bg), transparent); }
+  .logos-strip::after { right: 0; background: linear-gradient(-90deg, var(--bg), transparent); }
+  .logos-track {
+    display: flex;
+    align-items: center;
+    gap: 80px;
+    animation: logos-scroll 45s linear infinite;
+    width: max-content;
+  }
+  @keyframes logos-scroll {
+    from { transform: translateX(0); }
+    to { transform: translateX(-50%); }
+  }
+  .logo-name {
+    font-size: 22px;
+    font-weight: 500;
+    letter-spacing: -0.01em;
+    color: var(--mid);
+    white-space: nowrap;
+    font-family: "SF Pro Display", sans-serif;
+  }
+  .logo-mark {
+    flex: 0 0 auto;
+    height: 38px;
+    width: auto;
+    max-width: 180px;
+    object-fit: contain;
+    /* Source logos are white — invert to dark on the light bg, then desaturate
+       so they read as a uniform neutral mark like Apple's customer strips. */
+    filter: invert(1) brightness(0.35) saturate(0);
+    opacity: 0.62;
+    transition: opacity 200ms ease, filter 200ms ease;
+  }
+  .logo-mark:hover {
+    opacity: 1;
+    filter: invert(1) brightness(0.18) saturate(0);
+  }
+  /* Per-logo size tuning — wordmarks vary in aspect ratio, so we equalize
+     optical weight rather than literal height. */
+  .logo-mark--emcor    { height: 34px; max-width: 170px; }
+  .logo-mark--spacex   { height: 24px; max-width: 170px; }
+  .logo-mark--primoris { height: 40px; max-width: 130px; }
+  .logo-mark--chevron  { height: 22px; max-width: 200px; }
+  .logo-mark--rocketlab{ height: 38px; max-width: 170px; }
+  .logo-mark--pge      { height: 46px; max-width: 80px; }
+
+  /* Bechtel — transparent PNG with red ring + gray wordmark.
+     Desaturate and lift to match the neutral tone of the other marks. */
+  .logo-mark--bechtel {
+    height: 56px;
+    max-width: 80px;
+    filter: grayscale(1) brightness(1.15) contrast(0.95);
+    opacity: 0.62;
+  }
+  .logo-mark--bechtel:hover {
+    filter: grayscale(1) brightness(0.85) contrast(1);
+    opacity: 1;
+  }
+  /* Kiewit is solid black on transparent — skip the invert; just match tone. */
+  .logo-mark--kiewit {
+    height: 30px;
+    max-width: 200px;
+    filter: brightness(1.7) saturate(0); /* lift black toward the same mid-gray */
+    opacity: 0.62;
+  }
+  .logo-mark--kiewit:hover {
+    filter: brightness(1) saturate(0);
+    opacity: 1;
+  }
+
+  /* ─── Hero Feature sections (full-bleed) ─────────────── */
+  .feat {
+    padding: 140px 40px;
+    text-align: center;
+    position: relative;
+  }
+  .feat-eyebrow {
+    font-size: 21px;
+    font-weight: 500;
+    color: var(--blue-dark);
+    margin-bottom: 14px;
+    letter-spacing: -0.01em;
+  }
+  .feat-purple .feat-eyebrow { color: var(--purple-dark); }
+  .feat h2 {
+    font-size: clamp(48px, 5.5vw, 80px);
+    font-weight: 600;
+    line-height: 1.05;
+    letter-spacing: -0.035em;
+    color: var(--ink);
+    max-width: 900px;
+    margin: 0 auto 20px;
+  }
+  .feat p {
+    font-size: 21px;
+    color: var(--ink-soft);
+    line-height: 1.4;
+    max-width: 640px;
+    margin: 0 auto 28px;
+    letter-spacing: -0.015em;
+  }
+  .feat-ctas {
+    display: flex;
+    gap: 28px;
+    justify-content: center;
+    margin-bottom: 56px;
+  }
+  .feat-image {
+    max-width: 1100px;
+    margin: 0 auto;
+    aspect-ratio: 16 / 9;
+    background: var(--bg-cream);
+    border-radius: 24px;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .feat-image img { width: 100%; height: 100%; object-fit: cover; }
+  .feat-image img.contain { object-fit: contain; padding: 40px; }
+
+  .feat--dark {
+    background: var(--dark-1);
+    color: var(--dark-text);
+  }
+  .feat--dark h2 { color: var(--dark-text); }
+  .feat--dark p { color: var(--dark-mid); }
+
+  /* ─── Anchor Bolts: split cinematic ─────────────────── */
+  .split {
+    padding: 0;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    min-height: 760px;
+    background: var(--bg);
+  }
+  .split-text {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 80px 80px;
+  }
+  .split-text .feat-eyebrow { text-align: left; }
+  .split-text h2 {
+    font-size: clamp(44px, 4.5vw, 64px);
+    font-weight: 600;
+    line-height: 1.05;
+    letter-spacing: -0.03em;
+    margin-bottom: 18px;
+  }
+  .split-text p {
+    font-size: 19px;
+    color: var(--ink-soft);
+    line-height: 1.45;
+    margin-bottom: 24px;
+    max-width: 480px;
+    letter-spacing: -0.01em;
+  }
+  .split-text ul {
+    list-style: none;
+    margin-bottom: 28px;
+  }
+  .split-text li {
+    font-size: 15px;
+    color: var(--mid);
+    padding: 8px 0;
+    border-top: 1px solid var(--rule-soft);
+    display: flex;
+    justify-content: space-between;
+    letter-spacing: -0.005em;
+  }
+  .split-text li strong {
+    color: var(--ink);
+    font-weight: 500;
+  }
+  .split-image {
+    background: var(--bg-cream);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+  }
+  .split-image img { width: 85%; }
+
+  /* Reversed split — text on left, image on right */
+  .split--reverse .split-image { order: 2; }
+  .split--reverse .split-text   { order: 1; }
+  .split--alt { background: var(--bg-alt); }
+  .split--alt .split-image { background: #FFFFFF; padding: 0; }
+  .split--alt .split-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    object-position: center bottom;
+  }
+
+  /* Anchor variant: full-bleed image */
+  .split--anchor .split-image { padding: 0; }
+  .split--anchor .split-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  /* ─── Specialty / partner product — narrower, branded card ─── */
+  .specialty {
+    background: var(--bg);
+    padding: 96px 40px 112px;
+    border-top: 1px solid var(--rule-soft);
+  }
+  .specialty-inner {
+    max-width: 1240px; margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1.05fr 0.95fr;
+    gap: 56px;
+    align-items: stretch;
+  }
+  .specialty-text {
+    display: flex; flex-direction: column; justify-content: center;
+    padding-right: 32px;
+  }
+  .specialty-partner {
+    display: inline-flex; align-items: center; gap: 10px;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--mid);
+    margin-bottom: 18px;
+  }
+  .specialty-partner::before {
+    content: ''; width: 28px; height: 1px; background: var(--ink); opacity: 0.6;
+  }
+  .specialty h2 {
+    font-size: clamp(40px, 4vw, 56px);
+    font-weight: 600;
+    line-height: 1.05;
+    letter-spacing: -0.03em;
+    color: var(--ink);
+    margin-bottom: 18px;
+  }
+  .specialty h2 i { font-style: normal; color: var(--blue-dark); }
+  .specialty-lede {
+    font-size: 19px;
+    color: var(--ink-soft);
+    line-height: 1.45;
+    letter-spacing: -0.015em;
+    margin-bottom: 28px;
+    max-width: 520px;
+  }
+  .specialty-specs {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2px;
+    background: var(--rule-soft);
+    margin-bottom: 32px;
+    max-width: 520px;
+    border: 1px solid var(--rule-soft);
+  }
+  .specialty-spec {
+    background: var(--bg);
+    padding: 18px 20px;
+  }
+  .specialty-spec-label {
+    font-size: 11px;
+    font-weight: 500;
+    color: var(--mid);
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    margin-bottom: 6px;
+  }
+  .specialty-spec-val {
+    font-size: 17px;
+    font-weight: 600;
+    color: var(--ink);
+    letter-spacing: -0.015em;
+  }
+  .specialty-ctas { display: flex; gap: 24px; align-items: center; flex-wrap: wrap; }
+  .specialty-image {
+    background: var(--bg-cream);
+    border-radius: 20px;
+    overflow: hidden;
+    display: flex; align-items: center; justify-content: center;
+    min-height: 440px;
+    position: relative;
+  }
+  .specialty-image img {
+    width: 78%;
+    filter: drop-shadow(0 24px 40px rgba(0,0,0,0.18));
+  }
+  .specialty-image img.specialty-image-hero {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: none;
+  }
+  .specialty-image-tag {
+    position: absolute;
+    top: 20px; left: 20px;
+    background: rgba(255,255,255,0.92);
+    backdrop-filter: blur(8px);
+    padding: 8px 12px;
+    border-radius: 100px;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--ink);
+  }
+  @media (max-width: 860px) {
+    .specialty-inner { grid-template-columns: 1fr; gap: 32px; }
+    .specialty-text { padding-right: 0; }
+  }
+
+  /* ─── CNC Dark section (full bleed hero) ─────────────── */
+  .cnc-hero {
+    background: var(--dark-1);
+    color: var(--dark-text);
+    padding: 140px 40px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+  .cnc-hero::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background:
+      radial-gradient(ellipse 80% 60% at 50% 100%, rgba(140, 82, 255, 0.18), transparent 70%),
+      radial-gradient(ellipse 60% 40% at 20% 20%, rgba(56, 182, 255, 0.12), transparent 70%);
+    pointer-events: none;
+  }
+  .cnc-hero-content { position: relative; z-index: 2; max-width: 1200px; margin: 0 auto; }
+  .cnc-hero-eyebrow {
+    font-size: 21px;
+    font-weight: 500;
+    color: var(--purple);
+    margin-bottom: 14px;
+    letter-spacing: -0.01em;
+  }
+  .cnc-hero h2 {
+    font-size: clamp(56px, 7vw, 100px);
+    font-weight: 600;
+    line-height: 0.98;
+    letter-spacing: -0.04em;
+    margin-bottom: 20px;
+  }
+  .cnc-hero h2 i { font-style: normal; color: var(--purple); }
+  .cnc-hero p {
+    font-size: 23px;
+    color: var(--dark-mid);
+    line-height: 1.35;
+    max-width: 620px;
+    margin: 0 auto 36px;
+    letter-spacing: -0.015em;
+  }
+  .cnc-hero-image {
+    max-width: 1100px;
+    margin: 56px auto 0;
+    aspect-ratio: 16 / 9;
+    background: #000;
+    border-radius: 24px;
+    overflow: hidden;
+    position: relative;
+  }
+  .cnc-hero-image img {
+    width: 100%; height: 100%; object-fit: cover;
+  }
+  .cnc-hero-spec-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 0;
+    margin-top: 56px;
+    max-width: 1100px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .cnc-spec-cell {
+    padding: 24px 16px;
+    border-right: 1px solid rgba(255,255,255,0.08);
+    text-align: left;
+  }
+  .cnc-spec-cell:last-child { border-right: none; }
+  .cnc-spec-cell-label {
+    font-size: 12px;
+    color: var(--dark-mid);
+    margin-bottom: 6px;
+    letter-spacing: 0.02em;
+    text-transform: uppercase;
+    font-weight: 500;
+  }
+  .cnc-spec-cell-val {
+    font-size: 21px;
+    font-weight: 500;
+    color: var(--dark-text);
+    letter-spacing: -0.015em;
+  }
+
+  /* ─── Industries list ──────────────────────────────── */
+  .industries {
+    padding: 120px 40px;
+    background: var(--bg);
+  }
+  .industries-header {
+    max-width: 1100px;
+    margin: 0 auto 64px;
+    text-align: center;
+  }
+  .industries-header h2 {
+    font-size: clamp(44px, 5vw, 72px);
+    font-weight: 600;
+    letter-spacing: -0.035em;
+    line-height: 1.05;
+    color: var(--ink);
+    margin-bottom: 18px;
+  }
+  .industries-header p {
+    font-size: 21px;
+    color: var(--mid);
+    max-width: 560px;
+    margin: 0 auto;
+    letter-spacing: -0.01em;
+  }
+  .industry-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+    max-width: 1360px;
+    margin: 0 auto;
+  }
+  .industry-tile {
+    background: var(--bg-cream);
+    border-radius: 20px;
+    padding: 40px;
+    min-height: 420px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+    transition: transform 0.3s;
+  }
+  .industry-tile:hover { transform: translateY(-4px); }
+  .industry-tile-img {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+  }
+  .industry-tile-img img { width: 100%; height: 100%; object-fit: cover; }
+  .industry-tile-img::after {
+    content: '';
+    position: absolute; inset: 0;
+    background: linear-gradient(180deg, rgba(0,0,0,0.15) 0%, rgba(0,0,0,0.65) 100%);
+  }
+  .industry-tile-body {
+    position: relative; z-index: 1;
+    color: white;
+  }
+  .industry-tile-eyebrow {
+    font-size: 13px;
+    font-weight: 500;
+    color: rgba(255,255,255,0.7);
+    margin-bottom: 8px;
+    letter-spacing: -0.005em;
+  }
+  .industry-tile-title {
+    font-size: 32px;
+    font-weight: 600;
+    letter-spacing: -0.025em;
+    line-height: 1.05;
+    margin-bottom: 12px;
+  }
+  .industry-tile-desc {
+    font-size: 15px;
+    color: rgba(255,255,255,0.85);
+    line-height: 1.45;
+    max-width: 320px;
+    letter-spacing: -0.005em;
+  }
+  .industry-tile-link {
+    position: relative; z-index: 1;
+    color: white;
+    font-size: 15px;
+    font-weight: 500;
+    text-decoration: none;
+    letter-spacing: -0.01em;
+    display: inline-flex;
+    align-items: center;
+    gap: 3px;
+  }
+  .industry-tile-link::after { content: '›'; font-size: 1.2em; }
+
+  /* ─── Spec builder feature (teaser that opens modal) ─── */
+  .spec-feat {
+    padding: 140px 40px;
+    background: var(--bg-alt);
+  }
+  .spec-feat-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1.1fr;
+    gap: 64px;
+    align-items: center;
+  }
+  .spec-feat-text .feat-eyebrow { text-align: left; color: var(--purple-dark); }
+  .spec-feat-text h2 {
+    font-size: clamp(40px, 4.5vw, 64px);
+    font-weight: 600;
+    line-height: 1.05;
+    letter-spacing: -0.03em;
+    margin-bottom: 18px;
+  }
+  .spec-feat-text p {
+    font-size: 19px;
+    color: var(--ink-soft);
+    line-height: 1.45;
+    margin-bottom: 28px;
+    max-width: 480px;
+    letter-spacing: -0.01em;
+  }
+  .spec-feat-viz {
+    background: var(--white);
+    border-radius: 24px;
+    padding: 32px;
+    box-shadow: 0 20px 60px rgba(0,0,0,0.08);
+    aspect-ratio: 4 / 3;
+  }
+  .spec-feat-viz-head {
+    font-size: 13px;
+    color: var(--mid);
+    margin-bottom: 18px;
+    letter-spacing: -0.005em;
+    display: flex;
+    justify-content: space-between;
+  }
+  .spec-feat-viz-head strong { color: var(--ink); font-weight: 600; }
+  .spec-feat-step {
+    display: flex;
+    align-items: center;
+    padding: 16px 18px;
+    border: 1px solid var(--rule-soft);
+    border-radius: 14px;
+    margin-bottom: 10px;
+    gap: 14px;
+  }
+  .spec-feat-step--active {
+    border-color: var(--purple);
+    background: rgba(140, 82, 255, 0.04);
+  }
+  .spec-feat-step--done {
+    background: var(--bg-alt);
+  }
+  .spec-step-num {
+    width: 24px; height: 24px;
+    border-radius: 50%;
+    background: var(--rule-soft);
+    color: var(--mid);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 12px;
+    font-weight: 600;
+    flex-shrink: 0;
+  }
+  .spec-feat-step--active .spec-step-num {
+    background: var(--purple);
+    color: white;
+  }
+  .spec-feat-step--done .spec-step-num {
+    background: var(--ink);
+    color: white;
+  }
+  .spec-step-label {
+    flex: 1;
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--ink);
+    letter-spacing: -0.005em;
+  }
+  .spec-step-value {
+    font-size: 13px;
+    color: var(--mid);
+  }
+
+  /* ─── Final CTA ──────────────────────────────────────── */
+  .quote-cta {
+    padding: 140px 40px;
+    text-align: center;
+    background: var(--bg);
+  }
+  .quote-cta-eyebrow {
+    font-size: 21px;
+    color: var(--blue-dark);
+    font-weight: 500;
+    margin-bottom: 14px;
+    letter-spacing: -0.01em;
+  }
+  .quote-cta h2 {
+    font-size: clamp(56px, 7vw, 96px);
+    font-weight: 600;
+    line-height: 1.0;
+    letter-spacing: -0.04em;
+    margin-bottom: 22px;
+  }
+  .quote-cta p {
+    font-size: 23px;
+    color: var(--ink-soft);
+    max-width: 540px;
+    margin: 0 auto 36px;
+    letter-spacing: -0.015em;
+    line-height: 1.35;
+  }
+  .quote-cta-ctas {
+    display: flex;
+    gap: 28px;
+    justify-content: center;
+    margin-bottom: 24px;
+  }
+  .quote-cta-meta {
+    font-size: 13px;
+    color: var(--mid);
+    letter-spacing: -0.005em;
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="cf-nav">
+  <a href="homepage.html" class="cf-nav-logo"><span class="cf-nav-logo-mark"></span>California Fastener</a>
+  <ul class="cf-nav-center">
+    <li class="has-menu">
+      <button aria-haspopup="true">Products</button>
+      <div class="cf-nav-menu cf-nav-menu--mega" role="menu">
+        <div class="cf-nav-menu-label">Fasteners</div>
+        <a href="anchor-bolts.html" role="menuitem">Anchor Bolts<span class="cf-nav-menu-sub">F1554, A193, F593 · headed, bent, rod assemblies</span></a>
+        <a href="#" role="menuitem">Stud Bolts &amp; Threaded Rod<span class="cf-nav-menu-sub">B7, B8, B16 · cut to length</span></a>
+        <a href="#" role="menuitem">Structural Fasteners<span class="cf-nav-menu-sub">A325, A490, TC bolts</span></a>
+        <a href="#" role="menuitem">Industrial Fasteners<span class="cf-nav-menu-sub">Hex, socket, flange, grade 5 / 8</span></a>
+        <a href="#" role="menuitem">U-Bolts<span class="cf-nav-menu-sub">Standard &amp; custom profiles</span></a>
+        <a href="#" role="menuitem">Stainless Steel Fasteners<span class="cf-nav-menu-sub">304, 316, duplex</span></a>
+        <a href="#" role="menuitem">Silicon Bronze Hardware<span class="cf-nav-menu-sub">Marine &amp; architectural</span></a>
+        <a href="#" role="menuitem">Specialty &amp; Lindapter<span class="cf-nav-menu-sub">Hollo-Bolt, Girder clamps, blind bolts</span></a>
+        <div class="cf-nav-menu-footer">
+          <a href="#">View all products →</a>
+          <a href="quote-flow.html">Request a quote →</a>
+        </div>
+      </div>
+    </li>
+    <li class="has-menu">
+      <button aria-haspopup="true">Industries</button>
+      <div class="cf-nav-menu" role="menu">
+        <a href="#" role="menuitem">Construction</a>
+        <a href="#" role="menuitem">Industrial Machinery</a>
+        <a href="#" role="menuitem">Infrastructure</a>
+        <a href="#" role="menuitem">Renewable Energy</a>
+        <a href="#" role="menuitem">Power &amp; Utilities</a>
+        <a href="#" role="menuitem">Oil, Gas &amp; Petrochemical</a>
+        <a href="#" role="menuitem">Marine &amp; Shipbuilding</a>
+        <a href="#" role="menuitem">Aerospace &amp; Defense</a>
+      </div>
+    </li>
+    <li><a href="cnc-landing.html">CNC Machining</a></li>
+    <li class="has-menu">
+      <button aria-haspopup="true">Resources</button>
+      <div class="cf-nav-menu" role="menu">
+        <div class="cf-nav-menu-label">Technical</div>
+        <a href="#" role="menuitem">Specification Library<span class="cf-nav-menu-sub">ASTM, SAE, ISO standards</span></a>
+        <a href="spec-builder.html" role="menuitem">Spec Builder<span class="cf-nav-menu-sub">Find the right material &amp; grade</span></a>
+        <a href="#" role="menuitem">Product Catalog (PDF)</a>
+        <div class="cf-nav-menu-divider"></div>
+        <div class="cf-nav-menu-label">Tools</div>
+        <a href="quote-flow.html" role="menuitem">Request a Quote</a>
+        <a href="#" role="menuitem">Contact Engineering</a>
+      </div>
+    </li>
+    <li><a href="#">About</a></li>
+    <li><a href="blog.html">Blog</a></li>
+  </ul>
+  <div class="cf-nav-right">
+    <a href="quote-flow.html" class="cf-nav-quote">Get a Quote</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero-v1" data-screen-label="01 Hero">
+  <div class="hero-v1-copy">
+    <div class="hero-v1-eyebrow cf-rise">New. <i>Built to your print.</i></div>
+    <h1 class="cf-rise cf-rise--delay-1">Fasteners for the<br>next generation of <span class="accent-blue">building.</span></h1>
+    <p class="hero-v1-sub cf-rise cf-rise--delay-2">Industrial and structural fasteners engineered for construction, infrastructure, power generation, and heavy manufacturing — in stock, fully certified.</p>
+    <div class="hero-v1-ctas cf-rise cf-rise--delay-3">
+      <a href="#" class="cf-pill cf-pill--blue">Request a Quote</a>
+      <a href="#" class="cf-link">Browse products</a>
+    </div>
+  </div>
+  <div class="hero-v1-image cf-rise cf-rise--delay-3" id="heroV1Image">
+    <img src="https://images.unsplash.com/photo-1503387762-592deb58ef4e?auto=format&fit=crop&w=2400&q=80" alt="Structural steel construction at scale" onerror="this.style.display='none'" />
+    <div class="hero-v1-image-specs">
+      <div><strong>F1554 Gr 55</strong>Anchor Bolt Assembly</div>
+      <div><strong>±0.0005″</strong>Tolerance</div>
+      <div><strong>24hr</strong>Quote</div>
+    </div>
+  </div>
+</section>
+
+<!-- STATS -->
+<section class="stats-band" data-screen-label="02 Stats">
+  <div class="stat-cell">
+    <div class="stat-num">24<span style="font-size:0.55em;">hr</span></div>
+    <div class="stat-label">Quote turnaround, every order.</div>
+  </div>
+  <div class="stat-cell">
+    <div class="stat-num stat-num-blue">±.0005″</div>
+    <div class="stat-label">CNC tolerance capability.</div>
+  </div>
+  <div class="stat-cell">
+    <div class="stat-num">100<span style="font-size:0.55em;">%</span></div>
+    <div class="stat-label">Full traceability and certification.</div>
+  </div>
+  <div class="stat-cell">
+    <div class="stat-num stat-num-purple">USA</div>
+    <div class="stat-label">In-house domestic manufacturing.</div>
+  </div>
+</section>
+
+<!-- LOGOS -->
+<section class="logos-strip" data-screen-label="03 Logos">
+  <div class="logos-track">
+    <img class="logo-mark logo-mark--spacex"    src="assets/logos/spacex.webp"    alt="SpaceX" />
+    <img class="logo-mark logo-mark--chevron"   src="assets/logos/chevron.webp"   alt="Chevron" />
+    <img class="logo-mark logo-mark--pge"       src="assets/logos/pge.webp"       alt="PG&amp;E" />
+    <img class="logo-mark logo-mark--rocketlab" src="assets/logos/rocketlab.webp" alt="Rocket Lab" />
+    <img class="logo-mark logo-mark--emcor"     src="assets/logos/emcor.webp"     alt="EMCOR" />
+    <img class="logo-mark logo-mark--primoris"  src="assets/logos/primoris.webp"  alt="PSC Primoris" />
+    <img class="logo-mark logo-mark--bechtel"   src="assets/logos/bechtel.png"    alt="Bechtel" />
+    <img class="logo-mark logo-mark--kiewit"    src="assets/logos/kiewit.png"     alt="Kiewit" />
+    <!-- loop -->
+    <img class="logo-mark logo-mark--spacex"    src="assets/logos/spacex.webp"    alt="" aria-hidden="true" />
+    <img class="logo-mark logo-mark--chevron"   src="assets/logos/chevron.webp"   alt="" aria-hidden="true" />
+    <img class="logo-mark logo-mark--pge"       src="assets/logos/pge.webp"       alt="" aria-hidden="true" />
+    <img class="logo-mark logo-mark--rocketlab" src="assets/logos/rocketlab.webp" alt="" aria-hidden="true" />
+    <img class="logo-mark logo-mark--emcor"     src="assets/logos/emcor.webp"     alt="" aria-hidden="true" />
+    <img class="logo-mark logo-mark--primoris"  src="assets/logos/primoris.webp"  alt="" aria-hidden="true" />
+    <img class="logo-mark logo-mark--bechtel"   src="assets/logos/bechtel.png"    alt="" aria-hidden="true" />
+    <img class="logo-mark logo-mark--kiewit"    src="assets/logos/kiewit.png"     alt="" aria-hidden="true" />
+  </div>
+</section>
+
+<!-- INDUSTRIAL FASTENERS — split (image left, alt bg) -->
+<section class="split split--alt" data-screen-label="04 Industrial">
+  <div class="split-image">
+    <img src="assets/product-industrial.png" alt="Industrial hex bolt and nut" onerror="this.style.display='none'" />
+  </div>
+  <div class="split-text">
+    <div class="feat-eyebrow">Industrial Fasteners</div>
+    <h2>Every grade,<br>every environment.</h2>
+    <p>The full catalog of industrial fasteners — heavy hex bolts, socket head cap screws, flange bolts, and ASTM A193 bolting for pressure, piping, and heavy equipment.</p>
+    <ul>
+      <li><strong>A193 B7, B16, B8, B8M</strong><span>Alloy / stainless</span></li>
+      <li><strong>Heavy hex & flange bolts</strong><span>Grade 5, 8, A490</span></li>
+      <li><strong>Socket head cap screws</strong><span>1960-series alloy</span></li>
+      <li><strong>Hot-dip galvanized</strong><span>F2329 & mechanical</span></li>
+    </ul>
+    <div><a href="#" class="cf-link">Shop industrial fasteners</a></div>
+  </div>
+</section>
+
+<!-- STRUCTURAL — full-bleed feature -->
+<section class="feat" data-screen-label="05 Structural">
+  <div class="feat-eyebrow">Structural Fasteners</div>
+  <h2>A325, A490, TC bolts.<br>Engineered for the moment.</h2>
+  <p>Steel-to-steel connections, beam-column joints, and critical structural applications across construction and infrastructure — in stock and ready to ship.</p>
+  <div class="feat-ctas">
+    <a href="#" class="cf-link">Learn more</a>
+    <a href="#" class="cf-link" style="color: var(--ink);">View specs</a>
+  </div>
+  <div class="feat-image">
+    <img src="assets/product-structural.png" alt="A325 hex bolt render" onerror="this.parentElement.classList.add('cf-placeholder'); this.remove();" />
+  </div>
+</section>
+
+<!-- ANCHOR BOLTS — split -->
+<section class="split split--anchor" data-screen-label="06 Anchor">
+  <div class="split-image">
+    <img src="assets/product-anchor.png" alt="Headed anchor bolt with nut and template plate" onerror="this.style.display='none'" />
+  </div>
+  <div class="split-text">
+    <div class="feat-eyebrow">Anchor Bolts</div>
+    <h2>F1554. Headed. Bent.<br>Built right.</h2>
+    <p>From F1554 Grade 36 to A193 B7 and B8M — full assemblies with nuts, washers, and template plates. Large-diameter and non-standard lengths in stock.</p>
+    <ul>
+      <li><strong>F1554 Grade 36, 55, 105</strong><span>Standard</span></li>
+      <li><strong>A193 B7, B8M</strong><span>Alloy / stainless</span></li>
+      <li><strong>Custom bends & lengths</strong><span>Built to print</span></li>
+    </ul>
+    <div><a href="#" class="cf-link">Shop anchor bolts</a></div>
+  </div>
+</section>
+
+<!-- STUD BOLTS & THREADED ROD — split reversed -->
+<section class="split split--reverse split--alt" data-screen-label="07 Stud Bolts">
+  <div class="split-image">
+    <img src="https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?w=1200&q=80" alt="Stud bolts and threaded rod" onerror="this.style.display='none'" />
+  </div>
+  <div class="split-text">
+    <div class="feat-eyebrow">Stud Bolts &amp; Threaded Rod</div>
+    <h2>Cut to length.<br>Specified to print.</h2>
+    <p>Double-end stud bolts for flanged connections and threaded rod in every grade, length, and finish — from ASTM B7 studs for petrochem to B8M stainless for offshore service.</p>
+    <ul>
+      <li><strong>A193 B7 / B16 studs</strong><span>Alloy, heat-treated</span></li>
+      <li><strong>A193 B8 / B8M studs</strong><span>304 / 316 stainless</span></li>
+      <li><strong>Threaded rod</strong><span>A307, B7, stainless, coated</span></li>
+      <li><strong>Custom lengths</strong><span>Cut & chamfered in-house</span></li>
+    </ul>
+    <div><a href="#" class="cf-link">Shop stud bolts & rod</a></div>
+  </div>
+</section>
+
+<!-- LINDAPTER HOLLO-BOLT — specialty / partner product -->
+<section class="specialty" data-screen-label="08 Lindapter">
+  <div class="specialty-inner">
+    <div class="specialty-text">
+      <div class="specialty-partner">Lindapter · Authorized Distributor</div>
+      <h2>Hollo-Bolt.<br>Structural steel,<br>fastened from <i>one side.</i></h2>
+      <p class="specialty-lede">The expansion bolt engineered for hollow structural sections and blind connections — where you can only reach one face of the steel. No welding, no through-holes, fully reversible.</p>
+      <div class="specialty-specs">
+        <div class="specialty-spec">
+          <div class="specialty-spec-label">Access</div>
+          <div class="specialty-spec-val">One-side only</div>
+        </div>
+        <div class="specialty-spec">
+          <div class="specialty-spec-label">Finishes</div>
+          <div class="specialty-spec-val">Zinc · HDG · 316SS</div>
+        </div>
+        <div class="specialty-spec">
+          <div class="specialty-spec-label">Sizes</div>
+          <div class="specialty-spec-val">M8 – M20 · 3/8″ – 3/4″</div>
+        </div>
+        <div class="specialty-spec">
+          <div class="specialty-spec-label">Approvals</div>
+          <div class="specialty-spec-val">ICC-ES · CE · LABC</div>
+        </div>
+      </div>
+      <div class="specialty-ctas">
+        <a href="#" class="cf-pill cf-pill--blue">Request Hollo-Bolt quote</a>
+        <a href="#" class="cf-link">View Lindapter catalog</a>
+      </div>
+    </div>
+    <div class="specialty-image">
+      <div class="specialty-image-tag">Lindapter Hollo-Bolt HB1</div>
+      <img src="assets/product-hollobolt.png" alt="Lindapter Hollo-Bolt HB1 expansion bolt" class="specialty-image-hero" onerror="this.style.display='none'" />
+    </div>
+  </div>
+</section>
+
+<!-- CNC DARK HERO -->
+<section class="cnc-hero" data-screen-label="09 CNC">
+  <div class="cnc-hero-content">
+    <div class="cnc-hero-eyebrow">CNC Machining</div>
+    <h2>Precision parts.<br>Built to your <i>print.</i></h2>
+    <p>In-house five-axis milling, live-tooling lathes, and full CMM inspection. From one prototype to thousands of parts — you're working directly with the manufacturer.</p>
+    <a href="#" class="cf-pill cf-pill--purple">Explore CNC Machining</a>
+    <div class="cnc-hero-image">
+      <img src="https://images.squarespace-cdn.com/content/v1/5efbb68d03da3677c3455ba6/ebb260c4-0354-4eba-85bf-9f171517486a/CNC-LIVETOOLING-LATHE-001.jpg" alt="CNC lathe" onerror="this.style.display='none'" />
+    </div>
+    <div class="cnc-hero-spec-grid">
+      <div class="cnc-spec-cell">
+        <div class="cnc-spec-cell-label">Tolerance</div>
+        <div class="cnc-spec-cell-val">±0.0005″</div>
+      </div>
+      <div class="cnc-spec-cell">
+        <div class="cnc-spec-cell-label">Lead time</div>
+        <div class="cnc-spec-cell-val">3–5 days</div>
+      </div>
+      <div class="cnc-spec-cell">
+        <div class="cnc-spec-cell-label">Materials</div>
+        <div class="cnc-spec-cell-val">Ti · Inconel · PEEK</div>
+      </div>
+      <div class="cnc-spec-cell">
+        <div class="cnc-spec-cell-label">Inspection</div>
+        <div class="cnc-spec-cell-val">CMM + Laser</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- INDUSTRIES TILES -->
+<section class="industries" data-screen-label="10 Industries">
+  <div class="industries-header">
+    <h2>Industries we keep moving.</h2>
+    <p>From data centers to substations, we show up with the parts that critical projects actually need.</p>
+  </div>
+  <div class="industry-grid">
+    <a href="#" class="industry-tile">
+      <div class="industry-tile-img"><img src="https://images.squarespace-cdn.com/content/v1/5efbb68d03da3677c3455ba6/1e76177d-d96a-4d9d-8931-3f7d049e12d7/construction.jpg" alt="" onerror="this.style.display='none'"></div>
+      <div class="industry-tile-body">
+        <div class="industry-tile-eyebrow">01 — Construction</div>
+        <div class="industry-tile-title">High-rise steel and data-center framing.</div>
+        <div class="industry-tile-desc">Structural fasteners for commercial, industrial, and institutional steel erection — from moment connections to large-scale facilities.</div>
+      </div>
+      <span class="industry-tile-link">Learn more</span>
+    </a>
+    <a href="#" class="industry-tile">
+      <div class="industry-tile-img"><img src="https://images.squarespace-cdn.com/content/v1/5efbb68d03da3677c3455ba6/1df61635-d95e-47b3-ba2b-633da74f8021/AdobeStock_170240857.jpeg" alt="" onerror="this.style.display='none'"></div>
+      <div class="industry-tile-body">
+        <div class="industry-tile-eyebrow">02 — Power Generation</div>
+        <div class="industry-tile-title">Energy meeting tomorrow's demand.</div>
+        <div class="industry-tile-desc">High-temperature and high-pressure fasteners for gas turbines, steam systems, and renewable installations at unprecedented scale.</div>
+      </div>
+      <span class="industry-tile-link">Learn more</span>
+    </a>
+    <a href="#" class="industry-tile">
+      <div class="industry-tile-img"><img src="https://images.squarespace-cdn.com/content/v1/5efbb68d03da3677c3455ba6/261f100b-3496-48f2-b1ee-245eca151e58/AdobeStock_753784784.jpeg" alt="" onerror="this.style.display='none'"></div>
+      <div class="industry-tile-body">
+        <div class="industry-tile-eyebrow">03 — Infrastructure</div>
+        <div class="industry-tile-title">Bridges, rail, and long-service civil work.</div>
+        <div class="industry-tile-desc">Long-service-life fasteners for bridges, highways, rail systems, and the critical civil projects connecting everything together.</div>
+      </div>
+      <span class="industry-tile-link">Learn more</span>
+    </a>
+    <a href="#" class="industry-tile">
+      <div class="industry-tile-img"><img src="https://images.squarespace-cdn.com/content/v1/5efbb68d03da3677c3455ba6/606418c4-1057-49ac-821b-ce572774f5b9/AdobeStock_731342733.jpeg" alt="" onerror="this.style.display='none'"></div>
+      <div class="industry-tile-body">
+        <div class="industry-tile-eyebrow">04 — Manufacturing</div>
+        <div class="industry-tile-title">High-output facilities, no downtime.</div>
+        <div class="industry-tile-desc">Precision-aligned fasteners for heavy machinery, production lines, and fabricated steel assemblies — the parts that keep production running.</div>
+      </div>
+      <span class="industry-tile-link">Learn more</span>
+    </a>
+    <a href="#" class="industry-tile">
+      <div class="industry-tile-img"><img src="https://images.squarespace-cdn.com/content/v1/5efbb68d03da3677c3455ba6/79392af3-9542-4258-987d-76124ceec2f3/AdobeStock_182646517.jpeg" alt="" onerror="this.style.display='none'"></div>
+      <div class="industry-tile-body">
+        <div class="industry-tile-eyebrow">05 — Power Transmission</div>
+        <div class="industry-tile-title">The grid, carrying increasing loads.</div>
+        <div class="industry-tile-desc">Fasteners for substations, transmission towers, and distribution networks being upgraded to meet surging capacity requirements.</div>
+      </div>
+      <span class="industry-tile-link">Learn more</span>
+    </a>
+    <a href="#" class="industry-tile">
+      <div class="industry-tile-img"><img src="https://images.squarespace-cdn.com/content/v1/5efbb68d03da3677c3455ba6/dcbe43bd-d8ab-4d13-afff-b45c323f0ade/AdobeStock_71932049.jpeg" alt="" onerror="this.style.display='none'"></div>
+      <div class="industry-tile-body">
+        <div class="industry-tile-eyebrow">06 — Oil, Gas &amp; Chemical</div>
+        <div class="industry-tile-title">Corrosion-resistant, high-pressure service.</div>
+        <div class="industry-tile-desc">Upstream, midstream, downstream, and chemical processing — engineered for extreme temperatures, pressures, and harsh service environments.</div>
+      </div>
+      <span class="industry-tile-link">Learn more</span>
+    </a>
+  </div>
+</section>
+
+<!-- SPEC BUILDER -->
+<section class="spec-feat" data-screen-label="11 Spec Builder">
+  <div class="spec-feat-inner">
+    <div class="spec-feat-text">
+      <div class="feat-eyebrow">Material Spec Builder</div>
+      <h2>Find your<br>material in<br>four steps.</h2>
+      <p>Answer a few questions about your application, environment, and strength requirement. We'll narrow thousands of grades down to the handful that actually fit your project.</p>
+      <a href="#" class="cf-pill cf-pill--purple" onclick="openSpec();return false;">Open Spec Builder</a>
+    </div>
+    <div class="spec-feat-viz">
+      <div class="spec-feat-viz-head">
+        <span><strong>Material Spec Builder</strong></span>
+        <span>Step 2 of 4</span>
+      </div>
+      <div class="spec-feat-step spec-feat-step--done">
+        <div class="spec-step-num">✓</div>
+        <div class="spec-step-label">Application</div>
+        <div class="spec-step-value">Structural connection</div>
+      </div>
+      <div class="spec-feat-step spec-feat-step--active">
+        <div class="spec-step-num">2</div>
+        <div class="spec-step-label">Operating environment</div>
+        <div class="spec-step-value">Marine, coastal…</div>
+      </div>
+      <div class="spec-feat-step">
+        <div class="spec-step-num">3</div>
+        <div class="spec-step-label">Strength requirement</div>
+        <div class="spec-step-value"></div>
+      </div>
+      <div class="spec-feat-step">
+        <div class="spec-step-num">4</div>
+        <div class="spec-step-label">Material constraints</div>
+        <div class="spec-step-value"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FINAL QUOTE CTA -->
+<section class="quote-cta" data-screen-label="12 Quote CTA">
+  <div class="quote-cta-eyebrow">Get Started</div>
+  <h2>Let's get you<br>a quote.</h2>
+  <p>Every quote gets personal attention from our team. Upload your drawings and we'll respond within 24 hours.</p>
+  <div class="quote-cta-ctas">
+    <a href="quote-flow.html" class="cf-pill cf-pill--blue">Request a Quote</a>
+    <a href="#" class="cf-link">Call 707.741.3277</a>
+  </div>
+  <div class="quote-cta-meta">No account required · 24-hour response · USA-manufactured</div>
+</section>
+
+<!-- FOOTER -->
+<footer class="cf-footer">
+  <div class="cf-footer-cols">
+    <div class="cf-footer-col">
+      <div class="cf-footer-brand"><span class="cf-nav-logo-mark"></span>California Fastener</div>
+      <div class="cf-footer-tagline">Precision industrial fasteners and CNC machined components for critical applications.</div>
+      <div>707.741.3277 · info@californiafastener.com</div>
+    </div>
+    <div class="cf-footer-col">
+      <h4>Products</h4>
+      <a href="#">Anchor Bolts</a>
+      <a href="#">Structural</a>
+      <a href="#">Stud Bolts &amp; Rod</a>
+      <a href="#">Stainless Steel</a>
+      <a href="#">U-Bolts</a>
+      <a href="#">Silicon Bronze</a>
+    </div>
+    <div class="cf-footer-col">
+      <h4>Industries</h4>
+      <a href="#">Construction</a>
+      <a href="#">Power Generation</a>
+      <a href="#">Infrastructure</a>
+      <a href="#">Manufacturing</a>
+      <a href="#">Oil, Gas &amp; Chemical</a>
+    </div>
+    <div class="cf-footer-col">
+      <h4>Resources</h4>
+      <a href="spec-builder.html">Spec Builder</a>
+      <a href="#">Spec Library</a>
+      <a href="#">Product Catalog</a>
+      <a href="blog.html">Field Notes (Blog)</a>
+    </div>
+    <div class="cf-footer-col">
+      <h4>Company</h4>
+      <a href="#">About</a>
+      <a href="#">CNC Machining</a>
+      <a href="quote-flow.html">Request a Quote</a>
+      <a href="#">Careers</a>
+    </div>
+  </div>
+  <div class="cf-footer-bottom">
+    <div>© 2026 California Fastener · CA Fast LLC</div>
+    <div>Designed in Vacaville, California</div>
+  </div>
+</footer>
+
+<!-- ═══ SPEC BUILDER MODAL ═══ -->
+<div id="specModal" style="display:none; position:fixed; inset:0; background:rgba(29,29,31,0.72); backdrop-filter:blur(10px); z-index:1000; align-items:center; justify-content:center; padding:40px;">
+  <div style="background:var(--bg); border-radius:24px; max-width:640px; width:100%; max-height:90vh; overflow:auto; padding:48px; position:relative;">
+    <button onclick="closeSpec()" style="position:absolute; top:20px; right:20px; background:var(--bg-alt); border:none; width:32px; height:32px; border-radius:50%; font-size:16px; cursor:pointer; color:var(--mid);">✕</button>
+    <div style="color:var(--purple-dark); font-size:14px; font-weight:500; margin-bottom:10px;">Material Spec Builder</div>
+    <h2 style="font-size:36px; font-weight:600; letter-spacing:-0.03em; line-height:1.1; margin-bottom:10px;">What are you fastening?</h2>
+    <p style="color:var(--mid); font-size:17px; margin-bottom:28px; letter-spacing:-0.01em;">Step 1 of 4 — we'll use this to narrow down the grades that fit your application.</p>
+    <div style="display:grid; grid-template-columns:1fr 1fr; gap:10px; margin-bottom:28px;">
+      <button class="spec-opt" style="text-align:left; padding:18px; border:1px solid var(--rule-soft); border-radius:14px; background:white; cursor:pointer; font-family:inherit;"><div style="font-size:15px; font-weight:500; margin-bottom:4px;">Steel-to-steel</div><div style="font-size:13px; color:var(--mid);">Beam, column, moment frame</div></button>
+      <button class="spec-opt" style="text-align:left; padding:18px; border:1px solid var(--purple); border-radius:14px; background:rgba(140,82,255,0.04); cursor:pointer; font-family:inherit;"><div style="font-size:15px; font-weight:500; margin-bottom:4px; color:var(--purple-dark);">Anchor to concrete</div><div style="font-size:13px; color:var(--mid);">Foundation, baseplate</div></button>
+      <button class="spec-opt" style="text-align:left; padding:18px; border:1px solid var(--rule-soft); border-radius:14px; background:white; cursor:pointer; font-family:inherit;"><div style="font-size:15px; font-weight:500; margin-bottom:4px;">Pressure flange</div><div style="font-size:13px; color:var(--mid);">Piping, vessel, boiler</div></button>
+      <button class="spec-opt" style="text-align:left; padding:18px; border:1px solid var(--rule-soft); border-radius:14px; background:white; cursor:pointer; font-family:inherit;"><div style="font-size:15px; font-weight:500; margin-bottom:4px;">Custom / other</div><div style="font-size:13px; color:var(--mid);">Machined part, bespoke</div></button>
+    </div>
+    <div style="display:flex; justify-content:space-between; align-items:center; padding-top:24px; border-top:1px solid var(--rule-soft);">
+      <div style="display:flex; gap:6px;">
+        <div style="width:24px; height:4px; background:var(--purple); border-radius:2px;"></div>
+        <div style="width:24px; height:4px; background:var(--rule-soft); border-radius:2px;"></div>
+        <div style="width:24px; height:4px; background:var(--rule-soft); border-radius:2px;"></div>
+        <div style="width:24px; height:4px; background:var(--rule-soft); border-radius:2px;"></div>
+      </div>
+      <a href="#" class="cf-pill cf-pill--purple">Continue ›</a>
+    </div>
+  </div>
+</div>
+
+<script>
+  function openSpec() { document.getElementById('specModal').style.display = 'flex'; }
+  function closeSpec() { document.getElementById('specModal').style.display = 'none'; }
+  document.getElementById('specModal').addEventListener('click', (e) => {
+    if (e.target.id === 'specModal') closeSpec();
+  });
+
+  // Animate sections on scroll
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('cf-rise'); });
+  }, { threshold: 0.1 });
+  document.querySelectorAll('.feat, .split, .cnc-hero, .industries, .spec-feat, .quote-cta').forEach(el => io.observe(el));
+</script>
+
+</body>
+</html>

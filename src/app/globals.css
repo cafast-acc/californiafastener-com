@@ -1,26 +1,65 @@
 @import "tailwindcss";
 
+/* Canonical design tokens + component CSS, lifted from design/colors_and_type.css and design/_shared.css. */
+@import "../styles/cf-tokens.css";
+@import "../styles/cf-shared.css";
+
+/* Font substitution. We don't have an SF Pro license — Inter + JetBrains Mono via next/font.
+   The next/font CSS variables (--font-inter, --font-jetbrains-mono) are exposed by app/layout.tsx
+   and routed into the design's --cf-font-* tokens here, so the rest of the design CSS picks them
+   up without modification. */
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --cf-font-display:
+    var(--font-inter), -apple-system, BlinkMacSystemFont,
+    "Helvetica Neue", Helvetica, Arial, sans-serif;
+  --cf-font-text:
+    var(--font-inter), -apple-system, BlinkMacSystemFont,
+    "Helvetica Neue", Helvetica, Arial, sans-serif;
+  --cf-font-mono:
+    var(--font-jetbrains-mono), ui-monospace, "Menlo", Consolas, monospace;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-}
-
+/* The original cf-shared.css hardcodes "SF Pro Display"/"SF Mono" in three places. Override here. */
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--cf-font-display);
+}
+.cf-nav-logo {
+  font-family: var(--cf-font-display);
+}
+.cf-placeholder {
+  font-family: var(--cf-font-mono);
+}
+
+/* Tailwind v4 theme bridge — expose the design tokens to Tailwind utility classes
+   so we can mix utilities with the cf-* component classes when building new sections. */
+@theme inline {
+  --color-cf-bg: var(--cf-bg);
+  --color-cf-bg-alt: var(--cf-bg-alt);
+  --color-cf-bg-cream: var(--cf-bg-cream);
+  --color-cf-ink: var(--cf-ink);
+  --color-cf-ink-soft: var(--cf-ink-soft);
+  --color-cf-mid: var(--cf-mid);
+  --color-cf-mid-soft: var(--cf-mid-soft);
+  --color-cf-rule: var(--cf-rule);
+  --color-cf-rule-soft: var(--cf-rule-soft);
+  --color-cf-white: var(--cf-white);
+  --color-cf-dark-1: var(--cf-dark-1);
+  --color-cf-dark-2: var(--cf-dark-2);
+  --color-cf-dark-text: var(--cf-dark-text);
+  --color-cf-dark-mid: var(--cf-dark-mid);
+  --color-cf-blue: var(--cf-blue);
+  --color-cf-blue-dark: var(--cf-blue-dark);
+  --color-cf-blue-hover: var(--cf-blue-hover);
+  --color-cf-purple: var(--cf-purple);
+  --color-cf-purple-dark: var(--cf-purple-dark);
+
+  --font-cf-display: var(--cf-font-display);
+  --font-cf-text: var(--cf-font-text);
+  --font-cf-mono: var(--cf-font-mono);
+
+  --radius-cf-sm: var(--cf-radius-sm);
+  --radius-cf-md: var(--cf-radius-md);
+  --radius-cf-lg: var(--cf-radius-lg);
+  --radius-cf-xl: var(--cf-radius-xl);
+  --radius-cf-pill: var(--cf-radius-pill);
 }

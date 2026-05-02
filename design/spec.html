@@ -1,0 +1,956 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Spec — California Fastener Technical Library</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="_shared.css">
+<style>
+  /* ─── Spec detail page ─────────────────────────────────── */
+  .sp-wrap { max-width: 1280px; margin: 0 auto; padding: 0 40px; }
+  @media (max-width: 720px) { .sp-wrap { padding: 0 20px; } }
+
+  /* Breadcrumb */
+  .sp-crumbs {
+    font-family: "SF Mono", ui-monospace, Menlo, monospace;
+    font-size: 11px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--mid);
+    padding: 28px 0 0;
+  }
+  .sp-crumbs a { color: var(--mid); text-decoration: none; }
+  .sp-crumbs a:hover { color: var(--ink); }
+  .sp-crumbs .sep { margin: 0 10px; color: var(--rule); }
+
+  /* Hero */
+  .sp-hero {
+    padding: 48px 0 56px;
+    border-bottom: 1px solid var(--rule-soft);
+    display: grid;
+    grid-template-columns: 1fr 320px;
+    gap: 72px;
+    align-items: end;
+  }
+  @media (max-width: 900px) { .sp-hero { grid-template-columns: 1fr; gap: 32px; } }
+
+  .sp-tag {
+    display: inline-block;
+    font-family: "SF Mono", monospace;
+    font-size: 10px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--blue-dark);
+    background: rgba(28,82,163,0.08);
+    padding: 5px 10px;
+    border-radius: 4px;
+    margin-bottom: 20px;
+  }
+  .sp-code {
+    font-size: 64px;
+    font-weight: 600;
+    letter-spacing: -0.035em;
+    line-height: 0.98;
+    color: var(--ink);
+    margin-bottom: 10px;
+  }
+  @media (max-width: 900px) { .sp-code { font-size: 44px; } }
+  .sp-name {
+    font-size: 26px;
+    font-weight: 500;
+    letter-spacing: -0.02em;
+    line-height: 1.2;
+    color: var(--ink-soft);
+    max-width: 720px;
+  }
+  @media (max-width: 900px) { .sp-name { font-size: 20px; } }
+
+  .sp-meta {
+    border: 1px solid var(--rule-soft);
+    border-radius: 12px;
+    padding: 20px 22px;
+    background: var(--bg-alt);
+  }
+  .sp-meta-row {
+    display: flex;
+    justify-content: space-between;
+    gap: 16px;
+    padding: 10px 0;
+    border-bottom: 1px solid var(--rule-soft);
+    font-size: 13px;
+  }
+  .sp-meta-row:last-child { border-bottom: none; padding-bottom: 0; }
+  .sp-meta-row:first-child { padding-top: 0; }
+  .sp-meta-k {
+    font-family: "SF Mono", monospace;
+    font-size: 10px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--mid);
+    flex-shrink: 0;
+  }
+  .sp-meta-v {
+    color: var(--ink);
+    text-align: right;
+    letter-spacing: -0.005em;
+  }
+
+  /* At a glance */
+  .sp-glance {
+    background: var(--bg-cream);
+    border-radius: 14px;
+    padding: 32px 36px;
+    margin: 40px 0 24px;
+    font-size: 19px;
+    line-height: 1.5;
+    letter-spacing: -0.012em;
+    color: var(--ink);
+    max-width: 860px;
+    position: relative;
+  }
+  .sp-glance::before {
+    content: 'At a glance';
+    display: block;
+    font-family: "SF Mono", monospace;
+    font-size: 10px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--blue-dark);
+    margin-bottom: 12px;
+    font-weight: 500;
+  }
+  @media (max-width: 720px) { .sp-glance { font-size: 17px; padding: 24px 24px; } }
+
+  /* Body + TOC layout */
+  .sp-body-wrap {
+    display: grid;
+    grid-template-columns: 220px minmax(0, 1fr);
+    gap: 64px;
+    padding: 32px 0 80px;
+    align-items: start;
+  }
+  @media (max-width: 900px) { .sp-body-wrap { grid-template-columns: 1fr; gap: 24px; } }
+
+  /* TOC */
+  .sp-toc {
+    position: sticky;
+    top: 80px;
+    font-size: 13px;
+  }
+  @media (max-width: 900px) {
+    .sp-toc { position: static; margin-bottom: 24px; padding: 16px; background: var(--bg-alt); border-radius: 8px; }
+  }
+  .sp-toc-title {
+    font-family: "SF Mono", monospace;
+    font-size: 10px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--mid);
+    margin-bottom: 14px;
+  }
+  .sp-toc-list { list-style: none; padding: 0; margin: 0; border-left: 1px solid var(--rule-soft); }
+  .sp-toc-list li { margin: 0; }
+  .sp-toc-list a {
+    display: block;
+    padding: 7px 14px;
+    color: var(--mid);
+    text-decoration: none;
+    letter-spacing: -0.005em;
+    line-height: 1.35;
+    border-left: 1px solid transparent;
+    margin-left: -1px;
+    transition: color 140ms, border-color 140ms;
+  }
+  .sp-toc-list a:hover { color: var(--ink); }
+  .sp-toc-list a.is-active {
+    color: var(--blue-dark);
+    border-left-color: var(--blue-dark);
+    font-weight: 500;
+  }
+
+  /* Markdown body */
+  .sp-body {
+    max-width: 760px;
+    font-size: 17px;
+    line-height: 1.6;
+    letter-spacing: -0.005em;
+    color: var(--ink);
+  }
+  .sp-body h2 {
+    font-size: 32px;
+    font-weight: 600;
+    letter-spacing: -0.025em;
+    line-height: 1.15;
+    margin: 56px 0 20px;
+    color: var(--ink);
+    scroll-margin-top: 100px;
+  }
+  .sp-body h2:first-child { margin-top: 0; }
+  .sp-body h3 {
+    font-size: 20px;
+    font-weight: 600;
+    letter-spacing: -0.018em;
+    line-height: 1.3;
+    margin: 36px 0 12px;
+    color: var(--ink);
+  }
+  .sp-body p { margin: 0 0 18px; }
+  .sp-body ul, .sp-body ol { margin: 0 0 20px; padding-left: 22px; }
+  .sp-body li { margin: 0 0 6px; }
+  .sp-body li::marker { color: var(--mid); }
+  .sp-body strong { font-weight: 600; color: var(--ink); }
+  .sp-body em { font-style: italic; }
+  .sp-body code {
+    font-family: "SF Mono", monospace;
+    font-size: 0.88em;
+    background: var(--bg-alt);
+    padding: 2px 6px;
+    border-radius: 4px;
+    color: var(--ink);
+    letter-spacing: 0;
+  }
+  .sp-body a { color: var(--blue-dark); text-decoration: none; border-bottom: 1px solid rgba(28,82,163,0.25); }
+  .sp-body a:hover { border-bottom-color: var(--blue-dark); }
+  .sp-body hr {
+    border: none;
+    border-top: 1px solid var(--rule-soft);
+    margin: 36px 0;
+  }
+
+  /* Tables */
+  .sp-body table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0 28px;
+    font-size: 14px;
+    border: 1px solid var(--rule-soft);
+    border-radius: 8px;
+    overflow: hidden;
+    background: var(--white);
+  }
+  .sp-body th {
+    background: var(--bg-alt);
+    padding: 11px 14px;
+    text-align: left;
+    font-weight: 600;
+    font-size: 11px;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    color: var(--mid);
+    border-bottom: 1px solid var(--rule-soft);
+  }
+  .sp-body td {
+    padding: 10px 14px;
+    border-bottom: 1px solid var(--rule-soft);
+    color: var(--ink);
+    vertical-align: top;
+    letter-spacing: -0.005em;
+    line-height: 1.4;
+  }
+  .sp-body tr:last-child td { border-bottom: none; }
+  .sp-body tr:nth-child(even) td { background: rgba(245,243,238,0.4); }
+
+  /* Blockquotes (non-glance) */
+  .sp-body blockquote {
+    margin: 20px 0;
+    padding: 14px 18px;
+    border-left: 3px solid var(--blue-dark);
+    background: var(--bg-alt);
+    color: var(--ink-soft);
+    font-size: 15px;
+    border-radius: 0 6px 6px 0;
+  }
+  .sp-body blockquote p:last-child { margin-bottom: 0; }
+
+  /* Related + CTA at bottom of body */
+  .sp-footer-band {
+    margin-top: 64px;
+    padding: 32px 0;
+    border-top: 1px solid var(--rule-soft);
+  }
+  .sp-related-title {
+    font-family: "SF Mono", monospace;
+    font-size: 11px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--mid);
+    margin-bottom: 20px;
+  }
+  .sp-related-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 12px;
+  }
+  .sp-related-card {
+    display: block;
+    padding: 20px;
+    border: 1px solid var(--rule-soft);
+    border-radius: 10px;
+    text-decoration: none;
+    background: var(--white);
+    transition: border-color 160ms, transform 160ms;
+  }
+  .sp-related-card:hover { border-color: var(--ink); transform: translateY(-1px); }
+  .sp-related-card b {
+    display: block;
+    font-size: 15px;
+    font-weight: 600;
+    color: var(--ink);
+    letter-spacing: -0.015em;
+    margin-bottom: 4px;
+  }
+  .sp-related-card span {
+    font-size: 13px;
+    color: var(--mid);
+    letter-spacing: -0.005em;
+    line-height: 1.4;
+  }
+
+  /* Prev / next pagination */
+  .sp-nav {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+    margin-top: 48px;
+  }
+  @media (max-width: 720px) { .sp-nav { grid-template-columns: 1fr; } }
+  .sp-nav-link {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    padding: 20px 24px;
+    text-decoration: none;
+    border: 1px solid var(--rule-soft);
+    border-radius: 10px;
+    color: var(--ink);
+    transition: border-color 160ms;
+  }
+  .sp-nav-link:hover { border-color: var(--ink); }
+  .sp-nav-link.sp-nav-next { text-align: right; }
+  .sp-nav-link span {
+    font-family: "SF Mono", monospace;
+    font-size: 10px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--mid);
+  }
+  .sp-nav-link b {
+    font-size: 16px;
+    font-weight: 500;
+    letter-spacing: -0.015em;
+  }
+  .sp-nav-link.is-disabled { opacity: 0.3; pointer-events: none; }
+
+  /* Quote band */
+  .sp-quote-band {
+    background: #0F1F3F;
+    color: var(--dark-text);
+    padding: 64px 0;
+    margin-top: 40px;
+  }
+  .sp-quote-inner {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 60px;
+    align-items: center;
+  }
+  @media (max-width: 720px) { .sp-quote-inner { grid-template-columns: 1fr; gap: 24px; } }
+  .sp-quote-head {
+    font-size: 38px;
+    font-weight: 600;
+    letter-spacing: -0.025em;
+    line-height: 1.1;
+    max-width: 520px;
+  }
+  @media (max-width: 720px) { .sp-quote-head { font-size: 28px; } }
+  .sp-quote-sub {
+    font-size: 16px;
+    line-height: 1.45;
+    color: var(--dark-mid);
+    max-width: 480px;
+    margin-top: 12px;
+  }
+  .sp-quote-actions { display: flex; flex-direction: column; gap: 10px; align-items: flex-end; }
+  @media (max-width: 720px) { .sp-quote-actions { align-items: flex-start; } }
+  .sp-btn-primary {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 14px 22px;
+    background: var(--white);
+    color: var(--ink);
+    text-decoration: none;
+    border-radius: 100px;
+    font-size: 15px;
+    font-weight: 500;
+  }
+  .sp-btn-primary:hover { transform: translateY(-1px); }
+  .sp-quote-email {
+    font-family: "SF Mono", monospace;
+    font-size: 13px;
+    color: var(--blue);
+    text-decoration: none;
+  }
+  .sp-quote-email:hover { text-decoration: underline; }
+
+  /* Loading state */
+  .sp-loading {
+    padding: 120px 0;
+    text-align: center;
+    color: var(--mid);
+    font-family: "SF Mono", monospace;
+    font-size: 12px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+  }
+
+  /* Tweaks */
+  .sp-tweaks {
+    position: fixed; bottom: 24px; right: 24px; width: 280px;
+    background: var(--white); border: 1px solid var(--rule); border-radius: 12px;
+    padding: 18px; z-index: 200;
+    box-shadow: 0 20px 60px rgba(0,0,0,0.12);
+    display: none;
+  }
+  .sp-tweaks.is-visible { display: block; }
+  .sp-tweaks-title {
+    font-family: "SF Mono", monospace; font-size: 10px; letter-spacing: 0.14em;
+    text-transform: uppercase; color: var(--mid); margin-bottom: 14px;
+  }
+  .sp-tweaks-row { margin-bottom: 14px; }
+  .sp-tweaks-row:last-child { margin-bottom: 0; }
+  .sp-tweaks-label {
+    font-family: "SF Mono", monospace; font-size: 10px; letter-spacing: 0.08em;
+    text-transform: uppercase; color: var(--mid); margin-bottom: 6px;
+  }
+  .sp-tweaks-opts {
+    display: grid; grid-template-columns: repeat(3, 1fr); gap: 4px;
+    background: var(--bg-alt); padding: 3px; border-radius: 6px;
+  }
+  .sp-tweaks-opt {
+    border: none; background: transparent; padding: 6px 8px;
+    font-size: 11px; font-family: "SF Mono", monospace;
+    letter-spacing: 0.04em; text-transform: uppercase;
+    color: var(--mid); cursor: pointer; border-radius: 4px;
+  }
+  .sp-tweaks-opt.is-active { background: var(--white); color: var(--ink); box-shadow: 0 1px 2px rgba(0,0,0,0.06); }
+
+  /* Tweaks: wider body */
+  body.sp-width-wide .sp-body { max-width: 920px; }
+  body.sp-width-narrow .sp-body { max-width: 640px; }
+
+  /* Tweaks: hide TOC */
+  body.sp-toc-hidden .sp-toc { display: none; }
+  body.sp-toc-hidden .sp-body-wrap { grid-template-columns: 1fr; }
+</style>
+</head>
+<body>
+
+<!-- ── Nav ──────────────────────────────────────────────── -->
+<nav class="cf-nav">
+  <a href="homepage-v1-cinematic.html" class="cf-nav-logo">
+    <span class="cf-nav-logo-mark"></span>
+    California Fastener
+  </a>
+  <ul class="cf-nav-center">
+    <li><a href="industrial-fasteners.html" class="cf-nav-link">Industrial</a></li>
+    <li><a href="anchor-bolts.html" class="cf-nav-link">Anchor Bolts</a></li>
+    <li><a href="cnc-landing.html" class="cf-nav-link">CNC Machining</a></li>
+    <li><a href="technical-library.html" class="cf-nav-link cf-nav-link--active">Technical Library</a></li>
+    <li><a href="#" class="cf-nav-link">About</a></li>
+  </ul>
+  <div class="cf-nav-right">
+    <a href="#quote" class="cf-btn cf-btn--pill">Request Quote</a>
+  </div>
+</nav>
+
+<main class="sp-wrap">
+
+  <!-- Breadcrumb -->
+  <div class="sp-crumbs" id="crumbs">
+    <a href="homepage-v1-cinematic.html">California Fastener</a>
+    <span class="sep">/</span>
+    <a href="technical-library.html">Technical Library</a>
+    <span class="sep">/</span>
+    <span id="crumbSection" style="color:var(--mid);">—</span>
+    <span class="sep">/</span>
+    <span style="color:var(--ink);" id="crumbCurrent">Loading…</span>
+  </div>
+
+  <div id="mainContent">
+    <div class="sp-loading">Loading specification…</div>
+  </div>
+
+</main>
+
+<!-- Tweaks panel -->
+<div class="sp-tweaks" id="tweaks">
+  <div class="sp-tweaks-title">Tweaks</div>
+  <div class="sp-tweaks-row">
+    <div class="sp-tweaks-label">Body width</div>
+    <div class="sp-tweaks-opts" data-tweak="width">
+      <button class="sp-tweaks-opt" data-val="narrow">Narrow</button>
+      <button class="sp-tweaks-opt is-active" data-val="default">Default</button>
+      <button class="sp-tweaks-opt" data-val="wide">Wide</button>
+    </div>
+  </div>
+  <div class="sp-tweaks-row">
+    <div class="sp-tweaks-label">TOC rail</div>
+    <div class="sp-tweaks-opts" data-tweak="toc" style="grid-template-columns:1fr 1fr;">
+      <button class="sp-tweaks-opt is-active" data-val="on">Show</button>
+      <button class="sp-tweaks-opt" data-val="off">Hide</button>
+    </div>
+  </div>
+</div>
+
+<!-- Footer -->
+<footer class="cf-footer">
+  <div class="cf-footer-inner">
+    <span class="cf-footer-brand"><span class="cf-nav-logo-mark"></span>California Fastener</span>
+    <span class="cf-footer-copyright">Since 1970 · Hayward, CA</span>
+  </div>
+</footer>
+
+<script>
+const TWEAK_DEFAULTS = /*EDITMODE-BEGIN*/{
+  "width": "default",
+  "toc": "on"
+}/*EDITMODE-END*/;
+
+// ── Spec index (same ordering as landing) ────────────────────
+const SECTIONS = {
+  bolt:    "Bolt Specifications",
+  nut:     "Nut Specifications",
+  washer:  "Washer Specifications",
+  thread:  "Thread Standards",
+  coating: "Coatings & Finishes",
+  metric:  "Metric Reference",
+};
+
+const SPECS = [
+  {code:"ASTM A193",    file:"astm-a193",    section:"bolt",    title:"High-temp/high-pressure alloy & stainless bolting"},
+  {code:"ASTM A307",    file:"astm-a307",    section:"bolt",    title:"General-purpose carbon steel bolts"},
+  {code:"ASTM A320",    file:"astm-a320",    section:"bolt",    title:"Low-temperature alloy & stainless bolting"},
+  {code:"ASTM A354",    file:"astm-a354",    section:"bolt",    title:"Quenched & tempered alloy bolts"},
+  {code:"ASTM A449",    file:"astm-a449",    section:"bolt",    title:"Heat-treated bolts"},
+  {code:"ASTM A453",    file:"astm-a453",    section:"bolt",    title:"High-temperature superalloy bolting (A286)"},
+  {code:"ASTM A540",    file:"astm-a540",    section:"bolt",    title:"Heavy-duty turbine-grade alloy bolting"},
+  {code:"ASTM A574",    file:"astm-a574",    section:"bolt",    title:"Alloy steel socket head cap screws"},
+  {code:"ASTM F593",    file:"astm-f593",    section:"bolt",    title:"Stainless steel bolts, hex cap screws, studs"},
+  {code:"ASTM F1554",   file:"astm-f1554",   section:"bolt",    title:"Anchor bolts — Gr 36, 55, 105"},
+  {code:"ASTM F3125",   file:"astm-f3125",   section:"bolt",    title:"Structural bolts (A325, A490, F1852, F2280, 144)"},
+  {code:"SAE J429",     file:"sae-j429",     section:"bolt",    title:"SAE inch bolt grades"},
+  {code:"ASTM A194",    file:"astm-a194",    section:"nut",     title:"High-temp/high-pressure nuts"},
+  {code:"ASTM A563",    file:"astm-a563",    section:"nut",     title:"Structural and general nuts"},
+  {code:"ASTM F467",    file:"astm-f467",    section:"nut",     title:"Nonferrous nuts"},
+  {code:"ASTM F594",    file:"astm-f594",    section:"nut",     title:"Stainless steel nuts"},
+  {code:"SAE J995",     file:"sae-j995",     section:"nut",     title:"SAE inch nut grades"},
+  {code:"ASTM F436",    file:"astm-f436",    section:"washer",  title:"Hardened structural washers"},
+  {code:"ASTM F844",    file:"astm-f844",    section:"washer",  title:"Plain unhardened flat washers"},
+  {code:"ASTM F959",    file:"astm-f959",    section:"washer",  title:"Direct tension indicators (DTIs)"},
+  {code:"ASME B1.1",    file:"asme-b1-1",    section:"thread",  title:"Unified inch screw threads"},
+  {code:"ASME B1.13M",  file:"asme-b1-13m",  section:"thread",  title:"Metric screw threads (M profile)"},
+  {code:"ASME B1.20.1", file:"asme-b1-20-1", section:"thread",  title:"NPT pipe threads"},
+  {code:"Thread Fit Classes", file:"thread-fit-classes", section:"thread", title:"1A/1B, 2A/2B, 3A/3B reference"},
+  {code:"ASTM F2329",   file:"astm-f2329",   section:"coating", title:"Hot-dip galvanizing"},
+  {code:"ASTM F1941",   file:"astm-f1941",   section:"coating", title:"Zinc electroplating"},
+  {code:"ASTM B695",    file:"astm-b695",    section:"coating", title:"Mechanical galvanizing"},
+  {code:"Zinc-Flake",   file:"zinc-flake-coatings", section:"coating", title:"F3019 / F1136 / F2833 systems"},
+  {code:"Xylan",        file:"xylan-fluoropolymer-coatings", section:"coating", title:"Xylan & fluoropolymer coatings"},
+  {code:"Cadmium",      file:"cadmium-plating", section:"coating", title:"QQ-P-416 legacy reference"},
+  {code:"ASTM F568M",   file:"astm-f568m",   section:"metric",  title:"Metric property classes (ISO 898-1)"},
+];
+
+// Map filename -> spec index entry (for cross-link resolution)
+const SPEC_BY_FILE = {};
+SPECS.forEach(s => SPEC_BY_FILE[s.file] = s);
+
+// Fuzzy resolver: given a code like "A194" or "F593" or "F3125", find a spec file
+function resolveCrossLink(text) {
+  const t = text.trim().toLowerCase().replace(/[\s\u2011\u2013\u2014\-]/g, '');
+  for (const s of SPECS) {
+    const code = s.code.toLowerCase().replace(/[\s\u2011\u2013\u2014\-]/g, '').replace(/\.md$/, '');
+    if (code === t || code.endsWith(t) || code.includes(t)) return s;
+  }
+  return null;
+}
+
+// ── Minimal markdown renderer ─────────────────────────────────
+function escHtml(s) {
+  return s.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+}
+function inline(s) {
+  // escape first
+  s = escHtml(s);
+  // code spans
+  s = s.replace(/`([^`]+)`/g, '<code>$1</code>');
+  // bold
+  s = s.replace(/\*\*([^*]+)\*\*/g, '<strong>$1</strong>');
+  // italic
+  s = s.replace(/(^|[^\*])\*([^*\n]+)\*/g, '$1<em>$2</em>');
+  // links [text](url)
+  s = s.replace(/\[([^\]]+)\]\(([^)]+)\)/g, '<a href="$2">$1</a>');
+  // em dashes and special chars already in md
+  return s;
+}
+
+function renderMarkdown(md) {
+  // Normalize
+  md = md.replace(/\r\n/g, '\n');
+  const lines = md.split('\n');
+  let out = [];
+  let i = 0;
+  let h1Title = '';
+
+  while (i < lines.length) {
+    let line = lines[i];
+
+    // H1
+    if (/^# /.test(line)) {
+      h1Title = line.replace(/^# /, '').trim();
+      i++;
+      continue;
+    }
+    // H2
+    if (/^## /.test(line)) {
+      const title = line.replace(/^## /, '').trim();
+      const slug = title.toLowerCase().replace(/[^\w]+/g, '-').replace(/^-|-$/g, '');
+      out.push(`<h2 id="${slug}">${inline(title)}</h2>`);
+      i++;
+      continue;
+    }
+    // H3
+    if (/^### /.test(line)) {
+      const title = line.replace(/^### /, '').trim();
+      out.push(`<h3>${inline(title)}</h3>`);
+      i++;
+      continue;
+    }
+    // HR
+    if (/^---+\s*$/.test(line)) {
+      out.push('<hr>');
+      i++;
+      continue;
+    }
+    // Blockquote block
+    if (/^> /.test(line)) {
+      const bq = [];
+      while (i < lines.length && /^> ?/.test(lines[i])) {
+        bq.push(lines[i].replace(/^> ?/, ''));
+        i++;
+      }
+      out.push('<blockquote>' + renderMarkdown(bq.join('\n')) + '</blockquote>');
+      continue;
+    }
+    // Table
+    if (/^\|.*\|\s*$/.test(line) && i+1 < lines.length && /^\|[\s\-|:]+\|\s*$/.test(lines[i+1])) {
+      const header = lines[i].split('|').slice(1,-1).map(c => c.trim());
+      i += 2;
+      const rows = [];
+      while (i < lines.length && /^\|.*\|\s*$/.test(lines[i])) {
+        rows.push(lines[i].split('|').slice(1,-1).map(c => c.trim()));
+        i++;
+      }
+      let html = '<table><thead><tr>' + header.map(h => `<th>${inline(h)}</th>`).join('') + '</tr></thead><tbody>';
+      for (const r of rows) {
+        html += '<tr>' + r.map(c => `<td>${inline(c)}</td>`).join('') + '</tr>';
+      }
+      html += '</tbody></table>';
+      out.push(html);
+      continue;
+    }
+    // UL / OL
+    if (/^[\-\*] /.test(line) || /^\d+\. /.test(line)) {
+      const ordered = /^\d+\. /.test(line);
+      const tag = ordered ? 'ol' : 'ul';
+      const items = [];
+      while (i < lines.length && (ordered ? /^\d+\. /.test(lines[i]) : /^[\-\*] /.test(lines[i]))) {
+        let item = lines[i].replace(ordered ? /^\d+\. / : /^[\-\*] /, '');
+        i++;
+        // multi-line continuation (indented)
+        while (i < lines.length && /^  +/.test(lines[i])) {
+          item += ' ' + lines[i].trim();
+          i++;
+        }
+        items.push(`<li>${inline(item)}</li>`);
+      }
+      out.push(`<${tag}>${items.join('')}</${tag}>`);
+      continue;
+    }
+    // Blank line
+    if (!line.trim()) { i++; continue; }
+    // Paragraph (gather until blank)
+    const para = [line];
+    i++;
+    while (i < lines.length && lines[i].trim() && !/^[#>\-\*\|]|^\d+\. /.test(lines[i]) && !/^---+/.test(lines[i])) {
+      para.push(lines[i]);
+      i++;
+    }
+    out.push(`<p>${inline(para.join(' '))}</p>`);
+  }
+  return out.join('\n');
+}
+
+// ── Extract pieces from markdown ──────────────────────────────
+function parseSpec(md) {
+  const lines = md.split('\n');
+  const result = { h1: '', glance: '', meta: {}, bodyMd: '', related: [] };
+
+  // H1
+  const h1Line = lines.find(l => /^# /.test(l));
+  if (h1Line) result.h1 = h1Line.replace(/^# /, '').trim();
+
+  // Blockquote at top — At a glance
+  let glanceStart = lines.findIndex(l => /^> \*\*At a glance/i.test(l));
+  if (glanceStart >= 0) {
+    const glance = [];
+    let j = glanceStart;
+    while (j < lines.length && /^> ?/.test(lines[j])) {
+      glance.push(lines[j].replace(/^> ?/, ''));
+      j++;
+    }
+    result.glance = glance.join(' ').replace(/\*\*At a glance:\*\*\s*/i, '').trim();
+  }
+
+  // Meta lines: **Category:** ...
+  const metaRegex = /^\*\*(.+?):\*\*\s*(.+)$/;
+  for (const l of lines) {
+    const m = l.match(metaRegex);
+    if (m && ['Category','Common grades stocked','Common groups stocked','Typical pairing','Industries','Applies to','Typical base fasteners'].includes(m[1])) {
+      result.meta[m[1]] = m[2];
+    }
+  }
+
+  // Build body markdown: skip H1, top blockquote, meta lines, and first --- separator
+  const bodyLines = [];
+  let skipTopBlockquote = glanceStart >= 0;
+  let skippedFirstHr = false;
+  for (let k = 0; k < lines.length; k++) {
+    const l = lines[k];
+    if (/^# /.test(l)) continue;
+    if (skipTopBlockquote && /^> ?/.test(l)) continue;
+    if (skipTopBlockquote && !/^> ?/.test(l) && l.trim() !== '') skipTopBlockquote = false;
+    if (metaRegex.test(l) && ['Category','Common grades stocked','Common groups stocked','Typical pairing','Industries','Applies to','Typical base fasteners'].includes(l.match(metaRegex)[1])) continue;
+    if (!skippedFirstHr && /^---+\s*$/.test(l)) { skippedFirstHr = true; continue; }
+    bodyLines.push(l);
+  }
+  result.bodyMd = bodyLines.join('\n').trim();
+
+  // Related specs — scan "## Related specifications" block
+  const relIdx = lines.findIndex(l => /^##\s+Related/i.test(l));
+  if (relIdx >= 0) {
+    for (let k = relIdx+1; k < lines.length; k++) {
+      if (/^##\s/.test(lines[k])) break;
+      const m = lines[k].match(/\*\*([^*]+)\*\*\s*[—\-]\s*(.+)/);
+      if (m) {
+        const resolved = resolveCrossLink(m[1]);
+        if (resolved) result.related.push({code: m[1].trim(), desc: m[2].trim().replace(/\(.*?\)/g,'').trim(), file: resolved.file});
+      }
+    }
+  }
+  return result;
+}
+
+// ── Build TOC from H2s in rendered body ───────────────────────
+function buildToc(html) {
+  const re = /<h2 id="([^"]+)">([^<]+)<\/h2>/g;
+  const items = [];
+  let m;
+  while ((m = re.exec(html)) !== null) {
+    items.push({id: m[1], text: m[2]});
+  }
+  return items;
+}
+
+// ── Render page ───────────────────────────────────────────────
+async function loadSpec(file) {
+  const spec = SPEC_BY_FILE[file];
+  if (!spec) {
+    document.getElementById('mainContent').innerHTML = `
+      <div class="sp-loading" style="text-align:left;text-transform:none;letter-spacing:0;font-family:inherit;font-size:17px;">
+        <p>Spec not found: <code>${escHtml(file)}</code></p>
+        <p><a href="technical-library.html" style="color:var(--blue-dark);">← Back to Technical Library</a></p>
+      </div>`;
+    return;
+  }
+
+  let md;
+  try {
+    const res = await fetch(`assets/technical-library/${file}.md`);
+    if (!res.ok) throw new Error('Fetch failed');
+    md = await res.text();
+  } catch (err) {
+    document.getElementById('mainContent').innerHTML = `
+      <div class="sp-loading" style="text-align:left;text-transform:none;letter-spacing:0;font-family:inherit;font-size:17px;">
+        <p>Couldn't load <code>${file}.md</code>. This page needs to be served over http:// (not opened from disk).</p>
+      </div>`;
+    return;
+  }
+
+  const parsed = parseSpec(md);
+  document.title = `${parsed.h1} — California Fastener`;
+  document.getElementById('crumbCurrent').textContent = spec.code;
+  document.getElementById('crumbSection').textContent = SECTIONS[spec.section];
+
+  // Render body
+  let bodyHtml = renderMarkdown(parsed.bodyMd);
+  // Turn code references in body (A193, F3125, etc.) into links -- lightly, to avoid overlinking
+  // Only convert ones that aren't already in an anchor tag
+  bodyHtml = bodyHtml.replace(/(?<!["=>\/])\b(ASTM\s+[AFB]\d+[A-Z]?|SAE\s+J\d+|ASME\s+B1\.\d+(?:\.\d+)?M?)\b/g, (match) => {
+    const target = resolveCrossLink(match);
+    if (target && target.file !== file) {
+      return `<a href="spec.html?s=${target.file}">${match}</a>`;
+    }
+    return match;
+  });
+
+  // Build toc
+  const toc = buildToc(bodyHtml);
+
+  // Meta rows
+  const metaKeys = ['Category','Common grades stocked','Common groups stocked','Typical pairing','Industries','Applies to','Typical base fasteners'];
+  const metaHtml = metaKeys.filter(k => parsed.meta[k]).map(k => `
+    <div class="sp-meta-row">
+      <span class="sp-meta-k">${k.replace('Common grades stocked','Grades stocked').replace('Common groups stocked','Groups stocked').replace('Typical base fasteners','Typical base')}</span>
+      <span class="sp-meta-v">${inline(parsed.meta[k])}</span>
+    </div>
+  `).join('');
+
+  // Prev/next in section
+  const sectionSpecs = SPECS.filter(s => s.section === spec.section);
+  const myIdx = sectionSpecs.findIndex(s => s.file === spec.file);
+  const prev = myIdx > 0 ? sectionSpecs[myIdx-1] : null;
+  const next = myIdx < sectionSpecs.length-1 ? sectionSpecs[myIdx+1] : null;
+
+  // Related
+  let relatedHtml = '';
+  if (parsed.related.length) {
+    relatedHtml = `
+      <div class="sp-footer-band">
+        <div class="sp-related-title">Cross-references</div>
+        <div class="sp-related-grid">
+          ${parsed.related.slice(0, 6).map(r => `
+            <a class="sp-related-card" href="spec.html?s=${r.file}">
+              <b>${escHtml(r.code)}</b>
+              <span>${inline(r.desc)}</span>
+            </a>
+          `).join('')}
+        </div>
+      </div>
+    `;
+  }
+
+  // Assemble
+  document.getElementById('mainContent').innerHTML = `
+    <header class="sp-hero">
+      <div>
+        <span class="sp-tag">${SECTIONS[spec.section]}</span>
+        <div class="sp-code">${escHtml(spec.code)}</div>
+        <div class="sp-name">${escHtml(parsed.h1.replace(/^[^\—\-]+[\—\-]\s*/, ''))}</div>
+      </div>
+      ${metaHtml ? `<div class="sp-meta">${metaHtml}</div>` : ''}
+    </header>
+
+    ${parsed.glance ? `<div class="sp-glance">${inline(parsed.glance)}</div>` : ''}
+
+    <div class="sp-body-wrap">
+      <aside class="sp-toc">
+        <div class="sp-toc-title">On this page</div>
+        <ul class="sp-toc-list">
+          ${toc.map(t => `<li><a href="#${t.id}" data-toc="${t.id}">${escHtml(t.text)}</a></li>`).join('')}
+        </ul>
+      </aside>
+      <article class="sp-body">
+        ${bodyHtml}
+        ${relatedHtml}
+        <div class="sp-nav">
+          <a class="sp-nav-link sp-nav-prev ${prev ? '' : 'is-disabled'}" href="${prev ? `spec.html?s=${prev.file}` : '#'}">
+            <span>← Previous</span>
+            <b>${prev ? prev.code : '—'}</b>
+          </a>
+          <a class="sp-nav-link sp-nav-next ${next ? '' : 'is-disabled'}" href="${next ? `spec.html?s=${next.file}` : '#'}">
+            <span>Next →</span>
+            <b>${next ? next.code : '—'}</b>
+          </a>
+        </div>
+      </article>
+    </div>
+  `;
+
+  // TOC scroll-spy
+  const tocLinks = document.querySelectorAll('[data-toc]');
+  const tocTargets = toc.map(t => document.getElementById(t.id)).filter(Boolean);
+  function updateToc() {
+    let activeId = null;
+    for (const el of tocTargets) {
+      const r = el.getBoundingClientRect();
+      if (r.top < 140) activeId = el.id;
+      else break;
+    }
+    tocLinks.forEach(a => a.classList.toggle('is-active', a.dataset.toc === activeId));
+  }
+  window.addEventListener('scroll', updateToc, {passive: true});
+  updateToc();
+}
+
+// Quote band at end
+function renderQuoteBand() {
+  const band = document.createElement('section');
+  band.className = 'sp-quote-band';
+  band.id = 'quote';
+  band.innerHTML = `
+    <div class="sp-wrap">
+      <div class="sp-quote-inner">
+        <div>
+          <div class="sp-quote-head">Need this spec quoted?</div>
+          <div class="sp-quote-sub">California Fastener stocks every specification in this library. Send a drawing, BOM, or part number and we'll come back with pricing, lead time, and a mill-cert plan.</div>
+        </div>
+        <div class="sp-quote-actions">
+          <a href="#" class="sp-btn-primary">
+            Request a Quote
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 8h10M9 4l4 4-4 4"/></svg>
+          </a>
+          <a href="mailto:info@californiafastener.com" class="sp-quote-email">info@californiafastener.com</a>
+        </div>
+      </div>
+    </div>
+  `;
+  document.querySelector('footer.cf-footer').before(band);
+}
+
+// ── Tweaks ──────────────────────────────────────────────────
+const tweaks = {...TWEAK_DEFAULTS};
+function applyTweaks() {
+  document.body.classList.toggle('sp-width-wide', tweaks.width === 'wide');
+  document.body.classList.toggle('sp-width-narrow', tweaks.width === 'narrow');
+  document.body.classList.toggle('sp-toc-hidden', tweaks.toc === 'off');
+  document.querySelectorAll('[data-tweak]').forEach(g => {
+    const key = g.dataset.tweak;
+    g.querySelectorAll('.sp-tweaks-opt').forEach(b => b.classList.toggle('is-active', b.dataset.val === tweaks[key]));
+  });
+}
+document.getElementById('tweaks').addEventListener('click', e => {
+  const btn = e.target.closest('.sp-tweaks-opt');
+  if (!btn) return;
+  const key = btn.closest('[data-tweak]').dataset.tweak;
+  tweaks[key] = btn.dataset.val;
+  applyTweaks();
+  window.parent.postMessage({type:'__edit_mode_set_keys', edits: {[key]: tweaks[key]}}, '*');
+});
+window.addEventListener('message', e => {
+  const d = e.data || {};
+  if (d.type === '__activate_edit_mode') document.getElementById('tweaks').classList.add('is-visible');
+  if (d.type === '__deactivate_edit_mode') document.getElementById('tweaks').classList.remove('is-visible');
+});
+window.parent.postMessage({type:'__edit_mode_available'}, '*');
+
+// ── Init ─────────────────────────────────────────────────────
+const params = new URLSearchParams(location.search);
+const specFile = params.get('s') || 'astm-f3125'; // default showcase
+applyTweaks();
+renderQuoteBand();
+loadSpec(specFile);
+</script>
+
+</body>
+</html>

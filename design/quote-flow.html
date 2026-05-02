@@ -1,0 +1,544 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<link rel="icon" type="image/png" href="assets/cf-logo-black.png" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Request a Quote — California Fastener</title>
+<link rel="stylesheet" href="_shared.css" />
+<style>
+  body { background: var(--bg-alt); }
+
+  .quote-hero {
+    padding: 72px 40px 40px;
+    text-align: center;
+    max-width: 900px;
+    margin: 0 auto;
+  }
+  .quote-hero-eyebrow { font-size: 14px; color: var(--blue-dark); font-weight: 500; margin-bottom: 14px; letter-spacing: -0.005em; }
+  .quote-hero h1 {
+    font-size: clamp(48px, 5.5vw, 72px); font-weight: 600;
+    letter-spacing: -0.035em; line-height: 1.02;
+    margin-bottom: 18px;
+  }
+  .quote-hero p {
+    font-size: 21px; color: var(--ink-soft);
+    max-width: 560px; margin: 0 auto;
+    letter-spacing: -0.015em; line-height: 1.35;
+  }
+
+  /* Progress steps */
+  .steps-bar {
+    max-width: 900px; margin: 40px auto 0;
+    padding: 0 40px;
+    display: flex; gap: 8px;
+  }
+  .step-cell {
+    flex: 1;
+    display: flex; align-items: center; gap: 10px;
+    padding: 12px 0;
+  }
+  .step-dot {
+    width: 26px; height: 26px; border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    background: var(--rule-soft); color: var(--mid);
+    font-size: 13px; font-weight: 500;
+    flex-shrink: 0;
+  }
+  .step-cell.done .step-dot { background: var(--ink); color: white; }
+  .step-cell.active .step-dot { background: var(--blue-dark); color: white; }
+  .step-cell.active .step-label { color: var(--ink); font-weight: 500; }
+  .step-label {
+    font-size: 13px; color: var(--mid); letter-spacing: -0.005em;
+  }
+  .step-cell.done .step-label { color: var(--ink-soft); }
+  .step-divider {
+    flex: 1; height: 1px; background: var(--rule-soft); margin: 0 10px;
+    align-self: center;
+  }
+
+  /* Card container */
+  .quote-card {
+    max-width: 900px; margin: 36px auto 80px;
+    background: white; border-radius: 24px;
+    padding: 56px 64px; box-shadow: 0 1px 2px rgba(0,0,0,0.04), 0 20px 60px rgba(0,0,0,0.06);
+  }
+  .step-head {
+    font-size: 14px; color: var(--mid); letter-spacing: -0.005em;
+    margin-bottom: 8px;
+  }
+  .step-title {
+    font-size: 36px; font-weight: 600;
+    letter-spacing: -0.03em; line-height: 1.1;
+    margin-bottom: 10px;
+  }
+  .step-sub {
+    font-size: 17px; color: var(--ink-soft);
+    letter-spacing: -0.01em; line-height: 1.4;
+    margin-bottom: 36px; max-width: 520px;
+  }
+
+  /* Step 1: Product selector grid */
+  .product-cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin-bottom: 10px; }
+  .product-card {
+    padding: 22px; border: 1px solid var(--rule-soft); border-radius: 16px;
+    background: white; cursor: pointer; text-align: left;
+    font-family: inherit; transition: all 0.15s;
+    display: flex; flex-direction: column; gap: 6px; min-height: 140px;
+  }
+  .product-card:hover { border-color: var(--mid); }
+  .product-card.selected {
+    border-color: var(--blue-dark);
+    background: rgba(56, 182, 255, 0.04);
+    box-shadow: 0 0 0 2px rgba(56, 182, 255, 0.25);
+  }
+  .product-card-mark {
+    width: 32px; height: 32px; border-radius: 8px; background: var(--bg-alt);
+    display: flex; align-items: center; justify-content: center;
+    margin-bottom: 8px;
+  }
+  .product-card.selected .product-card-mark { background: var(--blue-dark); color: white; }
+  .product-card-title { font-size: 15px; font-weight: 500; color: var(--ink); letter-spacing: -0.005em; }
+  .product-card-desc { font-size: 12px; color: var(--mid); letter-spacing: -0.005em; }
+
+  /* Step 2: Specs form */
+  .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-bottom: 16px; }
+  .field { display: flex; flex-direction: column; gap: 6px; }
+  .field label { font-size: 13px; color: var(--ink-soft); font-weight: 500; letter-spacing: -0.005em; }
+  .field input, .field select, .field textarea {
+    padding: 12px 14px; font-size: 15px; letter-spacing: -0.005em;
+    border: 1px solid var(--rule); border-radius: 10px;
+    font-family: inherit; background: white; color: var(--ink);
+  }
+  .field input:focus, .field select:focus, .field textarea:focus {
+    outline: none; border-color: var(--blue-dark);
+    box-shadow: 0 0 0 3px rgba(56, 182, 255, 0.15);
+  }
+  .field textarea { min-height: 88px; resize: vertical; }
+  .field-full { grid-column: span 2; }
+  .field-hint { font-size: 12px; color: var(--mid); letter-spacing: -0.005em; }
+
+  /* Quantity control */
+  .qty-control {
+    display: flex; align-items: center; gap: 4px;
+    border: 1px solid var(--rule); border-radius: 10px; padding: 4px;
+    width: fit-content;
+  }
+  .qty-control button {
+    width: 32px; height: 32px; border: none; background: transparent;
+    font-size: 16px; cursor: pointer; color: var(--ink); border-radius: 6px;
+  }
+  .qty-control button:hover { background: var(--bg-alt); }
+  .qty-control input {
+    width: 80px; text-align: center; border: none; font-size: 15px; font-family: inherit;
+    padding: 8px; background: transparent;
+  }
+  .qty-control input:focus { outline: none; }
+
+  /* Upload zone */
+  .upload-zone {
+    border: 2px dashed var(--rule); border-radius: 16px;
+    padding: 40px 24px; text-align: center;
+    background: var(--bg); margin-bottom: 20px;
+    transition: border-color 0.15s, background 0.15s;
+    cursor: pointer;
+  }
+  .upload-zone:hover { border-color: var(--blue-dark); background: rgba(56,182,255,0.03); }
+  .upload-icon {
+    width: 48px; height: 48px; border-radius: 12px;
+    background: var(--bg-alt); margin: 0 auto 14px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 22px; color: var(--blue-dark);
+  }
+  .upload-zone strong { font-size: 15px; font-weight: 500; color: var(--ink); letter-spacing: -0.005em; }
+  .upload-zone .muted { font-size: 13px; color: var(--mid); margin-top: 4px; letter-spacing: -0.005em; }
+
+  .file-row {
+    display: flex; align-items: center; gap: 12px;
+    padding: 12px 16px; background: var(--bg); border-radius: 10px;
+    margin-bottom: 8px;
+    font-size: 14px; letter-spacing: -0.005em;
+  }
+  .file-row .file-ic { width: 32px; height: 32px; background: var(--bg-cream); border-radius: 6px; display:flex; align-items:center; justify-content:center; font-size: 11px; color: var(--mid); font-weight: 600; }
+  .file-row .file-name { flex: 1; color: var(--ink); }
+  .file-row .file-size { color: var(--mid); font-size: 12px; }
+
+  /* Step footer */
+  .step-footer {
+    margin-top: 36px; padding-top: 24px;
+    border-top: 1px solid var(--rule-soft);
+    display: flex; justify-content: space-between; align-items: center;
+  }
+  .step-back {
+    color: var(--ink-soft); font-size: 15px; background: none; border: none; cursor: pointer;
+    letter-spacing: -0.005em; font-family: inherit; padding: 8px 0;
+  }
+  .step-back::before { content: '‹ '; }
+  .step-meta { font-size: 13px; color: var(--mid); }
+
+  /* Review sheet */
+  .review-row {
+    display: flex; justify-content: space-between; align-items: flex-start;
+    padding: 16px 0; border-bottom: 1px solid var(--rule-soft);
+    gap: 24px;
+  }
+  .review-label { font-size: 13px; color: var(--mid); flex-shrink: 0; width: 180px; letter-spacing: -0.005em; }
+  .review-val { font-size: 15px; color: var(--ink); flex: 1; letter-spacing: -0.005em; }
+  .review-edit { font-size: 13px; color: var(--blue-dark); text-decoration: none; }
+
+  /* Success state */
+  .success { text-align: center; padding: 40px 0 20px; }
+  .success-mark {
+    width: 72px; height: 72px; border-radius: 50%;
+    background: var(--blue-dark); color: white;
+    display: inline-flex; align-items: center; justify-content: center;
+    font-size: 36px; margin-bottom: 24px;
+  }
+  .success h2 {
+    font-size: 40px; font-weight: 600; letter-spacing: -0.03em;
+    margin-bottom: 12px; line-height: 1.05;
+  }
+  .success p {
+    font-size: 17px; color: var(--ink-soft); max-width: 440px; margin: 0 auto 32px;
+    letter-spacing: -0.01em; line-height: 1.4;
+  }
+  .confirmation {
+    background: var(--bg-alt); border-radius: 14px;
+    padding: 20px 24px; max-width: 420px; margin: 0 auto 28px;
+    display: flex; justify-content: space-between;
+    font-size: 14px;
+  }
+  .confirmation-label { color: var(--mid); letter-spacing: -0.005em; }
+  .confirmation-val { color: var(--ink); font-weight: 500; font-family: "SF Mono", ui-monospace, monospace; }
+</style>
+</head>
+<body>
+
+<nav class="cf-nav">
+  <a href="homepage.html" class="cf-nav-logo"><span class="cf-nav-logo-mark"></span>California Fastener</a>
+  <ul class="cf-nav-center">
+    <li class="has-menu">
+      <button aria-haspopup="true">Products</button>
+      <div class="cf-nav-menu cf-nav-menu--mega" role="menu">
+        <div class="cf-nav-menu-label">Fasteners</div>
+        <a href="anchor-bolts.html" role="menuitem">Anchor Bolts<span class="cf-nav-menu-sub">F1554, A193, F593 · headed, bent, rod assemblies</span></a>
+        <a href="#" role="menuitem">Stud Bolts &amp; Threaded Rod<span class="cf-nav-menu-sub">B7, B8, B16 · cut to length</span></a>
+        <a href="#" role="menuitem">Structural Fasteners<span class="cf-nav-menu-sub">A325, A490, TC bolts</span></a>
+        <a href="#" role="menuitem">Industrial Fasteners<span class="cf-nav-menu-sub">Hex, socket, flange, grade 5 / 8</span></a>
+        <a href="#" role="menuitem">U-Bolts<span class="cf-nav-menu-sub">Standard &amp; custom profiles</span></a>
+        <a href="#" role="menuitem">Stainless Steel Fasteners<span class="cf-nav-menu-sub">304, 316, duplex</span></a>
+        <a href="#" role="menuitem">Silicon Bronze Hardware<span class="cf-nav-menu-sub">Marine &amp; architectural</span></a>
+        <a href="#" role="menuitem">Specialty &amp; Lindapter<span class="cf-nav-menu-sub">Hollo-Bolt, Girder clamps, blind bolts</span></a>
+        <div class="cf-nav-menu-footer">
+          <a href="#">View all products →</a>
+          <a href="quote-flow.html">Request a quote →</a>
+        </div>
+      </div>
+    </li>
+    <li class="has-menu">
+      <button aria-haspopup="true">Industries</button>
+      <div class="cf-nav-menu" role="menu">
+        <a href="#" role="menuitem">Construction</a>
+        <a href="#" role="menuitem">Industrial Machinery</a>
+        <a href="#" role="menuitem">Infrastructure</a>
+        <a href="#" role="menuitem">Renewable Energy</a>
+        <a href="#" role="menuitem">Power &amp; Utilities</a>
+        <a href="#" role="menuitem">Oil, Gas &amp; Petrochemical</a>
+        <a href="#" role="menuitem">Marine &amp; Shipbuilding</a>
+        <a href="#" role="menuitem">Aerospace &amp; Defense</a>
+      </div>
+    </li>
+    <li><a href="cnc-landing.html">CNC Machining</a></li>
+    <li class="has-menu">
+      <button aria-haspopup="true">Resources</button>
+      <div class="cf-nav-menu" role="menu">
+        <div class="cf-nav-menu-label">Technical</div>
+        <a href="#" role="menuitem">Specification Library<span class="cf-nav-menu-sub">ASTM, SAE, ISO standards</span></a>
+        <a href="spec-builder.html" role="menuitem">Spec Builder<span class="cf-nav-menu-sub">Find the right material &amp; grade</span></a>
+        <a href="#" role="menuitem">Product Catalog (PDF)</a>
+        <div class="cf-nav-menu-divider"></div>
+        <div class="cf-nav-menu-label">Tools</div>
+        <a href="quote-flow.html" role="menuitem">Request a Quote</a>
+        <a href="#" role="menuitem">Contact Engineering</a>
+      </div>
+    </li>
+    <li><a href="#">About</a></li>
+    <li><a href="blog.html">Blog</a></li>
+  </ul>
+  <div class="cf-nav-right">
+    <a href="quote-flow.html" class="cf-nav-quote">Get a Quote</a>
+  </div>
+</nav>
+
+<div class="quote-hero" data-screen-label="01 Header">
+  <div class="quote-hero-eyebrow">Request a Quote</div>
+  <h1 id="pageTitle">Let's build your quote.</h1>
+  <p id="pageSub">Four quick steps. We respond in 24 hours with pricing, lead times, and availability.</p>
+</div>
+
+<!-- PROGRESS -->
+<div class="steps-bar" id="stepsBar">
+  <div class="step-cell active" data-step="1"><div class="step-dot">1</div><div class="step-label">Product</div></div>
+  <div class="step-divider"></div>
+  <div class="step-cell" data-step="2"><div class="step-dot">2</div><div class="step-label">Specs</div></div>
+  <div class="step-divider"></div>
+  <div class="step-cell" data-step="3"><div class="step-dot">3</div><div class="step-label">Drawings</div></div>
+  <div class="step-divider"></div>
+  <div class="step-cell" data-step="4"><div class="step-dot">4</div><div class="step-label">Contact</div></div>
+</div>
+
+<!-- STEP 1: PRODUCT -->
+<div class="quote-card" data-step-view="1" data-screen-label="02 Step 1">
+  <div class="step-head">Step 1 of 4</div>
+  <div class="step-title">What are you quoting?</div>
+  <div class="step-sub">Pick the category that fits best. Not sure? Pick "Custom / built to print" — we'll sort it out with your drawings.</div>
+
+  <div class="product-cards">
+    <button class="product-card selected" onclick="selectProduct(this, 'Anchor Bolts')">
+      <div class="product-card-mark">◆</div>
+      <div class="product-card-title">Anchor Bolts</div>
+      <div class="product-card-desc">F1554, headed, bent, rod, assemblies</div>
+    </button>
+    <button class="product-card" onclick="selectProduct(this, 'Structural Fasteners')">
+      <div class="product-card-mark">◆</div>
+      <div class="product-card-title">Structural Fasteners</div>
+      <div class="product-card-desc">A325, A490, TC bolts, heavy hex</div>
+    </button>
+    <button class="product-card" onclick="selectProduct(this, 'Industrial Fasteners')">
+      <div class="product-card-mark">◆</div>
+      <div class="product-card-title">Industrial Fasteners</div>
+      <div class="product-card-desc">A193 heavy hex, SHCS, specialty</div>
+    </button>
+    <button class="product-card" onclick="selectProduct(this, 'Stud Bolts &amp; Rod')">
+      <div class="product-card-mark">◆</div>
+      <div class="product-card-title">Stud Bolts &amp; Rod</div>
+      <div class="product-card-desc">A193, A320, F1554 threaded rod</div>
+    </button>
+    <button class="product-card" onclick="selectProduct(this, 'Stainless Steel')">
+      <div class="product-card-mark">◆</div>
+      <div class="product-card-title">Stainless Steel</div>
+      <div class="product-card-desc">304, 316, duplex, super duplex</div>
+    </button>
+    <button class="product-card" onclick="selectProduct(this, 'U-Bolts')">
+      <div class="product-card-mark">◆</div>
+      <div class="product-card-title">U-Bolts</div>
+      <div class="product-card-desc">Round &amp; square bend, custom</div>
+    </button>
+    <button class="product-card" onclick="selectProduct(this, 'Silicon Bronze')">
+      <div class="product-card-mark">◆</div>
+      <div class="product-card-title">Silicon Bronze</div>
+      <div class="product-card-desc">Marine, architectural, galvanic</div>
+    </button>
+    <button class="product-card" onclick="selectProduct(this, 'CNC Machined Parts')">
+      <div class="product-card-mark">◆</div>
+      <div class="product-card-title">CNC Machined Parts</div>
+      <div class="product-card-desc">Built to print, 5-axis, prototype to production</div>
+    </button>
+    <button class="product-card" onclick="selectProduct(this, 'Custom / Other')">
+      <div class="product-card-mark">◆</div>
+      <div class="product-card-title">Custom / Other</div>
+      <div class="product-card-desc">Non-standard, exotic, mixed assemblies</div>
+    </button>
+  </div>
+
+  <div class="step-footer">
+    <div class="step-meta">Tip: you can quote multiple categories in one request.</div>
+    <a href="#" class="cf-pill cf-pill--blue" onclick="goStep(2); return false;">Continue ›</a>
+  </div>
+</div>
+
+<!-- STEP 2: SPECS -->
+<div class="quote-card" data-step-view="2" data-screen-label="03 Step 2" style="display:none;">
+  <div class="step-head">Step 2 of 4</div>
+  <div class="step-title">Tell us the specs.</div>
+  <div class="step-sub">Give us what you know. If fields don't apply, leave them — your drawings and our team will fill in the rest.</div>
+
+  <div class="form-row">
+    <div class="field">
+      <label>Grade / spec</label>
+      <select><option>F1554 Grade 55</option><option>F1554 Grade 36</option><option>F1554 Grade 105</option><option>A193 B7</option><option>A193 B8M</option><option>Other / don't know</option></select>
+    </div>
+    <div class="field">
+      <label>Material finish</label>
+      <select><option>Plain (black)</option><option>Hot-dip galvanized</option><option>Zinc plated</option><option>Mechanical galvanized</option><option>Stainless (passivated)</option></select>
+    </div>
+    <div class="field">
+      <label>Diameter</label>
+      <input type="text" placeholder="e.g. 3/4″ or 20 mm" value="3/4″" />
+    </div>
+    <div class="field">
+      <label>Length</label>
+      <input type="text" placeholder="e.g. 24″ overall" value="24″" />
+    </div>
+    <div class="field">
+      <label>Quantity</label>
+      <div class="qty-control">
+        <button onclick="qty(-100)">−</button>
+        <input id="qtyInput" type="text" value="500" />
+        <button onclick="qty(100)">+</button>
+      </div>
+    </div>
+    <div class="field">
+      <label>Needed by</label>
+      <input type="text" placeholder="Target ship / install date" value="June 14, 2026" />
+    </div>
+    <div class="field field-full">
+      <label>Application / project context</label>
+      <textarea placeholder="Helpful: end use, environment, torque requirements, installation conditions, inspection level.">Baseplate anchors for a 14-story commercial steel frame, coastal exposure (2 mi from marine). Torque per AISC 348. Full Cert of Conformance and mill test reports required.</textarea>
+      <div class="field-hint">The more we know, the tighter our quote.</div>
+    </div>
+    <div class="field field-full">
+      <label>Certification &amp; traceability</label>
+      <div style="display:flex; gap:8px; flex-wrap: wrap;">
+        <label style="display:inline-flex; align-items:center; gap:6px; padding:8px 14px; border:1px solid var(--blue-dark); border-radius:100px; background: rgba(56,182,255,0.06); font-size:13px; cursor:pointer;"><input type="checkbox" checked style="margin:0;"> Mill test reports</label>
+        <label style="display:inline-flex; align-items:center; gap:6px; padding:8px 14px; border:1px solid var(--blue-dark); border-radius:100px; background: rgba(56,182,255,0.06); font-size:13px; cursor:pointer;"><input type="checkbox" checked style="margin:0;"> Cert of Conformance</label>
+        <label style="display:inline-flex; align-items:center; gap:6px; padding:8px 14px; border:1px solid var(--rule); border-radius:100px; font-size:13px; cursor:pointer;"><input type="checkbox" style="margin:0;"> AS9102 FAI</label>
+        <label style="display:inline-flex; align-items:center; gap:6px; padding:8px 14px; border:1px solid var(--rule); border-radius:100px; font-size:13px; cursor:pointer;"><input type="checkbox" style="margin:0;"> Full lot traceability</label>
+        <label style="display:inline-flex; align-items:center; gap:6px; padding:8px 14px; border:1px solid var(--rule); border-radius:100px; font-size:13px; cursor:pointer;"><input type="checkbox" style="margin:0;"> PPAP</label>
+      </div>
+    </div>
+  </div>
+
+  <div class="step-footer">
+    <button class="step-back" onclick="goStep(1)">Back</button>
+    <a href="#" class="cf-pill cf-pill--blue" onclick="goStep(3); return false;">Continue ›</a>
+  </div>
+</div>
+
+<!-- STEP 3: DRAWINGS -->
+<div class="quote-card" data-step-view="3" data-screen-label="04 Step 3" style="display:none;">
+  <div class="step-head">Step 3 of 4</div>
+  <div class="step-title">Upload your drawings.</div>
+  <div class="step-sub">Drawings, BOMs, spec sheets, past quotes — we'll take what you have. PDFs, DWGs, STEPs, images, spreadsheets.</div>
+
+  <div class="upload-zone" onclick="fakeUpload()">
+    <div class="upload-icon">↑</div>
+    <strong>Drag files here, or click to browse</strong>
+    <div class="muted">Up to 100 MB per file · PDF · DWG · DXF · STEP · STL · PNG · XLSX</div>
+  </div>
+
+  <div id="fileList">
+    <div class="file-row"><div class="file-ic">PDF</div><div class="file-name">baseplate-assy-rev-C.pdf</div><div class="file-size">2.4 MB</div></div>
+    <div class="file-row"><div class="file-ic">DWG</div><div class="file-name">anchor-bolt-detail.dwg</div><div class="file-size">824 KB</div></div>
+    <div class="file-row"><div class="file-ic">XLS</div><div class="file-name">BOM-line-items.xlsx</div><div class="file-size">41 KB</div></div>
+  </div>
+
+  <div class="field" style="margin-top: 16px;">
+    <label>Ship-to ZIP or project address</label>
+    <input type="text" placeholder="94558" value="94558 — Napa, CA" />
+  </div>
+
+  <div class="step-footer">
+    <button class="step-back" onclick="goStep(2)">Back</button>
+    <a href="#" class="cf-pill cf-pill--blue" onclick="goStep(4); return false;">Continue ›</a>
+  </div>
+</div>
+
+<!-- STEP 4: CONTACT + REVIEW -->
+<div class="quote-card" data-step-view="4" data-screen-label="05 Step 4" style="display:none;">
+  <div class="step-head">Step 4 of 4</div>
+  <div class="step-title">Where should we send it?</div>
+  <div class="step-sub">We'll respond within 24 business hours — always from a real person on our team.</div>
+
+  <div class="form-row">
+    <div class="field"><label>Full name</label><input type="text" value="" placeholder="Jane Ramirez" /></div>
+    <div class="field"><label>Company</label><input type="text" placeholder="Your company" /></div>
+    <div class="field"><label>Email</label><input type="email" placeholder="jane@company.com" /></div>
+    <div class="field"><label>Phone (optional)</label><input type="tel" placeholder="(415) 555-0199" /></div>
+    <div class="field field-full"><label>Role</label>
+      <select><option>Procurement / Buyer</option><option>Structural Engineer</option><option>Mechanical Engineer</option><option>Estimator</option><option>Project Manager</option><option>Shop / Fabricator</option><option>Other</option></select>
+    </div>
+  </div>
+
+  <div style="margin-top: 28px; padding: 24px; background: var(--bg-alt); border-radius: 14px;">
+    <div style="font-size: 13px; color: var(--mid); text-transform: uppercase; letter-spacing: 0.06em; font-weight: 600; margin-bottom: 12px;">Your Request</div>
+    <div class="review-row"><div class="review-label">Product</div><div class="review-val" id="rvProduct">Anchor Bolts</div><a href="#" class="review-edit" onclick="goStep(1); return false;">Edit</a></div>
+    <div class="review-row"><div class="review-label">Specs</div><div class="review-val">F1554 Grade 55 · HDG · 3/4″ × 24″ · Qty 500</div><a href="#" class="review-edit" onclick="goStep(2); return false;">Edit</a></div>
+    <div class="review-row"><div class="review-label">Drawings</div><div class="review-val">3 files attached</div><a href="#" class="review-edit" onclick="goStep(3); return false;">Edit</a></div>
+    <div class="review-row" style="border-bottom: none;"><div class="review-label">Needed by</div><div class="review-val">June 14, 2026 · Ship to 94558, Napa CA</div><span></span></div>
+  </div>
+
+  <div class="step-footer">
+    <button class="step-back" onclick="goStep(3)">Back</button>
+    <a href="#" class="cf-pill cf-pill--blue" onclick="submitQuote(); return false;">Submit Request ›</a>
+  </div>
+</div>
+
+<!-- SUCCESS -->
+<div class="quote-card" data-step-view="5" data-screen-label="06 Submitted" style="display:none;">
+  <div class="success">
+    <div class="success-mark">✓</div>
+    <h2>We've got your request.</h2>
+    <p>A member of our team will be in touch within 24 business hours with pricing, lead time, and availability.</p>
+    <div class="confirmation">
+      <span class="confirmation-label">Confirmation</span>
+      <span class="confirmation-val">CF-2026-A7T4Q</span>
+    </div>
+    <div style="display:flex; gap:20px; justify-content:center;">
+      <a href="homepage-v1-cinematic.html" class="cf-pill cf-pill--ghost">Back to home</a>
+      <a href="blog.html" class="cf-link">Read Field Notes</a>
+    </div>
+  </div>
+</div>
+
+<footer class="cf-footer">
+  <div class="cf-footer-bottom" style="padding-top: 0;">
+    <div>© 2026 California Fastener · CA Fast LLC</div>
+    <div>707.741.3277 · info@californiafastener.com</div>
+  </div>
+</footer>
+
+<script>
+  let currentStep = 1;
+  let selectedProduct = 'Anchor Bolts';
+
+  function goStep(n) {
+    document.querySelectorAll('[data-step-view]').forEach(el => el.style.display = 'none');
+    document.querySelector(`[data-step-view="${n}"]`).style.display = 'block';
+    document.querySelectorAll('#stepsBar .step-cell').forEach(el => {
+      const i = parseInt(el.dataset.step);
+      el.classList.remove('active', 'done');
+      if (i < n) el.classList.add('done');
+      if (i === n) el.classList.add('active');
+      if (i === n) el.querySelector('.step-dot').textContent = i;
+      if (i < n) el.querySelector('.step-dot').textContent = '✓';
+      if (i > n) el.querySelector('.step-dot').textContent = i;
+    });
+    currentStep = n;
+    if (n === 5) document.getElementById('stepsBar').style.display = 'none';
+    else document.getElementById('stepsBar').style.display = 'flex';
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+
+  function selectProduct(btn, name) {
+    document.querySelectorAll('.product-card').forEach(el => el.classList.remove('selected'));
+    btn.classList.add('selected');
+    selectedProduct = name;
+    document.getElementById('rvProduct').innerHTML = name;
+  }
+
+  function qty(d) {
+    const i = document.getElementById('qtyInput');
+    const v = Math.max(1, parseInt(i.value.replace(/\D/g,'')) + d);
+    i.value = v;
+  }
+
+  function fakeUpload() {
+    const names = ['section-detail.pdf', 'torque-spec.pdf', 'project-photos.zip'];
+    const pick = names[Math.floor(Math.random()*names.length)];
+    const list = document.getElementById('fileList');
+    const row = document.createElement('div');
+    row.className = 'file-row';
+    row.innerHTML = `<div class="file-ic">${pick.split('.').pop().toUpperCase()}</div><div class="file-name">${pick}</div><div class="file-size">${Math.floor(Math.random()*2000+100)} KB</div>`;
+    list.appendChild(row);
+  }
+
+  function submitQuote() {
+    goStep(5);
+    document.getElementById('pageTitle').textContent = "Request received.";
+    document.getElementById('pageSub').textContent = "We'll be in touch soon.";
+  }
+</script>
+
+</body>
+</html>

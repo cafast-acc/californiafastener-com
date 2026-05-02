@@ -1,0 +1,806 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<link rel="icon" type="image/png" href="assets/cf-logo-black.png" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Structural Fasteners — A325, A490, F3125, TC Bolts, F1554 | California Fastener</title>
+<meta name="description" content="Structural bolts, nuts, washers, and anchor rod for steel-frame and bridge construction — F3125 (A325/A490), TC bolts, F1554, F436, A563 DH. Galvanized or plain. Same-day shipping; full MTRs and RCSC documentation." />
+<link rel="stylesheet" href="_shared.css" />
+<style>
+  body { background: var(--bg); }
+
+  /* Reuse the industrial-fasteners visual system with an sf- prefix */
+
+  /* ── HERO ──────────────────────────────────────────────── */
+  .sf-hero { padding: 80px 40px 0; background: linear-gradient(180deg, var(--bg) 0%, var(--bg-alt) 100%); overflow: hidden; }
+  .sf-hero-inner { max-width: 1440px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1.05fr; gap: 80px; align-items: center; min-height: 720px; }
+  .sf-hero-text { padding: 40px 0; }
+  .sf-breadcrumb { font-size: 13px; color: var(--mid); margin-bottom: 24px; }
+  .sf-breadcrumb a { color: var(--mid); text-decoration: none; }
+  .sf-breadcrumb a:hover { color: var(--ink); }
+  .sf-breadcrumb span { margin: 0 8px; color: var(--rule); }
+  .sf-eyebrow { font-size: 15px; font-weight: 500; color: var(--blue-dark); margin-bottom: 20px; display: inline-flex; align-items: center; gap: 10px; }
+  .sf-eyebrow::before { content: ''; width: 20px; height: 1px; background: var(--blue-dark); }
+  .sf-hero h1 { font-size: clamp(56px, 6.5vw, 104px); font-weight: 600; line-height: 0.98; letter-spacing: -0.04em; color: var(--ink); margin-bottom: 24px; }
+  .sf-hero h1 i { color: var(--blue-dark); }
+  .sf-hero-sub { font-size: 22px; color: var(--ink-soft); line-height: 1.35; max-width: 580px; margin-bottom: 36px; letter-spacing: -0.015em; }
+  .sf-hero-ctas { display: flex; gap: 20px; align-items: center; margin-bottom: 48px; flex-wrap: wrap; }
+  .sf-hero-stats { display: grid; grid-template-columns: repeat(4, 1fr); max-width: 640px; padding-top: 28px; border-top: 1px solid var(--rule-soft); }
+  .sf-hero-stat-val { font-size: 28px; font-weight: 600; letter-spacing: -0.02em; line-height: 1; margin-bottom: 6px; }
+  .sf-hero-stat-label { font-size: 11px; color: var(--mid); letter-spacing: 0.02em; text-transform: uppercase; line-height: 1.3; }
+
+  .sf-hero-image { background: #E8E6E1; border-radius: 24px 0 0 0; min-height: 720px; margin-right: calc((100vw - 1440px) / -2); display: flex; align-items: center; justify-content: center; overflow: hidden; position: relative; }
+  @media (max-width: 1480px) { .sf-hero-image { margin-right: -40px; } }
+  .sf-hero-image img { width: 110%; height: auto; max-height: 95%; object-fit: contain; filter: drop-shadow(0 30px 50px rgba(0,0,0,0.2)); }
+  .sf-hero-image-tag { position: absolute; top: 24px; left: 24px; background: rgba(255,255,255,0.92); backdrop-filter: blur(8px); padding: 8px 14px; border-radius: 100px; font-size: 11px; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; color: var(--ink); }
+
+  /* ── TRUST BAR MARQUEE ─────────────────────────────────── */
+  .sf-trustbar { background: var(--white); padding: 26px 0; overflow: hidden; border-top: 1px solid var(--rule-soft); border-bottom: 1px solid var(--rule-soft); }
+  .sf-trustbar-track { display: flex; width: max-content; animation: sf-trust-scroll 45s linear infinite; }
+  .sf-trustbar:hover .sf-trustbar-track { animation-play-state: paused; }
+  .sf-trust-item { display: flex; align-items: center; gap: 14px; padding: 0 48px; border-right: 1px solid var(--rule-soft); flex-shrink: 0; }
+  .sf-trust-item svg { width: 26px; height: 26px; stroke: var(--blue-dark); fill: none; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; flex-shrink: 0; }
+  .sf-trust-item span { font-weight: 600; font-size: 15px; color: var(--ink); letter-spacing: -0.005em; white-space: nowrap; }
+  @keyframes sf-trust-scroll { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+
+  /* ── POSITIONING ───────────────────────────────────────── */
+  .sf-intro { padding: 112px 40px; border-bottom: 1px solid var(--rule-soft); }
+  .sf-intro-inner { max-width: 1240px; margin: 0 auto; display: grid; grid-template-columns: 1.15fr 1fr; gap: 80px; align-items: start; }
+  .sf-intro-lead h2 { font-size: clamp(36px, 3.8vw, 56px); font-weight: 600; line-height: 1.05; letter-spacing: -0.03em; margin-bottom: 20px; }
+  .sf-intro-lead h2 i { color: var(--blue-dark); }
+  .sf-intro-body p { font-size: 18px; color: var(--ink-soft); line-height: 1.55; letter-spacing: -0.005em; margin-bottom: 18px; max-width: 560px; }
+  .sf-intro-body p em { font-style: normal; color: var(--mid); font-size: 15px; display: block; margin-top: 8px; }
+
+  /* ── PRODUCT GRID ──────────────────────────────────────── */
+  .sf-products { background: var(--bg-alt); padding: 120px 40px; }
+  .sf-products-header { max-width: 1200px; margin: 0 auto 56px; }
+  .sf-products-header .eyebrow { font-size: 14px; color: var(--blue-dark); font-weight: 500; margin-bottom: 14px; }
+  .sf-products-header h2 { font-size: clamp(40px, 4.5vw, 64px); font-weight: 600; letter-spacing: -0.03em; line-height: 1.05; max-width: 820px; margin-bottom: 16px; }
+  .sf-products-header h2 i { color: var(--blue-dark); }
+  .sf-products-header p { font-size: 19px; color: var(--ink-soft); max-width: 640px; line-height: 1.4; letter-spacing: -0.01em; }
+
+  .sf-products-grid { max-width: 1280px; margin: 0 auto; display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+  .sf-product-card { background: var(--bg); border-radius: 24px; overflow: hidden; display: flex; flex-direction: column; transition: transform 0.3s ease; }
+  .sf-product-card:hover { transform: translateY(-4px); }
+  .sf-product-photo { background: #E8E6E1; aspect-ratio: 4 / 3; position: relative; overflow: hidden; display: flex; align-items: center; justify-content: center; }
+  .sf-product-photo img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+  .sf-product-photo .pnum { position: absolute; top: 18px; left: 18px; font-family: "SF Mono", ui-monospace, monospace; font-size: 11px; color: var(--mid); letter-spacing: 0.04em; z-index: 2; }
+  .sf-product-photo .sf-ph-placeholder { width: 100%; height: 100%; background: repeating-linear-gradient(45deg, rgba(0,0,0,0.02), rgba(0,0,0,0.02) 10px, rgba(0,0,0,0.055) 10px, rgba(0,0,0,0.055) 20px); display: flex; align-items: center; justify-content: center; color: var(--mid); font-family: "SF Mono", ui-monospace, monospace; font-size: 11px; letter-spacing: 0.04em; text-transform: uppercase; text-align: center; padding: 0 24px; }
+  .sf-product-body { padding: 26px 28px 30px; display: flex; flex-direction: column; flex: 1; }
+  .sf-product-body h3 { font-size: 22px; font-weight: 600; letter-spacing: -0.02em; line-height: 1.15; margin-bottom: 8px; }
+  .sf-product-body p { font-size: 14px; color: var(--ink-soft); line-height: 1.5; letter-spacing: -0.005em; margin-bottom: 18px; }
+  .sf-product-meta { margin-top: auto; padding-top: 14px; border-top: 1px solid var(--rule-soft); font-size: 12px; color: var(--mid); letter-spacing: -0.005em; line-height: 1.45; }
+  .sf-product-meta b { color: var(--ink); font-weight: 500; }
+
+  /* ── GRADES — grouped by family ────────────────────────── */
+  .sf-grades { padding: 120px 40px; }
+  .sf-grades-inner { max-width: 1240px; margin: 0 auto; }
+  .sf-grades-header { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: end; margin-bottom: 64px; }
+  .sf-grades-header h2 { font-size: clamp(36px, 4vw, 56px); font-weight: 600; letter-spacing: -0.03em; line-height: 1.05; }
+  .sf-grades-header h2 i { color: var(--blue-dark); }
+  .sf-grades-header p { font-size: 17px; color: var(--ink-soft); line-height: 1.5; max-width: 460px; }
+
+  .sf-family { padding: 48px 0; border-top: 1px solid var(--rule-soft); display: grid; grid-template-columns: 280px 1fr; gap: 64px; align-items: start; }
+  .sf-family:last-child { border-bottom: 1px solid var(--rule-soft); }
+  .sf-family-label { position: sticky; top: 80px; }
+  .sf-family-label .num { font-family: "SF Mono", ui-monospace, monospace; font-size: 11px; color: var(--blue-dark); letter-spacing: 0.06em; text-transform: uppercase; margin-bottom: 10px; }
+  .sf-family-label h3 { font-size: 26px; font-weight: 600; letter-spacing: -0.02em; line-height: 1.1; margin-bottom: 12px; }
+  .sf-family-label p { font-size: 14px; color: var(--mid); line-height: 1.5; }
+  .sf-family-cards { display: grid; gap: 14px; }
+  .sf-spec-card { background: var(--bg-alt); border-radius: 18px; padding: 28px 32px; display: grid; grid-template-columns: 180px 1fr; gap: 36px; align-items: start; }
+  .sf-spec-tag { font-family: "SF Mono", ui-monospace, monospace; font-size: 12px; color: var(--blue-dark); letter-spacing: 0.04em; }
+  .sf-spec-tag .name { font-size: 18px; font-weight: 600; color: var(--ink); letter-spacing: -0.01em; display: block; font-family: "SF Pro Display", -apple-system, sans-serif; margin-top: 4px; margin-bottom: 8px; }
+  .sf-spec-grades { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 4px; padding: 0; }
+  .sf-spec-grades li { list-style: none; padding: 4px 10px; background: var(--bg); border-radius: 100px; font-size: 11px; font-weight: 500; color: var(--ink); letter-spacing: 0.01em; }
+  .sf-spec-body p { font-size: 15px; color: var(--ink-soft); line-height: 1.55; letter-spacing: -0.005em; }
+
+  /* ── JOINT-TYPE EXPLAINER — distinct from industrial page ─ */
+  .sf-joint { padding: 0; background: var(--ink); color: var(--dark-text); overflow: hidden; }
+  .sf-joint-inner { max-width: 1440px; margin: 0 auto; padding: 112px 40px; }
+  .sf-joint-header { max-width: 760px; margin-bottom: 64px; }
+  .sf-joint-header .eyebrow { font-size: 13px; color: var(--blue); font-weight: 500; margin-bottom: 14px; letter-spacing: 0.04em; text-transform: uppercase; }
+  .sf-joint-header h2 { font-size: clamp(40px, 4.5vw, 64px); font-weight: 600; letter-spacing: -0.03em; line-height: 1.02; margin-bottom: 18px; }
+  .sf-joint-header h2 i { color: var(--blue); }
+  .sf-joint-header p { font-size: 18px; color: var(--dark-mid); line-height: 1.5; }
+  .sf-joint-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+  .sf-joint-card { background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.08); border-radius: 18px; padding: 32px 32px 36px; display: flex; flex-direction: column; }
+  .sf-joint-card .num { font-family: "SF Mono", ui-monospace, monospace; font-size: 11px; color: var(--blue); letter-spacing: 0.06em; margin-bottom: 28px; }
+  .sf-joint-card h3 { font-size: 22px; font-weight: 600; letter-spacing: -0.02em; line-height: 1.15; margin-bottom: 12px; color: var(--white); }
+  .sf-joint-card p { font-size: 14px; color: var(--dark-mid); line-height: 1.55; letter-spacing: -0.005em; margin-bottom: 18px; }
+  .sf-joint-card .tag { font-family: "SF Mono", ui-monospace, monospace; font-size: 11px; color: var(--blue); letter-spacing: 0.04em; padding-top: 16px; border-top: 1px solid rgba(255,255,255,0.08); margin-top: auto; }
+
+  /* ── COATINGS / FINISHES ──────────────────────────────── */
+  .sf-coatings { padding: 120px 40px; background: var(--bg-alt); }
+  .sf-coatings-inner { max-width: 1240px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1.3fr; gap: 80px; align-items: start; }
+  .sf-coatings-text .eyebrow { font-size: 14px; color: var(--blue-dark); font-weight: 500; margin-bottom: 14px; }
+  .sf-coatings-text h2 { font-size: clamp(36px, 4vw, 56px); font-weight: 600; letter-spacing: -0.03em; line-height: 1.05; margin-bottom: 18px; }
+  .sf-coatings-text h2 i { color: var(--blue-dark); }
+  .sf-coatings-text p { font-size: 17px; color: var(--ink-soft); line-height: 1.55; max-width: 440px; margin-bottom: 28px; }
+  .sf-coatings-list { list-style: none; padding: 0; margin: 0; display: grid; gap: 0; }
+  .sf-coatings-list li { padding: 22px 0; border-top: 1px solid var(--rule-soft); display: grid; grid-template-columns: 200px 1fr; gap: 32px; align-items: baseline; }
+  .sf-coatings-list li:last-child { border-bottom: 1px solid var(--rule-soft); }
+  .sf-coatings-list b { color: var(--ink); font-size: 16px; font-weight: 600; letter-spacing: -0.01em; }
+  .sf-coatings-list b small { display: block; font-family: "SF Mono", ui-monospace, monospace; font-size: 11px; color: var(--blue-dark); font-weight: 500; letter-spacing: 0.04em; margin-top: 4px; text-transform: uppercase; }
+  .sf-coatings-list span { font-size: 14px; color: var(--ink-soft); line-height: 1.5; letter-spacing: -0.005em; }
+
+  /* ── RCSC / INSTALLATION ──────────────────────────────── */
+  .sf-rcsc { padding: 120px 40px; }
+  .sf-rcsc-inner { max-width: 1240px; margin: 0 auto; }
+  .sf-rcsc-header { max-width: 820px; margin-bottom: 56px; }
+  .sf-rcsc-header .eyebrow { font-size: 14px; color: var(--blue-dark); font-weight: 500; margin-bottom: 14px; }
+  .sf-rcsc-header h2 { font-size: clamp(36px, 4vw, 56px); font-weight: 600; letter-spacing: -0.03em; line-height: 1.05; margin-bottom: 16px; }
+  .sf-rcsc-header h2 i { color: var(--blue-dark); }
+  .sf-rcsc-header p { font-size: 18px; color: var(--ink-soft); line-height: 1.5; max-width: 680px; }
+  .sf-rcsc-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; }
+  .sf-rcsc-card { background: var(--bg-alt); border-radius: 18px; padding: 28px 28px 32px; display: flex; flex-direction: column; min-height: 240px; }
+  .sf-rcsc-card .num { font-family: "SF Mono", ui-monospace, monospace; font-size: 11px; color: var(--blue-dark); letter-spacing: 0.06em; margin-bottom: 32px; }
+  .sf-rcsc-card h4 { font-size: 17px; font-weight: 600; letter-spacing: -0.015em; line-height: 1.2; margin-bottom: 10px; }
+  .sf-rcsc-card p { font-size: 13px; color: var(--ink-soft); line-height: 1.5; letter-spacing: -0.005em; }
+
+  /* ── TRACEABILITY ──────────────────────────────────────── */
+  .sf-trace { padding: 120px 40px; background: var(--bg-alt); }
+  .sf-trace-inner { max-width: 1240px; margin: 0 auto; }
+  .sf-trace-header { max-width: 820px; margin-bottom: 56px; }
+  .sf-trace-header .eyebrow { font-size: 14px; color: var(--blue-dark); font-weight: 500; margin-bottom: 14px; }
+  .sf-trace-header h2 { font-size: clamp(36px, 4vw, 56px); font-weight: 600; letter-spacing: -0.03em; line-height: 1.05; margin-bottom: 16px; }
+  .sf-trace-header h2 i { color: var(--blue-dark); }
+  .sf-trace-header p { font-size: 18px; color: var(--ink-soft); line-height: 1.5; max-width: 680px; }
+  .sf-trace-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; }
+  .sf-trace-card { background: var(--bg); border-radius: 18px; padding: 28px 24px 32px; display: flex; flex-direction: column; min-height: 220px; }
+  .sf-trace-card .num { font-family: "SF Mono", ui-monospace, monospace; font-size: 11px; color: var(--blue-dark); letter-spacing: 0.06em; margin-bottom: 32px; }
+  .sf-trace-card h4 { font-size: 17px; font-weight: 600; letter-spacing: -0.015em; line-height: 1.2; margin-bottom: 10px; }
+  .sf-trace-card p { font-size: 13px; color: var(--ink-soft); line-height: 1.45; letter-spacing: -0.005em; }
+
+  /* ── CROSS-LINKS ───────────────────────────────────────── */
+  .sf-cross { padding: 112px 40px; }
+  .sf-cross-inner { max-width: 1240px; margin: 0 auto; }
+  .sf-cross-header { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: end; margin-bottom: 48px; }
+  .sf-cross-header h2 { font-size: clamp(32px, 3.6vw, 48px); font-weight: 600; letter-spacing: -0.03em; line-height: 1.05; max-width: 500px; }
+  .sf-cross-header h2 i { color: var(--blue-dark); }
+  .sf-cross-header p { font-size: 16px; color: var(--ink-soft); line-height: 1.5; max-width: 460px; }
+  .sf-cross-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
+  .sf-cross-card { background: var(--bg-alt); border-radius: 18px; padding: 28px 30px 30px; display: flex; flex-direction: column; text-decoration: none; color: inherit; transition: transform 0.25s ease, box-shadow 0.25s ease; border: 1px solid transparent; }
+  .sf-cross-card:hover { transform: translateY(-3px); box-shadow: 0 12px 28px rgba(0,0,0,0.06); border-color: var(--rule-soft); }
+  .sf-cross-card .question { font-size: 12px; color: var(--mid); letter-spacing: -0.005em; margin-bottom: 8px; line-height: 1.4; }
+  .sf-cross-card h4 { font-size: 19px; font-weight: 600; letter-spacing: -0.015em; margin-bottom: 6px; color: var(--ink); display: flex; align-items: center; justify-content: space-between; gap: 12px; }
+  .sf-cross-card h4::after { content: '→'; color: var(--blue-dark); font-weight: 400; transition: transform 0.2s ease; }
+  .sf-cross-card:hover h4::after { transform: translateX(3px); }
+  .sf-cross-card .spec { font-family: "SF Mono", ui-monospace, monospace; font-size: 11px; color: var(--mid); letter-spacing: 0.04em; }
+
+  /* ── QUOTE FORM ────────────────────────────────────────── */
+  .sf-quote { padding: 120px 40px; background: var(--bg-alt); }
+  .sf-quote-inner { max-width: 1100px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1.1fr; gap: 80px; align-items: start; }
+  .sf-quote-text .eyebrow { font-size: 14px; color: var(--blue-dark); font-weight: 500; margin-bottom: 14px; }
+  .sf-quote-text h2 { font-size: clamp(36px, 4vw, 56px); font-weight: 600; letter-spacing: -0.03em; line-height: 1.05; margin-bottom: 18px; }
+  .sf-quote-text h2 i { color: var(--blue-dark); }
+  .sf-quote-text p { font-size: 17px; color: var(--ink-soft); line-height: 1.55; max-width: 420px; margin-bottom: 28px; }
+  .sf-quote-contact { padding-top: 20px; border-top: 1px solid var(--rule-soft); font-size: 13px; color: var(--mid); line-height: 1.8; }
+  .sf-quote-contact b { display: block; color: var(--ink); font-weight: 500; font-size: 14px; margin-top: 4px; }
+  .sf-quote-form { background: var(--bg); border-radius: 24px; padding: 36px 40px 40px; }
+  .sf-form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-bottom: 14px; }
+  .sf-form-field { display: flex; flex-direction: column; }
+  .sf-form-field--full { grid-column: 1 / -1; }
+  .sf-form-field label { font-size: 11px; font-weight: 500; color: var(--mid); letter-spacing: 0.04em; text-transform: uppercase; margin-bottom: 6px; }
+  .sf-form-field input, .sf-form-field textarea { background: var(--bg-alt); border: 1px solid var(--rule-soft); border-radius: 10px; padding: 12px 14px; font-family: inherit; font-size: 15px; color: var(--ink); letter-spacing: -0.005em; transition: border-color 0.15s; }
+  .sf-form-field input:focus, .sf-form-field textarea:focus { outline: none; border-color: var(--blue-dark); }
+  .sf-form-field textarea { resize: vertical; min-height: 120px; line-height: 1.5; }
+  .sf-form-submit { margin-top: 10px; }
+
+  /* ── CTA BAND ──────────────────────────────────────────── */
+  .sf-cta { padding: 112px 40px; background: var(--dark-1); color: var(--dark-text); position: relative; overflow: hidden; }
+  .sf-cta::before { content: ''; position: absolute; inset: 0; background: radial-gradient(ellipse 60% 50% at 30% 50%, rgba(56,182,255,0.12), transparent 70%), radial-gradient(ellipse 50% 40% at 80% 100%, rgba(140,82,255,0.10), transparent 70%); pointer-events: none; }
+  .sf-cta-inner { max-width: 1040px; margin: 0 auto; text-align: center; position: relative; z-index: 1; }
+  .sf-cta-eyebrow { font-size: 14px; color: var(--blue); font-weight: 500; margin-bottom: 16px; }
+  .sf-cta h2 { font-size: clamp(44px, 5.5vw, 80px); font-weight: 600; letter-spacing: -0.035em; line-height: 1.02; margin-bottom: 22px; }
+  .sf-cta h2 i { color: var(--blue); }
+  .sf-cta > .sf-cta-inner > p { font-size: 20px; color: var(--dark-mid); max-width: 620px; margin: 0 auto 32px; line-height: 1.4; }
+  .sf-cta-ctas { display: flex; gap: 18px; justify-content: center; flex-wrap: wrap; }
+
+  /* ── RESPONSIVE ────────────────────────────────────────── */
+  @media (max-width: 1200px) {
+    .sf-products-grid { grid-template-columns: repeat(2, 1fr); }
+    .sf-rcsc-grid, .sf-trace-grid { grid-template-columns: repeat(2, 1fr); }
+    .sf-cross-grid, .sf-joint-grid { grid-template-columns: repeat(2, 1fr); }
+    .sf-family { grid-template-columns: 1fr; gap: 28px; }
+    .sf-family-label { position: static; }
+    .sf-spec-card { grid-template-columns: 1fr; gap: 14px; }
+  }
+  @media (max-width: 1000px) {
+    .sf-hero-inner, .sf-intro-inner, .sf-grades-header, .sf-coatings-inner, .sf-cross-header, .sf-quote-inner { grid-template-columns: 1fr; gap: 40px; }
+    .sf-hero-image { margin-right: 0; border-radius: 24px; min-height: 480px; }
+    .sf-products-grid, .sf-rcsc-grid, .sf-trace-grid, .sf-cross-grid, .sf-joint-grid { grid-template-columns: 1fr; }
+    .sf-coatings-list li { grid-template-columns: 1fr; gap: 6px; }
+    .sf-form-row { grid-template-columns: 1fr; }
+  }
+  @media (max-width: 680px) {
+    .sf-trust-item { padding: 0 32px; }
+    .sf-trust-item span { font-size: 13px; }
+    .sf-trust-item svg { width: 22px; height: 22px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="cf-nav">
+  <a href="homepage.html" class="cf-nav-logo"><span class="cf-nav-logo-mark"></span>California Fastener</a>
+  <ul class="cf-nav-center">
+    <li class="has-menu">
+      <button aria-haspopup="true">Products</button>
+      <div class="cf-nav-menu cf-nav-menu--mega" role="menu">
+        <div class="cf-nav-menu-label">Fasteners</div>
+        <a href="anchor-bolts.html" role="menuitem">Anchor Bolts<span class="cf-nav-menu-sub">F1554, A193, F593 · headed, bent, rod assemblies</span></a>
+        <a href="#" role="menuitem">Stud Bolts &amp; Threaded Rod<span class="cf-nav-menu-sub">B7, B8, B16 · cut to length</span></a>
+        <a href="structural-fasteners.html" role="menuitem">Structural Fasteners<span class="cf-nav-menu-sub">A325, A490, TC bolts</span></a>
+        <a href="industrial-fasteners.html" role="menuitem">Industrial Fasteners<span class="cf-nav-menu-sub">Hex, socket, flange, grade 5 / 8</span></a>
+        <a href="#" role="menuitem">U-Bolts<span class="cf-nav-menu-sub">Standard &amp; custom profiles</span></a>
+        <a href="stainless-steel-fasteners.html" role="menuitem">Stainless Steel Fasteners<span class="cf-nav-menu-sub">304, 316, duplex</span></a>
+        <a href="silicon-bronze.html" role="menuitem">Silicon Bronze Hardware<span class="cf-nav-menu-sub">Marine &amp; architectural</span></a>
+        <a href="hollo-bolt.html" role="menuitem">Specialty &amp; Lindapter<span class="cf-nav-menu-sub">Hollo-Bolt, Girder clamps, blind bolts</span></a>
+        <div class="cf-nav-menu-footer">
+          <a href="#">View all products →</a>
+          <a href="quote-flow.html">Request a quote →</a>
+        </div>
+      </div>
+    </li>
+    <li class="has-menu">
+      <button aria-haspopup="true">Industries</button>
+      <div class="cf-nav-menu" role="menu">
+        <a href="industries-construction.html" role="menuitem">Construction</a>
+        <a href="industries-manufacturing.html" role="menuitem">Industrial Machinery</a>
+        <a href="industries-infrastructure.html" role="menuitem">Infrastructure</a>
+        <a href="industries-power-generation.html" role="menuitem">Renewable Energy</a>
+        <a href="industries-power-transmission.html" role="menuitem">Power &amp; Utilities</a>
+        <a href="industries-oil-gas.html" role="menuitem">Oil, Gas &amp; Petrochemical</a>
+        <a href="#" role="menuitem">Marine &amp; Shipbuilding</a>
+        <a href="#" role="menuitem">Aerospace &amp; Defense</a>
+      </div>
+    </li>
+    <li><a href="cnc-landing.html">CNC Machining</a></li>
+    <li class="has-menu">
+      <button aria-haspopup="true">Resources</button>
+      <div class="cf-nav-menu" role="menu">
+        <div class="cf-nav-menu-label">Technical</div>
+        <a href="spec-library.html" role="menuitem">Specification Library<span class="cf-nav-menu-sub">ASTM, SAE, ISO standards</span></a>
+        <a href="spec-builder.html" role="menuitem">Spec Builder<span class="cf-nav-menu-sub">Find the right material &amp; grade</span></a>
+        <a href="#" role="menuitem">Product Catalog (PDF)</a>
+        <div class="cf-nav-menu-divider"></div>
+        <div class="cf-nav-menu-label">Tools</div>
+        <a href="quote-flow.html" role="menuitem">Request a Quote</a>
+        <a href="#" role="menuitem">Contact Engineering</a>
+      </div>
+    </li>
+    <li><a href="#">About</a></li>
+    <li><a href="blog.html">Blog</a></li>
+  </ul>
+  <div class="cf-nav-right">
+    <a href="quote-flow.html" class="cf-nav-quote">Get a Quote</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="sf-hero" data-screen-label="01 Hero">
+  <div class="sf-hero-inner">
+    <div class="sf-hero-text">
+      <div class="sf-breadcrumb"><a href="homepage.html">Home</a><span>/</span><a href="#">Products</a><span>/</span>Structural Fasteners</div>
+      <div class="sf-eyebrow">Structural Fasteners</div>
+      <h1>Bolts that hold up<br>the <i>steel.</i></h1>
+      <p class="sf-hero-sub">High-strength structural bolts, nuts, washers, and anchor rod for steel-frame buildings, bridges, and heavy infrastructure. F3125 (A325 / A490), TC bolts, F1554 — galvanized or plain, full RCSC documentation.</p>
+      <div class="sf-hero-ctas">
+        <a href="quote-flow.html" class="cf-pill cf-pill--blue">Request a Quote</a>
+        <a href="#products" class="cf-link">View products ↓</a>
+      </div>
+      <div class="sf-hero-stats">
+        <div><div class="sf-hero-stat-val">F3125</div><div class="sf-hero-stat-label">A325 / A490 / F1852 / F2280</div></div>
+        <div><div class="sf-hero-stat-val">F1554</div><div class="sf-hero-stat-label">Gr 36 / 55 / 105</div></div>
+        <div><div class="sf-hero-stat-val">A563</div><div class="sf-hero-stat-label">Gr DH heavy hex</div></div>
+        <div><div class="sf-hero-stat-val">RCSC</div><div class="sf-hero-stat-label">Tested assemblies</div></div>
+      </div>
+    </div>
+    <div class="sf-hero-image">
+      <div class="sf-hero-image-tag">F3125 Gr A325 · Type 1 · Hot-dip galvanized</div>
+      <img src="assets/product-structural.png" alt="Structural heavy hex bolt with hardened washer and heavy hex nut" />
+    </div>
+  </div>
+</section>
+
+<!-- TRUST BAR -->
+<div class="sf-trustbar" aria-hidden="true" data-screen-label="02 Trust bar">
+  <div class="sf-trustbar-track">
+    <div class="sf-trust-item"><svg viewBox="0 0 24 24"><path d="M13 2 3 14h9l-1 8 10-12h-9l1-8z"/></svg><span>Fast Quotes</span></div>
+    <div class="sf-trust-item"><svg viewBox="0 0 24 24"><rect x="8" y="2" width="8" height="4" rx="1" ry="1"/><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"/><path d="m9 14 2 2 4-4"/></svg><span>RCSC Tested</span></div>
+    <div class="sf-trust-item"><svg viewBox="0 0 24 24"><path d="M3 6h18M7 12h10M10 18h4"/></svg><span>Hot-Dip Galv.</span></div>
+    <div class="sf-trust-item"><svg viewBox="0 0 24 24"><path d="M14 18V6a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2v11a1 1 0 0 0 1 1h2"/><path d="M15 18H9"/><path d="M19 18h2a1 1 0 0 0 1-1v-3.65a1 1 0 0 0-.22-.624l-3.48-4.35A1 1 0 0 0 17.52 8H14"/><circle cx="17" cy="18" r="2"/><circle cx="7" cy="18" r="2"/></svg><span>Same Day Shipping</span></div>
+    <div class="sf-trust-item"><svg viewBox="0 0 24 24"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg><span>Bolt Specialists</span></div>
+    <div class="sf-trust-item"><svg viewBox="0 0 24 24"><path d="M12 2 2 7l10 5 10-5-10-5z"/><path d="m2 17 10 5 10-5"/><path d="m2 12 10 5 10-5"/></svg><span>Bolt + Nut + Washer Kits</span></div>
+    <!-- duplicate for seamless loop -->
+    <div class="sf-trust-item"><svg viewBox="0 0 24 24"><path d="M13 2 3 14h9l-1 8 10-12h-9l1-8z"/></svg><span>Fast Quotes</span></div>
+    <div class="sf-trust-item"><svg viewBox="0 0 24 24"><rect x="8" y="2" width="8" height="4" rx="1" ry="1"/><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"/><path d="m9 14 2 2 4-4"/></svg><span>RCSC Tested</span></div>
+    <div class="sf-trust-item"><svg viewBox="0 0 24 24"><path d="M3 6h18M7 12h10M10 18h4"/></svg><span>Hot-Dip Galv.</span></div>
+    <div class="sf-trust-item"><svg viewBox="0 0 24 24"><path d="M14 18V6a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2v11a1 1 0 0 0 1 1h2"/><path d="M15 18H9"/><path d="M19 18h2a1 1 0 0 0 1-1v-3.65a1 1 0 0 0-.22-.624l-3.48-4.35A1 1 0 0 0 17.52 8H14"/><circle cx="17" cy="18" r="2"/><circle cx="7" cy="18" r="2"/></svg><span>Same Day Shipping</span></div>
+    <div class="sf-trust-item"><svg viewBox="0 0 24 24"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg><span>Bolt Specialists</span></div>
+    <div class="sf-trust-item"><svg viewBox="0 0 24 24"><path d="M12 2 2 7l10 5 10-5-10-5z"/><path d="m2 17 10 5 10-5"/><path d="m2 12 10 5 10-5"/></svg><span>Bolt + Nut + Washer Kits</span></div>
+  </div>
+</div>
+
+<!-- POSITIONING -->
+<section class="sf-intro" data-screen-label="03 Positioning">
+  <div class="sf-intro-inner">
+    <div class="sf-intro-lead">
+      <h2>The bolts that connect<br>steel to <i>steel.</i></h2>
+    </div>
+    <div class="sf-intro-body">
+      <p>Structural Fasteners is the family of high-strength bolts, heavy hex nuts, hardened washers, and anchor rod that show up on bolted steel connections — beam-to-column, splice plates, base plates, bridge girders, moment frames, and braces.</p>
+      <p>Spec'd through the F3125 umbrella standard (which now consolidates A325, A490, F1852, and F2280), and detailed at the joint level by the RCSC's Specification for Structural Joints. Stocked in plain, mechanically galvanized, and hot-dip galvanized — assembled and tested as bolt / nut / washer kits.
+        <em>Looking for foundation anchors, stud bolts, or general industrial hex? See cross-links at the bottom.</em>
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- PRODUCTS -->
+<section class="sf-products" id="products" data-screen-label="04 Products">
+  <div class="sf-products-header">
+    <div class="eyebrow">What we stock</div>
+    <h2>Six product families.<br><i>One supplier.</i></h2>
+    <p>The full bolted joint — bolts, nuts, washers, and anchor rod — stocked deep and shipped together as tested assemblies.</p>
+  </div>
+  <div class="sf-products-grid">
+
+    <div class="sf-product-card">
+      <div class="sf-product-photo">
+        <span class="pnum">01 / Heavy hex structural</span>
+        <img src="assets/if-stamp-105.webp" alt="Heavy hex structural bolt head stamped CA 105">
+      </div>
+      <div class="sf-product-body">
+        <h3>Heavy hex structural bolts</h3>
+        <p>The workhorse structural bolt — short, fully-threaded heavy hex pattern for steel-to-steel connections. Plain or galvanized.</p>
+        <div class="sf-product-meta"><b>F3125 Gr A325 · A490</b> · Type 1 / Type 3</div>
+      </div>
+    </div>
+
+    <div class="sf-product-card">
+      <div class="sf-product-photo">
+        <span class="pnum">02 / TC bolt</span>
+        <div class="sf-ph-placeholder">Product shot<br>Tension-control bolt assembly</div>
+      </div>
+      <div class="sf-product-body">
+        <h3>Tension-control (TC) bolts</h3>
+        <p>Splined-end bolts that snap off at proper pretension. Faster, more consistent installation on slip-critical joints. Pre-assembled with nut and washer.</p>
+        <div class="sf-product-meta"><b>F3125 Gr F1852 · F2280</b> · 120 / 150 ksi</div>
+      </div>
+    </div>
+
+    <div class="sf-product-card">
+      <div class="sf-product-photo">
+        <span class="pnum">03 / Heavy hex nut</span>
+        <img src="assets/if-stamp-105.webp" alt="Heavy hex nut stamped CA 105 — A563 DH">
+      </div>
+      <div class="sf-product-body">
+        <h3>Heavy hex nuts</h3>
+        <p>A563 Grade DH heavy hex matched to A325 and A490 structural bolts. Coatings matched to bolt — galv on galv, plain on plain.</p>
+        <div class="sf-product-meta"><b>ASTM A563</b> · Grade DH · DH3</div>
+      </div>
+    </div>
+
+    <div class="sf-product-card">
+      <div class="sf-product-photo">
+        <span class="pnum">04 / F436 washer</span>
+        <div class="sf-ph-placeholder">Product shot<br>F436 hardened washer</div>
+      </div>
+      <div class="sf-product-body">
+        <h3>Hardened flat washers</h3>
+        <p>Through-hardened structural washers for the bolt head and / or nut side of high-strength joints. Type 1 plain, Type 3 weathering.</p>
+        <div class="sf-product-meta"><b>ASTM F436</b> · Type 1 · Type 3 · circular &amp; clipped</div>
+      </div>
+    </div>
+
+    <div class="sf-product-card">
+      <div class="sf-product-photo">
+        <span class="pnum">05 / DTI washer</span>
+        <div class="sf-ph-placeholder">Product shot<br>F959 DTI / squirter washer</div>
+      </div>
+      <div class="sf-product-body">
+        <h3>Direct-tension indicators</h3>
+        <p>Load-indicating washers (DTIs / "squirters") that compress visibly when the bolt reaches pretension. Inspector-friendly verification.</p>
+        <div class="sf-product-meta"><b>ASTM F959</b> · Type 325 / Type 490 · plain &amp; galvanized</div>
+      </div>
+    </div>
+
+    <div class="sf-product-card">
+      <div class="sf-product-photo">
+        <span class="pnum">06 / Anchor rod</span>
+        <img src="assets/anchor-rods.webp" alt="F1554 anchor rod assemblies">
+      </div>
+      <div class="sf-product-body">
+        <h3>F1554 anchor rod</h3>
+        <p>Headed, bent, and straight anchor rod for column bases and embed plates. Cut to length, with matching nuts and plate washers.</p>
+        <div class="sf-product-meta"><b>ASTM F1554</b> · Gr 36 · 55 · 105 · Wpd / S1</div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- GRADES -->
+<section class="sf-grades" id="grades" data-screen-label="05 Grades">
+  <div class="sf-grades-inner">
+    <div class="sf-grades-header">
+      <h2>Specs and grades,<br>grouped by <i>family.</i></h2>
+      <p>Structural connections are governed by F3125 for the bolts themselves and the RCSC Specification for the joint. Below is how we organize the specs we work in most often — if your detail calls something we haven't listed, ask.</p>
+    </div>
+
+    <!-- F3125 / High-strength bolts -->
+    <div class="sf-family">
+      <div class="sf-family-label">
+        <div class="num">Family 01</div>
+        <h3>High-strength structural bolts</h3>
+        <p>The F3125 umbrella consolidates the four legacy structural bolt standards. Same product names you've always used — A325, A490, F1852, F2280 — now grades within F3125.</p>
+      </div>
+      <div class="sf-family-cards">
+        <div class="sf-spec-card">
+          <div class="sf-spec-tag">F3125<span class="name">Grade A325</span>
+            <ul class="sf-spec-grades"><li>Type 1</li><li>Type 3</li><li>120 ksi</li></ul>
+          </div>
+          <div class="sf-spec-body">
+            <p>Medium-carbon, quenched and tempered heavy hex structural bolt — 120 ksi tensile up through 1″, 105 ksi above. Type 1 is plain or galvanized; Type 3 is weathering steel for unpainted exposed connections (think bridges, parking decks).</p>
+          </div>
+        </div>
+        <div class="sf-spec-card">
+          <div class="sf-spec-tag">F3125<span class="name">Grade A490</span>
+            <ul class="sf-spec-grades"><li>Type 1</li><li>Type 3</li><li>150 ksi</li></ul>
+          </div>
+          <div class="sf-spec-body">
+            <p>Alloy steel, quenched and tempered — 150 ksi tensile. Used where geometry or capacity calls for the higher-strength fastener. A490 must not be hot-dip galvanized; if you need a corrosion-resistant 150 ksi assembly, talk to us about alternatives.</p>
+          </div>
+        </div>
+        <div class="sf-spec-card">
+          <div class="sf-spec-tag">F3125<span class="name">Grade F1852 · F2280</span>
+            <ul class="sf-spec-grades"><li>TC bolt</li><li>120 ksi</li><li>150 ksi</li></ul>
+          </div>
+          <div class="sf-spec-body">
+            <p>Tension-control (TC / twist-off) bolts — A325 equivalent at F1852 (120 ksi), A490 equivalent at F2280 (150 ksi). Splined end snaps off at proper pretension. Shipped pre-assembled with nut and washer; lubricant pre-applied.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Anchor rod -->
+    <div class="sf-family">
+      <div class="sf-family-label">
+        <div class="num">Family 02</div>
+        <h3>Anchor rod</h3>
+        <p>F1554 covers anchor rod for cast-in-place foundations — column bases, equipment skids, embed plates, and signpost foundations.</p>
+      </div>
+      <div class="sf-family-cards">
+        <div class="sf-spec-card">
+          <div class="sf-spec-tag">ASTM F1554<span class="name">Grade 36</span>
+            <ul class="sf-spec-grades"><li>36 ksi</li><li>Mild carbon</li></ul>
+          </div>
+          <div class="sf-spec-body">
+            <p>Mild carbon, weldable anchor rod — the default for low-to-moderate column loads, sign and light pole bases, and most non-seismic building anchorages. Available headed, bent (J / L), or straight with nut and plate washer.</p>
+          </div>
+        </div>
+        <div class="sf-spec-card">
+          <div class="sf-spec-tag">ASTM F1554<span class="name">Grade 55</span>
+            <ul class="sf-spec-grades"><li>55 ksi</li><li>S1 weldable</li></ul>
+          </div>
+          <div class="sf-spec-body">
+            <p>Higher-strength carbon steel anchor rod with controlled chemistry. Spec the supplemental S1 requirement when the rod will be welded — common for tied-in column bases and bridge anchorages.</p>
+          </div>
+        </div>
+        <div class="sf-spec-card">
+          <div class="sf-spec-tag">ASTM F1554<span class="name">Grade 105</span>
+            <ul class="sf-spec-grades"><li>105 ksi</li><li>Q &amp; T alloy</li></ul>
+          </div>
+          <div class="sf-spec-body">
+            <p>Quenched and tempered alloy anchor rod for high-uplift, seismic, and heavy-equipment anchorages. Wpd (weldable) supplement available; verify hydrogen-embrittlement procedures if hot-dip galvanizing.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Nuts & washers -->
+    <div class="sf-family">
+      <div class="sf-family-label">
+        <div class="num">Family 03</div>
+        <h3>Nuts &amp; washers</h3>
+        <p>The companion hardware that the joint won't perform without. We ship matched assemblies — bolt, nut, and washer from compatible heat lots, tagged together.</p>
+      </div>
+      <div class="sf-family-cards">
+        <div class="sf-spec-card">
+          <div class="sf-spec-tag">ASTM A563<span class="name">Grade DH · DH3</span>
+            <ul class="sf-spec-grades"><li>Heavy hex</li><li>Type 1</li><li>Type 3</li></ul>
+          </div>
+          <div class="sf-spec-body">
+            <p>Carbon &amp; alloy heavy hex nut. Grade DH (Type 1) for plain and galvanized A325 / A490; Grade DH3 (Type 3) for weathering steel. Coatings always matched to the bolt.</p>
+          </div>
+        </div>
+        <div class="sf-spec-card">
+          <div class="sf-spec-tag">ASTM F436<span class="name">Hardened washer</span>
+            <ul class="sf-spec-grades"><li>Type 1</li><li>Type 3</li><li>Circular · clipped</li></ul>
+          </div>
+          <div class="sf-spec-body">
+            <p>Through-hardened flat washer used under turned element when geometry calls for one — slotted holes, oversized holes, or A490 assemblies. Clipped pattern available where edge clearance is tight.</p>
+          </div>
+        </div>
+        <div class="sf-spec-card">
+          <div class="sf-spec-tag">ASTM F959<span class="name">DTI washer</span>
+            <ul class="sf-spec-grades"><li>Type 325</li><li>Type 490</li><li>Plain · galv.</li></ul>
+          </div>
+          <div class="sf-spec-body">
+            <p>Direct-tension indicator — load-indicating washer with raised protrusions that compress at proper pretension. Squirter (HRC) variant ejects orange silicone for visual confirmation. Pairs with installer-friendly inspection.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- JOINT TYPES (dark band) -->
+<section class="sf-joint" data-screen-label="06 Joint types">
+  <div class="sf-joint-inner">
+    <div class="sf-joint-header">
+      <div class="eyebrow">RCSC joint classification</div>
+      <h2>Three joint types.<br>Three <i>installation</i> stories.</h2>
+      <p>The RCSC Specification recognizes three joint types — and the right pretension method depends on which one you're detailing. Snug-tight is fine for most bearing joints; pretensioned and slip-critical require verified installation.</p>
+    </div>
+    <div class="sf-joint-grid">
+      <div class="sf-joint-card">
+        <div class="num">Type 01</div>
+        <h3>Snug-tight bearing</h3>
+        <p>The most common joint. Bolts brought to the snug-tight condition — full effort of an ironworker on an ordinary spud wrench, or a few hits of an impact. Adequate for static, non-fatigue, non-A490 conditions.</p>
+        <div class="tag">Most A325 connections</div>
+      </div>
+      <div class="sf-joint-card">
+        <div class="num">Type 02</div>
+        <h3>Pretensioned</h3>
+        <p>Bolt is installed to a verified minimum pretension (~70% of tensile strength). Required for fatigue-loaded connections, dynamic load reversal, A490 in tension applications, and long slip-resistant connections.</p>
+        <div class="tag">Turn-of-nut · DTI · TC bolts · calibrated wrench</div>
+      </div>
+      <div class="sf-joint-card">
+        <div class="num">Type 03</div>
+        <h3>Slip-critical</h3>
+        <p>Same pretension as a pretensioned joint, plus a verified faying-surface condition (Class A, B, or C). Required where slip would be a serviceability or fatigue concern — bridge splices, crane runways, oversized / slotted holes.</p>
+        <div class="tag">Pretension + faying surface class</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- COATINGS -->
+<section class="sf-coatings" data-screen-label="07 Coatings">
+  <div class="sf-coatings-inner">
+    <div class="sf-coatings-text">
+      <div class="eyebrow">Coatings &amp; corrosion</div>
+      <h2>Match the coating<br>to the <i>exposure.</i></h2>
+      <p>Plain bolts inside a heated building. Hot-dip galvanized A325 on the bridge deck. Weathering Type 3 on the unpainted plate girder. Pick the right finish up front — re-coating high-strength bolts in the field isn't a thing.</p>
+      <a href="quote-flow.html" class="cf-pill cf-pill--blue">Talk through finish options</a>
+    </div>
+    <ul class="sf-coatings-list">
+      <li>
+        <b>Plain finish<small>F3125 default</small></b>
+        <span>Uncoated, oil-quenched. Suitable for interior, dry, or painted-over service. Ships with a light protective oil — not a long-term corrosion coating.</span>
+      </li>
+      <li>
+        <b>Hot-dip galvanized<small>F2329 · A325 only</small></b>
+        <span>Thicker zinc layer for severe outdoor exposure. Bolt, nut, and washer all galvanized; nut overtapped. <strong>Not permitted on A490 / F2280</strong> due to hydrogen embrittlement risk.</span>
+      </li>
+      <li>
+        <b>Mechanically galvanized<small>F1136 / B695 Cl. 55</small></b>
+        <span>Zinc applied without thermal cycle — lower embrittlement risk and tighter dimensional control than HDG. An option where HDG isn't preferred.</span>
+      </li>
+      <li>
+        <b>Weathering steel (Type 3)<small>F3125 Type 3</small></b>
+        <span>Atmospheric-corrosion-resistant steel that develops a protective oxide patina. Used on unpainted weathering-steel bridges and architectural exposed connections.</span>
+      </li>
+      <li>
+        <b>Zinc / aluminum flake<small>Geomet · Magni</small></b>
+        <span>Inorganic zinc-rich topcoat applied as a dip-spin. Thin, even, and well-suited to slip-critical joints where coating thickness affects faying-surface class.</span>
+      </li>
+    </ul>
+  </div>
+</section>
+
+<!-- RCSC / INSTALLATION -->
+<section class="sf-rcsc" data-screen-label="08 Installation methods">
+  <div class="sf-rcsc-inner">
+    <div class="sf-rcsc-header">
+      <div class="eyebrow">Pretension verification</div>
+      <h2>Four ways to <i>verify</i><br>pretension.</h2>
+      <p>The RCSC Specification accepts four methods. We can ship the assemblies pre-tested for any of them, with the documentation the inspector will ask for.</p>
+    </div>
+    <div class="sf-rcsc-grid">
+      <div class="sf-rcsc-card">
+        <div class="num">Method 01</div>
+        <h4>Turn-of-nut</h4>
+        <p>Snug-tight, then a prescribed additional rotation (1/3 to 1 full turn depending on bolt length and faying geometry). Field-friendly; no calibration tools needed.</p>
+      </div>
+      <div class="sf-rcsc-card">
+        <div class="num">Method 02</div>
+        <h4>Calibrated wrench</h4>
+        <p>Torque-wrench installation with the wrench calibrated daily on a Skidmore-Wilhelm tension-measuring device. Documented torque values per heat lot.</p>
+      </div>
+      <div class="sf-rcsc-card">
+        <div class="num">Method 03</div>
+        <h4>Twist-off (TC) bolt</h4>
+        <p>Splined-end bolt installed with a shear wrench that snaps the end off at proper pretension. Visual inspection — no spline means no pretension. Ships with matched lubricated nuts.</p>
+      </div>
+      <div class="sf-rcsc-card">
+        <div class="num">Method 04</div>
+        <h4>Direct-tension indicator</h4>
+        <p>F959 DTI washer with raised bumps that compress at proper pretension. Inspector measures gap with a feeler gauge — or the squirter (HRC) variant ejects orange silicone for visual confirmation.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TRACEABILITY -->
+<section class="sf-trace" data-screen-label="09 Traceability">
+  <div class="sf-trace-inner">
+    <div class="sf-trace-header">
+      <div class="eyebrow">Documentation</div>
+      <h2>What <i>ships</i> with the bolts.</h2>
+      <p>Structural bolts are inspected hardware. Every assembly we ship is traceable to heat and lot, with the documentation a structural inspector or DOT engineer expects to see.</p>
+    </div>
+    <div class="sf-trace-grid">
+      <div class="sf-trace-card">
+        <div class="num">01</div>
+        <h4>Material Test Reports</h4>
+        <p>MTRs / Mill Test Certificates tied to the heat and lot on every shipment. Mechanical &amp; chemistry per F3125, A563, F436.</p>
+      </div>
+      <div class="sf-trace-card">
+        <div class="num">02</div>
+        <h4>Rotational-capacity (RoCap)</h4>
+        <p>Lot-by-lot rotational-capacity test on assembled bolt / nut / washer kits per F3125 Annex A2. Documents the assembly's behavior under installation tension.</p>
+      </div>
+      <div class="sf-trace-card">
+        <div class="num">03</div>
+        <h4>Buy America / DOT</h4>
+        <p>Domestic-melt / domestic-pour material with full state-DOT documentation. Common asks: Caltrans, AASHTO, Buy America bridge work — flag it on the RFQ.</p>
+      </div>
+      <div class="sf-trace-card">
+        <div class="num">04</div>
+        <h4>DTI &amp; TC test data</h4>
+        <p>F959 calibration test results and F1852 / F2280 lubrication and elongation test data shipped with the kits for the inspector's file.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CROSS-LINKS -->
+<section class="sf-cross" data-screen-label="10 Cross-links">
+  <div class="sf-cross-inner">
+    <div class="sf-cross-header">
+      <h2>Looking for something<br>a little <i>different?</i></h2>
+      <p>Structural Fasteners is the steel-frame bolted-joint world. If your project lives one step over, start here instead.</p>
+    </div>
+    <div class="sf-cross-grid">
+      <a href="anchor-bolts.html" class="sf-cross-card">
+        <div class="question">Foundation anchors, embed plates, signposts?</div>
+        <h4>Anchor Bolts</h4>
+        <div class="spec">F1554 · A193 B7/B8/B8M · F593</div>
+      </a>
+      <a href="industrial-fasteners.html" class="sf-cross-card">
+        <div class="question">Process piping, machinery, pressure flanges?</div>
+        <h4>Industrial Fasteners</h4>
+        <div class="spec">A193 B7/B8/B8M · A194 · A574</div>
+      </a>
+      <a href="#" class="sf-cross-card">
+        <div class="question">Long studs or rod stock cut to length?</div>
+        <h4>Stud Bolts &amp; Threaded Rod</h4>
+        <div class="spec">B7 · B8 · B16 · A36</div>
+      </a>
+      <a href="hollo-bolt.html" class="sf-cross-card">
+        <div class="question">Bolting into a hollow section from one side?</div>
+        <h4>Lindapter Hollo-Bolt</h4>
+        <div class="spec">Blind expansion fastener · HSS</div>
+      </a>
+      <a href="stainless-steel-fasteners.html" class="sf-cross-card">
+        <div class="question">Stainless-only, corrosion-driven spec?</div>
+        <h4>Stainless Steel Fasteners</h4>
+        <div class="spec">304 · 316 · duplex · PH grades</div>
+      </a>
+      <a href="cnc-landing.html" class="sf-cross-card">
+        <div class="question">Custom geometry or non-standard part?</div>
+        <h4>CNC Machining</h4>
+        <div class="spec">In-house · DFARS · AS9102</div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- QUOTE FORM -->
+<section class="sf-quote" data-screen-label="11 Request a quote">
+  <div class="sf-quote-inner">
+    <div class="sf-quote-text">
+      <div class="eyebrow">Request a quote</div>
+      <h2>Send the <i>BOM.</i><br>We'll size the kit.</h2>
+      <p>Send the structural drawing, the bolt schedule, or the shop's BOM. A bolt specialist will come back with priced, packaged-per-connection kits — usually inside 24 hours.</p>
+      <div class="sf-quote-contact">
+        Prefer to talk it through?
+        <b>888.581.7328</b>
+        <b>sales@californiafastener.com</b>
+      </div>
+    </div>
+    <form class="sf-quote-form" onsubmit="event.preventDefault(); this.querySelector('button').textContent='Sent ✓'; this.querySelector('button').disabled=true;">
+      <div class="sf-form-row">
+        <div class="sf-form-field"><label>Name</label><input type="text" name="name" required></div>
+        <div class="sf-form-field"><label>Company</label><input type="text" name="company"></div>
+      </div>
+      <div class="sf-form-row">
+        <div class="sf-form-field"><label>Email</label><input type="email" name="email" required></div>
+        <div class="sf-form-field"><label>Phone</label><input type="tel" name="phone"></div>
+      </div>
+      <div class="sf-form-row">
+        <div class="sf-form-field if-form-field--full sf-form-field--full"><label>Project &amp; bolt schedule</label><textarea name="message" placeholder="Project type, F3125 grade, sizes, finish, quantities — or paste the bolt schedule."></textarea></div>
+      </div>
+      <button type="submit" class="cf-pill cf-pill--blue sf-form-submit">Send quote request</button>
+    </form>
+  </div>
+</section>
+
+<!-- CTA BAND -->
+<section class="sf-cta" data-screen-label="12 CTA">
+  <div class="sf-cta-inner">
+    <div class="sf-cta-eyebrow">Talk to a bolt specialist</div>
+    <h2>Hold the steel.<br>Hold the <i>schedule.</i></h2>
+    <p>From a single heavy hex kit to a full bridge-deck package with RoCap, DTI test data, and Buy America documentation — we've shipped the package before.</p>
+    <div class="sf-cta-ctas">
+      <a href="quote-flow.html" class="cf-pill cf-pill--blue-light">Request a Quote</a>
+      <a href="tel:8885817328" class="cf-pill cf-pill--ghost-dark">Call 888.581.7328</a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="cf-footer">
+  <div class="cf-footer-cols">
+    <div class="cf-footer-col">
+      <h4 class="cf-footer-brand"><span class="cf-nav-logo-mark"></span>California Fastener</h4>
+      <p class="cf-footer-tagline">Industrial and structural fasteners, CNC machined parts, and technical support. CA Fast LLC.</p>
+      <div style="font-size:12px; color:var(--ink); margin-bottom:4px;">888.581.7328</div>
+      <div style="font-size:12px; color:var(--mid);">info@californiafastener.com</div>
+    </div>
+    <div class="cf-footer-col">
+      <h4>Products</h4>
+      <a href="anchor-bolts.html">Anchor Bolts</a>
+      <a href="#">Stud Bolts &amp; Threaded Rod</a>
+      <a href="#">U-Bolts</a>
+      <a href="structural-fasteners.html">Structural Fasteners</a>
+      <a href="industrial-fasteners.html">Industrial Fasteners</a>
+      <a href="stainless-steel-fasteners.html">Stainless Steel Fasteners</a>
+      <a href="silicon-bronze.html">Silicon Bronze Hardware</a>
+      <a href="cnc-landing.html">CNC Machining</a>
+    </div>
+    <div class="cf-footer-col">
+      <h4>Resources</h4>
+      <a href="spec-library.html">Specification Library</a>
+      <a href="spec-builder.html">Spec Builder</a>
+      <a href="#">Product Catalog</a>
+      <a href="#">Industry Applications</a>
+      <a href="blog.html">Field Notes (Blog)</a>
+    </div>
+    <div class="cf-footer-col">
+      <h4>Company</h4>
+      <a href="#">About</a>
+      <a href="quote-flow.html">Request a Quote</a>
+      <a href="#">Contact</a>
+    </div>
+  </div>
+  <div class="cf-footer-bottom">
+    <div>© 2026 California Fastener · CA Fast LLC</div>
+    <div>Designed in California</div>
+  </div>
+</footer>
+
+<script>
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('cf-rise'); });
+  }, { threshold: 0.08 });
+  document.querySelectorAll('.sf-product-card, .sf-spec-card, .sf-joint-card, .sf-rcsc-card, .sf-trace-card, .sf-cross-card').forEach(el => observer.observe(el));
+</script>
+</body>
+</html>

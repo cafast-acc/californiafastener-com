@@ -1,0 +1,573 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<link rel="icon" type="image/png" href="assets/cf-logo-black.png" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Anchor Bolts — California Fastener</title>
+<meta name="description" content="F1554 Gr 36/55/105, A193 B7/B8/B8M, F593. Headed, bent, rod assemblies, post-install. Custom cut, bent, and assembled with template plates — stocked and shipped." />
+<link rel="stylesheet" href="_shared.css" />
+<style>
+  body { background: var(--bg); }
+
+  /* HERO */
+  .ab-hero { padding: 80px 40px 0; background: linear-gradient(180deg, var(--bg) 0%, var(--bg-alt) 100%); overflow: hidden; }
+  .ab-hero-inner { max-width: 1440px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1.05fr; gap: 80px; align-items: center; min-height: 720px; }
+  .ab-hero-text { padding: 40px 0; }
+  .ab-breadcrumb { font-size: 13px; color: var(--mid); margin-bottom: 24px; }
+  .ab-breadcrumb a { color: var(--mid); text-decoration: none; }
+  .ab-breadcrumb a:hover { color: var(--ink); }
+  .ab-breadcrumb span { margin: 0 8px; color: var(--rule); }
+  .ab-eyebrow { font-size: 15px; font-weight: 500; color: var(--blue-dark); margin-bottom: 20px; display: inline-flex; align-items: center; gap: 10px; }
+  .ab-eyebrow::before { content: ''; width: 20px; height: 1px; background: var(--blue-dark); }
+  .ab-hero h1 { font-size: clamp(56px, 6.5vw, 104px); font-weight: 600; line-height: 0.98; letter-spacing: -0.04em; color: var(--ink); margin-bottom: 24px; }
+  .ab-hero h1 i { font-style: normal; color: var(--blue-dark); }
+  .ab-hero-sub { font-size: 22px; color: var(--ink-soft); line-height: 1.35; max-width: 560px; margin-bottom: 36px; letter-spacing: -0.015em; }
+  .ab-hero-ctas { display: flex; gap: 20px; align-items: center; margin-bottom: 48px; flex-wrap: wrap; }
+  .ab-hero-stats { display: grid; grid-template-columns: repeat(4, 1fr); max-width: 620px; padding-top: 28px; border-top: 1px solid var(--rule-soft); }
+  .ab-hero-stat-val { font-size: 28px; font-weight: 600; letter-spacing: -0.02em; line-height: 1; margin-bottom: 6px; }
+  .ab-hero-stat-label { font-size: 11px; color: var(--mid); letter-spacing: 0.02em; text-transform: uppercase; line-height: 1.3; }
+
+  .ab-hero-image { background: #E8E6E1; border-radius: 24px 0 0 0; min-height: 720px; margin-right: calc((100vw - 1440px) / -2); display: flex; align-items: center; justify-content: center; overflow: hidden; position: relative; }
+  @media (max-width: 1480px) { .ab-hero-image { margin-right: -40px; } }
+  .ab-hero-image img { width: 110%; height: auto; max-height: 90%; object-fit: contain; transform: rotate(-6deg); filter: drop-shadow(0 30px 50px rgba(0,0,0,0.2)); }
+  .ab-hero-image-tag { position: absolute; top: 24px; left: 24px; background: rgba(255,255,255,0.92); backdrop-filter: blur(8px); padding: 8px 14px; border-radius: 100px; font-size: 11px; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; color: var(--ink); }
+
+  /* VALUES */
+  .ab-values { padding: 96px 40px; border-bottom: 1px solid var(--rule-soft); }
+  .ab-values-inner { max-width: 1240px; margin: 0 auto; display: grid; grid-template-columns: 1.1fr 2fr; gap: 80px; align-items: start; }
+  .ab-values-lead h2 { font-size: clamp(36px, 3.6vw, 52px); font-weight: 600; line-height: 1.05; letter-spacing: -0.03em; margin-bottom: 18px; }
+  .ab-values-lead h2 i { font-style: normal; color: var(--blue-dark); }
+  .ab-values-lead p { font-size: 18px; color: var(--ink-soft); line-height: 1.5; letter-spacing: -0.01em; }
+  .ab-values-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 32px 40px; }
+  .ab-value h3 { font-size: 18px; font-weight: 600; letter-spacing: -0.015em; margin-bottom: 8px; }
+  .ab-value h3::before { content: attr(data-num); color: var(--blue-dark); font-family: "SF Mono", ui-monospace, monospace; font-size: 11px; font-weight: 500; margin-right: 10px; }
+  .ab-value p { font-size: 15px; color: var(--mid); line-height: 1.55; }
+
+  /* TYPES / CONFIGURATIONS */
+  .ab-types { background: var(--bg-alt); padding: 120px 40px; }
+  .ab-types-header { max-width: 1200px; margin: 0 auto 64px; }
+  .ab-types-header .eyebrow { font-size: 14px; color: var(--blue-dark); font-weight: 500; margin-bottom: 14px; }
+  .ab-types-header h2 { font-size: clamp(40px, 4.5vw, 64px); font-weight: 600; letter-spacing: -0.03em; line-height: 1.05; max-width: 820px; margin-bottom: 16px; }
+  .ab-types-header h2 i { font-style: normal; color: var(--blue-dark); }
+  .ab-types-header p { font-size: 19px; color: var(--ink-soft); max-width: 640px; line-height: 1.4; letter-spacing: -0.01em; }
+  .ab-types-grid { max-width: 1280px; margin: 0 auto; display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; }
+  .ab-type-card { background: var(--bg); border-radius: 24px; overflow: hidden; display: flex; flex-direction: column; transition: transform 0.3s; }
+  .ab-type-card:hover { transform: translateY(-4px); }
+  .ab-type-card-photo { background: #E8E6E1; aspect-ratio: 16 / 9; overflow: hidden; position: relative; }
+  .ab-type-card-photo img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+  .ab-type-card-photo .pnum { position: absolute; top: 20px; left: 20px; font-family: "SF Mono", ui-monospace, monospace; font-size: 11px; color: var(--mid); letter-spacing: 0.04em; }
+  .ab-type-card-body { padding: 28px 32px 32px; display: flex; flex-direction: column; flex: 1; }
+  .ab-type-card-body h3 { font-size: 28px; font-weight: 600; letter-spacing: -0.02em; line-height: 1.1; margin-bottom: 10px; text-transform: lowercase; }
+  .ab-type-card-body h3::first-letter { text-transform: uppercase; }
+  .ab-type-card-body p { font-size: 15px; color: var(--ink-soft); line-height: 1.5; letter-spacing: -0.005em; margin-bottom: 20px; }
+  .ab-type-meta { margin-top: auto; padding-top: 16px; border-top: 1px solid var(--rule-soft); font-size: 12px; color: var(--mid); letter-spacing: -0.005em; }
+  .ab-type-meta b { color: var(--ink); font-weight: 500; }
+
+  /* GRADES — card layout w/ stamp imagery */
+  .ab-grades { padding: 120px 40px; }
+  .ab-grades-inner { max-width: 1240px; margin: 0 auto; }
+  .ab-grades-header { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: end; margin-bottom: 56px; }
+  .ab-grades-header h2 { font-size: clamp(36px, 4vw, 56px); font-weight: 600; letter-spacing: -0.03em; line-height: 1.05; }
+  .ab-grades-header h2 i { font-style: normal; color: var(--blue-dark); }
+  .ab-grades-header p { font-size: 17px; color: var(--ink-soft); line-height: 1.5; max-width: 460px; }
+  .ab-grades-cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+  .ab-grade-card { background: var(--bg-alt); border-radius: 20px; overflow: hidden; display: flex; flex-direction: column; }
+  .ab-grade-card-img { aspect-ratio: 5 / 4; background: #E8E6E1; display: flex; align-items: center; justify-content: center; overflow: hidden; }
+  .ab-grade-card-img img { width: 100%; height: 100%; object-fit: cover; }
+  .ab-grade-card-body { padding: 28px 28px 32px; }
+  .ab-grade-card-spec { font-family: "SF Mono", ui-monospace, monospace; font-size: 11px; color: var(--blue-dark); letter-spacing: 0.06em; text-transform: uppercase; margin-bottom: 8px; }
+  .ab-grade-card h3 { font-size: 26px; font-weight: 600; letter-spacing: -0.02em; margin-bottom: 8px; }
+  .ab-grade-card p { font-size: 14px; color: var(--ink-soft); line-height: 1.5; margin-bottom: 18px; }
+  .ab-grade-list { list-style: none; display: flex; flex-wrap: wrap; gap: 8px; }
+  .ab-grade-list li { padding: 6px 12px; background: var(--bg); border-radius: 100px; font-size: 13px; font-weight: 500; color: var(--ink); letter-spacing: -0.005em; }
+
+  /* ASSEMBLIES SPLIT */
+  .ab-bend { padding: 120px 40px; background: var(--bg-alt); }
+  .ab-bend-inner { max-width: 1240px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; }
+  .ab-bend-text .eyebrow { font-size: 14px; color: var(--purple-dark); font-weight: 500; margin-bottom: 14px; }
+  .ab-bend-text h2 { font-size: clamp(36px, 4vw, 56px); font-weight: 600; letter-spacing: -0.03em; line-height: 1.05; margin-bottom: 18px; }
+  .ab-bend-text h2 i { font-style: normal; color: var(--purple-dark); }
+  .ab-bend-text p { font-size: 18px; color: var(--ink-soft); line-height: 1.5; max-width: 460px; margin-bottom: 28px; }
+  .ab-bend-checks { list-style: none; margin-bottom: 32px; }
+  .ab-bend-checks li { padding: 10px 0; font-size: 15px; color: var(--ink); display: flex; align-items: center; gap: 12px; }
+  .ab-bend-checks li::before { content: ''; width: 16px; height: 16px; background: var(--purple-dark); border-radius: 50%; flex-shrink: 0; background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='none'><path d='M4 8l3 3 5-6' stroke='white' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/></svg>"); background-repeat: no-repeat; background-position: center; }
+  .ab-bend-visual { aspect-ratio: 1/1; background: #E8E6E1; border-radius: 24px; display: flex; align-items: center; justify-content: center; overflow: hidden; position: relative; }
+  .ab-bend-visual img { width: 100%; height: 100%; object-fit: cover; }
+  .ab-bend-visual-tag { position: absolute; bottom: 24px; left: 24px; background: rgba(255,255,255,0.92); backdrop-filter: blur(8px); padding: 8px 14px; border-radius: 100px; font-size: 11px; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; color: var(--ink); }
+
+  /* APPLICATIONS */
+  .ab-apps { padding: 120px 40px; }
+  .ab-apps-inner { max-width: 1280px; margin: 0 auto; }
+  .ab-apps-header { max-width: 800px; margin-bottom: 48px; }
+  .ab-apps-header h2 { font-size: clamp(36px, 4vw, 56px); font-weight: 600; letter-spacing: -0.03em; line-height: 1.05; margin-bottom: 14px; }
+  .ab-apps-header p { font-size: 18px; color: var(--ink-soft); line-height: 1.45; }
+  .ab-apps-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; }
+  .ab-app-tile { aspect-ratio: 4 / 5; border-radius: 20px; overflow: hidden; position: relative; background: var(--bg-cream); cursor: pointer; transition: transform 0.3s; }
+  .ab-app-tile:hover { transform: translateY(-4px); }
+  .ab-app-tile img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; z-index: 0; }
+  .ab-app-tile::after { content: ''; position: absolute; inset: 0; background: linear-gradient(180deg, rgba(0,0,0,0) 30%, rgba(0,0,0,0.78) 100%); z-index: 1; }
+  .ab-app-tile-body { position: absolute; inset: 0; z-index: 2; padding: 24px; display: flex; flex-direction: column; justify-content: flex-end; color: white; }
+  .ab-app-tile-eyebrow { font-size: 11px; font-weight: 500; color: rgba(255,255,255,0.75); margin-bottom: 6px; letter-spacing: 0.02em; text-transform: uppercase; }
+  .ab-app-tile-title { font-size: 20px; font-weight: 600; letter-spacing: -0.02em; line-height: 1.15; margin-bottom: 8px; }
+  .ab-app-tile-desc { font-size: 13px; color: rgba(255,255,255,0.82); line-height: 1.45; max-width: 260px; }
+
+  /* TEMPLATE PLATES — full-bleed band */
+  .ab-plates { padding: 0; background: var(--ink); color: var(--dark-text); overflow: hidden; }
+  .ab-plates-inner { display: grid; grid-template-columns: 1fr 1.3fr; min-height: 560px; }
+  .ab-plates-text { padding: 96px 80px; display: flex; flex-direction: column; justify-content: center; }
+  .ab-plates-text .eyebrow { font-size: 13px; color: var(--blue); font-weight: 500; margin-bottom: 14px; letter-spacing: 0.04em; text-transform: uppercase; }
+  .ab-plates-text h2 { font-size: clamp(40px, 4.2vw, 64px); font-weight: 600; letter-spacing: -0.03em; line-height: 1.02; margin-bottom: 20px; }
+  .ab-plates-text h2 i { font-style: normal; color: var(--blue); }
+  .ab-plates-text p { font-size: 17px; color: var(--dark-mid); line-height: 1.5; margin-bottom: 28px; max-width: 440px; }
+  .ab-plates-image { background: #E8E6E1; display: flex; align-items: center; justify-content: center; overflow: hidden; }
+  .ab-plates-image img { width: 100%; height: 100%; object-fit: cover; }
+
+  /* SPEC LIBRARY CTA */
+  .ab-spec-lib { padding: 96px 40px; background: var(--bg); border-top: 1px solid var(--rule-soft); }
+  .ab-spec-lib-inner { max-width: 1100px; margin: 0 auto; display: grid; grid-template-columns: 1.2fr 1fr; gap: 60px; align-items: center; }
+  .ab-spec-lib h2 { font-size: clamp(28px, 2.8vw, 40px); font-weight: 600; letter-spacing: -0.025em; line-height: 1.1; margin-bottom: 14px; }
+  .ab-spec-lib p { font-size: 16px; color: var(--ink-soft); line-height: 1.5; margin-bottom: 20px; max-width: 480px; }
+  .ab-spec-lib-visual { background: var(--bg-alt); border-radius: 16px; padding: 32px; font-family: "SF Mono", ui-monospace, monospace; font-size: 12px; color: var(--ink); line-height: 1.8; }
+  .ab-spec-lib-visual b { color: var(--blue-dark); font-weight: 500; margin-right: 16px; display: inline-block; min-width: 70px; }
+
+  /* PARTNERS */
+  .ab-partners { padding: 60px 40px; background: var(--bg-alt); border-top: 1px solid var(--rule-soft); }
+  .ab-partners-inner { max-width: 1240px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; gap: 40px; flex-wrap: wrap; }
+  .ab-partners-label { font-size: 13px; color: var(--mid); letter-spacing: 0.02em; text-transform: uppercase; font-weight: 500; }
+  .ab-partners-logos { display: flex; gap: 48px; align-items: center; flex-wrap: wrap; }
+  .ab-partner { font-weight: 600; letter-spacing: -0.02em; color: var(--ink-soft); font-size: 20px; }
+  .ab-partner--hilti { background: #D2231F; color: white; padding: 6px 14px; border-radius: 2px; font-size: 16px; font-weight: 700; letter-spacing: 0.02em; }
+  .ab-partner--simpson { display: inline-flex; flex-direction: column; font-size: 13px; font-weight: 700; line-height: 1; letter-spacing: 0.02em; }
+  .ab-partner--simpson span:first-child { background: #000; color: white; padding: 4px 10px; }
+  .ab-partner--simpson span:last-child { background: #F08020; color: white; padding: 4px 10px; }
+
+  /* CTA BAND */
+  .ab-cta { padding: 120px 40px; background: var(--dark-1); color: var(--dark-text); position: relative; overflow: hidden; }
+  .ab-cta::before { content: ''; position: absolute; inset: 0; background: radial-gradient(ellipse 60% 50% at 30% 50%, rgba(56,182,255,0.12), transparent 70%), radial-gradient(ellipse 50% 40% at 80% 100%, rgba(140,82,255,0.10), transparent 70%); pointer-events: none; }
+  .ab-cta-inner { max-width: 1040px; margin: 0 auto; text-align: center; position: relative; z-index: 1; }
+  .ab-cta-eyebrow { font-size: 14px; color: var(--blue); font-weight: 500; margin-bottom: 16px; }
+  .ab-cta h2 { font-size: clamp(44px, 5.5vw, 80px); font-weight: 600; letter-spacing: -0.035em; line-height: 1.02; margin-bottom: 22px; }
+  .ab-cta h2 i { font-style: normal; color: var(--blue); }
+  .ab-cta p { font-size: 20px; color: var(--dark-mid); max-width: 620px; margin: 0 auto 32px; line-height: 1.4; }
+  .ab-cta-ctas { display: flex; gap: 18px; justify-content: center; flex-wrap: wrap; }
+
+  @media (max-width: 1100px) {
+    .ab-hero-inner, .ab-values-inner, .ab-grades-header, .ab-bend-inner, .ab-plates-inner, .ab-spec-lib-inner { grid-template-columns: 1fr; gap: 40px; }
+    .ab-hero-image { margin-right: 0; border-radius: 24px; min-height: 480px; }
+    .ab-plates-text { padding: 64px 40px; }
+    .ab-apps-grid { grid-template-columns: repeat(2, 1fr); }
+    .ab-grades-cards { grid-template-columns: 1fr; }
+  }
+  @media (max-width: 680px) {
+    .ab-types-grid, .ab-apps-grid, .ab-values-grid { grid-template-columns: 1fr; }
+    .ab-hero-stats { grid-template-columns: 1fr 1fr; gap: 20px 0; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="cf-nav">
+  <a href="homepage.html" class="cf-nav-logo"><span class="cf-nav-logo-mark"></span>California Fastener</a>
+  <ul class="cf-nav-center">
+    <li class="has-menu">
+      <button aria-haspopup="true">Products</button>
+      <div class="cf-nav-menu cf-nav-menu--mega" role="menu">
+        <div class="cf-nav-menu-label">Fasteners</div>
+        <a href="anchor-bolts.html" role="menuitem">Anchor Bolts<span class="cf-nav-menu-sub">F1554, A193, F593 · headed, bent, rod assemblies</span></a>
+        <a href="#" role="menuitem">Stud Bolts &amp; Threaded Rod<span class="cf-nav-menu-sub">B7, B8, B16 · cut to length</span></a>
+        <a href="#" role="menuitem">Structural Fasteners<span class="cf-nav-menu-sub">A325, A490, TC bolts</span></a>
+        <a href="#" role="menuitem">Industrial Fasteners<span class="cf-nav-menu-sub">Hex, socket, flange, grade 5 / 8</span></a>
+        <a href="#" role="menuitem">U-Bolts<span class="cf-nav-menu-sub">Standard &amp; custom profiles</span></a>
+        <a href="#" role="menuitem">Stainless Steel Fasteners<span class="cf-nav-menu-sub">304, 316, duplex</span></a>
+        <a href="#" role="menuitem">Silicon Bronze Hardware<span class="cf-nav-menu-sub">Marine &amp; architectural</span></a>
+        <a href="#" role="menuitem">Specialty &amp; Lindapter<span class="cf-nav-menu-sub">Hollo-Bolt, Girder clamps, blind bolts</span></a>
+        <div class="cf-nav-menu-footer">
+          <a href="#">View all products →</a>
+          <a href="quote-flow.html">Request a quote →</a>
+        </div>
+      </div>
+    </li>
+    <li class="has-menu">
+      <button aria-haspopup="true">Industries</button>
+      <div class="cf-nav-menu" role="menu">
+        <a href="#" role="menuitem">Construction</a>
+        <a href="#" role="menuitem">Industrial Machinery</a>
+        <a href="#" role="menuitem">Infrastructure</a>
+        <a href="#" role="menuitem">Renewable Energy</a>
+        <a href="#" role="menuitem">Power &amp; Utilities</a>
+        <a href="#" role="menuitem">Oil, Gas &amp; Petrochemical</a>
+        <a href="#" role="menuitem">Marine &amp; Shipbuilding</a>
+        <a href="#" role="menuitem">Aerospace &amp; Defense</a>
+      </div>
+    </li>
+    <li><a href="cnc-landing.html">CNC Machining</a></li>
+    <li class="has-menu">
+      <button aria-haspopup="true">Resources</button>
+      <div class="cf-nav-menu" role="menu">
+        <div class="cf-nav-menu-label">Technical</div>
+        <a href="#" role="menuitem">Specification Library<span class="cf-nav-menu-sub">ASTM, SAE, ISO standards</span></a>
+        <a href="spec-builder.html" role="menuitem">Spec Builder<span class="cf-nav-menu-sub">Find the right material &amp; grade</span></a>
+        <a href="#" role="menuitem">Product Catalog (PDF)</a>
+        <div class="cf-nav-menu-divider"></div>
+        <div class="cf-nav-menu-label">Tools</div>
+        <a href="quote-flow.html" role="menuitem">Request a Quote</a>
+        <a href="#" role="menuitem">Contact Engineering</a>
+      </div>
+    </li>
+    <li><a href="#">About</a></li>
+    <li><a href="blog.html">Blog</a></li>
+  </ul>
+  <div class="cf-nav-right">
+    <a href="quote-flow.html" class="cf-nav-quote">Get a Quote</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="ab-hero" data-screen-label="01 Hero">
+  <div class="ab-hero-inner">
+    <div class="ab-hero-text">
+      <div class="ab-breadcrumb"><a href="homepage-v1-cinematic.html">Home</a><span>/</span><a href="#">Products</a><span>/</span>Anchor Bolts</div>
+      <div class="ab-eyebrow">Anchor Bolts</div>
+      <h1>Anchor bolts for<br><i>every foundation.</i></h1>
+      <p class="ab-hero-sub">Durable, reliable anchor bolts in a range of materials, specifications, styles, and configurations — engineered to secure your project's foundation.</p>
+      <div class="ab-hero-ctas">
+        <a href="quote-flow.html" class="cf-pill cf-pill--blue">Request a Quote</a>
+        <a href="#configurations" class="cf-link">View configurations ↓</a>
+      </div>
+      <div class="ab-hero-stats">
+        <div><div class="ab-hero-stat-val">24 hr</div><div class="ab-hero-stat-label">Quote turnaround</div></div>
+        <div><div class="ab-hero-stat-val">Custom</div><div class="ab-hero-stat-label">Cut-to-length</div></div>
+        <div><div class="ab-hero-stat-val">Full</div><div class="ab-hero-stat-label">Assemblies &amp; kits</div></div>
+        <div><div class="ab-hero-stat-val">USA</div><div class="ab-hero-stat-label">Stocked &amp; shipped</div></div>
+      </div>
+    </div>
+    <div class="ab-hero-image">
+      <div class="ab-hero-image-tag">F1554 · Headed Anchor Assembly</div>
+      <img src="assets/anchor-headed.webp" alt="F1554 headed anchor bolt with hex nut and washer" />
+    </div>
+  </div>
+</section>
+
+<!-- VALUE / WHY CF -->
+<section class="ab-values" data-screen-label="02 Why CF">
+  <div class="ab-values-inner">
+    <div class="ab-values-lead">
+      <h2>Hardware is only<br>half the <i>job.</i></h2>
+      <p>At California Fastener we provide high-quality anchor bolts with the service and support that make projects finish on schedule.</p>
+    </div>
+    <div class="ab-values-grid">
+      <div class="ab-value">
+        <h3 data-num="01">Extensive inventory</h3>
+        <p>From F1554 to A193, we stock a wide range of anchor bolt grades, styles, and diameters — ready to ship.</p>
+      </div>
+      <div class="ab-value">
+        <h3 data-num="02">Complete assemblies</h3>
+        <p>Nuts, washers, and template plates supplied with the bolts for a ready-to-install solution.</p>
+      </div>
+      <div class="ab-value">
+        <h3 data-num="03">Custom fabrication</h3>
+        <p>Tailored bolts for any unique application — custom threading, lengths, specialty materials, and coatings.</p>
+      </div>
+      <div class="ab-value">
+        <h3 data-num="04">Quick turnaround</h3>
+        <p>Fast and efficient delivery to meet your project deadlines. Most quotes turn around within 24 hours.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONFIGURATIONS -->
+<section class="ab-types" id="configurations" data-screen-label="03 Configurations">
+  <div class="ab-types-header">
+    <div class="eyebrow">Multiple configurations &amp; head styles</div>
+    <h2>Multiple anchor types.<br><i>One supplier.</i></h2>
+    <p>From forged headed anchors for heavy structural connections to post-install retrofits in hardened concrete — every configuration stocked or fabricated to your print.</p>
+  </div>
+  <div class="ab-types-grid">
+
+    <div class="ab-type-card">
+      <div class="ab-type-card-photo">
+        <span class="pnum">01 / Headed</span>
+        <img src="assets/anchor-headed.webp" alt="Headed anchor bolt with hex nut and washer">
+      </div>
+      <div class="ab-type-card-body">
+        <h3>Headed anchors</h3>
+        <p>Designed for structural connections. Forged hex head makes them reliable for heavy-duty applications where tension and pull-out are critical.</p>
+        <div class="ab-type-meta"><b>F1554 Gr 36 / 55 / 105</b> · A449 · A193 B7</div>
+      </div>
+    </div>
+
+    <div class="ab-type-card">
+      <div class="ab-type-card-photo">
+        <span class="pnum">02 / Rods &amp; assemblies</span>
+        <img src="assets/anchor-rods.webp" alt="Anchor rod with double-end threading, nuts, and square plate washer">
+      </div>
+      <div class="ab-type-card-body">
+        <h3>Anchor rods &amp; assemblies</h3>
+        <p>Customizable rods and full assemblies to meet the specific needs of diverse structural projects — strength and versatility with every part shipped together.</p>
+        <div class="ab-type-meta"><b>F1554 Gr 55 / 105</b> · A193 B7 · Double-end &amp; swedged</div>
+      </div>
+    </div>
+
+    <div class="ab-type-card">
+      <div class="ab-type-card-photo">
+        <span class="pnum">03 / Bent</span>
+        <img src="assets/anchor-bent.webp" alt="L-bent anchor bolt with hex nut">
+      </div>
+      <div class="ab-type-card-body">
+        <h3>Bent anchors</h3>
+        <p>Ideal for foundational stability, our J-bolts and L-bolts are crafted for securing structural columns and equipment bases. Custom bend radius to your drawing.</p>
+        <div class="ab-type-meta"><b>F1554 Gr 36</b> · L-bend · J-bend · Custom</div>
+      </div>
+    </div>
+
+    <div class="ab-type-card">
+      <div class="ab-type-card-photo">
+        <span class="pnum">04 / Post-install</span>
+        <img src="assets/anchor-postinstall.webp" alt="Post-install anchor with wedge and threaded rod components">
+      </div>
+      <div class="ab-type-card-body">
+        <h3>Post-install anchors</h3>
+        <p>Suitable for retrofitting applications, post-install anchors are effective for use in hardened concrete or modern construction demands.</p>
+        <div class="ab-type-meta"><b>Hilti</b> · <b>Simpson Strong-Tie</b> · Wedge, sleeve, epoxy</div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- GRADES -->
+<section class="ab-grades" id="grades" data-screen-label="04 Grades">
+  <div class="ab-grades-inner">
+    <div class="ab-grades-header">
+      <h2>All material grades,<br>one <i>catalog.</i></h2>
+      <p>A comprehensive selection designed to meet rigorous industry standards — ASTM F1554, A193, and F593 in every grade and configuration.</p>
+    </div>
+    <div class="ab-grades-cards">
+
+      <div class="ab-grade-card">
+        <div class="ab-grade-card-img"><img src="assets/stamp-105.webp" alt="CA 105 head stamp on F1554 Grade 105 anchor bolt"></div>
+        <div class="ab-grade-card-body">
+          <div class="ab-grade-card-spec">ASTM F1554</div>
+          <h3>Structural carbon</h3>
+          <p>Weldable low-carbon and heat-treated alloy anchor bar. The go-to spec for cast-in-place structural anchorage.</p>
+          <ul class="ab-grade-list">
+            <li>Grade 36</li>
+            <li>Grade 55</li>
+            <li>Grade 105</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="ab-grade-card">
+        <div class="ab-grade-card-img"><img src="assets/stamp-b8.webp" alt="CA B8 stamp on A193 B8 stainless anchor rod"></div>
+        <div class="ab-grade-card-body">
+          <div class="ab-grade-card-spec">ASTM A193</div>
+          <h3>High-temp alloy &amp; SS</h3>
+          <p>Chrome-moly and stainless bar for pressure equipment, turbine skids, and corrosion-critical anchorage.</p>
+          <ul class="ab-grade-list">
+            <li>Grade B7</li>
+            <li>Grade B8</li>
+            <li>Grade B8M</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="ab-grade-card">
+        <div class="ab-grade-card-img"><img src="assets/stamp-316.webp" alt="CA 316 head stamp on F593 316 stainless anchor"></div>
+        <div class="ab-grade-card-body">
+          <div class="ab-grade-card-spec">ASTM F593</div>
+          <h3>Stainless anchors</h3>
+          <p>304 and 316 stainless anchor bolts for food-grade, marine, wastewater, and architectural applications.</p>
+          <ul class="ab-grade-list">
+            <li>304 SS</li>
+            <li>316 SS</li>
+          </ul>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- FULL ASSEMBLIES -->
+<section class="ab-bend" data-screen-label="05 Assemblies">
+  <div class="ab-bend-inner">
+    <div class="ab-bend-text">
+      <div class="eyebrow">Full anchor bolt assemblies</div>
+      <h2>More than bolts.<br><i>Complete</i> assemblies.</h2>
+      <p>A secure anchoring system requires more than just bolts. We supply every component as part of a complete assembly so your project is streamlined, efficient, and built to last.</p>
+      <ul class="ab-bend-checks">
+        <li>Nuts &amp; washers — standard or heavy-duty</li>
+        <li>Square plate washers for pull-out resistance &amp; load distribution</li>
+        <li>Pre-drilled template plates for precise alignment</li>
+        <li>Custom threading, lengths, and specialty coatings</li>
+        <li>Hot-dip galvanized after fabrication, no thread damage</li>
+      </ul>
+      <a href="quote-flow.html" class="cf-pill cf-pill--purple">Request an assembly</a>
+    </div>
+    <div class="ab-bend-visual">
+      <img src="assets/anchor-rods.webp" alt="Full anchor bolt assembly with rod, heavy hex nuts, and square plate washer">
+      <div class="ab-bend-visual-tag">Full assembly · Rod + hex nuts + plate washer</div>
+    </div>
+  </div>
+</section>
+
+<!-- APPLICATIONS -->
+<section class="ab-apps" data-screen-label="06 Applications">
+  <div class="ab-apps-inner">
+    <div class="ab-apps-header">
+      <h2>Applications of anchor bolts.</h2>
+      <p>Trusted across industries where the foundation matters — structural steel, industrial equipment, critical infrastructure, and utility-scale renewables.</p>
+    </div>
+    <div class="ab-apps-grid">
+      <a href="#" class="ab-app-tile">
+        <img src="https://images.squarespace-cdn.com/content/v1/5efbb68d03da3677c3455ba6/1e76177d-d96a-4d9d-8931-3f7d049e12d7/construction.jpg" alt="" onerror="this.style.display='none'">
+        <div class="ab-app-tile-body">
+          <div class="ab-app-tile-eyebrow">01 — Construction</div>
+          <div class="ab-app-tile-title">Structural steel columns, beams &amp; framing.</div>
+          <div class="ab-app-tile-desc">Base plate anchorage for moment frames, braced frames, and gravity columns.</div>
+        </div>
+      </a>
+      <a href="#" class="ab-app-tile">
+        <img src="https://images.squarespace-cdn.com/content/v1/5efbb68d03da3677c3455ba6/606418c4-1057-49ac-821b-ce572774f5b9/AdobeStock_731342733.jpeg" alt="" onerror="this.style.display='none'">
+        <div class="ab-app-tile-body">
+          <div class="ab-app-tile-eyebrow">02 — Industrial machinery</div>
+          <div class="ab-app-tile-title">Heavy equipment &amp; machine bases.</div>
+          <div class="ab-app-tile-desc">Holding-down bolts for presses, mills, compressors, and production lines.</div>
+        </div>
+      </a>
+      <a href="#" class="ab-app-tile">
+        <img src="https://images.squarespace-cdn.com/content/v1/5efbb68d03da3677c3455ba6/261f100b-3496-48f2-b1ee-245eca151e58/AdobeStock_753784784.jpeg" alt="" onerror="this.style.display='none'">
+        <div class="ab-app-tile-body">
+          <div class="ab-app-tile-eyebrow">03 — Infrastructure</div>
+          <div class="ab-app-tile-title">Bridges, highways, tunnels.</div>
+          <div class="ab-app-tile-desc">Long-service-life HDG and stainless anchors for seismic and wind loading.</div>
+        </div>
+      </a>
+      <a href="#" class="ab-app-tile">
+        <img src="https://images.squarespace-cdn.com/content/v1/5efbb68d03da3677c3455ba6/1df61635-d95e-47b3-ba2b-633da74f8021/AdobeStock_170240857.jpeg" alt="" onerror="this.style.display='none'">
+        <div class="ab-app-tile-body">
+          <div class="ab-app-tile-eyebrow">04 — Renewable energy</div>
+          <div class="ab-app-tile-title">Wind turbines &amp; solar foundations.</div>
+          <div class="ab-app-tile-desc">Large-diameter anchor assemblies engineered for utility-scale generation.</div>
+        </div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- TEMPLATE PLATES full-bleed -->
+<section class="ab-plates" data-screen-label="07 Template plates">
+  <div class="ab-plates-inner">
+    <div class="ab-plates-text">
+      <div class="eyebrow">Don't forget your…</div>
+      <h2>Template <i>plates.</i></h2>
+      <p>Anchor bolt template plates ensure accurate bolt placement and easy installation. These plates maintain proper spacing and alignment, preventing installation errors and reducing setup time.</p>
+      <p style="max-width: 440px;">Made from high-strength steel, built for durability and reliability on construction, industrial, and infrastructure projects.</p>
+      <div style="display: flex; gap: 18px; margin-top: 12px; flex-wrap: wrap;">
+        <a href="quote-flow.html" class="cf-pill cf-pill--blue-light">Talk to a person</a>
+        <a href="tel:8885817328" class="cf-pill cf-pill--ghost-dark">888.581.7328</a>
+      </div>
+    </div>
+    <div class="ab-plates-image">
+      <img src="assets/template-plate.webp" alt="Steel anchor bolt template plate with pre-drilled pattern">
+    </div>
+  </div>
+</section>
+
+<!-- SPEC LIBRARY -->
+<section class="ab-spec-lib" data-screen-label="08 Spec library">
+  <div class="ab-spec-lib-inner">
+    <div>
+      <h2>Visit our specification library.</h2>
+      <p>A comprehensive resource for fastener specifications across the industries we service — access standards, material guides, and technical resources.</p>
+      <a href="#" class="cf-pill cf-pill--blue">Learn more</a>
+    </div>
+    <div class="ab-spec-lib-visual">
+      <div><b>A193</b>High-temp bolting material</div>
+      <div><b>A307</b>Carbon steel bolts</div>
+      <div><b>A320</b>Low-temp bolting</div>
+      <div><b>A449</b>Quenched &amp; tempered</div>
+      <div><b>F1554</b>Anchor bolt spec</div>
+      <div><b>F3125</b>Structural bolts</div>
+      <div><b>F593</b>Stainless fasteners</div>
+    </div>
+  </div>
+</section>
+
+<!-- PARTNERS -->
+<section class="ab-partners" data-screen-label="09 Partners">
+  <div class="ab-partners-inner">
+    <div class="ab-partners-label">Authorized distributor</div>
+    <div class="ab-partners-logos">
+      <span class="ab-partner ab-partner--hilti">HILTI</span>
+      <span class="ab-partner ab-partner--simpson"><span>SIMPSON</span><span>Strong-Tie</span></span>
+    </div>
+  </div>
+</section>
+
+<!-- CTA BAND -->
+<section class="ab-cta" data-screen-label="10 CTA">
+  <div class="ab-cta-inner">
+    <div class="ab-cta-eyebrow">Request a quote</div>
+    <h2>More than hardware.<br>A <i>building partner.</i></h2>
+    <p>You're not just purchasing hardware — you're gaining a partner dedicated to your project's success. Submit your quote request and secure the strength and reliability only California Fastener can deliver.</p>
+    <div class="ab-cta-ctas">
+      <a href="quote-flow.html" class="cf-pill cf-pill--blue-light">Request a Quote</a>
+      <a href="tel:8885817328" class="cf-pill cf-pill--ghost-dark">Call 888.581.7328</a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="cf-footer">
+  <div class="cf-footer-cols">
+    <div class="cf-footer-col">
+      <h4 class="cf-footer-brand"><span class="cf-nav-logo-mark"></span>California Fastener</h4>
+      <p class="cf-footer-tagline">Industrial and structural fasteners, CNC machined parts, and technical support. CA Fast LLC.</p>
+      <div style="font-size:12px; color:var(--ink); margin-bottom:4px;">888.581.7328</div>
+      <div style="font-size:12px; color:var(--mid);">info@californiafastener.com</div>
+    </div>
+    <div class="cf-footer-col">
+      <h4>Products</h4>
+      <a href="anchor-bolts.html">Anchor Bolts</a>
+      <a href="#">Stud Bolts &amp; Threaded Rod</a>
+      <a href="#">U-Bolts</a>
+      <a href="#">Structural Fasteners</a>
+      <a href="#">Industrial Fasteners</a>
+      <a href="#">Stainless Steel Fasteners</a>
+      <a href="#">Silicon Bronze Hardware</a>
+      <a href="cnc-landing.html">CNC Machining</a>
+    </div>
+    <div class="cf-footer-col">
+      <h4>Resources</h4>
+      <a href="#">Specification Library</a>
+      <a href="spec-builder.html">Spec Builder</a>
+      <a href="#">Product Catalog</a>
+      <a href="#">Industry Applications</a>
+      <a href="blog.html">Field Notes (Blog)</a>
+    </div>
+    <div class="cf-footer-col">
+      <h4>Company</h4>
+      <a href="#">About</a>
+      <a href="quote-flow.html">Request a Quote</a>
+      <a href="#">Contact</a>
+    </div>
+  </div>
+  <div class="cf-footer-bottom">
+    <div>© 2026 California Fastener · CA Fast LLC</div>
+    <div>Designed in California</div>
+  </div>
+</footer>
+
+<script>
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('cf-rise'); });
+  }, { threshold: 0.1 });
+  document.querySelectorAll('.ab-value, .ab-type-card, .ab-grade-card, .ab-app-tile').forEach(el => observer.observe(el));
+</script>
+</body>
+</html>

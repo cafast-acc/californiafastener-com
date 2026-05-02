@@ -1,0 +1,1213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<link rel="icon" type="image/png" href="assets/cf-logo-black.png" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Hollo-Bolt Selector — Specify Your Connection | California Fastener</title>
+<meta name="description" content="Specify the correct Lindapter Hollo-Bolt for your connection. Filter by head type, diameter, finish, and fixing thickness — request a quote from California Fastener." />
+<link rel="stylesheet" href="_shared.css" />
+<style>
+  body { background: var(--bg); }
+
+  /* Site-style palette applied over the widget's :root */
+  #caf-hbs-root {
+    --navy: #1D1D1F !important;            /* site --ink */
+    --navy-80: rgba(29,29,31,0.8) !important;
+    --accent: #1C52A3 !important;          /* site --amber */
+    --accent-dark: #143A75 !important;     /* deeper amber */
+    --off-white: #F4F2EC !important;       /* site --bg-alt */
+    --light-gray: #E7E4DB !important;      /* site --rule-soft */
+    --text-gray: #4A4A4F !important;       /* site --ink-soft */
+    --border: #DCD9D0 !important;          /* site --rule */
+    --success: #2F6E4F !important;         /* site --green-dark */
+    --success-bg: #E8F1EC !important;
+    --warning: #C08A3E !important;
+    --warning-bg: #F5EDDA !important;
+    --error: #9C3030 !important;           /* site --red-dark */
+    font-family: "SF Pro Display", -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif !important;
+    max-width: 1240px !important;
+    padding: 40px 40px 160px !important;
+  }
+  #caf-hbs-root .hbs-header h2 { font-size: clamp(36px, 3.8vw, 52px); font-weight: 600; letter-spacing: -0.03em; }
+  #caf-hbs-root .hbs-header p { font-size: 17px; line-height: 1.5; color: var(--ink-soft); max-width: 720px; }
+  #caf-hbs-root .hbs-header { border-bottom: 1px solid var(--rule-soft); padding-bottom: 28px; margin-bottom: 36px; }
+  #caf-hbs-root .hbs-badge { border-radius: 100px; padding: 4px 10px; font-weight: 600; }
+  #caf-hbs-root .hbs-badge.accent { background: #DCE8F7; color: #143A75; }
+  #caf-hbs-root .hbs-filters { border-radius: 16px; }
+  #caf-hbs-root .hbs-card { border-radius: 14px; }
+  #caf-hbs-root .hbs-card.recommended { border-color: var(--accent); }
+  #caf-hbs-root .hbs-card.recommended::before { background: var(--accent); color: #fff; border-radius: 100px; padding: 3px 10px; }
+  #caf-hbs-root .hbs-load-tile { background: #1D1D1F; border-radius: 10px; }
+  #caf-hbs-root .hbs-btn.primary { background: var(--accent); color: #fff; }
+  #caf-hbs-root .hbs-btn.primary:hover { background: var(--accent-dark); }
+  #caf-hbs-root .hbs-cart-count { background: var(--accent); color: #fff; }
+  #caf-hbs-root .hbs-submit { background: var(--accent); }
+  #caf-hbs-root .hbs-submit:hover { background: var(--accent-dark); }
+  #caf-hbs-root .hbs-seg-btn.active { background: var(--navy); color: #fff; border-color: var(--navy); }
+  #caf-hbs-root .hbs-select:focus, #caf-hbs-root .hbs-input:focus { border-color: var(--accent); box-shadow: 0 0 0 3px rgba(28,82,163,0.22); }
+  #caf-hbs-root .hbs-add-btn { background: var(--navy); border-radius: 100px; }
+  #caf-hbs-root .hbs-add-btn:hover { background: #000; }
+  #caf-hbs-root .hbs-add-btn.added { background: var(--success); }
+  #caf-hbs-root .hbs-tip-icon { background: var(--accent); color: #fff; }
+
+  /* Hero band above selector */
+  .hbsel-hero { padding: 72px 40px 24px; background: linear-gradient(180deg, var(--bg) 0%, var(--bg-alt) 100%); border-bottom: 1px solid var(--rule-soft); }
+  .hbsel-hero-inner { max-width: 1240px; margin: 0 auto; }
+  .hbsel-breadcrumb { font-size: 13px; color: var(--mid); margin-bottom: 20px; }
+  .hbsel-breadcrumb a { color: var(--mid); text-decoration: none; }
+  .hbsel-breadcrumb a:hover { color: var(--ink); }
+  .hbsel-breadcrumb span { margin: 0 8px; color: var(--rule); }
+  .hbsel-eyebrow { font-size: 13px; font-weight: 500; color: #143A75; margin-bottom: 14px; letter-spacing: 0.04em; text-transform: uppercase; display: inline-flex; align-items: center; gap: 10px; }
+  .hbsel-eyebrow::before { content: ''; width: 22px; height: 1px; background: #143A75; }
+
+  /* Minimal nav dropdown (parity with other pages) */
+  .cf-nav-center li { position: relative; list-style: none; }
+  .cf-nav-center li > a, .cf-nav-center li > button { display: inline-block; padding: 7px 12px; font-size: 14px; color: var(--ink-soft); text-decoration: none; border-radius: 6px; background: transparent; border: none; font-family: inherit; cursor: pointer; letter-spacing: -0.005em; }
+  .cf-nav-center li > a:hover, .cf-nav-center li > button:hover { background: var(--bg-alt); color: var(--ink); }
+  .cf-nav-quote { display: inline-flex; align-items: center; padding: 9px 18px; font-size: 13px; font-weight: 500; border-radius: 100px; background: var(--ink); color: var(--bg); text-decoration: none; letter-spacing: -0.005em; }
+  .cf-nav-menu { display: none; position: absolute; top: 100%; left: 0; min-width: 260px; background: var(--bg); border: 1px solid var(--rule-soft); border-radius: 12px; padding: 10px; margin-top: 6px; box-shadow: 0 20px 40px rgba(0,0,0,0.08); z-index: 200; }
+  .cf-nav-menu a { display: block; padding: 8px 12px; font-size: 13px; color: var(--ink); text-decoration: none; border-radius: 6px; }
+  .cf-nav-menu a:hover { background: var(--bg-alt); }
+  .cf-nav-menu-sub { display: block; font-size: 11px; color: var(--mid); margin-top: 2px; }
+  .cf-nav-menu-label { font-size: 10px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--mid); padding: 8px 12px 4px; font-weight: 500; }
+  .cf-nav-menu--mega { min-width: 360px; }
+  .cf-nav-menu-divider { height: 1px; background: var(--rule-soft); margin: 6px 8px; }
+  .cf-nav-center li.has-menu:hover .cf-nav-menu, .cf-nav-center li.has-menu:focus-within .cf-nav-menu { display: block; }
+</style>
+</head>
+<body>
+
+<nav class="cf-nav">
+  <a href="homepage.html" class="cf-nav-logo"><span class="cf-nav-logo-mark"></span>California Fastener</a>
+  <ul class="cf-nav-center">
+    <li class="has-menu">
+      <button aria-haspopup="true">Products</button>
+      <div class="cf-nav-menu cf-nav-menu--mega" role="menu">
+        <div class="cf-nav-menu-label">Fasteners</div>
+        <a href="industrial-fasteners.html" role="menuitem">Industrial Fasteners<span class="cf-nav-menu-sub">Hex, socket, flange</span></a>
+        <a href="stainless-steel-fasteners.html" role="menuitem">Stainless Steel Fasteners</a>
+        <a href="silicon-bronze.html" role="menuitem">Silicon Bronze Hardware</a>
+        <a href="hollo-bolt.html" role="menuitem">Lindapter Hollo-Bolt<span class="cf-nav-menu-sub">Expansion bolts for structural steel</span></a>
+      </div>
+    </li>
+    <li><a href="#">Industries</a></li>
+    <li><a href="#">CNC Machining</a></li>
+    <li class="has-menu">
+      <button aria-haspopup="true">Resources</button>
+      <div class="cf-nav-menu" role="menu">
+        <a href="spec-library.html" role="menuitem">Specification Library</a>
+        <a href="spec-builder.html" role="menuitem">Spec Builder</a>
+        <a href="technical-library.html" role="menuitem">Technical Library</a>
+      </div>
+    </li>
+    <li><a href="#">About</a></li>
+  </ul>
+  <div class="cf-nav-right">
+    <a href="hollo-bolt.html" class="cf-nav-quote">Back to Hollo-Bolt</a>
+  </div>
+</nav>
+
+<section class="hbsel-hero">
+  <div class="hbsel-hero-inner">
+    <div class="hbsel-breadcrumb"><a href="homepage.html">Home</a><span>/</span><a href="hollo-bolt.html">Lindapter Hollo-Bolt</a><span>/</span>Selector</div>
+    <div class="hbsel-eyebrow">Configure &amp; quote</div>
+  </div>
+</section>
+
+<!--
+  ============================================================================
+  HOLLO-BOLT SELECTOR — California Fastener
+  ----------------------------------------------------------------------------
+  Single-file HTML/CSS/JS widget for Squarespace Code Block embed.
+  Replicates the Lindapter Hollo-Bolt selector functionality on-site so
+  leads stay on californiafastener.com instead of bouncing to lindapter.com.
+
+  Data source: Lindapter US Imperial Catalog (April 2026), pp. 51–67.
+  All SWL values (FOS 5:1), grip ranges, and torques match the published tables.
+
+  INTEGRATION NOTES:
+  ------------------
+  1. JotForm integration: search for "CAF_JOTFORM" below and replace the
+     JOTFORM_ID constant with your actual form ID. The quote submission will
+     POST to JotForm with a hidden field "hbs_quote_json" containing the
+     full selection payload.
+  2. Styling uses CA Fastener's CSS variable system (navy/accent/off-white).
+     Purple is reserved for nav CTA — not used here.
+  3. All SKUs follow Lindapter's coding convention:
+     LHBM[size][head]#[len][finish]
+     e.g. LHBM12HEX#2ZN = 1/2" hex head, medium grip, zinc plated + JS500.
+  ============================================================================
+-->
+<div id="caf-hbs-root">
+<style>
+  #caf-hbs-root {
+    --navy: #0a1240;
+    --navy-80: #0a1240cc;
+    --accent: #38b6ff;
+    --accent-dark: #1b8fd4;
+    --white: #ffffff;
+    --off-white: #f5f6f8;
+    --light-gray: #F0F0F0;
+    --text-gray: #4a4f62;
+    --border: #d9dde5;
+    --success: #0f7a3c;
+    --success-bg: #e8f5ed;
+    --warning: #b86900;
+    --warning-bg: #fff4e5;
+    --error: #b52020;
+    --shadow-sm: 0 1px 2px rgba(10, 18, 64, 0.06);
+    --shadow-md: 0 4px 12px rgba(10, 18, 64, 0.08);
+    --shadow-lg: 0 12px 32px rgba(10, 18, 64, 0.12);
+    --radius-sm: 4px;
+    --radius-md: 8px;
+    --radius-lg: 12px;
+
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    color: var(--text-gray);
+    line-height: 1.5;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 24px 16px 120px;
+    box-sizing: border-box;
+  }
+  #caf-hbs-root *, #caf-hbs-root *::before, #caf-hbs-root *::after { box-sizing: border-box; }
+
+  /* ---------- Header ---------- */
+  .hbs-header { margin-bottom: 24px; border-bottom: 2px solid var(--light-gray); padding-bottom: 16px; }
+  .hbs-header h2 { color: var(--navy); font-size: 28px; font-weight: 800; margin: 0 0 6px; letter-spacing: -0.01em; }
+  .hbs-header p  { margin: 0; font-size: 15px; color: var(--text-gray); max-width: 720px; }
+  .hbs-header .hbs-badges { margin-top: 10px; display: flex; flex-wrap: wrap; gap: 6px; }
+  .hbs-badge { display: inline-block; background: var(--navy); color: #fff; font-size: 11px; font-weight: 700; padding: 3px 8px; border-radius: 3px; letter-spacing: 0.03em; text-transform: uppercase; }
+  .hbs-badge.accent { background: var(--accent); color: var(--navy); }
+
+  /* ---------- Layout ---------- */
+  .hbs-grid { display: grid; grid-template-columns: minmax(280px, 340px) 1fr; gap: 24px; align-items: start; }
+  @media (max-width: 820px) { .hbs-grid { grid-template-columns: 1fr; } }
+
+  /* ---------- Filter panel ---------- */
+  .hbs-filters {
+    background: var(--off-white);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    padding: 18px;
+    position: sticky;
+    top: 16px;
+  }
+  @media (max-width: 820px) { .hbs-filters { position: static; } }
+  .hbs-filters h3 { color: var(--navy); font-size: 14px; font-weight: 800; text-transform: uppercase; letter-spacing: 0.08em; margin: 0 0 14px; }
+  .hbs-field { margin-bottom: 16px; }
+  .hbs-field:last-child { margin-bottom: 0; }
+  .hbs-label { display: block; font-size: 12px; font-weight: 700; color: var(--navy); text-transform: uppercase; letter-spacing: 0.04em; margin-bottom: 6px; }
+  .hbs-label .hbs-hint { display: inline; font-weight: 400; text-transform: none; letter-spacing: 0; color: var(--text-gray); font-size: 11px; }
+  .hbs-tip-icon { display: inline-block; background: var(--accent); color: var(--navy); border-radius: 50%; width: 14px; height: 14px; text-align: center; line-height: 14px; font-size: 10px; font-weight: 700; margin-left: 4px; cursor: help; vertical-align: middle; }
+  .hbs-select, .hbs-input {
+    width: 100%; padding: 8px 10px; font-size: 14px; font-family: inherit;
+    border: 1px solid var(--border); border-radius: var(--radius-sm);
+    background: #fff; color: var(--navy);
+    transition: border-color 120ms, box-shadow 120ms;
+  }
+  .hbs-select:focus, .hbs-input:focus { outline: none; border-color: var(--accent); box-shadow: 0 0 0 3px rgba(56, 182, 255, 0.2); }
+  .hbs-input[type="number"] { font-variant-numeric: tabular-nums; }
+
+  /* segmented buttons */
+  .hbs-segmented { display: flex; flex-wrap: wrap; gap: 4px; }
+  .hbs-seg-btn {
+    flex: 1 1 auto; min-width: 60px;
+    padding: 8px 6px; font-size: 13px; font-weight: 600; font-family: inherit;
+    background: #fff; color: var(--text-gray);
+    border: 1px solid var(--border); border-radius: var(--radius-sm);
+    cursor: pointer; transition: all 120ms;
+  }
+  .hbs-seg-btn:hover:not(:disabled) { border-color: var(--accent); color: var(--navy); }
+  .hbs-seg-btn.active { background: var(--navy); color: #fff; border-color: var(--navy); }
+  .hbs-seg-btn:disabled { opacity: 0.35; cursor: not-allowed; }
+
+  .hbs-dual-input { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+  .hbs-dual-input > div { display: flex; flex-direction: column; }
+  .hbs-dual-input .hbs-sublabel { font-size: 11px; font-weight: 600; color: var(--text-gray); margin-bottom: 3px; }
+
+  .hbs-total { margin-top: 10px; padding: 8px 10px; background: #fff; border: 1px dashed var(--border); border-radius: var(--radius-sm); font-size: 12px; color: var(--text-gray); }
+  .hbs-total strong { color: var(--navy); font-size: 14px; font-variant-numeric: tabular-nums; }
+
+  .hbs-btn-row { display: flex; gap: 8px; margin-top: 18px; }
+  .hbs-btn {
+    padding: 10px 16px; font-size: 14px; font-weight: 700; font-family: inherit;
+    border: none; border-radius: var(--radius-sm);
+    cursor: pointer; transition: all 120ms;
+    text-transform: uppercase; letter-spacing: 0.03em;
+  }
+  .hbs-btn.primary { background: var(--accent); color: var(--navy); flex: 1; }
+  .hbs-btn.primary:hover { background: var(--accent-dark); color: #fff; }
+  .hbs-btn.ghost { background: transparent; color: var(--text-gray); border: 1px solid var(--border); }
+  .hbs-btn.ghost:hover { color: var(--navy); border-color: var(--navy); }
+
+  /* ---------- Results ---------- */
+  .hbs-results h3 { color: var(--navy); font-size: 18px; font-weight: 800; margin: 0 0 8px; }
+  .hbs-result-meta { font-size: 13px; color: var(--text-gray); margin-bottom: 14px; }
+  .hbs-result-meta strong { color: var(--navy); }
+  .hbs-result-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 14px; }
+  .hbs-card {
+    background: #fff; border: 1px solid var(--border); border-radius: var(--radius-md);
+    padding: 16px; display: flex; flex-direction: column; gap: 10px;
+    transition: border-color 120ms, box-shadow 120ms;
+  }
+  .hbs-card:hover { border-color: var(--accent); box-shadow: var(--shadow-md); }
+  .hbs-card.recommended { border-color: var(--accent); border-width: 2px; position: relative; }
+  .hbs-card.recommended::before {
+    content: "BEST FIT"; position: absolute; top: -10px; right: 12px;
+    background: var(--accent); color: var(--navy); font-size: 10px; font-weight: 800;
+    padding: 2px 8px; border-radius: 3px; letter-spacing: 0.05em;
+  }
+  .hbs-card-sku { font-family: "SF Mono", Consolas, Monaco, monospace; font-size: 14px; font-weight: 700; color: var(--navy); word-break: break-all; }
+  .hbs-card-subtitle { font-size: 12px; color: var(--text-gray); text-transform: uppercase; letter-spacing: 0.06em; margin-top: -6px; }
+  .hbs-specs { display: grid; grid-template-columns: repeat(2, 1fr); gap: 6px 10px; padding: 10px; background: var(--off-white); border-radius: var(--radius-sm); font-size: 12px; }
+  .hbs-spec-label { color: var(--text-gray); }
+  .hbs-spec-value { color: var(--navy); font-weight: 700; font-variant-numeric: tabular-nums; }
+  .hbs-spec-full { grid-column: 1 / -1; }
+  .hbs-loads { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+  .hbs-load-tile { background: var(--navy); color: #fff; padding: 8px; border-radius: var(--radius-sm); text-align: center; }
+  .hbs-load-tile .hbs-load-label { font-size: 10px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.06em; opacity: 0.85; }
+  .hbs-load-tile .hbs-load-value { font-size: 18px; font-weight: 800; font-variant-numeric: tabular-nums; line-height: 1.1; margin-top: 2px; }
+  .hbs-load-tile .hbs-load-unit { font-size: 11px; opacity: 0.85; }
+  .hbs-warn { background: var(--warning-bg); color: var(--warning); font-size: 11px; padding: 6px 8px; border-radius: var(--radius-sm); border-left: 3px solid var(--warning); }
+  .hbs-hcf-tag { display: inline-block; background: #fff4cc; color: #a36300; font-size: 10px; font-weight: 800; padding: 2px 6px; border-radius: 3px; letter-spacing: 0.04em; vertical-align: middle; }
+
+  .hbs-add-btn {
+    background: var(--navy); color: #fff; font-weight: 700; font-size: 13px;
+    padding: 10px; border: none; border-radius: var(--radius-sm); cursor: pointer;
+    transition: background 120ms; font-family: inherit; letter-spacing: 0.03em; text-transform: uppercase;
+  }
+  .hbs-add-btn:hover { background: #1a245e; }
+  .hbs-add-btn.added { background: var(--success); }
+
+  .hbs-empty {
+    text-align: center; padding: 48px 24px; background: var(--off-white);
+    border-radius: var(--radius-md); border: 1px dashed var(--border);
+  }
+  .hbs-empty h4 { color: var(--navy); font-size: 16px; margin: 0 0 6px; }
+  .hbs-empty p { margin: 0 0 10px; font-size: 13px; }
+
+  /* ---------- Cart ---------- */
+  .hbs-cart {
+    position: fixed; bottom: 0; left: 0; right: 0;
+    background: #fff; border-top: 2px solid var(--navy);
+    box-shadow: var(--shadow-lg);
+    transform: translateY(calc(100% - 56px));
+    transition: transform 240ms ease;
+    z-index: 1000;
+    max-height: 80vh; display: flex; flex-direction: column;
+  }
+  .hbs-cart.open { transform: translateY(0); }
+  .hbs-cart-handle {
+    padding: 14px 20px; background: var(--navy); color: #fff;
+    display: flex; justify-content: space-between; align-items: center;
+    cursor: pointer; user-select: none;
+  }
+  .hbs-cart-handle-label { font-size: 14px; font-weight: 700; letter-spacing: 0.03em; text-transform: uppercase; }
+  .hbs-cart-count { background: var(--accent); color: var(--navy); padding: 2px 9px; border-radius: 999px; font-size: 12px; font-weight: 800; margin-left: 8px; }
+  .hbs-cart-chevron { transition: transform 240ms; font-size: 18px; font-weight: 700; }
+  .hbs-cart.open .hbs-cart-chevron { transform: rotate(180deg); }
+  .hbs-cart-body { padding: 16px 20px; overflow-y: auto; flex: 1; }
+  .hbs-cart-items { display: flex; flex-direction: column; gap: 8px; margin-bottom: 16px; }
+  .hbs-cart-item {
+    display: grid; grid-template-columns: 1fr auto auto; gap: 10px; align-items: center;
+    padding: 10px; background: var(--off-white); border-radius: var(--radius-sm);
+  }
+  .hbs-cart-sku { font-family: "SF Mono", Consolas, Monaco, monospace; font-size: 12px; font-weight: 700; color: var(--navy); }
+  .hbs-cart-desc { font-size: 11px; color: var(--text-gray); margin-top: 2px; }
+  .hbs-qty-group { display: flex; align-items: center; gap: 2px; }
+  .hbs-qty-btn {
+    width: 26px; height: 26px; border: 1px solid var(--border); background: #fff;
+    font-size: 14px; font-weight: 700; color: var(--navy); cursor: pointer;
+    border-radius: var(--radius-sm);
+  }
+  .hbs-qty-btn:hover { background: var(--accent); color: var(--navy); border-color: var(--accent); }
+  .hbs-qty-input {
+    width: 48px; text-align: center; padding: 4px; font-size: 13px; font-weight: 700;
+    border: 1px solid var(--border); border-radius: var(--radius-sm); font-variant-numeric: tabular-nums;
+  }
+  .hbs-remove { background: transparent; border: none; color: var(--error); font-size: 18px; cursor: pointer; padding: 4px 8px; }
+  .hbs-remove:hover { color: #7a1515; }
+
+  .hbs-quote-form {
+    background: var(--off-white); padding: 14px; border-radius: var(--radius-md);
+    display: grid; grid-template-columns: 1fr 1fr; gap: 10px;
+  }
+  @media (max-width: 600px) { .hbs-quote-form { grid-template-columns: 1fr; } }
+  .hbs-quote-form .hbs-field { margin: 0; }
+  .hbs-quote-form .hbs-field.full { grid-column: 1 / -1; }
+  .hbs-quote-form label { font-size: 11px; font-weight: 600; color: var(--text-gray); text-transform: uppercase; letter-spacing: 0.04em; margin-bottom: 3px; display: block; }
+  .hbs-submit {
+    grid-column: 1 / -1;
+    background: var(--navy); color: #fff; padding: 12px; font-size: 14px; font-weight: 700;
+    border: none; border-radius: var(--radius-sm); cursor: pointer;
+    text-transform: uppercase; letter-spacing: 0.04em; font-family: inherit;
+    transition: background 120ms;
+  }
+  .hbs-submit:hover { background: #1a245e; }
+  .hbs-submit:disabled { opacity: 0.5; cursor: not-allowed; }
+
+  .hbs-cart-empty { text-align: center; padding: 20px; font-size: 13px; color: var(--text-gray); }
+
+  /* ---------- Modal / toast ---------- */
+  .hbs-toast {
+    position: fixed; top: 24px; left: 50%; transform: translateX(-50%) translateY(-120%);
+    background: var(--success); color: #fff; padding: 12px 20px; border-radius: var(--radius-md);
+    font-size: 14px; font-weight: 600; z-index: 2000;
+    box-shadow: var(--shadow-lg); transition: transform 240ms ease;
+  }
+  .hbs-toast.show { transform: translateX(-50%) translateY(0); }
+  .hbs-toast.error { background: var(--error); }
+
+  /* ---------- Tooltip ---------- */
+  .hbs-tooltip { position: relative; display: inline-block; }
+  .hbs-tooltip-body {
+    visibility: hidden; opacity: 0;
+    position: absolute; z-index: 100; bottom: 125%; left: 50%; transform: translateX(-50%);
+    background: var(--navy); color: #fff; padding: 8px 12px; border-radius: var(--radius-sm);
+    font-size: 12px; font-weight: 400; line-height: 1.4; width: 220px; text-align: left;
+    text-transform: none; letter-spacing: 0;
+    transition: opacity 120ms;
+    pointer-events: none;
+  }
+  .hbs-tooltip:hover .hbs-tooltip-body { visibility: visible; opacity: 1; }
+  .hbs-tooltip-body::after {
+    content: ""; position: absolute; top: 100%; left: 50%; margin-left: -5px;
+    border: 5px solid transparent; border-top-color: var(--navy);
+  }
+
+  /* ---------- Footer ---------- */
+  .hbs-footer {
+    margin-top: 32px; padding-top: 16px; border-top: 1px solid var(--light-gray);
+    font-size: 12px; color: var(--text-gray);
+  }
+  .hbs-footer a { color: var(--accent-dark); text-decoration: none; font-weight: 600; }
+  .hbs-footer a:hover { text-decoration: underline; }
+</style>
+
+<!-- ===================== HEADER ===================== -->
+<header class="hbs-header">
+  <h2>Hollo-Bolt Selector</h2>
+  <p>Specify the correct Lindapter Hollo-Bolt for your steel-to-HSS connection. Filter by head type, diameter, finish, and fixing thickness — then request a quote directly from California Fastener. Authorized distributor, no login required.</p>
+  <div class="hbs-badges">
+    <span class="hbs-badge">ICC-ES ESR-3330</span>
+    <span class="hbs-badge">Seismic SDC A–F</span>
+    <span class="hbs-badge accent">Authorized Distributor</span>
+  </div>
+</header>
+
+<div class="hbs-grid">
+  <!-- ===================== FILTER PANEL ===================== -->
+  <aside class="hbs-filters" aria-label="Hollo-Bolt filter controls">
+    <h3>Specify your connection</h3>
+
+    <div class="hbs-field">
+      <label class="hbs-label" for="hbs-headtype">Head type
+        <span class="hbs-tooltip"><span class="hbs-tip-icon">?</span>
+          <span class="hbs-tooltip-body"><strong>Hex:</strong> standard, most load capacity. <strong>Countersunk:</strong> minimal protrusion. <strong>Flush Fit:</strong> zero protrusion — ideal for walkways and clean finishes.</span>
+        </span>
+      </label>
+      <div class="hbs-segmented" role="radiogroup" aria-label="Head type">
+        <button type="button" class="hbs-seg-btn active" data-head="HEX" role="radio" aria-checked="true">Hex</button>
+        <button type="button" class="hbs-seg-btn" data-head="CSK" role="radio" aria-checked="false">Countersunk</button>
+        <button type="button" class="hbs-seg-btn" data-head="FF" role="radio" aria-checked="false">Flush Fit</button>
+      </div>
+    </div>
+
+    <div class="hbs-field">
+      <label class="hbs-label" for="hbs-size">Bolt diameter
+        <span class="hbs-hint">&nbsp;— inches</span>
+      </label>
+      <div class="hbs-segmented" id="hbs-size-group" role="radiogroup" aria-label="Bolt diameter">
+        <button type="button" class="hbs-seg-btn active" data-size="5/16" role="radio" aria-checked="true">5/16"</button>
+        <button type="button" class="hbs-seg-btn" data-size="3/8" role="radio" aria-checked="false">3/8"</button>
+        <button type="button" class="hbs-seg-btn" data-size="1/2" role="radio" aria-checked="false">1/2"</button>
+        <button type="button" class="hbs-seg-btn" data-size="5/8" role="radio" aria-checked="false">5/8"</button>
+        <button type="button" class="hbs-seg-btn" data-size="3/4" role="radio" aria-checked="false">3/4"</button>
+      </div>
+    </div>
+
+    <div class="hbs-field">
+      <label class="hbs-label" for="hbs-finish">Finish / corrosion protection
+        <span class="hbs-tooltip"><span class="hbs-tip-icon">?</span>
+          <span class="hbs-tooltip-body"><strong>Zinc + JS500:</strong> standard indoor. <strong>HDG:</strong> outdoor/exterior. <strong>Sheraplex:</strong> enhanced coastal. <strong>316 SS:</strong> marine, chemical, food-grade.</span>
+        </span>
+      </label>
+      <select class="hbs-select" id="hbs-finish">
+        <option value="ZN">Zinc Plated + JS500 (standard)</option>
+        <option value="HDG">Hot Dip Galvanized</option>
+        <option value="SP">Sheraplex</option>
+        <option value="ST">Stainless Steel 316</option>
+      </select>
+    </div>
+
+    <div class="hbs-field">
+      <label class="hbs-label">Fixing thickness
+        <span class="hbs-tooltip"><span class="hbs-tip-icon">?</span>
+          <span class="hbs-tooltip-body"><strong>Outer ply:</strong> fixture/plate being connected. <strong>Inner ply:</strong> HSS wall thickness. Total = grip range required.</span>
+        </span>
+      </label>
+      <div class="hbs-dual-input">
+        <div>
+          <span class="hbs-sublabel">Outer ply (in)</span>
+          <input type="number" class="hbs-input" id="hbs-outer" value="0.375" step="0.0625" min="0" max="4" />
+        </div>
+        <div>
+          <span class="hbs-sublabel">Inner ply (in)</span>
+          <input type="number" class="hbs-input" id="hbs-inner" value="0.25" step="0.0625" min="0" max="2" />
+        </div>
+      </div>
+      <div class="hbs-total">Total grip required: <strong id="hbs-total-grip">0.625"</strong></div>
+    </div>
+
+    <div class="hbs-field">
+      <label class="hbs-label" for="hbs-project">Project reference <span class="hbs-hint">(optional)</span></label>
+      <input type="text" class="hbs-input" id="hbs-project" placeholder="e.g. Oakland Warehouse Retrofit" />
+    </div>
+
+    <div class="hbs-btn-row">
+      <button type="button" class="hbs-btn ghost" id="hbs-reset">Reset</button>
+    </div>
+  </aside>
+
+  <!-- ===================== RESULTS ===================== -->
+  <section class="hbs-results" aria-live="polite">
+    <h3>Matching products</h3>
+    <div class="hbs-result-meta" id="hbs-result-meta">Adjust filters at left to find the right Hollo-Bolt for your connection.</div>
+    <div class="hbs-result-grid" id="hbs-result-grid"></div>
+  </section>
+</div>
+
+<!-- ===================== CART ===================== -->
+<aside class="hbs-cart" id="hbs-cart" aria-label="Quote cart">
+  <div class="hbs-cart-handle" id="hbs-cart-handle" role="button" tabindex="0" aria-expanded="false">
+    <div>
+      <span class="hbs-cart-handle-label">Quote Cart</span>
+      <span class="hbs-cart-count" id="hbs-cart-count">0</span>
+    </div>
+    <span class="hbs-cart-chevron" aria-hidden="true">▲</span>
+  </div>
+  <div class="hbs-cart-body">
+    <div class="hbs-cart-items" id="hbs-cart-items"></div>
+    <div class="hbs-quote-form" id="hbs-quote-form" style="display:none;">
+      <div class="hbs-field">
+        <label for="hbs-f-name">Name</label>
+        <input type="text" class="hbs-input" id="hbs-f-name" required />
+      </div>
+      <div class="hbs-field">
+        <label for="hbs-f-company">Company</label>
+        <input type="text" class="hbs-input" id="hbs-f-company" />
+      </div>
+      <div class="hbs-field">
+        <label for="hbs-f-email">Email</label>
+        <input type="email" class="hbs-input" id="hbs-f-email" required />
+      </div>
+      <div class="hbs-field">
+        <label for="hbs-f-phone">Phone</label>
+        <input type="tel" class="hbs-input" id="hbs-f-phone" />
+      </div>
+      <div class="hbs-field full">
+        <label for="hbs-f-notes">Application notes <span class="hbs-hint">(optional)</span></label>
+        <input type="text" class="hbs-input" id="hbs-f-notes" placeholder="HSS size, loading, timeline, delivery..." />
+      </div>
+      <button type="button" class="hbs-submit" id="hbs-submit">Request Quote</button>
+    </div>
+  </div>
+</aside>
+
+<!-- ===================== FOOTER ===================== -->
+<footer class="hbs-footer">
+  Load values shown are Safe Working Loads per the Lindapter April 2026 US catalog (FOS 5:1). For ICC-ES ESR-3330 design strengths (LRFD/ASD) or seismic applications, contact us at <a href="/cdn-cgi/l/email-protection#047765686177446765686d626b766a6d6562657770616a61762a676b69"><span class="__cf_email__" data-cfemail="5122303d34221132303d38373e233f383037302225343f34237f323e3c">[email&#160;protected]</span></a> or call (707) 748-4131. California Fastener is an authorized Lindapter distributor.
+</footer>
+
+<div class="hbs-toast" id="hbs-toast"></div>
+</div>
+
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+(function() {
+  'use strict';
+
+  // ============================================================================
+  // CAF_JOTFORM — replace this with your actual JotForm embed/submit endpoint.
+  // Two options:
+  //   A) AJAX-post to JotForm submit URL:
+  //      const JOTFORM_SUBMIT_URL = "https://submit.jotform.com/submit/<FORM_ID>/";
+  //   B) Open a pre-filled JotForm in a new tab:
+  //      const JOTFORM_VIEW_URL = "https://form.jotform.com/<FORM_ID>";
+  // This build uses option B by default (simpler, no CORS) — with the quote
+  // payload passed via URL query string so JotForm can prefill fields.
+  // Swap JOTFORM_ID below. See docs at the bottom of this script.
+  // ============================================================================
+  const JOTFORM_ID = "REPLACE_WITH_YOUR_FORM_ID";
+  const JOTFORM_MODE = "view"; // "view" = open in new tab prefilled, "post" = AJAX submit
+
+  // ============================================================================
+  // PRODUCT DATABASE — all values from Lindapter US Imperial Catalog Apr 2026
+  // ============================================================================
+  // Finish availability matrix (pp. 51, 60-65)
+  const FINISH_AVAIL = {
+    HEX: { ZN: true, HDG: true, SP: true, ST: true },
+    CSK: { ZN: true, HDG: false, SP: true, ST: true },
+    FF:  { ZN: true, HDG: false, SP: true, ST: true }
+  };
+  const FINISH_LABELS = {
+    ZN:  "Zinc Plated + JS500",
+    HDG: "Hot Dip Galvanized",
+    SP:  "Sheraplex",
+    ST:  "Stainless Steel 316"
+  };
+  const SIZE_DEC = { "5/16": 0.3125, "3/8": 0.375, "1/2": 0.5, "5/8": 0.625, "3/4": 0.75 };
+  const SIZE_CODE = { "5/16": "M08", "3/8": "M10", "1/2": "M12", "5/8": "M16", "3/4": "M20" };
+
+  // Head-type availability by size (FF goes to 1/2" only; CSK goes to 5/8"; HEX all)
+  const HEAD_SIZE_AVAIL = {
+    HEX: ["5/16", "3/8", "1/2", "5/8", "3/4"],
+    CSK: ["5/16", "3/8", "1/2", "5/8"],
+    FF:  ["5/16", "3/8", "1/2"]
+  };
+
+  // SKU templates. Loads (tensile/shear) are identical across length codes per head+size.
+  // Grip ranges are in decimal inches for filter math.
+  // Sources: p. 56 (HEX), p. 57 (CSK), p. 58 (FF). All SWL use FOS 5:1.
+  // outerMin = minimum outer ply thickness in inches (0 = none specified)
+  // hcf = true for High Clamping Force (5/8" and 3/4")
+  const PRODUCTS = [
+    // ---- HEX 5/16" ----
+    { head:"HEX", size:"5/16", len:1, gripMin:0.125,  gripMax:0.875,  gripDisp:'1/8" – 7/8"',     tensile:899,  shear:1124, torque:17,  hcf:false, outerMin:0,     lengthIn:'1 3/4"' },
+    { head:"HEX", size:"5/16", len:2, gripMin:0.875,  gripMax:1.625,  gripDisp:'7/8" – 1 5/8"',   tensile:899,  shear:1124, torque:17,  hcf:false, outerMin:0,     lengthIn:'2 9/16"' },
+    { head:"HEX", size:"5/16", len:3, gripMin:1.625,  gripMax:2.375,  gripDisp:'1 5/8" – 2 3/8"', tensile:899,  shear:1124, torque:17,  hcf:false, outerMin:0,     lengthIn:'3 3/8"' },
+    // ---- HEX 3/8" ----
+    { head:"HEX", size:"3/8",  len:1, gripMin:0.125,  gripMax:0.875,  gripDisp:'1/8" – 7/8"',     tensile:1910, shear:2248, torque:33,  hcf:false, outerMin:0,     lengthIn:'2"' },
+    { head:"HEX", size:"3/8",  len:2, gripMin:0.875,  gripMax:1.625,  gripDisp:'7/8" – 1 5/8"',   tensile:1910, shear:2248, torque:33,  hcf:false, outerMin:0,     lengthIn:'2 1/2"' },
+    { head:"HEX", size:"3/8",  len:3, gripMin:1.625,  gripMax:2.375,  gripDisp:'1 5/8" – 2 3/8"', tensile:1910, shear:2248, torque:33,  hcf:false, outerMin:0,     lengthIn:'3 5/16"' },
+    // ---- HEX 1/2" ----
+    { head:"HEX", size:"1/2",  len:1, gripMin:0.125,  gripMax:1.000,  gripDisp:'1/8" – 1"',       tensile:2360, shear:3372, torque:59,  hcf:false, outerMin:0,     lengthIn:'2 1/8"' },
+    { head:"HEX", size:"1/2",  len:2, gripMin:1.000,  gripMax:1.8125, gripDisp:'1" – 1 13/16"',   tensile:2360, shear:3372, torque:59,  hcf:false, outerMin:0,     lengthIn:'2 7/8"' },
+    { head:"HEX", size:"1/2",  len:3, gripMin:1.8125, gripMax:2.75,   gripDisp:'1 13/16" – 2 3/4"', tensile:2360, shear:3372, torque:59, hcf:false, outerMin:0,    lengthIn:'3 3/4"' },
+    // ---- HEX 5/8" HCF ----
+    { head:"HEX", size:"5/8",  len:1, gripMin:0.5,    gripMax:1.125,  gripDisp:'1/2" – 1 1/8"',   tensile:4720, shear:6744, torque:140, hcf:true,  outerMin:0.3125, lengthIn:'2 5/8"' },
+    { head:"HEX", size:"5/8",  len:2, gripMin:1.125,  gripMax:2.0,    gripDisp:'1 1/8" – 2"',     tensile:4720, shear:6744, torque:140, hcf:true,  outerMin:0.3125, lengthIn:'3 5/8"' },
+    { head:"HEX", size:"5/8",  len:3, gripMin:2.0,    gripMax:2.8125, gripDisp:'2" – 2 13/16"',   tensile:4720, shear:6744, torque:140, hcf:true,  outerMin:0.3125, lengthIn:'4 7/16"' },
+    // ---- HEX 3/4" HCF ----
+    { head:"HEX", size:"3/4",  len:1, gripMin:0.5,    gripMax:1.3125, gripDisp:'1/2" – 1 5/16"',  tensile:7868, shear:8992, torque:221, hcf:true,  outerMin:0.3125, lengthIn:'3 1/8"' },
+    { head:"HEX", size:"3/4",  len:2, gripMin:1.3125, gripMax:2.375,  gripDisp:'1 5/16" – 2 3/8"', tensile:7868, shear:8992, torque:221, hcf:true, outerMin:0.3125, lengthIn:'4 5/16"' },
+    { head:"HEX", size:"3/4",  len:3, gripMin:2.375,  gripMax:3.375,  gripDisp:'2 3/8" – 3 3/8"', tensile:7868, shear:8992, torque:221, hcf:true,  outerMin:0.3125, lengthIn:'5 1/2"' },
+
+    // ---- CSK 5/16" ----
+    { head:"CSK", size:"5/16", len:1, gripMin:0.125, gripMax:0.875,  gripDisp:'1/8" – 7/8"',     tensile:899,  shear:1124, torque:17,  hcf:false, outerMin:0,     lengthIn:'1 3/4"' },
+    { head:"CSK", size:"5/16", len:2, gripMin:0.875, gripMax:1.625,  gripDisp:'7/8" – 1 5/8"',   tensile:899,  shear:1124, torque:17,  hcf:false, outerMin:0,     lengthIn:'2 9/16"' },
+    { head:"CSK", size:"5/16", len:3, gripMin:1.625, gripMax:2.375,  gripDisp:'1 5/8" – 2 3/8"', tensile:899,  shear:1124, torque:17,  hcf:false, outerMin:0,     lengthIn:'3 3/8"' },
+    // ---- CSK 3/8" ----
+    { head:"CSK", size:"3/8",  len:1, gripMin:0.125, gripMax:0.875,  gripDisp:'1/8" – 7/8"',     tensile:1910, shear:2248, torque:33,  hcf:false, outerMin:0,     lengthIn:'1 3/4"' },
+    { head:"CSK", size:"3/8",  len:2, gripMin:0.875, gripMax:1.625,  gripDisp:'7/8" – 1 5/8"',   tensile:1910, shear:2248, torque:33,  hcf:false, outerMin:0,     lengthIn:'2 1/2"' },
+    { head:"CSK", size:"3/8",  len:3, gripMin:1.625, gripMax:2.375,  gripDisp:'1 5/8" – 2 3/8"', tensile:1910, shear:2248, torque:33,  hcf:false, outerMin:0,     lengthIn:'3 5/16"' },
+    // ---- CSK 1/2" ----
+    { head:"CSK", size:"1/2",  len:1, gripMin:0.125, gripMax:1.0,    gripDisp:'1/8" – 1"',       tensile:2360, shear:3372, torque:59,  hcf:false, outerMin:0,     lengthIn:'1 7/8"' },
+    { head:"CSK", size:"1/2",  len:2, gripMin:1.0,   gripMax:1.8125, gripDisp:'1" – 1 13/16"',   tensile:2360, shear:3372, torque:59,  hcf:false, outerMin:0,     lengthIn:'2 7/8"' },
+    { head:"CSK", size:"1/2",  len:3, gripMin:1.8125, gripMax:2.75,  gripDisp:'1 13/16" – 2 3/4"', tensile:2360, shear:3372, torque:59, hcf:false, outerMin:0,    lengthIn:'3 11/16"' },
+    // ---- CSK 5/8" HCF ----
+    { head:"CSK", size:"5/8",  len:1, gripMin:0.5,   gripMax:1.125,  gripDisp:'1/2" – 1 1/8"',   tensile:4720, shear:6744, torque:140, hcf:true,  outerMin:0.3125, lengthIn:'2 7/16"' },
+    { head:"CSK", size:"5/8",  len:2, gripMin:1.125, gripMax:2.0,    gripDisp:'1 1/8" – 2"',     tensile:4720, shear:6744, torque:140, hcf:true,  outerMin:0.3125, lengthIn:'3 5/8"' },
+    { head:"CSK", size:"5/8",  len:3, gripMin:2.0,   gripMax:2.8125, gripDisp:'2" – 2 13/16"',   tensile:4720, shear:6744, torque:140, hcf:true,  outerMin:0.3125, lengthIn:'4 7/16"' },
+
+    // ---- FF 5/16" ----
+    { head:"FF",  size:"5/16", len:1, gripMin:0.375, gripMax:1.0625, gripDisp:'3/8" – 1 1/16"',  tensile:899,  shear:1124, torque:17,  hcf:false, outerMin:0.3125, lengthIn:'2"' },
+    { head:"FF",  size:"5/16", len:2, gripMin:1.0625, gripMax:1.75,  gripDisp:'1 1/16" – 1 3/4"', tensile:899, shear:1124, torque:17,  hcf:false, outerMin:0.3125, lengthIn:'2 3/4"' },
+    { head:"FF",  size:"5/16", len:3, gripMin:1.75,  gripMax:2.5,    gripDisp:'1 3/4" – 2 1/2"', tensile:899,  shear:1124, torque:17,  hcf:false, outerMin:0.3125, lengthIn:'3 9/16"' },
+    // ---- FF 3/8" ----
+    { head:"FF",  size:"3/8",  len:1, gripMin:0.5,   gripMax:1.0625, gripDisp:'1/2" – 1 1/16"',  tensile:1910, shear:2248, torque:33,  hcf:false, outerMin:0.375, lengthIn:'2"' },
+    { head:"FF",  size:"3/8",  len:2, gripMin:1.0625, gripMax:1.75,  gripDisp:'1 1/16" – 1 3/4"', tensile:1910, shear:2248, torque:33, hcf:false, outerMin:0.375, lengthIn:'2 3/4"' },
+    { head:"FF",  size:"3/8",  len:3, gripMin:1.75,  gripMax:2.5,    gripDisp:'1 3/4" – 2 1/2"', tensile:1910, shear:2248, torque:33,  hcf:false, outerMin:0.375, lengthIn:'3 9/16"' },
+    // ---- FF 1/2" ----
+    { head:"FF",  size:"1/2",  len:1, gripMin:0.5,   gripMax:1.1875, gripDisp:'1/2" – 1 3/16"',  tensile:2360, shear:3372, torque:59,  hcf:false, outerMin:0.375, lengthIn:'2 3/16"' },
+    { head:"FF",  size:"1/2",  len:2, gripMin:1.1875, gripMax:2.03125, gripDisp:'1 3/16" – 2 1/32"', tensile:2360, shear:3372, torque:59, hcf:false, outerMin:0.375, lengthIn:'3 1/8"' },
+    { head:"FF",  size:"1/2",  len:3, gripMin:2.03125, gripMax:2.875, gripDisp:'2 1/32" – 2 7/8"', tensile:2360, shear:3372, torque:59, hcf:false, outerMin:0.375, lengthIn:'4"' }
+  ];
+
+  // ============================================================================
+  // STATE
+  // ============================================================================
+  const state = {
+    head: "HEX",
+    size: "5/16",
+    finish: "ZN",
+    outer: 0.375,
+    inner: 0.25,
+    project: "",
+    cart: [] // array of {sku, ...productData, qty}
+  };
+
+  // ============================================================================
+  // HELPERS
+  // ============================================================================
+  function buildSku(p, finish) {
+    // Format: L + HB + M08/M10/M12/M16/M20 + HEX/CSK/FF + #1/2/3 + finish
+    // e.g. LHBM08HEX#1ZN = 5/16" hex, short grip, zinc plated
+    return `LHB${SIZE_CODE[p.size]}${p.head}#${p.len}${finish}`;
+  }
+
+  function formatNumber(n) {
+    return n.toLocaleString('en-US', { maximumFractionDigits: 0 });
+  }
+
+  function inchToFraction(decimal) {
+    // Best-effort display: round to 16ths
+    const whole = Math.floor(decimal);
+    const frac = decimal - whole;
+    const sixteenths = Math.round(frac * 16);
+    if (sixteenths === 0) return `${whole}"`;
+    if (sixteenths === 16) return `${whole + 1}"`;
+    // reduce fraction
+    let n = sixteenths, d = 16;
+    const g = gcd(n, d); n = n / g; d = d / g;
+    return whole > 0 ? `${whole} ${n}/${d}"` : `${n}/${d}"`;
+  }
+  function gcd(a, b) { return b === 0 ? a : gcd(b, a % b); }
+
+  function showToast(msg, isError) {
+    const t = document.getElementById('hbs-toast');
+    t.textContent = msg;
+    t.classList.toggle('error', !!isError);
+    t.classList.add('show');
+    setTimeout(() => t.classList.remove('show'), 2400);
+  }
+
+  // ============================================================================
+  // FILTER LOGIC
+  // ============================================================================
+  function findMatchingProducts() {
+    const totalGrip = state.outer + state.inner;
+    const matches = PRODUCTS.filter(p =>
+      p.head === state.head &&
+      p.size === state.size &&
+      totalGrip >= p.gripMin &&
+      totalGrip <= p.gripMax
+    );
+    // Sort by length code so shortest matching comes first (usually the best)
+    matches.sort((a, b) => a.len - b.len);
+    return matches;
+  }
+
+  // Find alternate (close but not matching) SKUs to suggest if no match
+  function findAlternates() {
+    const totalGrip = state.outer + state.inner;
+    return PRODUCTS.filter(p =>
+      p.head === state.head &&
+      p.size === state.size
+    ).sort((a, b) => {
+      // Sort by closeness to the required grip
+      const distA = Math.min(Math.abs(totalGrip - a.gripMin), Math.abs(totalGrip - a.gripMax));
+      const distB = Math.min(Math.abs(totalGrip - b.gripMin), Math.abs(totalGrip - b.gripMax));
+      return distA - distB;
+    }).slice(0, 3);
+  }
+
+  // ============================================================================
+  // RENDERING
+  // ============================================================================
+  function renderResults() {
+    const totalGrip = state.outer + state.inner;
+    const finishOk = FINISH_AVAIL[state.head][state.finish];
+    const sizeOk = HEAD_SIZE_AVAIL[state.head].includes(state.size);
+
+    // Size availability check
+    if (!sizeOk) {
+      document.getElementById('hbs-result-meta').innerHTML =
+        `<strong>${state.size}"</strong> is not available with <strong>${headName(state.head)}</strong> head. Try a different size or head type.`;
+      document.getElementById('hbs-result-grid').innerHTML = renderEmpty(
+        "Size not available for this head type",
+        state.head === "FF"
+          ? "Flush Fit is only manufactured in 5/16\", 3/8\", and 1/2\"."
+          : "Countersunk is only manufactured in 5/16\", 3/8\", 1/2\", and 5/8\"."
+      );
+      return;
+    }
+
+    // Finish availability check
+    if (!finishOk) {
+      document.getElementById('hbs-result-meta').innerHTML =
+        `<strong>${FINISH_LABELS[state.finish]}</strong> is not available with <strong>${headName(state.head)}</strong> head. Switch to a compatible finish below.`;
+      const availFinishes = Object.keys(FINISH_AVAIL[state.head])
+        .filter(f => FINISH_AVAIL[state.head][f])
+        .map(f => FINISH_LABELS[f]).join(", ");
+      document.getElementById('hbs-result-grid').innerHTML = renderEmpty(
+        "Finish not available",
+        `This head type is available in: ${availFinishes}.`
+      );
+      return;
+    }
+
+    const matches = findMatchingProducts();
+
+    // Header meta
+    document.getElementById('hbs-result-meta').innerHTML =
+      `<strong>${matches.length}</strong> ${matches.length === 1 ? 'product matches' : 'products match'} ` +
+      `<strong>${state.size}" ${headName(state.head)}</strong>, <strong>${FINISH_LABELS[state.finish]}</strong>, ` +
+      `total grip <strong>${inchToFraction(totalGrip)}</strong>.`;
+
+    if (matches.length === 0) {
+      const alts = findAlternates();
+      const altHtml = alts.map(p => {
+        const sku = buildSku(p, state.finish);
+        return `<li><strong>${sku}</strong> — grip ${p.gripDisp}</li>`;
+      }).join("");
+      document.getElementById('hbs-result-grid').innerHTML = renderEmpty(
+        "No product matches your exact fixing thickness",
+        `Your total grip (${inchToFraction(totalGrip)}) is outside the range for this size/head combination. Nearest alternatives:<ul style="text-align:left;margin-top:10px;display:inline-block;">${altHtml}</ul>`
+      );
+      return;
+    }
+
+    const grid = document.getElementById('hbs-result-grid');
+    grid.innerHTML = matches.map((p, i) => renderCard(p, i === 0 && matches.length > 1)).join("");
+
+    // Wire up add buttons
+    grid.querySelectorAll('.hbs-add-btn').forEach(btn => {
+      btn.addEventListener('click', handleAddToCart);
+    });
+  }
+
+  function renderCard(p, isRecommended) {
+    const sku = buildSku(p, state.finish);
+    const totalGrip = state.outer + state.inner;
+    const outerWarn = p.outerMin > 0 && state.outer < p.outerMin;
+
+    return `
+      <article class="hbs-card ${isRecommended ? 'recommended' : ''}" data-sku="${sku}">
+        <div>
+          <div class="hbs-card-sku">${sku}</div>
+          <div class="hbs-card-subtitle">${p.size}" ${headName(p.head)} · ${FINISH_LABELS[state.finish]}${p.hcf ? ' <span class="hbs-hcf-tag">HCF</span>' : ''}</div>
+        </div>
+        <div class="hbs-specs">
+          <span class="hbs-spec-label">Grip range</span>
+          <span class="hbs-spec-value">${p.gripDisp}</span>
+          <span class="hbs-spec-label">Total length</span>
+          <span class="hbs-spec-value">${p.lengthIn}</span>
+          <span class="hbs-spec-label">Torque</span>
+          <span class="hbs-spec-value">${p.torque} ft-lb</span>
+          <span class="hbs-spec-label">Your grip</span>
+          <span class="hbs-spec-value">${inchToFraction(totalGrip)}</span>
+        </div>
+        <div class="hbs-loads">
+          <div class="hbs-load-tile">
+            <div class="hbs-load-label">Tensile SWL</div>
+            <div class="hbs-load-value">${formatNumber(p.tensile)}</div>
+            <div class="hbs-load-unit">lbs (FOS 5:1)</div>
+          </div>
+          <div class="hbs-load-tile">
+            <div class="hbs-load-label">Shear SWL</div>
+            <div class="hbs-load-value">${formatNumber(p.shear)}</div>
+            <div class="hbs-load-unit">lbs (FOS 5:1)</div>
+          </div>
+        </div>
+        ${outerWarn ? `<div class="hbs-warn">⚠ This size requires min outer ply of ${inchToFraction(p.outerMin)}. Your outer is ${inchToFraction(state.outer)}.</div>` : ''}
+        ${p.hcf ? `<div class="hbs-warn" style="background:#e8f5ed;color:var(--success);border-color:var(--success);">✓ High Clamping Force design — 3× standard clamping force.</div>` : ''}
+        <button class="hbs-add-btn" data-sku="${sku}">Add to Quote</button>
+      </article>
+    `;
+  }
+
+  function renderEmpty(title, subtitle) {
+    return `<div class="hbs-empty" style="grid-column:1/-1;"><h4>${title}</h4><p>${subtitle}</p></div>`;
+  }
+
+  function headName(h) {
+    return { HEX: "Hex", CSK: "Countersunk", FF: "Flush Fit" }[h];
+  }
+
+  // ============================================================================
+  // CART
+  // ============================================================================
+  function handleAddToCart(e) {
+    const sku = e.target.dataset.sku;
+    // Find the full product record
+    const matches = findMatchingProducts();
+    const p = matches.find(m => buildSku(m, state.finish) === sku);
+    if (!p) return;
+
+    const existing = state.cart.find(i => i.sku === sku);
+    if (existing) {
+      existing.qty += 10;
+    } else {
+      state.cart.push({
+        sku,
+        head: p.head,
+        size: p.size,
+        finish: state.finish,
+        finishLabel: FINISH_LABELS[state.finish],
+        gripDisp: p.gripDisp,
+        tensile: p.tensile,
+        shear: p.shear,
+        torque: p.torque,
+        hcf: p.hcf,
+        qty: 10
+      });
+    }
+    e.target.classList.add('added');
+    e.target.textContent = '✓ Added';
+    setTimeout(() => {
+      e.target.classList.remove('added');
+      e.target.textContent = 'Add to Quote';
+    }, 1400);
+    renderCart();
+    if (state.cart.length === 1) openCart();
+    showToast(`Added ${sku} to quote cart`);
+  }
+
+  function renderCart() {
+    const count = state.cart.reduce((s, i) => s + i.qty, 0);
+    document.getElementById('hbs-cart-count').textContent = count;
+
+    const itemsEl = document.getElementById('hbs-cart-items');
+    const formEl = document.getElementById('hbs-quote-form');
+
+    if (state.cart.length === 0) {
+      itemsEl.innerHTML = `<div class="hbs-cart-empty">Your quote cart is empty. Add Hollo-Bolts from the results above to request pricing.</div>`;
+      formEl.style.display = 'none';
+      return;
+    }
+
+    itemsEl.innerHTML = state.cart.map((item, idx) => `
+      <div class="hbs-cart-item">
+        <div>
+          <div class="hbs-cart-sku">${item.sku}</div>
+          <div class="hbs-cart-desc">${item.size}" ${headName(item.head)} · ${item.finishLabel}${item.hcf ? ' · HCF' : ''} · grip ${item.gripDisp}</div>
+        </div>
+        <div class="hbs-qty-group">
+          <button type="button" class="hbs-qty-btn" data-action="dec" data-idx="${idx}" aria-label="Decrease">−</button>
+          <input type="number" class="hbs-qty-input" data-idx="${idx}" value="${item.qty}" min="1" max="99999" aria-label="Quantity" />
+          <button type="button" class="hbs-qty-btn" data-action="inc" data-idx="${idx}" aria-label="Increase">+</button>
+        </div>
+        <button type="button" class="hbs-remove" data-idx="${idx}" aria-label="Remove item">×</button>
+      </div>
+    `).join("");
+
+    formEl.style.display = 'grid';
+
+    // Wire up qty controls
+    itemsEl.querySelectorAll('.hbs-qty-btn').forEach(btn => {
+      btn.addEventListener('click', e => {
+        const idx = parseInt(e.target.dataset.idx, 10);
+        const action = e.target.dataset.action;
+        if (action === 'inc') state.cart[idx].qty++;
+        else if (action === 'dec' && state.cart[idx].qty > 1) state.cart[idx].qty--;
+        renderCart();
+      });
+    });
+    itemsEl.querySelectorAll('.hbs-qty-input').forEach(inp => {
+      inp.addEventListener('change', e => {
+        const idx = parseInt(e.target.dataset.idx, 10);
+        const v = parseInt(e.target.value, 10);
+        state.cart[idx].qty = (isNaN(v) || v < 1) ? 1 : v;
+        renderCart();
+      });
+    });
+    itemsEl.querySelectorAll('.hbs-remove').forEach(btn => {
+      btn.addEventListener('click', e => {
+        const idx = parseInt(e.currentTarget.dataset.idx, 10);
+        state.cart.splice(idx, 1);
+        renderCart();
+      });
+    });
+  }
+
+  function openCart() {
+    document.getElementById('hbs-cart').classList.add('open');
+    document.getElementById('hbs-cart-handle').setAttribute('aria-expanded', 'true');
+  }
+  function closeCart() {
+    document.getElementById('hbs-cart').classList.remove('open');
+    document.getElementById('hbs-cart-handle').setAttribute('aria-expanded', 'false');
+  }
+  function toggleCart() {
+    if (document.getElementById('hbs-cart').classList.contains('open')) closeCart();
+    else openCart();
+  }
+
+  // ============================================================================
+  // QUOTE SUBMISSION (JOTFORM HOOK)
+  // ============================================================================
+  function handleSubmitQuote() {
+    const name = document.getElementById('hbs-f-name').value.trim();
+    const email = document.getElementById('hbs-f-email').value.trim();
+    if (!name || !email) {
+      showToast('Name and email are required', true);
+      return;
+    }
+    if (state.cart.length === 0) {
+      showToast('Your cart is empty', true);
+      return;
+    }
+
+    // Build payload — gets passed to JotForm
+    const payload = {
+      project: state.project,
+      name,
+      company: document.getElementById('hbs-f-company').value.trim(),
+      email,
+      phone: document.getElementById('hbs-f-phone').value.trim(),
+      notes: document.getElementById('hbs-f-notes').value.trim(),
+      line_count: state.cart.length,
+      total_qty: state.cart.reduce((s, i) => s + i.qty, 0),
+      items: state.cart.map(i => ({
+        sku: i.sku,
+        qty: i.qty,
+        head: headName(i.head),
+        size: i.size,
+        finish: i.finishLabel,
+        grip: i.gripDisp,
+        tensile_swl_lbs: i.tensile,
+        shear_swl_lbs: i.shear
+      })),
+      items_text: state.cart.map(i => `${i.qty}× ${i.sku} (${i.size}" ${headName(i.head)}, ${i.finishLabel})`).join("\n"),
+      submitted_at: new Date().toISOString(),
+      source: 'californiafastener.com/hollo-bolt-selector'
+    };
+
+    if (JOTFORM_ID === "REPLACE_WITH_YOUR_FORM_ID") {
+      console.log('[CAF Hollo-Bolt Selector] Quote payload:', payload);
+      alert(
+        "DEV MODE: JotForm ID not set.\n\n" +
+        "Payload logged to console. Replace JOTFORM_ID in the script " +
+        "to enable production submission.\n\n" +
+        "Payload summary:\n" +
+        `• ${payload.line_count} line items, ${payload.total_qty} units total\n` +
+        `• Contact: ${payload.name} / ${payload.email}`
+      );
+      return;
+    }
+
+    if (JOTFORM_MODE === "view") {
+      // Open prefilled JotForm in new tab
+      const params = new URLSearchParams();
+      params.set('name', payload.name);
+      params.set('company', payload.company);
+      params.set('email', payload.email);
+      params.set('phone', payload.phone);
+      params.set('project', payload.project);
+      params.set('notes', payload.notes);
+      params.set('items', payload.items_text);
+      params.set('items_json', JSON.stringify(payload.items));
+      params.set('total_qty', payload.total_qty);
+      const url = `https://form.jotform.com/${JOTFORM_ID}?${params.toString()}`;
+      window.open(url, '_blank');
+      showToast('Opening quote request form...');
+    } else {
+      // POST mode — AJAX submit. Field names must match your JotForm.
+      const fd = new FormData();
+      fd.append('name', payload.name);
+      fd.append('company', payload.company);
+      fd.append('email', payload.email);
+      fd.append('phone', payload.phone);
+      fd.append('project', payload.project);
+      fd.append('notes', payload.notes);
+      fd.append('items', payload.items_text);
+      fd.append('items_json', JSON.stringify(payload.items));
+      fd.append('total_qty', payload.total_qty);
+      fd.append('hbs_quote_json', JSON.stringify(payload));
+
+      fetch(`https://submit.jotform.com/submit/${JOTFORM_ID}/`, {
+        method: 'POST', body: fd, mode: 'no-cors'
+      }).then(() => {
+        showToast('Quote request submitted — we\'ll be in touch within 1 business day.');
+        state.cart = [];
+        renderCart();
+        closeCart();
+      }).catch(() => {
+        showToast('Submission failed. Please try again or email sales@californiafastener.com', true);
+      });
+    }
+  }
+
+  // ============================================================================
+  // EVENT WIRING
+  // ============================================================================
+  function init() {
+    // Head type buttons
+    document.querySelectorAll('.hbs-seg-btn[data-head]').forEach(btn => {
+      btn.addEventListener('click', () => {
+        document.querySelectorAll('.hbs-seg-btn[data-head]').forEach(b => {
+          b.classList.remove('active');
+          b.setAttribute('aria-checked', 'false');
+        });
+        btn.classList.add('active');
+        btn.setAttribute('aria-checked', 'true');
+        state.head = btn.dataset.head;
+        updateSizeAvailability();
+        renderResults();
+      });
+    });
+
+    // Size buttons
+    document.querySelectorAll('.hbs-seg-btn[data-size]').forEach(btn => {
+      btn.addEventListener('click', () => {
+        if (btn.disabled) return;
+        document.querySelectorAll('.hbs-seg-btn[data-size]').forEach(b => {
+          b.classList.remove('active');
+          b.setAttribute('aria-checked', 'false');
+        });
+        btn.classList.add('active');
+        btn.setAttribute('aria-checked', 'true');
+        state.size = btn.dataset.size;
+        renderResults();
+      });
+    });
+
+    // Finish dropdown
+    document.getElementById('hbs-finish').addEventListener('change', e => {
+      state.finish = e.target.value;
+      renderResults();
+    });
+
+    // Outer/inner ply inputs
+    function onPlyChange() {
+      const outer = parseFloat(document.getElementById('hbs-outer').value) || 0;
+      const inner = parseFloat(document.getElementById('hbs-inner').value) || 0;
+      state.outer = outer;
+      state.inner = inner;
+      document.getElementById('hbs-total-grip').textContent = inchToFraction(outer + inner);
+      renderResults();
+    }
+    document.getElementById('hbs-outer').addEventListener('input', onPlyChange);
+    document.getElementById('hbs-inner').addEventListener('input', onPlyChange);
+
+    // Project input
+    document.getElementById('hbs-project').addEventListener('input', e => {
+      state.project = e.target.value;
+    });
+
+    // Reset
+    document.getElementById('hbs-reset').addEventListener('click', () => {
+      state.head = "HEX"; state.size = "5/16"; state.finish = "ZN";
+      state.outer = 0.375; state.inner = 0.25; state.project = "";
+      document.getElementById('hbs-outer').value = "0.375";
+      document.getElementById('hbs-inner').value = "0.25";
+      document.getElementById('hbs-finish').value = "ZN";
+      document.getElementById('hbs-project').value = "";
+      document.querySelectorAll('.hbs-seg-btn').forEach(b => {
+        b.classList.remove('active');
+        b.setAttribute('aria-checked', 'false');
+      });
+      document.querySelector('.hbs-seg-btn[data-head="HEX"]').classList.add('active');
+      document.querySelector('.hbs-seg-btn[data-head="HEX"]').setAttribute('aria-checked', 'true');
+      document.querySelector('.hbs-seg-btn[data-size="5/16"]').classList.add('active');
+      document.querySelector('.hbs-seg-btn[data-size="5/16"]').setAttribute('aria-checked', 'true');
+      document.getElementById('hbs-total-grip').textContent = inchToFraction(0.625);
+      updateSizeAvailability();
+      renderResults();
+    });
+
+    // Cart handle
+    document.getElementById('hbs-cart-handle').addEventListener('click', toggleCart);
+    document.getElementById('hbs-cart-handle').addEventListener('keydown', e => {
+      if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); toggleCart(); }
+    });
+
+    // Submit button
+    document.getElementById('hbs-submit').addEventListener('click', handleSubmitQuote);
+
+    // Initial render
+    updateSizeAvailability();
+    renderResults();
+    renderCart();
+  }
+
+  function updateSizeAvailability() {
+    const availSizes = HEAD_SIZE_AVAIL[state.head];
+    document.querySelectorAll('.hbs-seg-btn[data-size]').forEach(btn => {
+      btn.disabled = !availSizes.includes(btn.dataset.size);
+    });
+    // If current size is not available, fall back to first available
+    if (!availSizes.includes(state.size)) {
+      state.size = availSizes[0];
+      document.querySelectorAll('.hbs-seg-btn[data-size]').forEach(b => {
+        b.classList.remove('active');
+        b.setAttribute('aria-checked', 'false');
+      });
+      const active = document.querySelector(`.hbs-seg-btn[data-size="${state.size}"]`);
+      if (active) {
+        active.classList.add('active');
+        active.setAttribute('aria-checked', 'true');
+      }
+    }
+  }
+
+  // Boot when DOM is ready
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', init);
+  } else {
+    init();
+  }
+
+  /* ============================================================================
+     JOTFORM INTEGRATION GUIDE
+     ----------------------------------------------------------------------------
+     When you build the JotForm, set up these fields (match the `unique name`
+     field setting in JotForm — that's the one that maps to URL params):
+
+       name         — Short Text
+       company      — Short Text
+       email        — Email
+       phone        — Phone
+       project      — Short Text
+       notes        — Paragraph
+       items        — Paragraph (human-readable summary, one line per SKU)
+       items_json   — Paragraph (full JSON payload — hide this from user)
+       total_qty    — Number
+       hbs_quote_json (for POST mode only) — Paragraph, hidden
+
+     Then:
+       1. Replace JOTFORM_ID = "REPLACE_WITH_YOUR_FORM_ID" with your form's ID
+          (the string after form.jotform.com/ in your form URL).
+       2. Choose JOTFORM_MODE:
+            "view" (default) — opens JotForm in a new tab with fields prefilled
+                               via URL params. Simple, no CORS issues, user
+                               sees the form and clicks submit.
+            "post"           — AJAX POST direct to JotForm's submit endpoint.
+                               User never leaves your site. Requires testing
+                               that your form accepts no-cors submissions.
+
+     To test: open browser console. Without JOTFORM_ID set, the submit handler
+     logs the full payload to console so you can see the exact field structure.
+     ============================================================================ */
+})();
+</script>
+
+
+<footer class="cf-footer">
+  <div class="cf-footer-cols">
+    <div class="cf-footer-col">
+      <h4 class="cf-footer-brand"><span class="cf-nav-logo-mark"></span>California Fastener</h4>
+      <p class="cf-footer-tagline">Industrial and structural fasteners, CNC machined parts, and technical support. CA Fast LLC.</p>
+      <div style="font-size:12px; color:var(--ink); margin-bottom:4px;">707.741.3277</div>
+      <div style="font-size:12px; color:var(--mid);"><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="ec85828a83ac8f8d80858a839e82858d8a8d9f988982899ec28f8381">[email&#160;protected]</a></div>
+    </div>
+    <div class="cf-footer-col">
+      <h4>Products</h4>
+      <a href="industrial-fasteners.html">Industrial Fasteners</a>
+      <a href="stainless-steel-fasteners.html">Stainless Steel Fasteners</a>
+      <a href="silicon-bronze.html">Silicon Bronze Hardware</a>
+      <a href="hollo-bolt.html">Lindapter Hollo-Bolt</a>
+    </div>
+    <div class="cf-footer-col">
+      <h4>Resources</h4>
+      <a href="spec-library.html">Specification Library</a>
+      <a href="spec-builder.html">Spec Builder</a>
+      <a href="technical-library.html">Technical Library</a>
+    </div>
+    <div class="cf-footer-col">
+      <h4>Company</h4>
+      <a href="#">About</a>
+      <a href="hollo-bolt.html#quote">Request a Quote</a>
+      <a href="#">Contact</a>
+    </div>
+  </div>
+  <div class="cf-footer-bottom">
+    <div>© 2026 California Fastener · CA Fast LLC</div>
+    <div>Designed in California</div>
+  </div>
+</footer>
+
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script></body>
+</html>

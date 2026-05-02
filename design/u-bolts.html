@@ -1,0 +1,825 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<link rel="icon" type="image/png" href="assets/cf-logo-black.png" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>U-Bolts — Round, Square, Long Tangent &amp; Custom Profiles | California Fastener</title>
+<meta name="description" content="Standard and custom U-bolts for pipe, conduit, and structural support. Round and square bend, long-tangent, V-bolts, and made-to-print profiles. Carbon, alloy, 304, 316, hot-dip galvanized. Same-day shipping; full MTRs." />
+<link rel="stylesheet" href="_shared.css" />
+<style>
+  body { background: var(--bg); }
+
+  /* ── HERO ──────────────────────────────────────────────── */
+  .ub-hero { padding: 80px 40px 0; background: linear-gradient(180deg, var(--bg) 0%, var(--bg-alt) 100%); overflow: hidden; }
+  .ub-hero-inner { max-width: 1440px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1.05fr; gap: 80px; align-items: center; min-height: 720px; }
+  .ub-hero-text { padding: 40px 0; }
+  .ub-breadcrumb { font-size: 13px; color: var(--mid); margin-bottom: 24px; }
+  .ub-breadcrumb a { color: var(--mid); text-decoration: none; }
+  .ub-breadcrumb a:hover { color: var(--ink); }
+  .ub-breadcrumb span { margin: 0 8px; color: var(--rule); }
+  .ub-eyebrow { font-size: 15px; font-weight: 500; color: var(--blue-dark); margin-bottom: 20px; display: inline-flex; align-items: center; gap: 10px; }
+  .ub-eyebrow::before { content: ''; width: 20px; height: 1px; background: var(--blue-dark); }
+  .ub-hero h1 { font-size: clamp(56px, 6.5vw, 104px); font-weight: 600; line-height: 0.98; letter-spacing: -0.04em; color: var(--ink); margin-bottom: 24px; }
+  .ub-hero h1 i { color: var(--blue-dark); }
+  .ub-hero-sub { font-size: 22px; color: var(--ink-soft); line-height: 1.35; max-width: 580px; margin-bottom: 36px; letter-spacing: -0.015em; }
+  .ub-hero-ctas { display: flex; gap: 20px; align-items: center; margin-bottom: 48px; flex-wrap: wrap; }
+  .ub-hero-stats { display: grid; grid-template-columns: repeat(4, 1fr); max-width: 640px; padding-top: 28px; border-top: 1px solid var(--rule-soft); }
+  .ub-hero-stat-val { font-size: 28px; font-weight: 600; letter-spacing: -0.02em; line-height: 1; margin-bottom: 6px; }
+  .ub-hero-stat-label { font-size: 11px; color: var(--mid); letter-spacing: 0.02em; text-transform: uppercase; line-height: 1.3; }
+
+  .ub-hero-image { background: #E8E6E1; border-radius: 24px 0 0 0; min-height: 720px; margin-right: calc((100vw - 1440px) / -2); display: flex; align-items: center; justify-content: center; overflow: hidden; position: relative; }
+  @media (max-width: 1480px) { .ub-hero-image { margin-right: -40px; } }
+  .ub-hero-image svg { width: 80%; height: auto; max-height: 88%; }
+  .ub-hero-image-tag { position: absolute; top: 24px; left: 24px; background: rgba(255,255,255,0.92); backdrop-filter: blur(8px); padding: 8px 14px; border-radius: 100px; font-size: 11px; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; color: var(--ink); }
+
+  /* ── TRUST BAR MARQUEE ─────────────────────────────────── */
+  .ub-trustbar { background: var(--white); padding: 26px 0; overflow: hidden; border-top: 1px solid var(--rule-soft); border-bottom: 1px solid var(--rule-soft); }
+  .ub-trustbar-track { display: flex; width: max-content; animation: ub-trust-scroll 45s linear infinite; }
+  .ub-trustbar:hover .ub-trustbar-track { animation-play-state: paused; }
+  .ub-trust-item { display: flex; align-items: center; gap: 14px; padding: 0 48px; border-right: 1px solid var(--rule-soft); flex-shrink: 0; }
+  .ub-trust-item svg { width: 26px; height: 26px; stroke: var(--blue-dark); fill: none; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; flex-shrink: 0; }
+  .ub-trust-item span { font-weight: 600; font-size: 15px; color: var(--ink); letter-spacing: -0.005em; white-space: nowrap; }
+  @keyframes ub-trust-scroll { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+
+  /* ── POSITIONING ───────────────────────────────────────── */
+  .ub-intro { padding: 112px 40px; border-bottom: 1px solid var(--rule-soft); }
+  .ub-intro-inner { max-width: 1240px; margin: 0 auto; display: grid; grid-template-columns: 1.15fr 1fr; gap: 80px; align-items: start; }
+  .ub-intro-lead h2 { font-size: clamp(36px, 3.8vw, 56px); font-weight: 600; line-height: 1.05; letter-spacing: -0.03em; margin-bottom: 20px; }
+  .ub-intro-lead h2 i { color: var(--blue-dark); }
+  .ub-intro-body p { font-size: 18px; color: var(--ink-soft); line-height: 1.55; letter-spacing: -0.005em; margin-bottom: 18px; max-width: 560px; }
+  .ub-intro-body p em { font-style: normal; color: var(--mid); font-size: 15px; display: block; margin-top: 8px; }
+
+  /* ── PRODUCT GRID — bend profiles ─────────────────────── */
+  .ub-products { background: var(--bg-alt); padding: 120px 40px; }
+  .ub-products-header { max-width: 1200px; margin: 0 auto 56px; }
+  .ub-products-header .eyebrow { font-size: 14px; color: var(--blue-dark); font-weight: 500; margin-bottom: 14px; }
+  .ub-products-header h2 { font-size: clamp(40px, 4.5vw, 64px); font-weight: 600; letter-spacing: -0.03em; line-height: 1.05; max-width: 820px; margin-bottom: 16px; }
+  .ub-products-header h2 i { color: var(--blue-dark); }
+  .ub-products-header p { font-size: 19px; color: var(--ink-soft); max-width: 640px; line-height: 1.4; letter-spacing: -0.01em; }
+
+  .ub-products-grid { max-width: 1280px; margin: 0 auto; display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+  .ub-product-card { background: var(--bg); border-radius: 24px; overflow: hidden; display: flex; flex-direction: column; transition: transform 0.3s ease; }
+  .ub-product-card:hover { transform: translateY(-4px); }
+  .ub-product-shape { background: #E8E6E1; aspect-ratio: 4 / 3; position: relative; overflow: hidden; display: flex; align-items: center; justify-content: center; }
+  .ub-product-shape svg { width: 70%; height: 70%; }
+  .ub-product-shape svg path, .ub-product-shape svg line, .ub-product-shape svg circle, .ub-product-shape svg rect { stroke: var(--ink); fill: none; stroke-width: 6; stroke-linecap: round; stroke-linejoin: round; }
+  .ub-product-shape svg .thread { stroke-width: 1.5; stroke: var(--ink); opacity: 0.6; }
+  .ub-product-shape .pnum { position: absolute; top: 18px; left: 18px; font-family: "SF Mono", ui-monospace, monospace; font-size: 11px; color: var(--mid); letter-spacing: 0.04em; z-index: 2; }
+  .ub-product-body { padding: 26px 28px 30px; display: flex; flex-direction: column; flex: 1; }
+  .ub-product-body h3 { font-size: 22px; font-weight: 600; letter-spacing: -0.02em; line-height: 1.15; margin-bottom: 8px; }
+  .ub-product-body p { font-size: 14px; color: var(--ink-soft); line-height: 1.5; letter-spacing: -0.005em; margin-bottom: 18px; }
+  .ub-product-meta { margin-top: auto; padding-top: 14px; border-top: 1px solid var(--rule-soft); font-size: 12px; color: var(--mid); letter-spacing: -0.005em; line-height: 1.45; }
+  .ub-product-meta b { color: var(--ink); font-weight: 500; }
+
+  /* ── SIZING / GEOMETRY EXPLAINER ──────────────────────── */
+  .ub-sizing { padding: 120px 40px; }
+  .ub-sizing-inner { max-width: 1240px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1.15fr; gap: 80px; align-items: center; }
+  .ub-sizing-text .eyebrow { font-size: 14px; color: var(--blue-dark); font-weight: 500; margin-bottom: 14px; }
+  .ub-sizing-text h2 { font-size: clamp(36px, 4vw, 56px); font-weight: 600; letter-spacing: -0.03em; line-height: 1.05; margin-bottom: 18px; }
+  .ub-sizing-text h2 i { color: var(--blue-dark); }
+  .ub-sizing-text p { font-size: 17px; color: var(--ink-soft); line-height: 1.55; max-width: 460px; margin-bottom: 28px; }
+  .ub-sizing-attrs { list-style: none; padding: 0; margin: 0; }
+  .ub-sizing-attrs li { padding: 14px 0; border-top: 1px solid var(--rule-soft); display: grid; grid-template-columns: 90px 1fr; gap: 24px; align-items: baseline; font-size: 14px; line-height: 1.5; }
+  .ub-sizing-attrs li:last-child { border-bottom: 1px solid var(--rule-soft); }
+  .ub-sizing-attrs b { font-family: "SF Mono", ui-monospace, monospace; font-size: 12px; color: var(--blue-dark); font-weight: 600; letter-spacing: 0.04em; }
+  .ub-sizing-attrs span { color: var(--ink-soft); letter-spacing: -0.005em; }
+  .ub-sizing-diagram { background: var(--bg-alt); border-radius: 24px; aspect-ratio: 5 / 4; display: flex; align-items: center; justify-content: center; padding: 60px; }
+  .ub-sizing-diagram svg { width: 100%; height: 100%; }
+
+  /* ── GRADES — grouped by family ────────────────────────── */
+  .ub-grades { padding: 120px 40px; background: var(--bg-alt); }
+  .ub-grades-inner { max-width: 1240px; margin: 0 auto; }
+  .ub-grades-header { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: end; margin-bottom: 64px; }
+  .ub-grades-header h2 { font-size: clamp(36px, 4vw, 56px); font-weight: 600; letter-spacing: -0.03em; line-height: 1.05; }
+  .ub-grades-header h2 i { color: var(--blue-dark); }
+  .ub-grades-header p { font-size: 17px; color: var(--ink-soft); line-height: 1.5; max-width: 460px; }
+
+  .ub-family { padding: 48px 0; border-top: 1px solid var(--rule-soft); display: grid; grid-template-columns: 280px 1fr; gap: 64px; align-items: start; }
+  .ub-family:last-child { border-bottom: 1px solid var(--rule-soft); }
+  .ub-family-label { position: sticky; top: 80px; }
+  .ub-family-label .num { font-family: "SF Mono", ui-monospace, monospace; font-size: 11px; color: var(--blue-dark); letter-spacing: 0.06em; text-transform: uppercase; margin-bottom: 10px; }
+  .ub-family-label h3 { font-size: 26px; font-weight: 600; letter-spacing: -0.02em; line-height: 1.1; margin-bottom: 12px; }
+  .ub-family-label p { font-size: 14px; color: var(--mid); line-height: 1.5; }
+  .ub-family-cards { display: grid; gap: 14px; }
+  .ub-spec-card { background: var(--bg); border-radius: 18px; padding: 28px 32px; display: grid; grid-template-columns: 180px 1fr; gap: 36px; align-items: start; }
+  .ub-spec-tag { font-family: "SF Mono", ui-monospace, monospace; font-size: 12px; color: var(--blue-dark); letter-spacing: 0.04em; }
+  .ub-spec-tag .name { font-size: 18px; font-weight: 600; color: var(--ink); letter-spacing: -0.01em; display: block; font-family: "SF Pro Display", -apple-system, sans-serif; margin-top: 4px; margin-bottom: 8px; }
+  .ub-spec-grades { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 4px; padding: 0; }
+  .ub-spec-grades li { list-style: none; padding: 4px 10px; background: var(--bg-alt); border-radius: 100px; font-size: 11px; font-weight: 500; color: var(--ink); letter-spacing: 0.01em; }
+  .ub-spec-body p { font-size: 15px; color: var(--ink-soft); line-height: 1.55; letter-spacing: -0.005em; }
+
+  /* ── CUSTOM BENDS BAND (dark) ─────────────────────────── */
+  .ub-custom { padding: 0; background: var(--ink); color: var(--dark-text); overflow: hidden; }
+  .ub-custom-inner { max-width: 1440px; margin: 0 auto; padding: 112px 40px; }
+  .ub-custom-header { max-width: 760px; margin-bottom: 56px; }
+  .ub-custom-header .eyebrow { font-size: 13px; color: var(--blue); font-weight: 500; margin-bottom: 14px; letter-spacing: 0.04em; text-transform: uppercase; }
+  .ub-custom-header h2 { font-size: clamp(40px, 4.5vw, 64px); font-weight: 600; letter-spacing: -0.03em; line-height: 1.02; margin-bottom: 18px; }
+  .ub-custom-header h2 i { color: var(--blue); }
+  .ub-custom-header p { font-size: 18px; color: var(--dark-mid); line-height: 1.5; }
+  .ub-custom-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+  .ub-custom-card { background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.08); border-radius: 18px; padding: 28px 32px 32px; display: flex; flex-direction: column; min-height: 260px; }
+  .ub-custom-card .ico { width: 56px; height: 56px; margin-bottom: 22px; display: flex; align-items: center; justify-content: center; }
+  .ub-custom-card .ico svg { width: 100%; height: 100%; }
+  .ub-custom-card .ico svg path, .ub-custom-card .ico svg line, .ub-custom-card .ico svg circle { stroke: var(--blue); fill: none; stroke-width: 4; stroke-linecap: round; stroke-linejoin: round; }
+  .ub-custom-card h3 { font-size: 20px; font-weight: 600; letter-spacing: -0.015em; line-height: 1.15; margin-bottom: 10px; color: var(--white); }
+  .ub-custom-card p { font-size: 14px; color: var(--dark-mid); line-height: 1.55; letter-spacing: -0.005em; }
+
+  /* ── COATINGS / FINISHES ──────────────────────────────── */
+  .ub-coatings { padding: 120px 40px; }
+  .ub-coatings-inner { max-width: 1240px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1.3fr; gap: 80px; align-items: start; }
+  .ub-coatings-text .eyebrow { font-size: 14px; color: var(--blue-dark); font-weight: 500; margin-bottom: 14px; }
+  .ub-coatings-text h2 { font-size: clamp(36px, 4vw, 56px); font-weight: 600; letter-spacing: -0.03em; line-height: 1.05; margin-bottom: 18px; }
+  .ub-coatings-text h2 i { color: var(--blue-dark); }
+  .ub-coatings-text p { font-size: 17px; color: var(--ink-soft); line-height: 1.55; max-width: 440px; margin-bottom: 28px; }
+  .ub-coatings-list { list-style: none; padding: 0; margin: 0; display: grid; gap: 0; }
+  .ub-coatings-list li { padding: 22px 0; border-top: 1px solid var(--rule-soft); display: grid; grid-template-columns: 200px 1fr; gap: 32px; align-items: baseline; }
+  .ub-coatings-list li:last-child { border-bottom: 1px solid var(--rule-soft); }
+  .ub-coatings-list b { color: var(--ink); font-size: 16px; font-weight: 600; letter-spacing: -0.01em; }
+  .ub-coatings-list b small { display: block; font-family: "SF Mono", ui-monospace, monospace; font-size: 11px; color: var(--blue-dark); font-weight: 500; letter-spacing: 0.04em; margin-top: 4px; text-transform: uppercase; }
+  .ub-coatings-list span { font-size: 14px; color: var(--ink-soft); line-height: 1.5; letter-spacing: -0.005em; }
+
+  /* ── CROSS-LINKS ───────────────────────────────────────── */
+  .ub-cross { padding: 112px 40px; background: var(--bg-alt); }
+  .ub-cross-inner { max-width: 1240px; margin: 0 auto; }
+  .ub-cross-header { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: end; margin-bottom: 48px; }
+  .ub-cross-header h2 { font-size: clamp(32px, 3.6vw, 48px); font-weight: 600; letter-spacing: -0.03em; line-height: 1.05; max-width: 500px; }
+  .ub-cross-header h2 i { color: var(--blue-dark); }
+  .ub-cross-header p { font-size: 16px; color: var(--ink-soft); line-height: 1.5; max-width: 460px; }
+  .ub-cross-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
+  .ub-cross-card { background: var(--bg); border-radius: 18px; padding: 28px 30px 30px; display: flex; flex-direction: column; text-decoration: none; color: inherit; transition: transform 0.25s ease, box-shadow 0.25s ease; border: 1px solid transparent; }
+  .ub-cross-card:hover { transform: translateY(-3px); box-shadow: 0 12px 28px rgba(0,0,0,0.06); border-color: var(--rule-soft); }
+  .ub-cross-card .question { font-size: 12px; color: var(--mid); letter-spacing: -0.005em; margin-bottom: 8px; line-height: 1.4; }
+  .ub-cross-card h4 { font-size: 19px; font-weight: 600; letter-spacing: -0.015em; margin-bottom: 6px; color: var(--ink); display: flex; align-items: center; justify-content: space-between; gap: 12px; }
+  .ub-cross-card h4::after { content: '→'; color: var(--blue-dark); font-weight: 400; transition: transform 0.2s ease; }
+  .ub-cross-card:hover h4::after { transform: translateX(3px); }
+  .ub-cross-card .spec { font-family: "SF Mono", ui-monospace, monospace; font-size: 11px; color: var(--mid); letter-spacing: 0.04em; }
+
+  /* ── QUOTE FORM ────────────────────────────────────────── */
+  .ub-quote { padding: 120px 40px; }
+  .ub-quote-inner { max-width: 1100px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1.1fr; gap: 80px; align-items: start; }
+  .ub-quote-text .eyebrow { font-size: 14px; color: var(--blue-dark); font-weight: 500; margin-bottom: 14px; }
+  .ub-quote-text h2 { font-size: clamp(36px, 4vw, 56px); font-weight: 600; letter-spacing: -0.03em; line-height: 1.05; margin-bottom: 18px; }
+  .ub-quote-text h2 i { color: var(--blue-dark); }
+  .ub-quote-text p { font-size: 17px; color: var(--ink-soft); line-height: 1.55; max-width: 420px; margin-bottom: 28px; }
+  .ub-quote-contact { padding-top: 20px; border-top: 1px solid var(--rule-soft); font-size: 13px; color: var(--mid); line-height: 1.8; }
+  .ub-quote-contact b { display: block; color: var(--ink); font-weight: 500; font-size: 14px; margin-top: 4px; }
+  .ub-quote-form { background: var(--bg-alt); border-radius: 24px; padding: 36px 40px 40px; }
+  .ub-form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-bottom: 14px; }
+  .ub-form-field { display: flex; flex-direction: column; }
+  .ub-form-field--full { grid-column: 1 / -1; }
+  .ub-form-field label { font-size: 11px; font-weight: 500; color: var(--mid); letter-spacing: 0.04em; text-transform: uppercase; margin-bottom: 6px; }
+  .ub-form-field input, .ub-form-field textarea { background: var(--bg); border: 1px solid var(--rule-soft); border-radius: 10px; padding: 12px 14px; font-family: inherit; font-size: 15px; color: var(--ink); letter-spacing: -0.005em; transition: border-color 0.15s; }
+  .ub-form-field input:focus, .ub-form-field textarea:focus { outline: none; border-color: var(--blue-dark); }
+  .ub-form-field textarea { resize: vertical; min-height: 120px; line-height: 1.5; }
+  .ub-form-submit { margin-top: 10px; }
+
+  /* ── CTA BAND ──────────────────────────────────────────── */
+  .ub-cta { padding: 112px 40px; background: var(--dark-1); color: var(--dark-text); position: relative; overflow: hidden; }
+  .ub-cta::before { content: ''; position: absolute; inset: 0; background: radial-gradient(ellipse 60% 50% at 30% 50%, rgba(56,182,255,0.12), transparent 70%), radial-gradient(ellipse 50% 40% at 80% 100%, rgba(140,82,255,0.10), transparent 70%); pointer-events: none; }
+  .ub-cta-inner { max-width: 1040px; margin: 0 auto; text-align: center; position: relative; z-index: 1; }
+  .ub-cta-eyebrow { font-size: 14px; color: var(--blue); font-weight: 500; margin-bottom: 16px; }
+  .ub-cta h2 { font-size: clamp(44px, 5.5vw, 80px); font-weight: 600; letter-spacing: -0.035em; line-height: 1.02; margin-bottom: 22px; }
+  .ub-cta h2 i { color: var(--blue); }
+  .ub-cta > .ub-cta-inner > p { font-size: 20px; color: var(--dark-mid); max-width: 620px; margin: 0 auto 32px; line-height: 1.4; }
+  .ub-cta-ctas { display: flex; gap: 18px; justify-content: center; flex-wrap: wrap; }
+
+  /* ── RESPONSIVE ────────────────────────────────────────── */
+  @media (max-width: 1200px) {
+    .ub-products-grid, .ub-custom-grid { grid-template-columns: repeat(2, 1fr); }
+    .ub-cross-grid { grid-template-columns: repeat(2, 1fr); }
+    .ub-family { grid-template-columns: 1fr; gap: 28px; }
+    .ub-family-label { position: static; }
+    .ub-spec-card { grid-template-columns: 1fr; gap: 14px; }
+  }
+  @media (max-width: 1000px) {
+    .ub-hero-inner, .ub-intro-inner, .ub-grades-header, .ub-coatings-inner, .ub-cross-header, .ub-quote-inner, .ub-sizing-inner { grid-template-columns: 1fr; gap: 40px; }
+    .ub-hero-image { margin-right: 0; border-radius: 24px; min-height: 480px; }
+    .ub-products-grid, .ub-custom-grid { grid-template-columns: 1fr; }
+    .ub-cross-grid { grid-template-columns: 1fr; }
+    .ub-coatings-list li { grid-template-columns: 1fr; gap: 6px; }
+    .ub-form-row { grid-template-columns: 1fr; }
+  }
+  @media (max-width: 680px) {
+    .ub-trust-item { padding: 0 32px; }
+    .ub-trust-item span { font-size: 13px; }
+    .ub-trust-item svg { width: 22px; height: 22px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="cf-nav">
+  <a href="homepage.html" class="cf-nav-logo"><span class="cf-nav-logo-mark"></span>California Fastener</a>
+  <ul class="cf-nav-center">
+    <li class="has-menu">
+      <button aria-haspopup="true">Products</button>
+      <div class="cf-nav-menu cf-nav-menu--mega" role="menu">
+        <div class="cf-nav-menu-label">Fasteners</div>
+        <a href="anchor-bolts.html" role="menuitem">Anchor Bolts<span class="cf-nav-menu-sub">F1554, A193, F593 · headed, bent, rod assemblies</span></a>
+        <a href="stud-bolts-threaded-rod.html" role="menuitem">Stud Bolts &amp; Threaded Rod<span class="cf-nav-menu-sub">B7, B8, B16 · cut to length</span></a>
+        <a href="structural-fasteners.html" role="menuitem">Structural Fasteners<span class="cf-nav-menu-sub">A325, A490, TC bolts</span></a>
+        <a href="industrial-fasteners.html" role="menuitem">Industrial Fasteners<span class="cf-nav-menu-sub">Hex, socket, flange, grade 5 / 8</span></a>
+        <a href="u-bolts.html" role="menuitem">U-Bolts<span class="cf-nav-menu-sub">Standard &amp; custom profiles</span></a>
+        <a href="stainless-steel-fasteners.html" role="menuitem">Stainless Steel Fasteners<span class="cf-nav-menu-sub">304, 316, duplex</span></a>
+        <a href="silicon-bronze.html" role="menuitem">Silicon Bronze Hardware<span class="cf-nav-menu-sub">Marine &amp; architectural</span></a>
+        <a href="hollo-bolt.html" role="menuitem">Specialty &amp; Lindapter<span class="cf-nav-menu-sub">Hollo-Bolt, Girder clamps, blind bolts</span></a>
+        <div class="cf-nav-menu-footer">
+          <a href="#">View all products →</a>
+          <a href="quote-flow.html">Request a quote →</a>
+        </div>
+      </div>
+    </li>
+    <li class="has-menu">
+      <button aria-haspopup="true">Industries</button>
+      <div class="cf-nav-menu" role="menu">
+        <a href="industries-construction.html" role="menuitem">Construction</a>
+        <a href="industries-manufacturing.html" role="menuitem">Industrial Machinery</a>
+        <a href="industries-infrastructure.html" role="menuitem">Infrastructure</a>
+        <a href="industries-power-generation.html" role="menuitem">Renewable Energy</a>
+        <a href="industries-power-transmission.html" role="menuitem">Power &amp; Utilities</a>
+        <a href="industries-oil-gas.html" role="menuitem">Oil, Gas &amp; Petrochemical</a>
+        <a href="#" role="menuitem">Marine &amp; Shipbuilding</a>
+        <a href="#" role="menuitem">Aerospace &amp; Defense</a>
+      </div>
+    </li>
+    <li><a href="cnc-landing.html">CNC Machining</a></li>
+    <li class="has-menu">
+      <button aria-haspopup="true">Resources</button>
+      <div class="cf-nav-menu" role="menu">
+        <div class="cf-nav-menu-label">Technical</div>
+        <a href="spec-library.html" role="menuitem">Specification Library<span class="cf-nav-menu-sub">ASTM, SAE, ISO standards</span></a>
+        <a href="spec-builder.html" role="menuitem">Spec Builder<span class="cf-nav-menu-sub">Find the right material &amp; grade</span></a>
+        <a href="#" role="menuitem">Product Catalog (PDF)</a>
+        <div class="cf-nav-menu-divider"></div>
+        <div class="cf-nav-menu-label">Tools</div>
+        <a href="quote-flow.html" role="menuitem">Request a Quote</a>
+        <a href="#" role="menuitem">Contact Engineering</a>
+      </div>
+    </li>
+    <li><a href="#">About</a></li>
+    <li><a href="blog.html">Blog</a></li>
+  </ul>
+  <div class="cf-nav-right">
+    <a href="quote-flow.html" class="cf-nav-quote">Get a Quote</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="ub-hero" data-screen-label="01 Hero">
+  <div class="ub-hero-inner">
+    <div class="ub-hero-text">
+      <div class="ub-breadcrumb"><a href="homepage.html">Home</a><span>/</span><a href="#">Products</a><span>/</span>U-Bolts</div>
+      <div class="ub-eyebrow">U-Bolts</div>
+      <h1>Two threads.<br>One <i>bend.</i><br>Infinite shapes.</h1>
+      <p class="ub-hero-sub">Round-bend, square-bend, long-tangent, and made-to-print U-bolts for pipe, conduit, exhaust, structural support, and equipment clamping. Carbon, alloy, 304, 316, hot-dip galvanized — stocked deep, bent in-house when stock won't fit.</p>
+      <div class="ub-hero-ctas">
+        <a href="quote-flow.html" class="cf-pill cf-pill--blue">Request a Quote</a>
+        <a href="#products" class="cf-link">View profiles ↓</a>
+      </div>
+      <div class="ub-hero-stats">
+        <div><div class="ub-hero-stat-val">¼″–2½″</div><div class="ub-hero-stat-label">Stock diameters</div></div>
+        <div><div class="ub-hero-stat-val">A36</div><div class="ub-hero-stat-label">A193 · F593 · 316</div></div>
+        <div><div class="ub-hero-stat-val">HDG</div><div class="ub-hero-stat-label">Plain · zinc · stainless</div></div>
+        <div><div class="ub-hero-stat-val">∞</div><div class="ub-hero-stat-label">Made-to-print profiles</div></div>
+      </div>
+    </div>
+    <div class="ub-hero-image">
+      <div class="ub-hero-image-tag">Round-bend · 304 SS · 2″ NPS</div>
+      <!-- Iconographic U-bolt over a pipe -->
+      <svg viewBox="0 0 400 400" aria-hidden="true">
+        <!-- Pipe (cross-section) -->
+        <circle cx="200" cy="240" r="92" fill="#FFFFFF" stroke="#0B0B0D" stroke-width="3"/>
+        <circle cx="200" cy="240" r="74" fill="none" stroke="#0B0B0D" stroke-width="1.5" opacity="0.4"/>
+        <!-- U-bolt body -->
+        <path d="M 110 360 L 110 240 A 90 90 0 0 1 290 240 L 290 360" fill="none" stroke="#0B0B0D" stroke-width="14" stroke-linecap="round"/>
+        <!-- Highlight -->
+        <path d="M 110 350 L 110 245 A 80 80 0 0 1 200 165" fill="none" stroke="#FFFFFF" stroke-width="3" stroke-linecap="round" opacity="0.55"/>
+        <!-- Threads on legs -->
+        <g stroke="#0B0B0D" stroke-width="1.5" opacity="0.55">
+          <line x1="98" y1="345" x2="122" y2="345"/>
+          <line x1="98" y1="357" x2="122" y2="357"/>
+          <line x1="98" y1="369" x2="122" y2="369"/>
+          <line x1="278" y1="345" x2="302" y2="345"/>
+          <line x1="278" y1="357" x2="302" y2="357"/>
+          <line x1="278" y1="369" x2="302" y2="369"/>
+        </g>
+        <!-- Saddle plate -->
+        <rect x="78" y="372" width="244" height="14" rx="3" fill="#FFFFFF" stroke="#0B0B0D" stroke-width="3"/>
+        <!-- Hex nuts -->
+        <g fill="#FFFFFF" stroke="#0B0B0D" stroke-width="3">
+          <polygon points="92,386 128,386 134,392 128,398 92,398 86,392"/>
+          <polygon points="272,386 308,386 314,392 308,398 272,398 266,392"/>
+        </g>
+      </svg>
+    </div>
+  </div>
+</section>
+
+<!-- TRUST BAR -->
+<div class="ub-trustbar" aria-hidden="true" data-screen-label="02 Trust bar">
+  <div class="ub-trustbar-track">
+    <div class="ub-trust-item"><svg viewBox="0 0 24 24"><path d="M13 2 3 14h9l-1 8 10-12h-9l1-8z"/></svg><span>Fast Quotes</span></div>
+    <div class="ub-trust-item"><svg viewBox="0 0 24 24"><path d="M3 12c4-9 14-9 18 0"/><path d="M3 18h18"/></svg><span>Bent To Print</span></div>
+    <div class="ub-trust-item"><svg viewBox="0 0 24 24"><rect x="8" y="2" width="8" height="4" rx="1" ry="1"/><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"/><path d="m9 14 2 2 4-4"/></svg><span>Full Traceability</span></div>
+    <div class="ub-trust-item"><svg viewBox="0 0 24 24"><path d="M3 6h18M7 12h10M10 18h4"/></svg><span>Hot-Dip Galv.</span></div>
+    <div class="ub-trust-item"><svg viewBox="0 0 24 24"><path d="M14 18V6a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2v11a1 1 0 0 0 1 1h2"/><path d="M15 18H9"/><path d="M19 18h2a1 1 0 0 0 1-1v-3.65a1 1 0 0 0-.22-.624l-3.48-4.35A1 1 0 0 0 17.52 8H14"/><circle cx="17" cy="18" r="2"/><circle cx="7" cy="18" r="2"/></svg><span>Same Day Shipping</span></div>
+    <div class="ub-trust-item"><svg viewBox="0 0 24 24"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg><span>Bolt Specialists</span></div>
+    <!-- duplicate -->
+    <div class="ub-trust-item"><svg viewBox="0 0 24 24"><path d="M13 2 3 14h9l-1 8 10-12h-9l1-8z"/></svg><span>Fast Quotes</span></div>
+    <div class="ub-trust-item"><svg viewBox="0 0 24 24"><path d="M3 12c4-9 14-9 18 0"/><path d="M3 18h18"/></svg><span>Bent To Print</span></div>
+    <div class="ub-trust-item"><svg viewBox="0 0 24 24"><rect x="8" y="2" width="8" height="4" rx="1" ry="1"/><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"/><path d="m9 14 2 2 4-4"/></svg><span>Full Traceability</span></div>
+    <div class="ub-trust-item"><svg viewBox="0 0 24 24"><path d="M3 6h18M7 12h10M10 18h4"/></svg><span>Hot-Dip Galv.</span></div>
+    <div class="ub-trust-item"><svg viewBox="0 0 24 24"><path d="M14 18V6a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2v11a1 1 0 0 0 1 1h2"/><path d="M15 18H9"/><path d="M19 18h2a1 1 0 0 0 1-1v-3.65a1 1 0 0 0-.22-.624l-3.48-4.35A1 1 0 0 0 17.52 8H14"/><circle cx="17" cy="18" r="2"/><circle cx="7" cy="18" r="2"/></svg><span>Same Day Shipping</span></div>
+    <div class="ub-trust-item"><svg viewBox="0 0 24 24"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg><span>Bolt Specialists</span></div>
+  </div>
+</div>
+
+<!-- POSITIONING -->
+<section class="ub-intro" data-screen-label="03 Positioning">
+  <div class="ub-intro-inner">
+    <div class="ub-intro-lead">
+      <h2>The fastener that<br>wraps <i>around</i> something.</h2>
+    </div>
+    <div class="ub-intro-body">
+      <p>A U-bolt is the simplest custom part on the truck — round bar, threaded both ends, bent into a U. The simplicity is the trick: change the diameter, the inside dimension, the bend radius, the leg length, or the profile, and you have a different part number every time.</p>
+      <p>We stock the most common round-bend and square-bend sizes, and we bend the rest in-house from B7, A36, 304, and 316 stock. Send the pipe size and the application; we'll come back with a part to print.
+        <em>Beam clamps and girder clamps are a different family — see Lindapter Hollo-Bolt.</em>
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- PRODUCTS -->
+<section class="ub-products" id="products" data-screen-label="04 Profiles">
+  <div class="ub-products-header">
+    <div class="eyebrow">Profiles we run</div>
+    <h2>Six bend profiles.<br><i>One supplier.</i></h2>
+    <p>The standard catalog runs round-bend over square-bend, plus the long-tangent and V-bend variants the hangers and exhaust shops keep specifying.</p>
+  </div>
+  <div class="ub-products-grid">
+
+    <div class="ub-product-card">
+      <div class="ub-product-shape">
+        <span class="pnum">01 / Round bend</span>
+        <svg viewBox="0 0 200 160" aria-hidden="true">
+          <path d="M 40 150 L 40 80 A 60 60 0 0 1 160 80 L 160 150"/>
+          <g class="thread"><line x1="32" y1="120" x2="48" y2="120"/><line x1="32" y1="130" x2="48" y2="130"/><line x1="32" y1="140" x2="48" y2="140"/><line x1="152" y1="120" x2="168" y2="120"/><line x1="152" y1="130" x2="168" y2="130"/><line x1="152" y1="140" x2="168" y2="140"/></g>
+        </svg>
+      </div>
+      <div class="ub-product-body">
+        <h3>Round-bend U-bolt</h3>
+        <p>The default profile — semicircular bend that wraps a round pipe with no point loads. Pipe support, conduit, automotive exhaust, suspension.</p>
+        <div class="ub-product-meta"><b>Pipe NPS · OD-spec</b> · ¼″–2½″ rod</div>
+      </div>
+    </div>
+
+    <div class="ub-product-card">
+      <div class="ub-product-shape">
+        <span class="pnum">02 / Square bend</span>
+        <svg viewBox="0 0 200 160" aria-hidden="true">
+          <path d="M 40 150 L 40 65 L 50 50 L 150 50 L 160 65 L 160 150"/>
+          <g class="thread"><line x1="32" y1="120" x2="48" y2="120"/><line x1="32" y1="130" x2="48" y2="130"/><line x1="32" y1="140" x2="48" y2="140"/><line x1="152" y1="120" x2="168" y2="120"/><line x1="152" y1="130" x2="168" y2="130"/><line x1="152" y1="140" x2="168" y2="140"/></g>
+        </svg>
+      </div>
+      <div class="ub-product-body">
+        <h3>Square-bend U-bolt</h3>
+        <p>Two 90° bends — for clamping square tube, channel, structural sections, and U-channel framing. Spec by inside dimensions, not pipe size.</p>
+        <div class="ub-product-meta"><b>ID-spec</b> · square &amp; rectangular tube</div>
+      </div>
+    </div>
+
+    <div class="ub-product-card">
+      <div class="ub-product-shape">
+        <span class="pnum">03 / Long tangent</span>
+        <svg viewBox="0 0 200 160" aria-hidden="true">
+          <path d="M 40 150 L 40 70 A 50 50 0 0 1 160 70 L 160 150"/>
+          <g class="thread"><line x1="32" y1="115" x2="48" y2="115"/><line x1="32" y1="125" x2="48" y2="125"/><line x1="32" y1="135" x2="48" y2="135"/><line x1="32" y1="145" x2="48" y2="145"/><line x1="152" y1="115" x2="168" y2="115"/><line x1="152" y1="125" x2="168" y2="125"/><line x1="152" y1="135" x2="168" y2="135"/><line x1="152" y1="145" x2="168" y2="145"/></g>
+        </svg>
+      </div>
+      <div class="ub-product-body">
+        <h3>Long-tangent U-bolt</h3>
+        <p>Round bend with extended thread length on the legs — for stacked saddles, multiple plates, insulated pipe, or where a longer reach is needed.</p>
+        <div class="ub-product-meta"><b>Custom leg length</b> · per drawing</div>
+      </div>
+    </div>
+
+    <div class="ub-product-card">
+      <div class="ub-product-shape">
+        <span class="pnum">04 / V-bolt</span>
+        <svg viewBox="0 0 200 160" aria-hidden="true">
+          <path d="M 40 150 L 40 80 L 100 50 L 160 80 L 160 150"/>
+          <g class="thread"><line x1="32" y1="120" x2="48" y2="120"/><line x1="32" y1="130" x2="48" y2="130"/><line x1="32" y1="140" x2="48" y2="140"/><line x1="152" y1="120" x2="168" y2="120"/><line x1="152" y1="130" x2="168" y2="130"/><line x1="152" y1="140" x2="168" y2="140"/></g>
+        </svg>
+      </div>
+      <div class="ub-product-body">
+        <h3>V-bend U-bolt</h3>
+        <p>Two-sided V profile that grips angle iron and tapered geometry. Common on guy-wire anchorages and angle-bracket assemblies.</p>
+        <div class="ub-product-meta"><b>Angle clamping</b> · grip stock per spec</div>
+      </div>
+    </div>
+
+    <div class="ub-product-card">
+      <div class="ub-product-shape">
+        <span class="pnum">05 / Muffler / exhaust</span>
+        <svg viewBox="0 0 200 160" aria-hidden="true">
+          <path d="M 40 150 L 40 90 A 60 60 0 0 1 160 90 L 160 150"/>
+          <rect x="60" y="100" width="80" height="20" rx="2"/>
+          <g class="thread"><line x1="32" y1="120" x2="48" y2="120"/><line x1="32" y1="130" x2="48" y2="130"/><line x1="32" y1="140" x2="48" y2="140"/><line x1="152" y1="120" x2="168" y2="120"/><line x1="152" y1="130" x2="168" y2="130"/><line x1="152" y1="140" x2="168" y2="140"/></g>
+        </svg>
+      </div>
+      <div class="ub-product-body">
+        <h3>Muffler U-bolt</h3>
+        <p>Round-bend U-bolt with saddle clamp included — used on automotive and OEM exhaust, light-duty pipe joining, repair clamps.</p>
+        <div class="ub-product-meta"><b>U-bolt + saddle</b> · sold as set</div>
+      </div>
+    </div>
+
+    <div class="ub-product-card">
+      <div class="ub-product-shape">
+        <span class="pnum">06 / Made-to-print</span>
+        <svg viewBox="0 0 200 160" aria-hidden="true">
+          <path d="M 40 150 L 40 100 L 60 80 L 80 95 L 100 60 L 120 95 L 140 80 L 160 100 L 160 150"/>
+          <g class="thread" stroke-dasharray="3 3"><line x1="32" y1="120" x2="48" y2="120"/><line x1="32" y1="135" x2="48" y2="135"/><line x1="152" y1="120" x2="168" y2="120"/><line x1="152" y1="135" x2="168" y2="135"/></g>
+        </svg>
+      </div>
+      <div class="ub-product-body">
+        <h3>Made-to-print U-bolts</h3>
+        <p>Compound bends, oversized diameters, exotic material, weather-resistant coatings. If it can be drawn, we can quote it.</p>
+        <div class="ub-product-meta"><b>Quote-basis</b> · send a sketch or DXF</div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- SIZING / GEOMETRY EXPLAINER -->
+<section class="ub-sizing" data-screen-label="05 How to size">
+  <div class="ub-sizing-inner">
+    <div class="ub-sizing-text">
+      <div class="eyebrow">How to size a U-bolt</div>
+      <h2>Five dimensions.<br>That's the <i>part.</i></h2>
+      <p>U-bolts get drawn five different ways depending on the trade. We need the same five measurements either way — give us these and we can pull stock or quote a bend.</p>
+      <ul class="ub-sizing-attrs">
+        <li><b>D</b><span>Rod diameter — ¼″, 5/16″, 3/8″, ½″, 5/8″, ¾″, 1″, up to 2½″.</span></li>
+        <li><b>A</b><span>Inside dimension between legs — for round bends, this is the pipe OD plus clearance.</span></li>
+        <li><b>L</b><span>Total leg length below bend tangent. Drives thread length and reach.</span></li>
+        <li><b>T</b><span>Thread length on each leg — usually 2× nut height plus saddle stack-up.</span></li>
+        <li><b>R</b><span>Bend radius (round) or inside radius at the corner (square). Default = 1.5× D.</span></li>
+      </ul>
+    </div>
+    <div class="ub-sizing-diagram">
+      <svg viewBox="0 0 500 400" aria-hidden="true">
+        <!-- Reference pipe outline (light) -->
+        <circle cx="250" cy="200" r="80" fill="none" stroke="#999" stroke-width="1.5" stroke-dasharray="4 4"/>
+        <!-- U-bolt -->
+        <path d="M 150 380 L 150 200 A 100 100 0 0 1 350 200 L 350 380" fill="none" stroke="#0B0B0D" stroke-width="10" stroke-linecap="round"/>
+        <!-- D label -->
+        <line x1="120" y1="320" x2="180" y2="320" stroke="#1B5BA4" stroke-width="1.5" marker-end="url(#arrow)" marker-start="url(#arrow)"/>
+        <text x="100" y="324" font-family="SF Mono, ui-monospace, monospace" font-size="14" fill="#1B5BA4" font-weight="600">D</text>
+        <!-- A label -->
+        <line x1="160" y1="190" x2="340" y2="190" stroke="#1B5BA4" stroke-width="1.5" marker-end="url(#arrow)" marker-start="url(#arrow)"/>
+        <text x="245" y="180" font-family="SF Mono, ui-monospace, monospace" font-size="14" fill="#1B5BA4" font-weight="600">A</text>
+        <!-- L label -->
+        <line x1="380" y1="200" x2="380" y2="380" stroke="#1B5BA4" stroke-width="1.5" marker-end="url(#arrow)" marker-start="url(#arrow)"/>
+        <text x="390" y="294" font-family="SF Mono, ui-monospace, monospace" font-size="14" fill="#1B5BA4" font-weight="600">L</text>
+        <!-- T label (thread zone) -->
+        <line x1="115" y1="320" x2="115" y2="380" stroke="#1B5BA4" stroke-width="1.5" marker-end="url(#arrow)" marker-start="url(#arrow)"/>
+        <text x="80" y="354" font-family="SF Mono, ui-monospace, monospace" font-size="14" fill="#1B5BA4" font-weight="600">T</text>
+        <!-- R label -->
+        <line x1="250" y1="200" x2="320" y2="155" stroke="#1B5BA4" stroke-width="1.5" stroke-dasharray="3 3"/>
+        <text x="285" y="148" font-family="SF Mono, ui-monospace, monospace" font-size="14" fill="#1B5BA4" font-weight="600">R</text>
+        <!-- Arrowheads -->
+        <defs>
+          <marker id="arrow" markerWidth="6" markerHeight="6" refX="3" refY="3" orient="auto">
+            <path d="M 0 0 L 6 3 L 0 6 z" fill="#1B5BA4"/>
+          </marker>
+        </defs>
+        <!-- Thread hash on legs -->
+        <g stroke="#0B0B0D" stroke-width="1.5" opacity="0.55">
+          <line x1="138" y1="332" x2="162" y2="332"/>
+          <line x1="138" y1="346" x2="162" y2="346"/>
+          <line x1="138" y1="360" x2="162" y2="360"/>
+          <line x1="338" y1="332" x2="362" y2="332"/>
+          <line x1="338" y1="346" x2="362" y2="346"/>
+          <line x1="338" y1="360" x2="362" y2="360"/>
+        </g>
+      </svg>
+    </div>
+  </div>
+</section>
+
+<!-- GRADES -->
+<section class="ub-grades" id="grades" data-screen-label="06 Grades">
+  <div class="ub-grades-inner">
+    <div class="ub-grades-header">
+      <h2>Grades and specs,<br>grouped by <i>family.</i></h2>
+      <p>Most U-bolts ship in mild-carbon A36 round bar with rolled or cut threads. When the spec needs more — strength, corrosion, or temperature — we work in the same grades we run for studs and rod.</p>
+    </div>
+
+    <!-- Carbon -->
+    <div class="ub-family">
+      <div class="ub-family-label">
+        <div class="num">Family 01</div>
+        <h3>Carbon &amp; alloy</h3>
+        <p>Mild and quenched-and-tempered carbon steel for general support, automotive, and machinery.</p>
+      </div>
+      <div class="ub-family-cards">
+        <div class="ub-spec-card">
+          <div class="ub-spec-tag">ASTM A36<span class="name">Mild carbon</span>
+            <ul class="ub-spec-grades"><li>36 ksi</li><li>Weldable</li></ul>
+          </div>
+          <div class="ub-spec-body">
+            <p>The default U-bolt material — soft enough to bend cold without cracking, strong enough for the bulk of pipe support and clamping work. Plain, electro-zinc, or hot-dip galvanized.</p>
+          </div>
+        </div>
+        <div class="ub-spec-card">
+          <div class="ub-spec-tag">ASTM A307<span class="name">Grade A · B</span>
+            <ul class="ub-spec-grades"><li>Grade A</li><li>Grade B</li></ul>
+          </div>
+          <div class="ub-spec-body">
+            <p>Low-carbon steel for general bolting service. Common on muffler U-bolts and OEM exhaust hardware. A307-B for moderate-load, moderate-temperature joints.</p>
+          </div>
+        </div>
+        <div class="ub-spec-card">
+          <div class="ub-spec-tag">SAE J429<span class="name">Grade 5 · 8</span>
+            <ul class="ub-spec-grades"><li>Heat-treated</li><li>Q &amp; T</li></ul>
+          </div>
+          <div class="ub-spec-body">
+            <p>Heat-treated U-bolts in SAE J429 Grade 5 and Grade 8 for higher-load, dynamic, or vibration-prone clamping — automotive suspension, leaf-spring, equipment mounts.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Stainless -->
+    <div class="ub-family">
+      <div class="ub-family-label">
+        <div class="num">Family 02</div>
+        <h3>Stainless steel</h3>
+        <p>304 and 316 austenitic for chemical, food, marine, and outdoor architectural service. The default in coastal, sanitary, and process pipe support.</p>
+      </div>
+      <div class="ub-family-cards">
+        <div class="ub-spec-card">
+          <div class="ub-spec-tag">ASTM F593<span class="name">18-8 (304)</span>
+            <ul class="ub-spec-grades"><li>Group 1</li><li>304/305</li></ul>
+          </div>
+          <div class="ub-spec-body">
+            <p>304 stainless U-bolts for outdoor, food, and pharma pipe support. Bends cleanly cold; threads roll well; passivated finish.</p>
+          </div>
+        </div>
+        <div class="ub-spec-card">
+          <div class="ub-spec-tag">ASTM F593<span class="name">316</span>
+            <ul class="ub-spec-grades"><li>Group 2</li><li>316/316L</li></ul>
+          </div>
+          <div class="ub-spec-body">
+            <p>316 stainless for chloride-bearing service — coastal, marine, chemical, pulp &amp; paper, wastewater. The default upgrade when 304 surface-rusts.</p>
+          </div>
+        </div>
+        <div class="ub-spec-card">
+          <div class="ub-spec-tag">ASTM A193<span class="name">Grade B8 · B8M</span>
+            <ul class="ub-spec-grades"><li>304 SS</li><li>316 SS</li></ul>
+          </div>
+          <div class="ub-spec-body">
+            <p>Stainless to A193 when the project requires the pressure-piping standard — even on a U-bolt. B8 for general stainless service; B8M for chloride and acid resistance.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- High-temp / pressure -->
+    <div class="ub-family">
+      <div class="ub-family-label">
+        <div class="num">Family 03</div>
+        <h3>High-temp &amp; pressure</h3>
+        <p>Alloy U-bolts for hot-pipe support and process plant pipe-rack hardware. Less common but spec'd by name on refinery, power, and chemical work.</p>
+      </div>
+      <div class="ub-family-cards">
+        <div class="ub-spec-card">
+          <div class="ub-spec-tag">ASTM A193<span class="name">Grade B7</span>
+            <ul class="ub-spec-grades"><li>4140 / 4142</li><li>Q &amp; T</li><li>~900°F</li></ul>
+          </div>
+          <div class="ub-spec-body">
+            <p>Chromium-molybdenum alloy U-bolts for hot pipe support and process pipe-rack clamping. Strong, but less ductile — bends are done at controlled temperature with post-bend stress relief.</p>
+          </div>
+        </div>
+        <div class="ub-spec-card">
+          <div class="ub-spec-tag">ASTM A320<span class="name">Grade L7</span>
+            <ul class="ub-spec-grades"><li>4140 Q &amp; T</li><li>−150°F Charpy</li></ul>
+          </div>
+          <div class="ub-spec-body">
+            <p>Low-temp alloy U-bolts for cold-side process — LNG, ammonia, refrigerated piping. Same chemistry as B7 with a Charpy impact requirement.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- CUSTOM BENDS BAND -->
+<section class="ub-custom" data-screen-label="07 Custom bending">
+  <div class="ub-custom-inner">
+    <div class="ub-custom-header">
+      <div class="eyebrow">Custom bending</div>
+      <h2>Stock won't always<br>fit. <i>That's fine.</i></h2>
+      <p>Most jobs end up with at least one made-to-print U-bolt — odd pipe size, structural section that won't take a stock bend, exotic material, or a profile we've never seen. That's our day job.</p>
+    </div>
+    <div class="ub-custom-grid">
+      <div class="ub-custom-card">
+        <div class="ico">
+          <svg viewBox="0 0 60 60"><path d="M 8 52 L 8 28 A 22 22 0 0 1 52 28 L 52 52"/></svg>
+        </div>
+        <h3>Send a sketch</h3>
+        <p>A photo of the drawing on a clipboard, a DXF, a hand sketch with the five dimensions. Anything we can read into a CNC bender, we can run.</p>
+      </div>
+      <div class="ub-custom-card">
+        <div class="ico">
+          <svg viewBox="0 0 60 60"><path d="M 8 52 L 8 22 L 18 12 L 42 12 L 52 22 L 52 52"/></svg>
+        </div>
+        <h3>Compound profiles</h3>
+        <p>Z-bends, offset legs, asymmetric square bends, swedged legs, threaded inserts. We've made U-bolts with one welded foot and one nut — if it solves the joint, we'll quote it.</p>
+      </div>
+      <div class="ub-custom-card">
+        <div class="ico">
+          <svg viewBox="0 0 60 60"><path d="M 8 52 L 8 28 A 22 22 0 0 1 52 28 L 52 52"/><line x1="20" y1="42" x2="40" y2="42" stroke-dasharray="2 2"/></svg>
+        </div>
+        <h3>Saddles, plates, nuts</h3>
+        <p>U-bolts ship with whatever they pair with — formed saddles, hot-rolled plate clips, UV-resistant cushion liners, matched heavy hex or nylon-insert lock nuts.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- COATINGS -->
+<section class="ub-coatings" data-screen-label="08 Coatings">
+  <div class="ub-coatings-inner">
+    <div class="ub-coatings-text">
+      <div class="eyebrow">Coatings &amp; finishes</div>
+      <h2>The <i>finish</i> outlasts<br>the bracket.</h2>
+      <p>Most U-bolts live outdoors, in a roof-rack, or in a process-pipe environment. Pick the right finish up front — re-coating after install is rarely an option.</p>
+    </div>
+    <ul class="ub-coatings-list">
+      <li>
+        <b>Plain finish<small>Default · oiled</small></b>
+        <span>Uncoated, oiled, ships in mill condition. Fine for indoor or paint-over applications. Will surface-rust outdoors.</span>
+      </li>
+      <li>
+        <b>Electro-zinc plate<small>ASTM B633 SC1 / SC3</small></b>
+        <span>Bright zinc plate for indoor or light-duty outdoor service. Standard upgrade on muffler and HVAC U-bolts.</span>
+      </li>
+      <li>
+        <b>Hot-dip galvanized<small>ASTM F2329 / A153</small></b>
+        <span>Thick zinc layer for severe outdoor exposure. Standard on infrastructure and outdoor pipe-rack hardware. Nuts overtapped to fit.</span>
+      </li>
+      <li>
+        <b>Stainless 304 / 316<small>F593 / A193 B8M</small></b>
+        <span>The right answer when coating life is the limiting factor — coastal, marine, chemical, food / pharma. 316 for chloride.</span>
+      </li>
+      <li>
+        <b>Zinc / aluminum flake<small>Geomet · Magni</small></b>
+        <span>Inorganic zinc-rich topcoat applied as a dip-spin. Thin, even, embrittlement-friendly. Common on automotive, wind, and structural applications.</span>
+      </li>
+      <li>
+        <b>PTFE / Xylan<small>Xylan 1424 / 1052</small></b>
+        <span>Fluoropolymer topcoat — colored blue or gray — for chemical-process pipe support and refinery pipe-rack hardware. Galling and seizure resistance.</span>
+      </li>
+    </ul>
+  </div>
+</section>
+
+<!-- CROSS-LINKS -->
+<section class="ub-cross" data-screen-label="09 Cross-links">
+  <div class="ub-cross-inner">
+    <div class="ub-cross-header">
+      <h2>Looking for something<br>a little <i>different?</i></h2>
+      <p>U-bolts solve "wrap a fastener around something." If your project needs a different attachment method, start here instead.</p>
+    </div>
+    <div class="ub-cross-grid">
+      <a href="anchor-bolts.html" class="ub-cross-card">
+        <div class="question">Foundation anchors, embed plates?</div>
+        <h4>Anchor Bolts</h4>
+        <div class="spec">F1554 · A193 B7/B8/B8M · F593</div>
+      </a>
+      <a href="stud-bolts-threaded-rod.html" class="ub-cross-card">
+        <div class="question">Continuous threaded rod cut to length?</div>
+        <h4>Stud Bolts &amp; Threaded Rod</h4>
+        <div class="spec">B7 · B8 · B16 · A36 · F1554</div>
+      </a>
+      <a href="hollo-bolt.html" class="ub-cross-card">
+        <div class="question">Bolting onto a beam flange or HSS?</div>
+        <h4>Lindapter Hollo-Bolt</h4>
+        <div class="spec">Beam clamps · blind expansion fasteners</div>
+      </a>
+      <a href="industrial-fasteners.html" class="ub-cross-card">
+        <div class="question">Heavy hex, socket cap, finished hardware?</div>
+        <h4>Industrial Fasteners</h4>
+        <div class="spec">A193 · A574 · A194 · F436</div>
+      </a>
+      <a href="stainless-steel-fasteners.html" class="ub-cross-card">
+        <div class="question">Stainless-only, corrosion-driven spec?</div>
+        <h4>Stainless Steel Fasteners</h4>
+        <div class="spec">304 · 316 · duplex · PH grades</div>
+      </a>
+      <a href="cnc-landing.html" class="ub-cross-card">
+        <div class="question">Custom geometry beyond a bend?</div>
+        <h4>CNC Machining</h4>
+        <div class="spec">In-house · DFARS · AS9102</div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- QUOTE FORM -->
+<section class="ub-quote" data-screen-label="10 Request a quote">
+  <div class="ub-quote-inner">
+    <div class="ub-quote-text">
+      <div class="eyebrow">Request a quote</div>
+      <h2>Send the <i>five</i><br>dimensions.</h2>
+      <p>D, A, L, T, R — material, finish, quantity. A bolt specialist will come back with a quote, usually inside 24 hours. Or just send a sketch on the back of a napkin.</p>
+      <div class="ub-quote-contact">
+        Prefer to talk it through?
+        <b>888.581.7328</b>
+        <b>sales@californiafastener.com</b>
+      </div>
+    </div>
+    <form class="ub-quote-form" onsubmit="event.preventDefault(); this.querySelector('button').textContent='Sent ✓'; this.querySelector('button').disabled=true;">
+      <div class="ub-form-row">
+        <div class="ub-form-field"><label>Name</label><input type="text" name="name" required></div>
+        <div class="ub-form-field"><label>Company</label><input type="text" name="company"></div>
+      </div>
+      <div class="ub-form-row">
+        <div class="ub-form-field"><label>Email</label><input type="email" name="email" required></div>
+        <div class="ub-form-field"><label>Phone</label><input type="tel" name="phone"></div>
+      </div>
+      <div class="ub-form-row">
+        <div class="ub-form-field ub-form-field--full"><label>U-bolt details</label><textarea name="message" placeholder="Profile (round / square / V), rod diameter, inside dimension, leg length, thread length, material, finish, quantity. Or attach a drawing."></textarea></div>
+      </div>
+      <button type="submit" class="cf-pill cf-pill--blue ub-form-submit">Send quote request</button>
+    </form>
+  </div>
+</section>
+
+<!-- CTA BAND -->
+<section class="ub-cta" data-screen-label="11 CTA">
+  <div class="ub-cta-inner">
+    <div class="ub-cta-eyebrow">Talk to a bolt specialist</div>
+    <h2>From the catalog<br>to the <i>napkin sketch.</i></h2>
+    <p>From a stock 1″ NPS 304 round-bend to a 1500-piece run of HDG square-bends with bonded saddle plates — we've shipped the package before.</p>
+    <div class="ub-cta-ctas">
+      <a href="quote-flow.html" class="cf-pill cf-pill--blue-light">Request a Quote</a>
+      <a href="tel:8885817328" class="cf-pill cf-pill--ghost-dark">Call 888.581.7328</a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="cf-footer">
+  <div class="cf-footer-cols">
+    <div class="cf-footer-col">
+      <h4 class="cf-footer-brand"><span class="cf-nav-logo-mark"></span>California Fastener</h4>
+      <p class="cf-footer-tagline">Industrial and structural fasteners, CNC machined parts, and technical support. CA Fast LLC.</p>
+      <div style="font-size:12px; color:var(--ink); margin-bottom:4px;">888.581.7328</div>
+      <div style="font-size:12px; color:var(--mid);">info@californiafastener.com</div>
+    </div>
+    <div class="cf-footer-col">
+      <h4>Products</h4>
+      <a href="anchor-bolts.html">Anchor Bolts</a>
+      <a href="stud-bolts-threaded-rod.html">Stud Bolts &amp; Threaded Rod</a>
+      <a href="u-bolts.html">U-Bolts</a>
+      <a href="structural-fasteners.html">Structural Fasteners</a>
+      <a href="industrial-fasteners.html">Industrial Fasteners</a>
+      <a href="stainless-steel-fasteners.html">Stainless Steel Fasteners</a>
+      <a href="silicon-bronze.html">Silicon Bronze Hardware</a>
+      <a href="cnc-landing.html">CNC Machining</a>
+    </div>
+    <div class="cf-footer-col">
+      <h4>Resources</h4>
+      <a href="spec-library.html">Specification Library</a>
+      <a href="spec-builder.html">Spec Builder</a>
+      <a href="#">Product Catalog</a>
+      <a href="#">Industry Applications</a>
+      <a href="blog.html">Field Notes (Blog)</a>
+    </div>
+    <div class="cf-footer-col">
+      <h4>Company</h4>
+      <a href="#">About</a>
+      <a href="quote-flow.html">Request a Quote</a>
+      <a href="#">Contact</a>
+    </div>
+  </div>
+  <div class="cf-footer-bottom">
+    <div>© 2026 California Fastener · CA Fast LLC</div>
+    <div>Designed in California</div>
+  </div>
+</footer>
+
+<script>
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('cf-rise'); });
+  }, { threshold: 0.08 });
+  document.querySelectorAll('.ub-product-card, .ub-spec-card, .ub-custom-card, .ub-cross-card').forEach(el => observer.observe(el));
+</script>
+</body>
+</html>

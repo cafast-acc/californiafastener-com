@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Spec Library — California Fastener</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="_shared.css">
+<link rel="stylesheet" href="technical-library.css">
+</head>
+<body>
+
+<!-- ── Nav ──────────────────────────────────────────────── -->
+<nav class="cf-nav">
+  <a href="homepage.html" class="cf-nav-logo">
+    <span class="cf-nav-logo-mark"></span>
+    California Fastener
+  </a>
+  <ul class="cf-nav-center">
+    <li><a href="industrial-fasteners.html" class="cf-nav-link">Industrial</a></li>
+    <li><a href="#" class="cf-nav-link">Anchor Bolts</a></li>
+    <li><a href="cnc-landing.html" class="cf-nav-link">CNC Machining</a></li>
+    <li><a href="spec-library.html" class="cf-nav-link cf-nav-link--active">Spec Library</a></li>
+    <li><a href="#" class="cf-nav-link">About</a></li>
+  </ul>
+  <div class="cf-nav-right">
+    <a href="#quote" class="cf-btn cf-btn--pill">Request Quote</a>
+  </div>
+</nav>
+
+<!-- ═══ HERO ═══ -->
+<header class="lib-hero">
+  <div class="lib-wrap">
+    <div class="lib-crumbs">
+      <a href="homepage.html">California Fastener</a>
+      <span class="sep">/</span>
+      <a href="#">Resources</a>
+      <span class="sep">/</span>
+      <span class="here">Spec Library</span>
+    </div>
+
+    <div class="lib-hero-grid">
+      <div class="lib-hero-left">
+        <div class="lib-kicker">
+          <b>Reference</b> · Updated 2025 · 35 standards
+        </div>
+        <h1 class="lib-h1">Fasteners, <i>demystified.</i></h1>
+        <p class="lib-lede">
+          Thirty-five ASTM, SAE, ASME, ISO, and DIN standards in plain English — and in the depth a specifying engineer actually needs. Bolts, nuts, washers, threads, coatings, and metric reference. Every page opens with an &ldquo;at-a-glance&rdquo; so non-specialists can get oriented in ten seconds.
+        </p>
+        <div class="lib-hero-actions">
+          <a href="#specs" class="cf-btn cf-btn--pill cf-btn--primary">Browse all specs</a>
+          <a href="spec-builder.html" class="cf-btn cf-btn--link">Open spec builder&nbsp;→</a>
+          <a href="#" id="print-trigger" class="cf-btn cf-btn--link">Print-ready view&nbsp;→</a>
+        </div>
+        <dl class="lib-hero-meta">
+          <div><dt>Standards</dt><dd>35</dd></div>
+          <div><dt>Categories</dt><dd>6</dd></div>
+          <div><dt>Revision</dt><dd>2025.1</dd></div>
+          <div><dt>Contact</dt><dd>ask us</dd></div>
+        </dl>
+      </div>
+
+      <aside class="lib-hero-index" aria-label="Quick index">
+        <div class="lib-index-head">
+          <span class="lib-index-eyebrow">Contents</span>
+          <span class="lib-index-count">35 specs</span>
+        </div>
+        <ol class="lib-index-list" id="hero-index"></ol>
+        <div class="lib-index-foot">
+          Press <kbd>/</kbd> to search · <kbd>P</kbd> for print
+        </div>
+      </aside>
+    </div>
+  </div>
+</header>
+
+<!-- ═══ STARTING POINTS ═══ -->
+<section class="lib-starts">
+  <div class="lib-wrap">
+    <div class="lib-starts-head">
+      <div class="lib-section-kicker">§ Start here</div>
+      <h2 class="lib-starts-title">Three ways in.</h2>
+      <p class="lib-starts-sub">
+        Most engineers don't arrive here knowing the spec number. Pick the path that matches what's already on your desk — a drawing, an application, or an environment.
+      </p>
+    </div>
+    <div class="lib-starts-grid">
+      <button class="lib-start" data-start="industry">
+        <div class="lib-start-num">01</div>
+        <h3>By industry</h3>
+        <p>Refinery, structural, marine, power, aerospace. Jump to the specs that dominate your vertical — filtered and ready.</p>
+        <div class="lib-start-chips">
+          <span>Oil &amp; Gas</span><span>Structural</span><span>Marine</span><span>Power</span>
+        </div>
+      </button>
+      <button class="lib-start" data-start="service">
+        <div class="lib-start-num">02</div>
+        <h3>By service condition</h3>
+        <p>High temperature, sour (H₂S), cryogenic, corrosive, outdoor. Let the environment narrow the grade before you pick a spec.</p>
+        <div class="lib-start-chips">
+          <span>High temp</span><span>Sour / NACE</span><span>Low temp</span><span>Corrosive</span>
+        </div>
+      </button>
+      <button class="lib-start" data-start="strength">
+        <div class="lib-start-num">03</div>
+        <h3>By strength class</h3>
+        <p>Grade 5, Grade 8, A325, A490, Class 10.9. When the spec sheet says a strength and the rest is your problem.</p>
+        <div class="lib-start-chips">
+          <span>A325</span><span>B7</span><span>Grade 8</span><span>10.9</span>
+        </div>
+      </button>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ BROWSE ═══ -->
+<section class="lib-browse" id="specs">
+  <div class="lib-wrap">
+
+    <!-- Toolbar -->
+    <div class="lib-toolbar" id="toolbar">
+      <div class="lib-toolbar-top">
+        <label class="lib-search">
+          <svg class="lib-search-icon" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5">
+            <circle cx="7" cy="7" r="5"/><path d="M11 11l3 3"/>
+          </svg>
+          <input type="search" id="lib-search" placeholder="Search — &ldquo;A325&rdquo;, &ldquo;sour service&rdquo;, &ldquo;316&rdquo;, &ldquo;low temperature&rdquo;&hellip;" autocomplete="off">
+          <kbd class="lib-search-hint" id="search-hint">/</kbd>
+        </label>
+        <div class="lib-layout-switch" role="tablist" aria-label="Layout">
+          <button data-layout="editorial" class="is-active" title="Editorial"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M2 3h12M2 7h9M2 11h12M2 14h7"/></svg></button>
+          <button data-layout="grid" title="Grid"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4"><rect x="2" y="2" width="5" height="5"/><rect x="9" y="2" width="5" height="5"/><rect x="2" y="9" width="5" height="5"/><rect x="9" y="9" width="5" height="5"/></svg></button>
+          <button data-layout="table" title="Table"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4"><rect x="2" y="3" width="12" height="10"/><path d="M2 7h12M6 3v10"/></svg></button>
+        </div>
+      </div>
+
+      <div class="lib-toolbar-bottom">
+        <div class="lib-facet-group">
+          <span class="lib-facet-label">Category</span>
+          <div class="lib-facet-chips" id="facet-category"></div>
+        </div>
+        <span class="lib-facet-divider"></span>
+        <button class="lib-facet-more" id="facet-more" aria-expanded="false">
+          <svg width="12" height="12" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 5h10M5 8h6M7 11h2"/></svg>
+          Refine
+          <span class="lib-facet-more-count" id="facet-more-count" hidden>0</span>
+        </button>
+        <button class="lib-facet-clear" id="facet-clear" hidden>Clear all</button>
+      </div>
+
+      <div class="lib-toolbar-refine" id="toolbar-refine" hidden>
+        <div class="lib-facet-group">
+          <span class="lib-facet-label">Industry</span>
+          <div class="lib-facet-chips" id="facet-industry"></div>
+        </div>
+        <div class="lib-facet-group">
+          <span class="lib-facet-label">Service</span>
+          <div class="lib-facet-chips" id="facet-service"></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Stats -->
+    <div class="lib-stats">
+      <span>Showing <b id="count-shown">35</b> of <b>35</b></span>
+      <span class="lib-stats-ctx" id="stats-context">All categories</span>
+      <span class="lib-stats-ver">ASTM · SAE · ASME · ISO · DIN &nbsp;·&nbsp; <a href="#">Request a revision</a></span>
+    </div>
+
+    <!-- Sections populated by app.js -->
+    <div id="sections"></div>
+
+    <!-- Empty state -->
+    <div id="empty" class="lib-empty" hidden>
+      <div class="lib-empty-icon">
+        <svg viewBox="0 0 32 32" width="48" height="48" fill="none" stroke="currentColor" stroke-width="1.4">
+          <circle cx="14" cy="14" r="9"/><path d="M21 21l6 6"/>
+        </svg>
+      </div>
+      <h3>No specs match <span id="empty-query">your filters</span>.</h3>
+      <p>Try a grade (B7, A325), an industry (marine, oil &amp; gas), or a service condition (sour, low temp).</p>
+      <button class="cf-btn cf-btn--pill" id="empty-clear">Clear filters</button>
+    </div>
+
+  </div>
+</section>
+
+<!-- ═══ QUOTE BAND ═══ -->
+<section class="lib-quote" id="quote">
+  <div class="lib-wrap">
+    <div class="lib-quote-inner">
+      <div>
+        <div class="lib-quote-kicker">§ Next step</div>
+        <h2 class="lib-quote-head">Have a spec in hand? Send it.</h2>
+        <p class="lib-quote-sub">PDF, drawing, BOM, or a sketch on a napkin — we'll quote it. California Fastener stocks every spec in this library with mill certificates traceable to heat number.</p>
+      </div>
+      <div class="lib-quote-actions">
+        <a href="#" class="cf-btn cf-btn--pill cf-btn--inverse">Request a Quote →</a>
+        <a href="/cdn-cgi/l/email-protection#ef86818980af8c8e838689809d81868e898e9c9b8a818a9dc18c8082" class="lib-quote-email"><span class="__cf_email__" data-cfemail="81e8efe7eec1e2e0ede8e7eef3efe8e0e7e0f2f5e4efe4f3afe2eeec">[email&#160;protected]</span></a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ FOOTER ═══ -->
+<footer class="cf-footer">
+  <div class="cf-footer-inner">
+    <span class="cf-footer-brand"><span class="cf-nav-logo-mark"></span>California Fastener</span>
+    <span class="cf-footer-copyright">Since 1970 · Hayward, CA · <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="670e0901082704060b0e010815090e0601061413020902154904080a">[email&#160;protected]</a></span>
+  </div>
+</footer>
+
+<!-- ═══ TWEAKS ═══ -->
+<aside class="lib-tweaks" id="tweaks" hidden>
+  <div class="lib-tweaks-title">Tweaks</div>
+  <div class="lib-tweaks-row">
+    <div class="lib-tweaks-label">Layout</div>
+    <div class="lib-tweaks-opts" data-tweak="layout">
+      <button data-val="editorial" class="is-active">Editorial</button>
+      <button data-val="grid">Grid</button>
+      <button data-val="table">Table</button>
+    </div>
+  </div>
+  <div class="lib-tweaks-row">
+    <div class="lib-tweaks-label">Density</div>
+    <div class="lib-tweaks-opts" data-tweak="density">
+      <button data-val="comfortable" class="is-active">Comfortable</button>
+      <button data-val="compact">Compact</button>
+    </div>
+  </div>
+  <div class="lib-tweaks-row">
+    <div class="lib-tweaks-label">Tags</div>
+    <div class="lib-tweaks-opts" data-tweak="tags">
+      <button data-val="on" class="is-active">On</button>
+      <button data-val="off">Off</button>
+    </div>
+  </div>
+  <div class="lib-tweaks-row">
+    <div class="lib-tweaks-label">Hero index</div>
+    <div class="lib-tweaks-opts" data-tweak="hero">
+      <button data-val="on" class="is-active">On</button>
+      <button data-val="off">Off</button>
+    </div>
+  </div>
+</aside>
+
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+  const TWEAK_DEFAULTS = /*EDITMODE-BEGIN*/{
+    "layout": "grid",
+    "density": "comfortable",
+    "tags": "on",
+    "hero": "on",
+    "width": "wide",
+    "toc": "on"
+  }/*EDITMODE-END*/;
+</script>
+<script src="technical-library-data.js"></script>
+<script src="technical-library-app.js"></script>
+
+</body>
+</html>

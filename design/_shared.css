@@ -1,0 +1,474 @@
+/* ─────────────────────────────────────────────────────────
+   California Fastener — Apple-style Design System
+   Warm neutral base, two accent colors used sparingly.
+   ───────────────────────────────────────────────────────── */
+
+:root {
+  /* Warm neutrals */
+  --bg: #FBFAF7;
+  --bg-alt: #F5F3EE;
+  --bg-cream: #EFEBE2;
+  --ink: #1D1D1F;
+  --ink-soft: #424245;
+  --mid: #6E6E73;
+  --mid-soft: #86868B;
+  --rule: #D2D2D0;
+  --rule-soft: #E6E4DF;
+  --white: #FFFFFF;
+
+  /* Accents — used sparingly
+     Rule of thumb:
+       • Light backgrounds → --blue-dark (steel #1C52A3) for primary accents
+       • Dark backgrounds  → --blue (light #38B6FF) as the accent pop
+     Exceptions allowed but rare. */
+  --blue: #38B6FF;          /* light blue — accent on DARK bg */
+  --blue-dark: #1C52A3;     /* steel blue — primary on LIGHT bg */
+  --purple: #8C52FF;
+  --purple-dark: #6B37D6;
+
+  /* Dark mode bits */
+  --black: #000000;
+  --dark-1: #0B0B0D;
+  --dark-2: #141417;
+  --dark-text: #F5F5F7;
+  --dark-mid: #A1A1A6;
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: "SF Pro Display", -apple-system, BlinkMacSystemFont, "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-feature-settings: "ss01", "cv01";
+  background: var(--bg);
+  color: var(--ink);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+
+img { display: block; max-width: 100%; }
+
+/* ── Apple-style navigation ─────────────────────────────── */
+.cf-nav {
+  height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 40px;
+  background: rgba(251, 250, 247, 0.72);
+  backdrop-filter: saturate(180%) blur(20px);
+  -webkit-backdrop-filter: saturate(180%) blur(20px);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  border-bottom: 1px solid rgba(0,0,0,0.04);
+}
+.cf-nav--dark {
+  background: rgba(11, 11, 13, 0.72);
+  border-bottom: 1px solid rgba(255,255,255,0.06);
+}
+.cf-nav-logo {
+  font-size: 18px;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  color: var(--ink);
+  text-decoration: none;
+  font-family: "SF Pro Display", -apple-system, sans-serif;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+}
+.cf-nav--dark .cf-nav-logo { color: var(--dark-text); }
+/* Brand mark — hex-nut "C" logo.
+   Uses <img>-style background so every existing <span class="cf-nav-logo-mark"> lights up. */
+.cf-nav-logo-mark {
+  display: inline-block;
+  width: 24px; height: 24px;
+  background: transparent url("assets/cf-logo-black.png") center/contain no-repeat;
+  margin: 0;
+  transform: none;
+  vertical-align: middle;
+  flex-shrink: 0;
+}
+.cf-nav--dark .cf-nav-logo-mark {
+  background-image: url("assets/cf-logo-white.png");
+}
+/* Footer brand mark — a bit smaller, inline with text */
+.cf-footer-brand .cf-nav-logo-mark { width: 20px; height: 20px; margin-right: 2px; }
+.cf-footer-brand { display: inline-flex; align-items: center; gap: 8px; }
+
+.cf-nav-center {
+  display: flex;
+  gap: 40px;
+  list-style: none;
+  height: 100%;
+  align-items: center;
+  margin: 0;
+  padding: 0;
+}
+.cf-nav-center > li { position: relative; height: 100%; display: flex; align-items: center; }
+.cf-nav-center a,
+.cf-nav-center > li > button {
+  font-size: 12px;
+  font-weight: 400;
+  color: var(--ink-soft);
+  text-decoration: none;
+  letter-spacing: -0.01em;
+  opacity: 0.88;
+  transition: opacity 0.15s;
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-family: inherit;
+  padding: 0;
+}
+.cf-nav-center a:hover,
+.cf-nav-center > li > button:hover { opacity: 1; }
+.cf-nav--dark .cf-nav-center a,
+.cf-nav--dark .cf-nav-center > li > button { color: var(--dark-text); opacity: 0.8; }
+
+/* ── Dropdown / Mega-menu ─────────────────────────────── */
+.cf-nav-center .has-menu > button::after {
+  content: '';
+  display: inline-block;
+  width: 6px; height: 6px;
+  border-right: 1.5px solid currentColor;
+  border-bottom: 1.5px solid currentColor;
+  transform: translateY(-2px) rotate(45deg);
+  margin-left: 6px;
+  opacity: 0.55;
+  transition: transform 0.2s;
+}
+.cf-nav-center .has-menu:hover > button::after,
+.cf-nav-center .has-menu.open > button::after {
+  transform: translateY(0) rotate(45deg);
+  opacity: 1;
+}
+.cf-nav-menu {
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%) translateY(-8px);
+  min-width: 240px;
+  background: rgba(255,255,255,0.98);
+  backdrop-filter: saturate(180%) blur(20px);
+  -webkit-backdrop-filter: saturate(180%) blur(20px);
+  border: 1px solid rgba(0,0,0,0.06);
+  border-radius: 14px;
+  box-shadow: 0 20px 50px rgba(0,0,0,0.10), 0 2px 8px rgba(0,0,0,0.04);
+  padding: 14px;
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transition: opacity 0.18s ease, transform 0.18s ease, visibility 0.18s;
+  z-index: 1000;
+}
+.cf-nav-center .has-menu:hover .cf-nav-menu,
+.cf-nav-center .has-menu:focus-within .cf-nav-menu,
+.cf-nav-center .has-menu.open .cf-nav-menu {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+  transform: translateX(-50%) translateY(0);
+}
+.cf-nav-menu a {
+  display: block;
+  padding: 10px 14px;
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--ink) !important;
+  border-radius: 8px;
+  opacity: 1 !important;
+  letter-spacing: -0.01em;
+  text-decoration: none;
+  transition: background 0.15s;
+  line-height: 1.3;
+}
+.cf-nav-menu a:hover { background: rgba(0,0,0,0.04); }
+.cf-nav-menu a .cf-nav-menu-sub {
+  display: block;
+  font-size: 12px;
+  font-weight: 400;
+  color: var(--mid);
+  margin-top: 2px;
+  letter-spacing: -0.005em;
+}
+.cf-nav-menu-label {
+  font-size: 10px;
+  font-weight: 600;
+  color: var(--mid);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 10px 14px 6px;
+}
+.cf-nav-menu-divider {
+  height: 1px;
+  background: rgba(0,0,0,0.06);
+  margin: 6px 0;
+}
+
+/* Mega menu — wider, multi-column for Products */
+.cf-nav-menu--mega {
+  min-width: 640px;
+  padding: 20px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px 24px;
+}
+.cf-nav-menu--mega .cf-nav-menu-label { grid-column: 1 / -1; padding: 0 0 8px; }
+.cf-nav-menu--mega .cf-nav-menu-footer {
+  grid-column: 1 / -1;
+  margin-top: 10px;
+  padding: 14px 14px 6px;
+  border-top: 1px solid rgba(0,0,0,0.06);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.cf-nav-menu--mega .cf-nav-menu-footer a {
+  padding: 0;
+  font-size: 13px;
+  color: var(--blue-dark) !important;
+  font-weight: 500;
+}
+.cf-nav-menu--mega .cf-nav-menu-footer a:hover { background: transparent; }
+
+/* Dark nav variant */
+.cf-nav--dark .cf-nav-menu {
+  background: rgba(20,20,22,0.92);
+  border-color: rgba(255,255,255,0.08);
+  box-shadow: 0 20px 50px rgba(0,0,0,0.5);
+}
+.cf-nav--dark .cf-nav-menu a { color: var(--dark-text) !important; }
+.cf-nav--dark .cf-nav-menu a:hover { background: rgba(255,255,255,0.06); }
+.cf-nav--dark .cf-nav-menu a .cf-nav-menu-sub { color: rgba(255,255,255,0.55); }
+.cf-nav--dark .cf-nav-menu-label { color: rgba(255,255,255,0.55); }
+.cf-nav--dark .cf-nav-menu-divider { background: rgba(255,255,255,0.08); }
+.cf-nav--dark .cf-nav-menu--mega .cf-nav-menu-footer { border-color: rgba(255,255,255,0.08); }
+.cf-nav--dark .cf-nav-menu--mega .cf-nav-menu-footer a { color: var(--blue) !important; }
+
+.cf-nav-right {
+  display: flex;
+  gap: 24px;
+  align-items: center;
+}
+.cf-nav-quote {
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--ink);
+  text-decoration: none;
+  letter-spacing: -0.01em;
+  display: inline-flex;
+  align-items: center;
+  gap: 2px;
+}
+.cf-nav-quote::after {
+  content: '›';
+  font-size: 14px;
+  margin-left: 2px;
+  color: var(--blue-dark);
+}
+.cf-nav--dark .cf-nav-quote { color: var(--dark-text); }
+.cf-nav--dark .cf-nav-quote::after { color: var(--blue); }
+
+/* ── Apple-style link CTA ────────────────────────────────── */
+.cf-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 3px;
+  font-size: 17px;
+  font-weight: 400;
+  color: var(--blue-dark);
+  text-decoration: none;
+  letter-spacing: -0.015em;
+  line-height: 1;
+}
+.cf-link::after {
+  content: '›';
+  font-size: 1.25em;
+  line-height: 0.9;
+  transition: transform 0.2s;
+}
+.cf-link:hover::after { transform: translateX(3px); }
+.cf-link--purple { color: var(--purple-dark); }
+.cf-link--light { color: var(--blue); }
+
+/* ── Pill CTA (used for primary actions like Get Quote) ─── */
+.cf-pill {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 17px;
+  font-weight: 400;
+  padding: 12px 22px;
+  border-radius: 980px;
+  text-decoration: none;
+  letter-spacing: -0.015em;
+  background: var(--ink);
+  color: var(--white);
+  transition: background 0.2s;
+  line-height: 1;
+}
+.cf-pill:hover { background: #000; }
+.cf-pill--blue { background: var(--blue-dark); color: var(--white); }
+.cf-pill--blue:hover { background: #15407F; }
+/* Dark-bg variant: use light accent */
+.cf-pill--blue-light { background: var(--blue); color: var(--white); }
+.cf-pill--blue-light:hover { background: #5EC4FF; }
+.cf-pill--purple { background: var(--purple); color: var(--white); }
+.cf-pill--purple:hover { background: var(--purple-dark); }
+.cf-pill--ghost {
+  background: transparent;
+  color: var(--ink);
+  border: 1px solid rgba(0,0,0,0.18);
+}
+.cf-pill--ghost:hover { background: rgba(0,0,0,0.05); }
+.cf-pill--ghost-dark {
+  background: transparent;
+  color: var(--dark-text);
+  border: 1px solid rgba(255,255,255,0.3);
+}
+.cf-pill--ghost-dark:hover { background: rgba(255,255,255,0.1); }
+
+/* ── Typography scale (Apple-like) ───────────────────────── */
+.cf-eyebrow {
+  font-size: 21px;
+  font-weight: 400;
+  color: var(--ink-soft);
+  letter-spacing: -0.01em;
+  line-height: 1.2;
+}
+.cf-eyebrow--mid { color: var(--mid); }
+.cf-eyebrow--blue { color: var(--blue-dark); }
+.cf-eyebrow--purple { color: var(--purple-dark); }
+
+.cf-display {
+  font-size: clamp(56px, 7.5vw, 96px);
+  font-weight: 600;
+  line-height: 1.05;
+  letter-spacing: -0.035em;
+  color: var(--ink);
+}
+.cf-display i { font-style: normal; color: inherit; }
+
+/* Brand update: the serif-italic accent has been retired.
+   <i> inside a headline keeps its color (page-local rule decides which
+   accent — steel blue on light, light blue on dark, bronze on silicon-bronze)
+   but loses italic + serif + bumped weight. */
+.cf-display i,
+.cf-headline i,
+.cf-t-display i,
+h1 i, h2 i, h3 i,
+.lib-h1 i,
+.hero-v1-eyebrow i {
+  font-family: inherit !important;
+  font-style: normal !important;
+  font-weight: inherit !important;
+  text-transform: inherit !important;
+  letter-spacing: inherit !important;
+}
+
+.cf-headline {
+  font-size: clamp(40px, 4.5vw, 64px);
+  font-weight: 600;
+  line-height: 1.07;
+  letter-spacing: -0.03em;
+  color: var(--ink);
+}
+
+.cf-subhead {
+  font-size: 28px;
+  font-weight: 400;
+  line-height: 1.25;
+  letter-spacing: -0.02em;
+  color: var(--ink-soft);
+  max-width: 680px;
+}
+
+/* ── Footer ──────────────────────────────────────────────── */
+.cf-footer {
+  background: var(--bg);
+  border-top: 1px solid var(--rule-soft);
+  padding: 28px 40px;
+  color: var(--mid);
+  font-size: 12px;
+  letter-spacing: -0.01em;
+}
+.cf-footer-cols {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr 1fr 1fr;
+  gap: 40px;
+  padding: 20px 0 40px;
+  border-bottom: 1px solid var(--rule-soft);
+  margin-bottom: 16px;
+}
+.cf-footer-col h4 {
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--ink);
+  margin-bottom: 10px;
+  letter-spacing: -0.01em;
+}
+.cf-footer-col a {
+  display: block;
+  color: var(--mid);
+  text-decoration: none;
+  padding: 3px 0;
+  line-height: 1.5;
+  transition: color 0.15s;
+}
+.cf-footer-col a:hover { color: var(--ink); }
+.cf-footer-brand {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--ink);
+  letter-spacing: -0.01em;
+  margin-bottom: 4px;
+}
+.cf-footer-tagline {
+  font-size: 12px;
+  color: var(--mid);
+  line-height: 1.5;
+  max-width: 300px;
+  margin-bottom: 14px;
+}
+.cf-footer-bottom {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: var(--mid-soft);
+  font-size: 11px;
+}
+
+/* ── Utilities ──────────────────────────────────────────── */
+.cf-container { max-width: 1440px; margin: 0 auto; padding: 0 40px; }
+.cf-container-narrow { max-width: 980px; margin: 0 auto; padding: 0 40px; }
+
+.cf-placeholder {
+  background: repeating-linear-gradient(45deg,
+    rgba(0,0,0,0.03), rgba(0,0,0,0.03) 10px,
+    rgba(0,0,0,0.06) 10px, rgba(0,0,0,0.06) 20px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--mid);
+  font-family: "SF Mono", ui-monospace, "Menlo", monospace;
+  font-size: 11px;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+}
+
+/* Scroll fade-in */
+@keyframes cf-rise {
+  from { opacity: 0; transform: translateY(24px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.cf-rise {
+  opacity: 0;
+  animation: cf-rise 0.9s cubic-bezier(0.2, 0, 0.1, 1) forwards;
+}
+.cf-rise--delay-1 { animation-delay: 0.1s; }
+.cf-rise--delay-2 { animation-delay: 0.2s; }
+.cf-rise--delay-3 { animation-delay: 0.3s; }

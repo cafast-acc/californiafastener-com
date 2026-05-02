@@ -1,0 +1,749 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<link rel="icon" type="image/png" href="assets/cf-logo-black.png" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Industrial Fasteners — Heavy Hex, Socket Head, A193, A194, F436 | California Fastener</title>
+<meta name="description" content="Industrial bolts, nuts, and washers for mechanical and process assembly — ASTM A307, A193 B7/B16/B8/B8M, A194 2H/8M, SAE J429, F436. Same-day shipping on stock; full MTRs." />
+<link rel="stylesheet" href="_shared.css" />
+<style>
+  body { background: var(--bg); }
+
+  /* ── TRUST BAR MARQUEE ─────────────────────────────────── */
+  .if-trustbar { background: var(--white); padding: 26px 0; overflow: hidden; border-top: 1px solid var(--rule-soft); border-bottom: 1px solid var(--rule-soft); }
+  .if-trustbar-track { display: flex; width: max-content; animation: if-trust-scroll 45s linear infinite; }
+  .if-trustbar:hover .if-trustbar-track { animation-play-state: paused; }
+  .if-trust-item { display: flex; align-items: center; gap: 14px; padding: 0 48px; border-right: 1px solid var(--rule-soft); flex-shrink: 0; }
+  .if-trust-item svg { width: 26px; height: 26px; stroke: var(--blue-dark); fill: none; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; flex-shrink: 0; }
+  .if-trust-item span { font-weight: 600; font-size: 15px; color: var(--ink); letter-spacing: -0.005em; white-space: nowrap; }
+  @keyframes if-trust-scroll { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+  @media (max-width: 680px) {
+    .if-trust-item { padding: 0 32px; }
+    .if-trust-item span { font-size: 13px; }
+    .if-trust-item svg { width: 22px; height: 22px; }
+  }
+
+  /* ── HERO ──────────────────────────────────────────────── */
+  .if-hero { padding: 80px 40px 0; background: linear-gradient(180deg, var(--bg) 0%, var(--bg-alt) 100%); overflow: hidden; }
+  .if-hero-inner { max-width: 1440px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1.05fr; gap: 80px; align-items: center; min-height: 720px; }
+  .if-hero-text { padding: 40px 0; }
+  .if-breadcrumb { font-size: 13px; color: var(--mid); margin-bottom: 24px; }
+  .if-breadcrumb a { color: var(--mid); text-decoration: none; }
+  .if-breadcrumb a:hover { color: var(--ink); }
+  .if-breadcrumb span { margin: 0 8px; color: var(--rule); }
+  .if-eyebrow { font-size: 15px; font-weight: 500; color: var(--blue-dark); margin-bottom: 20px; display: inline-flex; align-items: center; gap: 10px; }
+  .if-eyebrow::before { content: ''; width: 20px; height: 1px; background: var(--blue-dark); }
+  .if-hero h1 { font-size: clamp(56px, 6.5vw, 104px); font-weight: 600; line-height: 0.98; letter-spacing: -0.04em; color: var(--ink); margin-bottom: 24px; }
+  .if-hero h1 i { font-style: normal; color: var(--blue-dark); }
+  .if-hero-sub { font-size: 22px; color: var(--ink-soft); line-height: 1.35; max-width: 580px; margin-bottom: 36px; letter-spacing: -0.015em; }
+  .if-hero-ctas { display: flex; gap: 20px; align-items: center; margin-bottom: 48px; flex-wrap: wrap; }
+  .if-hero-stats { display: grid; grid-template-columns: repeat(4, 1fr); max-width: 640px; padding-top: 28px; border-top: 1px solid var(--rule-soft); }
+  .if-hero-stat-val { font-size: 28px; font-weight: 600; letter-spacing: -0.02em; line-height: 1; margin-bottom: 6px; }
+  .if-hero-stat-label { font-size: 11px; color: var(--mid); letter-spacing: 0.02em; text-transform: uppercase; line-height: 1.3; }
+
+  .if-hero-image { background: #E8E6E1; border-radius: 24px 0 0 0; min-height: 720px; margin-right: calc((100vw - 1440px) / -2); display: flex; align-items: center; justify-content: center; overflow: hidden; position: relative; }
+  @media (max-width: 1480px) { .if-hero-image { margin-right: -40px; } }
+  .if-hero-image img { width: 110%; height: auto; max-height: 95%; object-fit: contain; filter: drop-shadow(0 30px 50px rgba(0,0,0,0.2)); }
+  .if-hero-image-tag { position: absolute; top: 24px; left: 24px; background: rgba(255,255,255,0.92); backdrop-filter: blur(8px); padding: 8px 14px; border-radius: 100px; font-size: 11px; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; color: var(--ink); }
+
+  /* ── POSITIONING INTRO ─────────────────────────────────── */
+  .if-intro { padding: 112px 40px; border-bottom: 1px solid var(--rule-soft); }
+  .if-intro-inner { max-width: 1240px; margin: 0 auto; display: grid; grid-template-columns: 1.15fr 1fr; gap: 80px; align-items: start; }
+  .if-intro-lead h2 { font-size: clamp(36px, 3.8vw, 56px); font-weight: 600; line-height: 1.05; letter-spacing: -0.03em; margin-bottom: 20px; }
+  .if-intro-lead h2 i { font-style: normal; color: var(--blue-dark); }
+  .if-intro-body p { font-size: 18px; color: var(--ink-soft); line-height: 1.55; letter-spacing: -0.005em; margin-bottom: 18px; max-width: 560px; }
+  .if-intro-body p em { font-style: normal; color: var(--mid); font-size: 15px; display: block; margin-top: 8px; }
+
+  /* ── PRODUCT GRID ──────────────────────────────────────── */
+  .if-products { background: var(--bg-alt); padding: 120px 40px; }
+  .if-products-header { max-width: 1200px; margin: 0 auto 56px; }
+  .if-products-header .eyebrow { font-size: 14px; color: var(--blue-dark); font-weight: 500; margin-bottom: 14px; }
+  .if-products-header h2 { font-size: clamp(40px, 4.5vw, 64px); font-weight: 600; letter-spacing: -0.03em; line-height: 1.05; max-width: 820px; margin-bottom: 16px; }
+  .if-products-header h2 i { font-style: normal; color: var(--blue-dark); }
+  .if-products-header p { font-size: 19px; color: var(--ink-soft); max-width: 640px; line-height: 1.4; letter-spacing: -0.01em; }
+
+  .if-products-grid { max-width: 1280px; margin: 0 auto; display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+  .if-product-card { background: var(--bg); border-radius: 24px; overflow: hidden; display: flex; flex-direction: column; transition: transform 0.3s ease; }
+  .if-product-card:hover { transform: translateY(-4px); }
+  .if-product-photo { background: #E8E6E1; aspect-ratio: 4 / 3; position: relative; overflow: hidden; display: flex; align-items: center; justify-content: center; }
+  .if-product-photo img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+  .if-product-photo .pnum { position: absolute; top: 18px; left: 18px; font-family: "SF Mono", ui-monospace, monospace; font-size: 11px; color: var(--mid); letter-spacing: 0.04em; z-index: 2; }
+  .if-product-photo .if-ph-placeholder { width: 100%; height: 100%; background: repeating-linear-gradient(45deg, rgba(0,0,0,0.02), rgba(0,0,0,0.02) 10px, rgba(0,0,0,0.055) 10px, rgba(0,0,0,0.055) 20px); display: flex; align-items: center; justify-content: center; color: var(--mid); font-family: "SF Mono", ui-monospace, monospace; font-size: 11px; letter-spacing: 0.04em; text-transform: uppercase; text-align: center; padding: 0 24px; }
+  .if-product-body { padding: 26px 28px 30px; display: flex; flex-direction: column; flex: 1; }
+  .if-product-body h3 { font-size: 22px; font-weight: 600; letter-spacing: -0.02em; line-height: 1.15; margin-bottom: 8px; }
+  .if-product-body p { font-size: 14px; color: var(--ink-soft); line-height: 1.5; letter-spacing: -0.005em; margin-bottom: 18px; }
+  .if-product-meta { margin-top: auto; padding-top: 14px; border-top: 1px solid var(--rule-soft); font-size: 12px; color: var(--mid); letter-spacing: -0.005em; line-height: 1.45; }
+  .if-product-meta b { color: var(--ink); font-weight: 500; }
+
+  /* ── GRADES — grouped by family ────────────────────────── */
+  .if-grades { padding: 120px 40px; }
+  .if-grades-inner { max-width: 1240px; margin: 0 auto; }
+  .if-grades-header { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: end; margin-bottom: 64px; }
+  .if-grades-header h2 { font-size: clamp(36px, 4vw, 56px); font-weight: 600; letter-spacing: -0.03em; line-height: 1.05; }
+  .if-grades-header h2 i { font-style: normal; color: var(--blue-dark); }
+  .if-grades-header p { font-size: 17px; color: var(--ink-soft); line-height: 1.5; max-width: 460px; }
+
+  .if-family { padding: 48px 0; border-top: 1px solid var(--rule-soft); display: grid; grid-template-columns: 280px 1fr; gap: 64px; align-items: start; }
+  .if-family:last-child { border-bottom: 1px solid var(--rule-soft); }
+  .if-family-label { position: sticky; top: 80px; }
+  .if-family-label .num { font-family: "SF Mono", ui-monospace, monospace; font-size: 11px; color: var(--blue-dark); letter-spacing: 0.06em; text-transform: uppercase; margin-bottom: 10px; }
+  .if-family-label h3 { font-size: 26px; font-weight: 600; letter-spacing: -0.02em; line-height: 1.1; margin-bottom: 12px; }
+  .if-family-label p { font-size: 14px; color: var(--mid); line-height: 1.5; }
+  .if-family-cards { display: grid; gap: 14px; }
+  .if-spec-card { background: var(--bg-alt); border-radius: 18px; padding: 28px 32px; display: grid; grid-template-columns: 180px 1fr; gap: 36px; align-items: start; }
+  .if-spec-tag { font-family: "SF Mono", ui-monospace, monospace; font-size: 12px; color: var(--blue-dark); letter-spacing: 0.04em; }
+  .if-spec-tag .name { font-size: 18px; font-weight: 600; color: var(--ink); letter-spacing: -0.01em; display: block; font-family: "SF Pro Display", -apple-system, sans-serif; margin-top: 4px; margin-bottom: 8px; }
+  .if-spec-grades { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 4px; }
+  .if-spec-grades li { list-style: none; padding: 4px 10px; background: var(--bg); border-radius: 100px; font-size: 11px; font-weight: 500; color: var(--ink); letter-spacing: 0.01em; }
+  .if-spec-body p { font-size: 15px; color: var(--ink-soft); line-height: 1.55; letter-spacing: -0.005em; }
+
+  /* Stainless family gets the stamp imagery on one card */
+  .if-family--stainless .if-spec-card--hero { grid-template-columns: 1fr; padding: 0; background: none; }
+  .if-family--stainless .if-spec-card--hero .if-spec-photo { aspect-ratio: 16 / 6; background: #E8E6E1; border-radius: 18px; overflow: hidden; display: grid; grid-template-columns: 1fr 1fr; }
+  .if-family--stainless .if-spec-card--hero .if-spec-photo img { width: 100%; height: 100%; object-fit: cover; }
+
+  /* ── COMPANION HARDWARE ────────────────────────────────── */
+  .if-companion { padding: 120px 40px; background: var(--bg-alt); }
+  .if-companion-inner { max-width: 1240px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1.3fr; gap: 80px; align-items: center; }
+  .if-companion-text .eyebrow { font-size: 14px; color: var(--purple-dark); font-weight: 500; margin-bottom: 14px; }
+  .if-companion-text h2 { font-size: clamp(36px, 4vw, 56px); font-weight: 600; letter-spacing: -0.03em; line-height: 1.05; margin-bottom: 18px; }
+  .if-companion-text h2 i { font-style: normal; color: var(--purple-dark); }
+  .if-companion-text p { font-size: 17px; color: var(--ink-soft); line-height: 1.55; max-width: 440px; margin-bottom: 28px; }
+  .if-companion-checks { list-style: none; padding: 0; }
+  .if-companion-checks li { padding: 12px 0; font-size: 15px; color: var(--ink); display: flex; gap: 14px; border-bottom: 1px solid var(--rule-soft); line-height: 1.4; letter-spacing: -0.005em; }
+  .if-companion-checks li:first-child { padding-top: 0; }
+  .if-companion-checks li::before { content: attr(data-tag); color: var(--purple-dark); font-family: "SF Mono", ui-monospace, monospace; font-size: 11px; font-weight: 500; letter-spacing: 0.04em; flex-shrink: 0; width: 64px; padding-top: 3px; }
+  .if-companion-visual { display: grid; grid-template-columns: 1fr 1fr; grid-template-rows: 1fr 1fr; gap: 12px; aspect-ratio: 1 / 1; }
+  .if-companion-visual > div { background: #E8E6E1; border-radius: 20px; overflow: hidden; display: flex; align-items: center; justify-content: center; position: relative; }
+  .if-companion-visual > div img { width: 100%; height: 100%; object-fit: cover; }
+  .if-companion-visual .tag { position: absolute; bottom: 12px; left: 12px; background: rgba(255,255,255,0.92); backdrop-filter: blur(8px); padding: 5px 10px; border-radius: 100px; font-size: 10px; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; color: var(--ink); }
+  .if-companion-visual .big { grid-row: 1 / 3; }
+  .if-companion-visual .ph { background: repeating-linear-gradient(45deg, rgba(0,0,0,0.03), rgba(0,0,0,0.03) 10px, rgba(0,0,0,0.06) 10px, rgba(0,0,0,0.06) 20px); color: var(--mid); font-family: "SF Mono", ui-monospace, monospace; font-size: 10px; letter-spacing: 0.04em; text-transform: uppercase; text-align: center; padding: 0 16px; }
+
+  /* ── EXOTIC ALLOYS BAND ────────────────────────────────── */
+  .if-exotic { padding: 0; background: var(--ink); color: var(--dark-text); overflow: hidden; position: relative; }
+  .if-exotic-inner { display: grid; grid-template-columns: 1.15fr 1fr; min-height: 620px; }
+  .if-exotic-image { background: #1a1a1c; position: relative; overflow: hidden; }
+  .if-exotic-image img { width: 100%; height: 100%; object-fit: cover; opacity: 0.9; }
+  .if-exotic-image::after { content: ''; position: absolute; inset: 0; background: linear-gradient(90deg, transparent 55%, rgba(11,11,13,0.9) 100%); }
+  .if-exotic-text { padding: 96px 80px; display: flex; flex-direction: column; justify-content: center; }
+  .if-exotic-text .eyebrow { font-size: 13px; color: var(--blue); font-weight: 500; margin-bottom: 14px; letter-spacing: 0.04em; text-transform: uppercase; }
+  .if-exotic-text h2 { font-size: clamp(40px, 4.2vw, 60px); font-weight: 600; letter-spacing: -0.03em; line-height: 1.02; margin-bottom: 20px; }
+  .if-exotic-text h2 i { font-style: normal; color: var(--blue); }
+  .if-exotic-text > p { font-size: 17px; color: var(--dark-mid); line-height: 1.5; margin-bottom: 28px; max-width: 440px; }
+  .if-exotic-alloys { list-style: none; padding: 0; margin-bottom: 32px; display: grid; gap: 10px; }
+  .if-exotic-alloys li { padding: 10px 0; border-top: 1px solid rgba(255,255,255,0.08); font-size: 14px; color: var(--dark-text); display: grid; grid-template-columns: 170px 1fr; gap: 24px; letter-spacing: -0.005em; }
+  .if-exotic-alloys li:last-child { border-bottom: 1px solid rgba(255,255,255,0.08); }
+  .if-exotic-alloys li b { color: var(--blue); font-family: "SF Mono", ui-monospace, monospace; font-size: 11px; font-weight: 500; letter-spacing: 0.04em; text-transform: uppercase; padding-top: 2px; }
+  .if-exotic-alloys li span { color: var(--dark-mid); }
+
+  /* ── TRACEABILITY ──────────────────────────────────────── */
+  .if-trace { padding: 120px 40px; }
+  .if-trace-inner { max-width: 1240px; margin: 0 auto; }
+  .if-trace-header { max-width: 820px; margin-bottom: 56px; }
+  .if-trace-header .eyebrow { font-size: 14px; color: var(--blue-dark); font-weight: 500; margin-bottom: 14px; }
+  .if-trace-header h2 { font-size: clamp(36px, 4vw, 56px); font-weight: 600; letter-spacing: -0.03em; line-height: 1.05; margin-bottom: 16px; }
+  .if-trace-header h2 i { font-style: normal; color: var(--blue-dark); }
+  .if-trace-header p { font-size: 18px; color: var(--ink-soft); line-height: 1.5; max-width: 680px; }
+  .if-trace-grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 14px; }
+  .if-trace-card { background: var(--bg-alt); border-radius: 18px; padding: 28px 24px 32px; display: flex; flex-direction: column; min-height: 220px; }
+  .if-trace-card .num { font-family: "SF Mono", ui-monospace, monospace; font-size: 11px; color: var(--blue-dark); letter-spacing: 0.06em; margin-bottom: 32px; }
+  .if-trace-card h4 { font-size: 17px; font-weight: 600; letter-spacing: -0.015em; line-height: 1.2; margin-bottom: 10px; }
+  .if-trace-card p { font-size: 13px; color: var(--ink-soft); line-height: 1.45; letter-spacing: -0.005em; }
+
+  /* ── CROSS-LINKS ───────────────────────────────────────── */
+  .if-cross { padding: 112px 40px; background: var(--bg-alt); }
+  .if-cross-inner { max-width: 1240px; margin: 0 auto; }
+  .if-cross-header { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: end; margin-bottom: 48px; }
+  .if-cross-header h2 { font-size: clamp(32px, 3.6vw, 48px); font-weight: 600; letter-spacing: -0.03em; line-height: 1.05; max-width: 500px; }
+  .if-cross-header h2 i { font-style: normal; color: var(--blue-dark); }
+  .if-cross-header p { font-size: 16px; color: var(--ink-soft); line-height: 1.5; max-width: 460px; }
+  .if-cross-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
+  .if-cross-card { background: var(--bg); border-radius: 18px; padding: 28px 30px 30px; display: flex; flex-direction: column; text-decoration: none; color: inherit; transition: transform 0.25s ease, box-shadow 0.25s ease; border: 1px solid transparent; }
+  .if-cross-card:hover { transform: translateY(-3px); box-shadow: 0 12px 28px rgba(0,0,0,0.06); border-color: var(--rule-soft); }
+  .if-cross-card .question { font-size: 12px; color: var(--mid); letter-spacing: -0.005em; margin-bottom: 8px; line-height: 1.4; }
+  .if-cross-card h4 { font-size: 19px; font-weight: 600; letter-spacing: -0.015em; margin-bottom: 6px; color: var(--ink); display: flex; align-items: center; justify-content: space-between; gap: 12px; }
+  .if-cross-card h4::after { content: '→'; color: var(--blue-dark); font-weight: 400; transition: transform 0.2s ease; }
+  .if-cross-card:hover h4::after { transform: translateX(3px); }
+  .if-cross-card .spec { font-family: "SF Mono", ui-monospace, monospace; font-size: 11px; color: var(--mid); letter-spacing: 0.04em; }
+
+  /* ── QUOTE FORM ────────────────────────────────────────── */
+  .if-quote { padding: 120px 40px; }
+  .if-quote-inner { max-width: 1100px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1.1fr; gap: 80px; align-items: start; }
+  .if-quote-text .eyebrow { font-size: 14px; color: var(--blue-dark); font-weight: 500; margin-bottom: 14px; }
+  .if-quote-text h2 { font-size: clamp(36px, 4vw, 56px); font-weight: 600; letter-spacing: -0.03em; line-height: 1.05; margin-bottom: 18px; }
+  .if-quote-text h2 i { font-style: normal; color: var(--blue-dark); }
+  .if-quote-text p { font-size: 17px; color: var(--ink-soft); line-height: 1.55; max-width: 420px; margin-bottom: 28px; }
+  .if-quote-contact { padding-top: 20px; border-top: 1px solid var(--rule-soft); font-size: 13px; color: var(--mid); line-height: 1.8; }
+  .if-quote-contact b { display: block; color: var(--ink); font-weight: 500; font-size: 14px; margin-top: 4px; }
+  .if-quote-form { background: var(--bg-alt); border-radius: 24px; padding: 36px 40px 40px; }
+  .if-form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-bottom: 14px; }
+  .if-form-field { display: flex; flex-direction: column; }
+  .if-form-field--full { grid-column: 1 / -1; }
+  .if-form-field label { font-size: 11px; font-weight: 500; color: var(--mid); letter-spacing: 0.04em; text-transform: uppercase; margin-bottom: 6px; }
+  .if-form-field input, .if-form-field textarea { background: var(--bg); border: 1px solid var(--rule-soft); border-radius: 10px; padding: 12px 14px; font-family: inherit; font-size: 15px; color: var(--ink); letter-spacing: -0.005em; transition: border-color 0.15s; }
+  .if-form-field input:focus, .if-form-field textarea:focus { outline: none; border-color: var(--blue-dark); }
+  .if-form-field textarea { resize: vertical; min-height: 120px; line-height: 1.5; }
+  .if-form-submit { margin-top: 10px; }
+
+  /* ── CTA BAND ──────────────────────────────────────────── */
+  .if-cta { padding: 112px 40px; background: var(--dark-1); color: var(--dark-text); position: relative; overflow: hidden; }
+  .if-cta::before { content: ''; position: absolute; inset: 0; background: radial-gradient(ellipse 60% 50% at 30% 50%, rgba(56,182,255,0.12), transparent 70%), radial-gradient(ellipse 50% 40% at 80% 100%, rgba(140,82,255,0.10), transparent 70%); pointer-events: none; }
+  .if-cta-inner { max-width: 1040px; margin: 0 auto; text-align: center; position: relative; z-index: 1; }
+  .if-cta-eyebrow { font-size: 14px; color: var(--blue); font-weight: 500; margin-bottom: 16px; }
+  .if-cta h2 { font-size: clamp(44px, 5.5vw, 80px); font-weight: 600; letter-spacing: -0.035em; line-height: 1.02; margin-bottom: 22px; }
+  .if-cta h2 i { font-style: normal; color: var(--blue); }
+  .if-cta > .if-cta-inner > p { font-size: 20px; color: var(--dark-mid); max-width: 620px; margin: 0 auto 32px; line-height: 1.4; }
+  .if-cta-ctas { display: flex; gap: 18px; justify-content: center; flex-wrap: wrap; }
+
+  /* ── RESPONSIVE ────────────────────────────────────────── */
+  @media (max-width: 1200px) {
+    .if-products-grid { grid-template-columns: repeat(2, 1fr); }
+    .if-trace-grid { grid-template-columns: repeat(3, 1fr); }
+    .if-cross-grid { grid-template-columns: repeat(2, 1fr); }
+    .if-family { grid-template-columns: 1fr; gap: 28px; }
+    .if-family-label { position: static; }
+    .if-spec-card { grid-template-columns: 1fr; gap: 14px; }
+  }
+  @media (max-width: 1000px) {
+    .if-hero-inner, .if-intro-inner, .if-grades-header, .if-companion-inner, .if-exotic-inner, .if-cross-header, .if-quote-inner { grid-template-columns: 1fr; gap: 40px; }
+    .if-hero-image { margin-right: 0; border-radius: 24px; min-height: 480px; }
+    .if-exotic-text { padding: 64px 40px; }
+    .if-exotic-image { min-height: 320px; }
+    .if-products-grid { grid-template-columns: 1fr; }
+    .if-trace-grid { grid-template-columns: 1fr 1fr; }
+    .if-cross-grid { grid-template-columns: 1fr; }
+    .if-form-row { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="cf-nav">
+  <a href="homepage.html" class="cf-nav-logo"><span class="cf-nav-logo-mark"></span>California Fastener</a>
+  <ul class="cf-nav-center">
+    <li class="has-menu">
+      <button aria-haspopup="true">Products</button>
+      <div class="cf-nav-menu cf-nav-menu--mega" role="menu">
+        <div class="cf-nav-menu-label">Fasteners</div>
+        <a href="anchor-bolts.html" role="menuitem">Anchor Bolts<span class="cf-nav-menu-sub">F1554, A193, F593 · headed, bent, rod assemblies</span></a>
+        <a href="#" role="menuitem">Stud Bolts &amp; Threaded Rod<span class="cf-nav-menu-sub">B7, B8, B16 · cut to length</span></a>
+        <a href="#" role="menuitem">Structural Fasteners<span class="cf-nav-menu-sub">A325, A490, TC bolts</span></a>
+        <a href="industrial-fasteners.html" role="menuitem">Industrial Fasteners<span class="cf-nav-menu-sub">Hex, socket, flange, grade 5 / 8</span></a>
+        <a href="#" role="menuitem">U-Bolts<span class="cf-nav-menu-sub">Standard &amp; custom profiles</span></a>
+        <a href="#" role="menuitem">Stainless Steel Fasteners<span class="cf-nav-menu-sub">304, 316, duplex</span></a>
+        <a href="#" role="menuitem">Silicon Bronze Hardware<span class="cf-nav-menu-sub">Marine &amp; architectural</span></a>
+        <a href="#" role="menuitem">Specialty &amp; Lindapter<span class="cf-nav-menu-sub">Hollo-Bolt, Girder clamps, blind bolts</span></a>
+        <div class="cf-nav-menu-footer">
+          <a href="#">View all products →</a>
+          <a href="quote-flow.html">Request a quote →</a>
+        </div>
+      </div>
+    </li>
+    <li class="has-menu">
+      <button aria-haspopup="true">Industries</button>
+      <div class="cf-nav-menu" role="menu">
+        <a href="#" role="menuitem">Construction</a>
+        <a href="#" role="menuitem">Industrial Machinery</a>
+        <a href="#" role="menuitem">Infrastructure</a>
+        <a href="#" role="menuitem">Renewable Energy</a>
+        <a href="#" role="menuitem">Power &amp; Utilities</a>
+        <a href="#" role="menuitem">Oil, Gas &amp; Petrochemical</a>
+        <a href="#" role="menuitem">Marine &amp; Shipbuilding</a>
+        <a href="#" role="menuitem">Aerospace &amp; Defense</a>
+      </div>
+    </li>
+    <li><a href="cnc-landing.html">CNC Machining</a></li>
+    <li class="has-menu">
+      <button aria-haspopup="true">Resources</button>
+      <div class="cf-nav-menu" role="menu">
+        <div class="cf-nav-menu-label">Technical</div>
+        <a href="#" role="menuitem">Specification Library<span class="cf-nav-menu-sub">ASTM, SAE, ISO standards</span></a>
+        <a href="spec-builder.html" role="menuitem">Spec Builder<span class="cf-nav-menu-sub">Find the right material &amp; grade</span></a>
+        <a href="#" role="menuitem">Product Catalog (PDF)</a>
+        <div class="cf-nav-menu-divider"></div>
+        <div class="cf-nav-menu-label">Tools</div>
+        <a href="quote-flow.html" role="menuitem">Request a Quote</a>
+        <a href="#" role="menuitem">Contact Engineering</a>
+      </div>
+    </li>
+    <li><a href="#">About</a></li>
+    <li><a href="blog.html">Blog</a></li>
+  </ul>
+  <div class="cf-nav-right">
+    <a href="quote-flow.html" class="cf-nav-quote">Get a Quote</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="if-hero" data-screen-label="01 Hero">
+  <div class="if-hero-inner">
+    <div class="if-hero-text">
+      <div class="if-breadcrumb"><a href="homepage.html">Home</a><span>/</span><a href="#">Products</a><span>/</span>Industrial Fasteners</div>
+      <div class="if-eyebrow">Industrial Fasteners</div>
+      <h1>Bolts, nuts &amp; washers<br>for <i>industrial</i><br>assembly.</h1>
+      <p class="if-hero-sub">Socket head, heavy hex, and the nuts and washers that go with them. Carbon, alloy, and stainless grades — stocked deep, shipped same day, and backed with full MTRs.</p>
+      <div class="if-hero-ctas">
+        <a href="quote-flow.html" class="cf-pill cf-pill--blue">Request a Quote</a>
+        <a href="#products" class="cf-link">View products ↓</a>
+      </div>
+      <div class="if-hero-stats">
+        <div><div class="if-hero-stat-val">A193</div><div class="if-hero-stat-label">B7 / B16 / B8 / B8M</div></div>
+        <div><div class="if-hero-stat-val">A194</div><div class="if-hero-stat-label">2H / 4 / 7 / 8 / 8M</div></div>
+        <div><div class="if-hero-stat-val">F436</div><div class="if-hero-stat-label">Hardened washers</div></div>
+        <div><div class="if-hero-stat-val">MTRs</div><div class="if-hero-stat-label">With every shipment</div></div>
+      </div>
+    </div>
+    <div class="if-hero-image">
+      <div class="if-hero-image-tag">A193 B8M · 316 Stainless · Heavy Hex</div>
+      <img src="assets/if-stamp-316.webp" alt="Heavy hex bolt head stamped CA 316, A193 B8M 316 stainless" />
+    </div>
+  </div>
+</section>
+
+<!-- TRUST BAR -->
+<div class="if-trustbar" aria-hidden="true" data-screen-label="02 Trust bar">
+  <div class="if-trustbar-track">
+    <div class="if-trust-item"><svg viewBox="0 0 24 24"><path d="M13 2 3 14h9l-1 8 10-12h-9l1-8z"/></svg><span>Fast Quotes</span></div>
+    <div class="if-trust-item"><svg viewBox="0 0 24 24"><rect x="8" y="2" width="8" height="4" rx="1" ry="1"/><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"/><path d="m9 14 2 2 4-4"/></svg><span>Full Traceability</span></div>
+    <div class="if-trust-item"><svg viewBox="0 0 24 24"><path d="M6 3h12l4 6-10 13L2 9Z"/><path d="M11 3 8 9l4 13 4-13-3-6"/><path d="M2 9h20"/></svg><span>Exotic Grades</span></div>
+    <div class="if-trust-item"><svg viewBox="0 0 24 24"><path d="M14 18V6a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2v11a1 1 0 0 0 1 1h2"/><path d="M15 18H9"/><path d="M19 18h2a1 1 0 0 0 1-1v-3.65a1 1 0 0 0-.22-.624l-3.48-4.35A1 1 0 0 0 17.52 8H14"/><circle cx="17" cy="18" r="2"/><circle cx="7" cy="18" r="2"/></svg><span>Same Day Shipping</span></div>
+    <div class="if-trust-item"><svg viewBox="0 0 24 24"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg><span>Bolt Specialists</span></div>
+    <div class="if-trust-item"><svg viewBox="0 0 24 24"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg><span>In-House CNC</span></div>
+    <div class="if-trust-item"><svg viewBox="0 0 24 24"><path d="M13 2 3 14h9l-1 8 10-12h-9l1-8z"/></svg><span>Fast Quotes</span></div>
+    <div class="if-trust-item"><svg viewBox="0 0 24 24"><rect x="8" y="2" width="8" height="4" rx="1" ry="1"/><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"/><path d="m9 14 2 2 4-4"/></svg><span>Full Traceability</span></div>
+    <div class="if-trust-item"><svg viewBox="0 0 24 24"><path d="M6 3h12l4 6-10 13L2 9Z"/><path d="M11 3 8 9l4 13 4-13-3-6"/><path d="M2 9h20"/></svg><span>Exotic Grades</span></div>
+    <div class="if-trust-item"><svg viewBox="0 0 24 24"><path d="M14 18V6a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2v11a1 1 0 0 0 1 1h2"/><path d="M15 18H9"/><path d="M19 18h2a1 1 0 0 0 1-1v-3.65a1 1 0 0 0-.22-.624l-3.48-4.35A1 1 0 0 0 17.52 8H14"/><circle cx="17" cy="18" r="2"/><circle cx="7" cy="18" r="2"/></svg><span>Same Day Shipping</span></div>
+    <div class="if-trust-item"><svg viewBox="0 0 24 24"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg><span>Bolt Specialists</span></div>
+    <div class="if-trust-item"><svg viewBox="0 0 24 24"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg><span>In-House CNC</span></div>
+  </div>
+</div>
+
+<!-- POSITIONING -->
+<section class="if-intro" data-screen-label="02 Positioning">
+  <div class="if-intro-inner">
+    <div class="if-intro-lead">
+      <h2>The hardware that runs through<br>almost <i>every project.</i></h2>
+    </div>
+    <div class="if-intro-body">
+      <p>Industrial Fasteners is our catch-all for the mechanical and process assembly hardware that runs through almost every project we quote — socket head cap screws, heavy hex bolts, heavy hex nuts, hardened washers, set screws, and the specs that back them.</p>
+      <p>If you're specifying for pressure vessels, flanged piping, rotating equipment, machinery builds, or general structural assembly — this is the category.
+        <em>Looking for anchor bolts, structural bolts, or stud bolts as a standalone? See the cross-links below.</em>
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- PRODUCTS -->
+<section class="if-products" id="products" data-screen-label="03 Products">
+  <div class="if-products-header">
+    <div class="eyebrow">What we stock</div>
+    <h2>Six product families.<br><i>One supplier.</i></h2>
+    <p>Stocked deep in the grades you actually call out — metric and inch, plain and coated, standard and heavy pattern.</p>
+  </div>
+  <div class="if-products-grid">
+
+    <div class="if-product-card">
+      <div class="if-product-photo">
+        <span class="pnum">01 / SHCS</span>
+        <div class="if-ph-placeholder">Product shot<br>Socket head cap screw</div>
+      </div>
+      <div class="if-product-body">
+        <h3>Socket head cap screws</h3>
+        <p>High-strength machine screws for precision assembly — tight head clearance and torque control. Metric and inch.</p>
+        <div class="if-product-meta"><b>ASTM A574</b> · 18-8 · 316 stainless</div>
+      </div>
+    </div>
+
+    <div class="if-product-card">
+      <div class="if-product-photo">
+        <span class="pnum">02 / FHSCS</span>
+        <div class="if-ph-placeholder">Product shot<br>Flat head socket cap</div>
+      </div>
+      <div class="if-product-body">
+        <h3>Flat head socket screws</h3>
+        <p>Flush-mount screws for surfaces that need to stay smooth. Countersunk 82° (inch) or 90° (metric). Alloy and stainless.</p>
+        <div class="if-product-meta"><b>ASTM F837</b> · Alloy steel · Stainless</div>
+      </div>
+    </div>
+
+    <div class="if-product-card">
+      <div class="if-product-photo">
+        <span class="pnum">03 / Heavy hex bolt</span>
+        <img src="assets/if-stamp-316.webp" alt="Heavy hex bolt stamped CA 316">
+      </div>
+      <div class="if-product-body">
+        <h3>Heavy hex bolts</h3>
+        <p>Heavier-pattern hex head bolts for flanged, bolted, and high-load assemblies. Galvanized, plain, PTFE, and Xylan coatings available.</p>
+        <div class="if-product-meta"><b>A307 · A193 B7/B16/B8/B8M</b> · A449</div>
+      </div>
+    </div>
+
+    <div class="if-product-card">
+      <div class="if-product-photo">
+        <span class="pnum">04 / Heavy hex nut</span>
+        <img src="assets/if-stamp-105.webp" alt="Heavy hex nut stamped CA 105">
+      </div>
+      <div class="if-product-body">
+        <h3>Heavy hex nuts</h3>
+        <p>Thicker, higher-strength nuts matched to heavy hex bolts and stud assemblies. Specified to pair with their mating bolt grade.</p>
+        <div class="if-product-meta"><b>ASTM A194</b> · Grades 2H, 2HM, 4, 7, 7M, 8, 8M</div>
+      </div>
+    </div>
+
+    <div class="if-product-card">
+      <div class="if-product-photo">
+        <span class="pnum">05 / F436 washer</span>
+        <div class="if-ph-placeholder">Product shot<br>F436 hardened washer</div>
+      </div>
+      <div class="if-product-body">
+        <h3>Hardened flat washers</h3>
+        <p>Through-hardened flat washers for high-strength bolted joints. Matched to A325, A490, and A193 B7 assemblies.</p>
+        <div class="if-product-meta"><b>ASTM F436</b> · Type 1 standard · Type 3 weathering</div>
+      </div>
+    </div>
+
+    <div class="if-product-card">
+      <div class="if-product-photo">
+        <span class="pnum">06 / Set screw</span>
+        <img src="assets/if-stamp-b8-rod.webp" alt="Threaded rod stamped CA B8 stainless">
+      </div>
+      <div class="if-product-body">
+        <h3>Set screws</h3>
+        <p>Shaft and collar positioning screws in cup, cone, flat, dog, and oval points. Metric and inch.</p>
+        <div class="if-product-meta"><b>ASTM A574</b> · 18-8 · 316 stainless</div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- GRADES -->
+<section class="if-grades" id="grades" data-screen-label="04 Grades">
+  <div class="if-grades-inner">
+    <div class="if-grades-header">
+      <h2>Grades and specs,<br>grouped by <i>family.</i></h2>
+      <p>Industrial fasteners cover a wide range of service conditions. Below is how we organize the specs we work in most often — if your drawing calls out a grade not listed, ask. Most of what you'd pull from a standard isn't far from what we stock or can bring in.</p>
+    </div>
+
+    <!-- Carbon & Alloy -->
+    <div class="if-family">
+      <div class="if-family-label">
+        <div class="num">Family 01</div>
+        <h3>Carbon &amp; alloy steel</h3>
+        <p>General-purpose and machinery-grade bolts. Inch-series workhorses through SAE J429 and ASTM A307 / A449.</p>
+      </div>
+      <div class="if-family-cards">
+        <div class="if-spec-card">
+          <div class="if-spec-tag">ASTM A307<span class="name">Grade A · Grade B</span>
+            <ul class="if-spec-grades"><li>Grade A</li><li>Grade B</li></ul>
+          </div>
+          <div class="if-spec-body">
+            <p>Low-carbon steel bolts for general-purpose assembly. Grade A for non-critical applications; Grade B for flanged joints at moderate loads and limited temperature.</p>
+          </div>
+        </div>
+        <div class="if-spec-card">
+          <div class="if-spec-tag">SAE J429<span class="name">Grade 2 · 5 · 8</span>
+            <ul class="if-spec-grades"><li>Grade 2</li><li>Grade 5</li><li>Grade 8</li></ul>
+          </div>
+          <div class="if-spec-body">
+            <p>Inch-series hex cap screws. Grade 2 for light-duty, Grade 5 medium-carbon for general machinery, Grade 8 alloy steel quenched and tempered for higher-tensile assemblies.</p>
+          </div>
+        </div>
+        <div class="if-spec-card">
+          <div class="if-spec-tag">ASTM A449<span class="name">Q&amp;T hex bolt</span>
+            <ul class="if-spec-grades"><li>Up to 3″</li></ul>
+          </div>
+          <div class="if-spec-body">
+            <p>Quenched and tempered hex bolts with properties similar to SAE Grade 5, extended to larger diameters (up to 3″) not covered by J429. Common in heavy equipment and machinery.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- High-Temperature -->
+    <div class="if-family">
+      <div class="if-family-label">
+        <div class="num">Family 02</div>
+        <h3>High-temperature alloy steel</h3>
+        <p>Chromium-moly (and chromium-moly-vanadium) alloys for pressure vessels, flanged piping, and high-temperature, high-pressure service.</p>
+      </div>
+      <div class="if-family-cards">
+        <div class="if-spec-card">
+          <div class="if-spec-tag">ASTM A193<span class="name">Grade B7</span>
+            <ul class="if-spec-grades"><li>4140 / 4142</li><li>Q &amp; T</li></ul>
+          </div>
+          <div class="if-spec-body">
+            <p>Chromium-molybdenum (4140/4142) alloy steel, quenched and tempered. The workhorse stud and bolt for pressure vessels, flanged piping, and high-temperature, high-pressure service. Refineries, power plants, petrochemical.</p>
+          </div>
+        </div>
+        <div class="if-spec-card">
+          <div class="if-spec-tag">ASTM A193<span class="name">Grade B16</span>
+            <ul class="if-spec-grades"><li>Cr-Mo-V</li><li>~1100°F</li></ul>
+          </div>
+          <div class="if-spec-body">
+            <p>Chromium-moly-vanadium alloy, quenched and tempered. Runs above B7's service range — superheated steam piping, high-temperature turbine connections, service up to approximately 1100°F.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Stainless -->
+    <div class="if-family if-family--stainless">
+      <div class="if-family-label">
+        <div class="num">Family 03</div>
+        <h3>Stainless steel</h3>
+        <p>304 and 316 austenitic grades plus strain-hardened classes — food, pharma, chemical, marine, pulp &amp; paper, wastewater.</p>
+      </div>
+      <div class="if-family-cards">
+        <div class="if-spec-card if-spec-card--hero">
+          <div class="if-spec-photo">
+            <img src="assets/if-stamp-316.webp" alt="CA 316 head stamp — A193 B8M">
+            <img src="assets/if-stamp-b8-rod.webp" alt="CA B8 rod stamp — A193 B8">
+          </div>
+        </div>
+        <div class="if-spec-card">
+          <div class="if-spec-tag">ASTM A193<span class="name">Grade B8 · B8M</span>
+            <ul class="if-spec-grades"><li>304 SS</li><li>316 SS</li><li>Cl. 1 &amp; 2</li></ul>
+          </div>
+          <div class="if-spec-body">
+            <p>B8 is 304 stainless for general corrosion service — food, pharmaceutical, chemical at moderate temperatures. B8M upgrades to 316 for chloride and acid resistance — marine, chemical processing, pulp &amp; paper, wastewater. Class 2 is strain-hardened for higher strength at smaller diameters.</p>
+          </div>
+        </div>
+        <div class="if-spec-card">
+          <div class="if-spec-tag">ASTM F593<span class="name">Group 1, 2, 3</span>
+            <ul class="if-spec-grades"><li>304/305</li><li>316</li><li>Strain-hard.</li></ul>
+          </div>
+          <div class="if-spec-body">
+            <p>Stainless steel bolts, screws, and studs in 18-8 (304/305), 316, and strain-hardened alloys. Covers non-pressure service where A193 isn't required.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- COMPANION HARDWARE -->
+<section class="if-companion" data-screen-label="05 Companion hardware">
+  <div class="if-companion-inner">
+    <div class="if-companion-text">
+      <div class="eyebrow">Nuts, washers &amp; companion hardware</div>
+      <h2>Bolts alone won't<br>make the <i>joint.</i></h2>
+      <p>Match the nut and washer to the bolt grade, or the joint won't hold the way the spec promises. Here's what we stock to pair with the families above.</p>
+      <ul class="if-companion-checks">
+        <li data-tag="A194">Heavy hex nuts — grades 2H, 2HM, 4, 7, 7M, 8, 8M. 2H pairs with B7; 8M with B8M.</li>
+        <li data-tag="F436">Through-hardened flat washers — Type 1 plain, Type 3 weathering steel. Matched to A325, A490, A193 B7.</li>
+        <li data-tag="A563">Carbon &amp; alloy hex nuts — Grades A, B, C, DH. Grade DH heavy hex matched to A325 / A490 structural bolts.</li>
+        <li data-tag="Kits">Bolt / nut / washer kits shipped together, tagged by heat and lot.</li>
+      </ul>
+    </div>
+    <div class="if-companion-visual">
+      <div class="big">
+        <img src="assets/if-stamp-105.webp" alt="Heavy hex head stamped CA 105">
+        <span class="tag">A194 2H · Heavy hex</span>
+      </div>
+      <div class="ph">F436<br>hardened washer</div>
+      <div class="ph">A563 DH<br>heavy hex nut</div>
+    </div>
+  </div>
+</section>
+
+<!-- EXOTIC ALLOYS -->
+<section class="if-exotic" data-screen-label="06 Exotic alloys">
+  <div class="if-exotic-inner">
+    <div class="if-exotic-image">
+      <img src="assets/if-factory.webp" alt="Industrial process plant with piping and valves">
+    </div>
+    <div class="if-exotic-text">
+      <div class="eyebrow">Specialty &amp; exotic · quote basis</div>
+      <h2>Exotic grades when<br>the <i>spec calls</i> for it.</h2>
+      <p>When your application needs more than standard carbon or stainless, we source and — where needed — machine to print.</p>
+      <ul class="if-exotic-alloys">
+        <li><b>Nickel alloys</b><span>Inconel 625, 718 · Monel 400, K500 · Hastelloy C-276</span></li>
+        <li><b>PH stainless</b><span>17-4 PH — H900, H1025, H1150</span></li>
+        <li><b>Duplex stainless</b><span>2205 · 2507</span></li>
+        <li><b>Titanium</b><span>Grade 2 (CP) · Grade 5 (Ti-6Al-4V)</span></li>
+        <li><b>Silicon bronze</b><span>651 / 655 — tinned and plain</span></li>
+      </ul>
+      <div>
+        <a href="quote-flow.html" class="cf-pill cf-pill--blue-light">Request a quote</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TRACEABILITY -->
+<section class="if-trace" data-screen-label="07 Traceability">
+  <div class="if-trace-inner">
+    <div class="if-trace-header">
+      <div class="eyebrow">Traceability &amp; documentation</div>
+      <h2>What <i>ships</i> with the bolts.</h2>
+      <p>Every industrial fastener we ship is traceable to heat and lot. Standard with every order where the spec calls for it — and if your QA program needs something we haven't listed, ask. Most documentation asks we get are ones we've answered before.</p>
+    </div>
+    <div class="if-trace-grid">
+      <div class="if-trace-card">
+        <div class="num">01</div>
+        <h4>Material Test Reports</h4>
+        <p>MTRs / Mill Test Certificates tied to the heat and lot on every shipment where the spec requires.</p>
+      </div>
+      <div class="if-trace-card">
+        <div class="num">02</div>
+        <h4>Certificate of Conformance</h4>
+        <p>Signed C of C confirming the parts were manufactured and tested to the called-out standards.</p>
+      </div>
+      <div class="if-trace-card">
+        <div class="num">03</div>
+        <h4>DFARS compliant</h4>
+        <p>Domestic-melt / domestic-pour options for defense work — flag it on the RFQ and we'll source accordingly.</p>
+      </div>
+      <div class="if-trace-card">
+        <div class="num">04</div>
+        <h4>AS9102 FAI</h4>
+        <p>First Article Inspection reports for aerospace programs — we've run these packages before.</p>
+      </div>
+      <div class="if-trace-card">
+        <div class="num">05</div>
+        <h4>PMI on request</h4>
+        <p>Positive Material Identification with XRF or OES, ordered per-lot when your program calls for it.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CROSS-LINKS -->
+<section class="if-cross" data-screen-label="08 Cross-links">
+  <div class="if-cross-inner">
+    <div class="if-cross-header">
+      <h2>Not sure this is<br>the right <i>category?</i></h2>
+      <p>Industrial Fasteners is a catch-all. If your project lives in one of these more specific worlds, start there instead.</p>
+    </div>
+    <div class="if-cross-grid">
+      <a href="#" class="if-cross-card">
+        <div class="question">Building or bridge construction?</div>
+        <h4>Structural Fasteners</h4>
+        <div class="spec">A325 · A490 · F1554 · TC bolts</div>
+      </a>
+      <a href="anchor-bolts.html" class="if-cross-card">
+        <div class="question">Foundation anchors?</div>
+        <h4>Anchor Bolts</h4>
+        <div class="spec">F1554 Gr 36/55/105 · A193 B7/B8/B8M · F593</div>
+      </a>
+      <a href="#" class="if-cross-card">
+        <div class="question">Long threaded studs or rod stock?</div>
+        <h4>Stud Bolts &amp; Threaded Rod</h4>
+        <div class="spec">B7 · B8 · B16 · cut to length</div>
+      </a>
+      <a href="#" class="if-cross-card">
+        <div class="question">Corrosion-driven, stainless-only spec?</div>
+        <h4>Stainless Steel Fasteners</h4>
+        <div class="spec">304 · 316 · duplex · PH grades</div>
+      </a>
+      <a href="#" class="if-cross-card">
+        <div class="question">Marine or decorative bronze?</div>
+        <h4>Silicon Bronze Hardware</h4>
+        <div class="spec">651 / 655 · tinned &amp; plain</div>
+      </a>
+      <a href="cnc-landing.html" class="if-cross-card">
+        <div class="question">Custom machined or non-standard geometry?</div>
+        <h4>CNC Machining</h4>
+        <div class="spec">In-house · DFARS · AS9102</div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- QUOTE FORM -->
+<section class="if-quote" data-screen-label="09 Request a quote">
+  <div class="if-quote-inner">
+    <div class="if-quote-text">
+      <div class="eyebrow">Request a quote</div>
+      <h2>Send the <i>drawing.</i><br>We'll do the rest.</h2>
+      <p>Send the drawing, the spec callouts, or just a rough description of the job. A bolt specialist will come back with a quote, usually inside 24 hours.</p>
+      <div class="if-quote-contact">
+        Prefer to talk it through?
+        <b>888.581.7328</b>
+        <b>sales@californiafastener.com</b>
+      </div>
+    </div>
+    <form class="if-quote-form" onsubmit="event.preventDefault(); this.querySelector('button').textContent='Sent ✓'; this.querySelector('button').disabled=true;">
+      <div class="if-form-row">
+        <div class="if-form-field"><label>Name</label><input type="text" name="name" required></div>
+        <div class="if-form-field"><label>Company</label><input type="text" name="company"></div>
+      </div>
+      <div class="if-form-row">
+        <div class="if-form-field"><label>Email</label><input type="email" name="email" required></div>
+        <div class="if-form-field"><label>Phone</label><input type="tel" name="phone"></div>
+      </div>
+      <div class="if-form-row">
+        <div class="if-form-field if-form-field--full"><label>How can we help?</label><textarea name="message" placeholder="Spec callouts, grades, quantities, drawing notes — or paste a BOM."></textarea></div>
+      </div>
+      <button type="submit" class="cf-pill cf-pill--blue if-form-submit">Send quote request</button>
+    </form>
+  </div>
+</section>
+
+<!-- CTA BAND -->
+<section class="if-cta" data-screen-label="10 CTA">
+  <div class="if-cta-inner">
+    <div class="if-cta-eyebrow">Talk to a bolt specialist</div>
+    <h2>Know the spec.<br>Know the <i>service.</i></h2>
+    <p>From a single heavy hex to a full bolted joint kit with MTRs, First Article, and PMI — we've shipped the package before.</p>
+    <div class="if-cta-ctas">
+      <a href="quote-flow.html" class="cf-pill cf-pill--blue-light">Request a Quote</a>
+      <a href="tel:8885817328" class="cf-pill cf-pill--ghost-dark">Call 888.581.7328</a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="cf-footer">
+  <div class="cf-footer-cols">
+    <div class="cf-footer-col">
+      <h4 class="cf-footer-brand"><span class="cf-nav-logo-mark"></span>California Fastener</h4>
+      <p class="cf-footer-tagline">Industrial and structural fasteners, CNC machined parts, and technical support. CA Fast LLC.</p>
+      <div style="font-size:12px; color:var(--ink); margin-bottom:4px;">888.581.7328</div>
+      <div style="font-size:12px; color:var(--mid);">info@californiafastener.com</div>
+    </div>
+    <div class="cf-footer-col">
+      <h4>Products</h4>
+      <a href="anchor-bolts.html">Anchor Bolts</a>
+      <a href="#">Stud Bolts &amp; Threaded Rod</a>
+      <a href="#">U-Bolts</a>
+      <a href="#">Structural Fasteners</a>
+      <a href="industrial-fasteners.html">Industrial Fasteners</a>
+      <a href="#">Stainless Steel Fasteners</a>
+      <a href="#">Silicon Bronze Hardware</a>
+      <a href="cnc-landing.html">CNC Machining</a>
+    </div>
+    <div class="cf-footer-col">
+      <h4>Resources</h4>
+      <a href="#">Specification Library</a>
+      <a href="spec-builder.html">Spec Builder</a>
+      <a href="#">Product Catalog</a>
+      <a href="#">Industry Applications</a>
+      <a href="blog.html">Field Notes (Blog)</a>
+    </div>
+    <div class="cf-footer-col">
+      <h4>Company</h4>
+      <a href="#">About</a>
+      <a href="quote-flow.html">Request a Quote</a>
+      <a href="#">Contact</a>
+    </div>
+  </div>
+  <div class="cf-footer-bottom">
+    <div>© 2026 California Fastener · CA Fast LLC</div>
+    <div>Designed in California</div>
+  </div>
+</footer>
+
+<script>
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('cf-rise'); });
+  }, { threshold: 0.08 });
+  document.querySelectorAll('.if-product-card, .if-spec-card, .if-trace-card, .if-cross-card').forEach(el => observer.observe(el));
+</script>
+</body>
+</html>

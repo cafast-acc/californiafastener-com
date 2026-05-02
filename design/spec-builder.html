@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<link rel="icon" type="image/png" href="assets/cf-logo-black.png" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Spec Builder — California Fastener</title>
+<meta name="description" content="Find the right fastener spec, grade, and finish for your application. Walks through use, environment, criticality, and special requirements — recommends matching ASTM/AMS specs in seconds." />
+<link rel="stylesheet" href="_shared.css" />
+<link rel="stylesheet" href="spec-builder.css?v=3" />
+</head>
+<body class="sb-page">
+
+<!-- ── NAV ────────────────────────────────────────────────── -->
+<nav class="cf-nav">
+  <a href="homepage.html" class="cf-nav-logo"><span class="cf-nav-logo-mark"></span>California Fastener</a>
+  <ul class="cf-nav-center">
+    <li class="has-menu">
+      <button aria-haspopup="true">Products</button>
+      <div class="cf-nav-menu cf-nav-menu--mega" role="menu">
+        <div class="cf-nav-menu-label">Fasteners</div>
+        <a href="anchor-bolts.html" role="menuitem">Anchor Bolts<span class="cf-nav-menu-sub">F1554, A193, F593 · headed, bent, rod assemblies</span></a>
+        <a href="#" role="menuitem">Stud Bolts &amp; Threaded Rod<span class="cf-nav-menu-sub">B7, B8, B16 · cut to length</span></a>
+        <a href="#" role="menuitem">Structural Fasteners<span class="cf-nav-menu-sub">A325, A490, TC bolts</span></a>
+        <a href="#" role="menuitem">Industrial Fasteners<span class="cf-nav-menu-sub">Hex, socket, flange, grade 5 / 8</span></a>
+        <a href="#" role="menuitem">U-Bolts<span class="cf-nav-menu-sub">Standard &amp; custom profiles</span></a>
+        <a href="#" role="menuitem">Stainless Steel Fasteners<span class="cf-nav-menu-sub">304, 316, duplex</span></a>
+        <a href="#" role="menuitem">Silicon Bronze Hardware<span class="cf-nav-menu-sub">Marine &amp; architectural</span></a>
+        <a href="#" role="menuitem">Specialty &amp; Lindapter<span class="cf-nav-menu-sub">Hollo-Bolt, Girder clamps, blind bolts</span></a>
+        <div class="cf-nav-menu-footer">
+          <a href="#">View all products →</a>
+          <a href="quote-flow.html">Request a quote →</a>
+        </div>
+      </div>
+    </li>
+    <li class="has-menu">
+      <button aria-haspopup="true">Industries</button>
+      <div class="cf-nav-menu" role="menu">
+        <a href="#" role="menuitem">Construction</a>
+        <a href="#" role="menuitem">Industrial Machinery</a>
+        <a href="#" role="menuitem">Infrastructure</a>
+        <a href="#" role="menuitem">Renewable Energy</a>
+        <a href="#" role="menuitem">Power &amp; Utilities</a>
+        <a href="#" role="menuitem">Oil, Gas &amp; Petrochemical</a>
+        <a href="#" role="menuitem">Marine &amp; Shipbuilding</a>
+        <a href="#" role="menuitem">Aerospace &amp; Defense</a>
+      </div>
+    </li>
+    <li><a href="cnc-landing.html">CNC Machining</a></li>
+    <li class="has-menu">
+      <button aria-haspopup="true">Resources</button>
+      <div class="cf-nav-menu" role="menu">
+        <div class="cf-nav-menu-label">Technical</div>
+        <a href="#" role="menuitem">Specification Library<span class="cf-nav-menu-sub">ASTM, SAE, ISO standards</span></a>
+        <a href="spec-builder.html" role="menuitem">Spec Builder<span class="cf-nav-menu-sub">Find the right material &amp; grade</span></a>
+        <a href="#" role="menuitem">Product Catalog (PDF)</a>
+        <div class="cf-nav-menu-divider"></div>
+        <div class="cf-nav-menu-label">Tools</div>
+        <a href="quote-flow.html" role="menuitem">Request a Quote</a>
+        <a href="#" role="menuitem">Contact Engineering</a>
+      </div>
+    </li>
+    <li><a href="#">About</a></li>
+    <li><a href="blog.html">Blog</a></li>
+  </ul>
+  <div class="cf-nav-right">
+    <a href="quote-flow.html" class="cf-nav-quote">Get a Quote</a>
+  </div>
+</nav>
+
+<!-- ── HERO ───────────────────────────────────────────────── -->
+<header class="sb-hero">
+  <div class="sb-hero-eyebrow">Spec Builder</div>
+  <h1>Find the <i>right</i> fastener spec.</h1>
+  <p>Answer four short questions about your application, environment, and requirements. We'll recommend matching ASTM and AMS grades, with compatible nuts, washers, and the reasoning behind the pick.</p>
+</header>
+
+<!-- ── PROGRESS STEPPER ───────────────────────────────────── -->
+<div class="sb-progress-wrap">
+  <div class="sb-progress" id="sb-progress" aria-label="Progress"></div>
+</div>
+
+<!-- ── STAGES (built by JS) ───────────────────────────────── -->
+<main class="sb-stages" id="sb-stages"></main>
+
+<!-- ── QUOTE MODAL ────────────────────────────────────────── -->
+<div class="sb-modal-overlay" id="sb-modal-overlay" role="dialog" aria-modal="true" aria-labelledby="sb-modal-title">
+  <div class="sb-modal" role="document">
+    <div class="sb-modal-head">
+      <h3 id="sb-modal-title">Request a quote</h3>
+      <button type="button" class="sb-modal-close" id="sb-modal-close" aria-label="Close">×</button>
+    </div>
+
+    <div class="sb-modal-context" id="sb-modal-context"></div>
+
+    <div id="sb-modal-form-wrap">
+      <!-- Jotform 260995842557069 — purpose-built for Spec Builder (hidden fields for spec context) -->
+      <form
+        class="jotform-form"
+        action="https://submit.jotform.com/submit/260995842557069"
+        method="post"
+        name="form_260995842557069"
+        id="260995842557069"
+        accept-charset="utf-8"
+        autocomplete="on"
+      >
+        <input type="hidden" name="formID" value="260995842557069" />
+        <input type="hidden" id="JWTContainer" value="" />
+        <input type="hidden" id="cardinalOrderNumber" value="" />
+        <input type="hidden" id="jsExecutionTracker" name="jsExecutionTracker" value="build-date-1775863460314" />
+        <input type="hidden" id="submitSource" name="submitSource" value="spec-builder" />
+        <input type="hidden" id="submitDate" name="submitDate" value="" />
+        <input type="hidden" id="buildDate" name="buildDate" value="1775863460314" />
+        <input type="hidden" name="uploadServerUrl" value="https://upload.jotform.com/upload" />
+        <input type="hidden" name="eventObserver" value="1" />
+
+        <ul class="form-section page-section">
+          <!-- Full Name (qid 16) -->
+          <li class="form-line jf-required" data-type="control_textbox" id="id_16">
+            <label class="form-label form-label-top form-label-auto" id="label_16" for="input_16">
+              Full Name<span class="form-required">*</span>
+            </label>
+            <div id="cid_16" class="form-input-wide jf-required">
+              <input type="text" id="input_16" name="q16_fullName" data-type="input-textbox" class="form-textbox validate[required]" data-component="textbox" aria-labelledby="label_16" required value="" />
+            </div>
+          </li>
+          <!-- Email (qid 3) -->
+          <li class="form-line jf-required" data-type="control_email" id="id_3">
+            <label class="form-label form-label-top form-label-auto" id="label_3" for="input_3">
+              Email Address<span class="form-required">*</span>
+            </label>
+            <div id="cid_3" class="form-input-wide jf-required">
+              <input type="email" id="input_3" name="q3_q3_email1" class="form-textbox validate[required, Email]" autoComplete="section-input_3 email" data-component="email" aria-labelledby="label_3" required value="" />
+            </div>
+          </li>
+          <!-- Company (qid 4) -->
+          <li class="form-line jf-required" data-type="control_textbox" id="id_4">
+            <label class="form-label form-label-top form-label-auto" id="label_4" for="input_4">
+              Company Name<span class="form-required">*</span>
+            </label>
+            <div id="cid_4" class="form-input-wide jf-required">
+              <input type="text" id="input_4" name="q4_q4_textbox2" data-type="input-textbox" class="form-textbox validate[required]" data-component="textbox" aria-labelledby="label_4" required value="" />
+            </div>
+          </li>
+          <!-- Phone (qid 5) — optional -->
+          <li class="form-line" data-type="control_phone" id="id_5">
+            <label class="form-label form-label-top form-label-auto" id="label_5" for="input_5_full">
+              Phone <span class="sb-label-hint">(optional, for faster response)</span>
+            </label>
+            <div id="cid_5" class="form-input-wide">
+              <input type="tel" id="input_5_full" name="q5_q5_phone3[full]" data-type="mask-number" class="mask-phone-number form-textbox" autoComplete="section-input_5 tel-national" placeholder="(000) 000-0000" data-component="phone" aria-label="Phone (optional)" value="" />
+            </div>
+          </li>
+          <!-- Message (qid 6) — optional, pre-filled with spec context -->
+          <li class="form-line" data-type="control_textarea" id="id_6">
+            <label class="form-label form-label-top form-label-auto" id="label_6" for="input_6">
+              Anything we should know? <span class="sb-label-hint">(sizing, quantity, lead time, special notes)</span>
+            </label>
+            <div id="cid_6" class="form-input-wide">
+              <textarea id="input_6" class="form-textarea" name="q6_q6_textarea4" data-component="textarea" aria-labelledby="label_6"></textarea>
+            </div>
+          </li>
+
+          <!-- Hidden fields populated from Spec Builder state (qid 7–12) -->
+          <input type="hidden" id="input_7"  name="q7_q7_textbox5"  value="" />
+          <input type="hidden" id="input_8"  name="q8_q8_textbox6"  value="" />
+          <input type="hidden" id="input_9"  name="q9_q9_textbox7"  value="" />
+          <input type="hidden" id="input_10" name="q10_q10_textbox8" value="" />
+          <input type="hidden" id="input_11" name="q11_q11_textbox9" value="" />
+          <input type="hidden" id="input_12" name="q12_q12_textbox10" value="" />
+          <input type="hidden" id="input_15" name="q15_website" value="" />
+
+          <!-- Submit (qid 14) -->
+          <li class="form-line" data-type="control_button" id="id_14">
+            <div id="cid_14" class="form-input-wide">
+              <div class="form-buttons-wrapper">
+                <button id="input_14" type="submit" class="form-submit-button submit-button">Send request</button>
+              </div>
+            </div>
+          </li>
+          <!-- Honeypot -->
+          <li style="display:none">Should be Empty: <input type="text" name="website" value="" /></li>
+        </ul>
+
+        <input type="hidden" class="simple_spc" id="simple_spc" name="simple_spc" value="260995842557069" />
+      </form>
+    </div>
+
+    <div class="sb-thank-you" id="sb-thank-you">
+      <div class="sb-ty-icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l4 4L19 7"/></svg>
+      </div>
+      <h3>Got it — request sent.</h3>
+      <p>An estimator will reach out within one business day with pricing, lead time, and any spec questions.</p>
+      <button type="button" class="sb-ty-close" id="sb-ty-close">Back to results</button>
+    </div>
+  </div>
+</div>
+
+<!-- ── FOOTER ─────────────────────────────────────────────── -->
+<footer class="cf-footer">
+  <div class="cf-footer-cols">
+    <div class="cf-footer-col">
+      <h4 class="cf-footer-brand"><span class="cf-nav-logo-mark"></span>California Fastener</h4>
+      <p class="cf-footer-tagline">Industrial and structural fasteners, CNC machined parts, and technical support. CA Fast LLC.</p>
+      <div style="font-size:12px; color:var(--ink); margin-bottom:4px;">888.581.7328</div>
+      <div style="font-size:12px; color:var(--mid);">info@californiafastener.com</div>
+    </div>
+    <div class="cf-footer-col">
+      <h4>Products</h4>
+      <a href="anchor-bolts.html">Anchor Bolts</a>
+      <a href="#">Stud Bolts &amp; Threaded Rod</a>
+      <a href="#">U-Bolts</a>
+      <a href="#">Structural Fasteners</a>
+      <a href="#">Industrial Fasteners</a>
+      <a href="#">Stainless Steel Fasteners</a>
+      <a href="#">Silicon Bronze Hardware</a>
+      <a href="cnc-landing.html">CNC Machining</a>
+    </div>
+    <div class="cf-footer-col">
+      <h4>Resources</h4>
+      <a href="#">Specification Library</a>
+      <a href="spec-builder.html">Spec Builder</a>
+      <a href="#">Product Catalog</a>
+      <a href="#">Industry Applications</a>
+      <a href="blog.html">Field Notes (Blog)</a>
+    </div>
+    <div class="cf-footer-col">
+      <h4>Company</h4>
+      <a href="#">About</a>
+      <a href="quote-flow.html">Request a Quote</a>
+      <a href="#">Contact</a>
+    </div>
+  </div>
+  <div class="cf-footer-bottom">
+    <div>© 2026 California Fastener · CA Fast LLC</div>
+    <div>ISO 9001:2015 · DFARS · NACE MR0175</div>
+  </div>
+</footer>
+
+<script src="spec-builder-data.js?v=3"></script>
+<script src="spec-builder-app.js?v=4"></script>
+</body>
+</html>
