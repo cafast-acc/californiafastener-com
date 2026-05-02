@@ -371,46 +371,6 @@ export default function StructuralFastenersPage() {
         </div>
       </section>
 
-      {/* RCSC / INSTALLATION */}
-      <section className="sf-rcsc">
-        <div className="sf-rcsc-inner">
-          <div className="sf-rcsc-header">
-            <div className="eyebrow">Pretension verification</div>
-            <h2>
-              Four ways to <i>verify</i>
-              <br />
-              pretension.
-            </h2>
-            <p>
-              The RCSC Specification accepts four methods. We can ship the assemblies pre-tested for
-              any of them, with the documentation the inspector will ask for.
-            </p>
-          </div>
-          <div className="sf-rcsc-grid">
-            <RcscCard
-              num="Method 01"
-              title="Turn-of-nut"
-              desc="Snug-tight, then a prescribed additional rotation (1/3 to 1 full turn depending on bolt length and faying geometry). Field-friendly; no calibration tools needed."
-            />
-            <RcscCard
-              num="Method 02"
-              title="Calibrated wrench"
-              desc="Torque-wrench installation with the wrench calibrated daily on a Skidmore-Wilhelm tension-measuring device. Documented torque values per heat lot."
-            />
-            <RcscCard
-              num="Method 03"
-              title="Twist-off (TC) bolt"
-              desc="Splined-end bolt installed with a shear wrench that snaps the end off at proper pretension. Visual inspection — no spline means no pretension. Ships with matched lubricated nuts."
-            />
-            <RcscCard
-              num="Method 04"
-              title="Direct-tension indicator"
-              desc="F959 DTI washer with raised bumps that compress at proper pretension. Inspector measures gap with a feeler gauge — or the squirter (HRC) variant ejects orange silicone for visual confirmation."
-            />
-          </div>
-        </div>
-      </section>
-
       {/* TRACEABILITY */}
       <section className="pp-trace pp-trace--alt">
         <div className="pp-trace-inner">
@@ -676,16 +636,6 @@ function Coating({ title, spec, desc }: { title: string; spec: string; desc: Rea
       </b>
       <span>{desc}</span>
     </li>
-  );
-}
-
-function RcscCard({ num, title, desc }: { num: string; title: string; desc: string }) {
-  return (
-    <div className="sf-rcsc-card">
-      <div className="num">{num}</div>
-      <h4>{title}</h4>
-      <p>{desc}</p>
-    </div>
   );
 }
 
