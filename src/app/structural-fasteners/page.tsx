@@ -523,7 +523,11 @@ export default function StructuralFastenersPage() {
               <b>sales@californiafastener.com</b>
             </div>
           </div>
-          <QuoteFormPlaceholder />
+          <QuoteFormPlaceholder
+            classPrefix="sf"
+            textareaLabel="Project & bolt schedule"
+            textareaPlaceholder="Project type, F3125 grade, sizes, finish, quantities — or paste the bolt schedule."
+          />
         </div>
       </section>
 
