@@ -19,8 +19,8 @@
 
 /* ── HERO ──────────────────────────────────────────────── */
 .pp-hero { padding: 80px 40px 0; background: linear-gradient(180deg, var(--bg) 0%, var(--bg-alt) 100%); overflow: hidden; }
-.pp-hero-inner { max-width: 1440px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1.05fr; gap: 80px; align-items: center; min-height: 720px; }
-.pp-hero-text { padding: 40px 0; }
+.pp-hero-inner { max-width: 1440px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1.05fr; gap: 80px; align-items: stretch; min-height: 720px; }
+.pp-hero-text { padding: 40px 0; align-self: center; }
 .pp-breadcrumb { font-size: 13px; color: var(--mid); margin-bottom: 24px; }
 .pp-breadcrumb a { color: var(--mid); text-decoration: none; }
 .pp-breadcrumb a:hover { color: var(--ink); }
@@ -35,10 +35,22 @@
 .pp-hero-stat-val { font-size: 28px; font-weight: 600; letter-spacing: -0.02em; line-height: 1; margin-bottom: 6px; }
 .pp-hero-stat-label { font-size: 11px; color: var(--mid); letter-spacing: 0.02em; text-transform: uppercase; line-height: 1.3; }
 
-.pp-hero-image { background: #E8E6E1; border-radius: 24px 0 0 0; min-height: 720px; margin-right: calc((100vw - 1440px) / -2); display: flex; align-items: center; justify-content: center; overflow: hidden; position: relative; }
+/* Hero image bed — cinematic cover-style. The bolt fills the cream bed and
+   crops via object-fit cover; scale(1.2) gives the framed-bolt feel. */
+.pp-hero-image { background: #E8E6E1; border-radius: 24px 0 0 0; min-height: 720px; margin-right: calc((100vw - 1440px) / -2); display: flex; align-items: stretch; justify-content: stretch; overflow: hidden; position: relative; }
 @media (max-width: 1480px) { .pp-hero-image { margin-right: -40px; } }
-.pp-hero-image img { width: 110%; height: auto; max-height: 95%; object-fit: contain; filter: drop-shadow(0 30px 50px rgba(0,0,0,0.2)); }
-.pp-hero-image-tag { position: absolute; top: 24px; left: 24px; background: rgba(255,255,255,0.92); backdrop-filter: blur(8px); padding: 8px 14px; border-radius: 100px; font-size: 11px; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; color: var(--ink); }
+.pp-hero-image img { width: 100%; height: 100%; object-fit: cover; object-position: center 30%; display: block; transform: scale(1.2); transform-origin: center 35%; }
+.pp-hero-image-tag { position: absolute; top: 24px; left: 24px; background: rgba(255,255,255,0.92); backdrop-filter: blur(8px); padding: 8px 14px; border-radius: 100px; font-size: 11px; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; color: var(--ink); z-index: 1; }
+
+/* ── PROPERTY STRIP ─────────────────────────────────────
+   4 numbered properties under a steel-blue top rule. Replaces the
+   trust-marquee on the latest structural / industrial designs. */
+.pp-props { padding: 72px 40px; border-bottom: 1px solid var(--rule-soft); background: var(--bg); }
+.pp-props-inner { max-width: 1240px; margin: 0 auto; display: grid; grid-template-columns: repeat(4, 1fr); gap: 40px; }
+.pp-prop { padding-top: 24px; border-top: 2px solid var(--blue-dark); }
+.pp-prop .pn { font-family: var(--cf-font-mono); font-size: 11px; color: var(--blue-dark); letter-spacing: 0.06em; margin-bottom: 10px; }
+.pp-prop h3 { font-size: 18px; font-weight: 600; letter-spacing: -0.015em; margin: 0 0 8px; }
+.pp-prop p { font-size: 14px; color: var(--mid); line-height: 1.5; margin: 0; }
 
 /* ── TRUST BAR (pause-on-hover marquee with SVG icons) ── */
 .pp-trustbar { background: var(--white); padding: 26px 0; overflow: hidden; border-top: 1px solid var(--rule-soft); border-bottom: 1px solid var(--rule-soft); }
@@ -192,3 +204,7 @@
   .pp-trust-item span { font-size: 13px; }
   .pp-trust-item svg { width: 22px; height: 22px; }
 }
+
+/* pp-props responsive */
+@media (max-width: 1000px) { .pp-props-inner { grid-template-columns: 1fr 1fr; } }
+@media (max-width: 680px) { .pp-props-inner { grid-template-columns: 1fr; gap: 24px; } }

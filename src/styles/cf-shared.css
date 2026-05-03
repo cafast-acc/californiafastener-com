@@ -308,6 +308,9 @@ img { display: block; max-width: 100%; }
   letter-spacing: -0.015em;
   background: var(--ink);
   color: var(--white);
+  border: none;
+  font-family: inherit;
+  cursor: pointer;
   transition: background 0.2s;
   line-height: 1;
 }

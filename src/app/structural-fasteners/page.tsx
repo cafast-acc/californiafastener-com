@@ -32,14 +32,16 @@ export default function StructuralFastenersPage() {
             </div>
             <div className="pp-eyebrow">Structural Fasteners</div>
             <h1>
-              Bolts that hold up
+              Structural bolting
               <br />
-              the <i>steel.</i>
+              for <i>steel-frame</i>
+              <br />
+              connections.
             </h1>
             <p className="pp-hero-sub">
               High-strength structural bolts, nuts, washers, and anchor rod for steel-frame
-              buildings, bridges, and heavy infrastructure. F3125 (A325 / A490), TC bolts, F1554 —
-              galvanized or plain, full RCSC documentation.
+              buildings, bridges, and heavy infrastructure. F3125 (A325 / A490), TC bolts, and F1554
+              — galvanized or plain, with full traceability on every shipment.
             </p>
             <div className="pp-hero-ctas">
               <Link href="/quote" className="cf-pill cf-pill--blue">
@@ -50,19 +52,19 @@ export default function StructuralFastenersPage() {
               </a>
             </div>
             <div className="pp-hero-stats">
-              <HeroStat val="F3125" label="A325 / A490 / F1852 / F2280" />
-              <HeroStat val="F1554" label="Gr 36 / 55 / 105" />
-              <HeroStat val="A563" label="Gr DH heavy hex" />
-              <HeroStat val="RCSC" label="Tested assemblies" />
+              <HeroStat val="F3125" label="A325 / A490 bolts" />
+              <HeroStat val="A563" label="Heavy hex nuts" />
+              <HeroStat val="F436" label="Washers" />
+              <HeroStat val="Full" label="Heat & lot traceability" />
             </div>
           </div>
           <div className="pp-hero-image">
             <div className="pp-hero-image-tag">F3125 Gr A325 · Type 1 · Hot-dip galvanized</div>
             <Image
-              src="/assets/product-structural.png"
-              alt="Structural heavy hex bolt with hardened washer and heavy hex nut"
-              width={1469}
-              height={889}
+              src="/assets/structural-hero-bolt.png"
+              alt="Structural heavy hex bolt"
+              width={1478}
+              height={1021}
               priority
               sizes="(max-width: 1000px) 100vw, 750px"
             />
@@ -70,13 +72,31 @@ export default function StructuralFastenersPage() {
         </div>
       </section>
 
-      {/* TRUST BAR */}
-      <div className="pp-trustbar" aria-hidden="true">
-        <div className="pp-trustbar-track">
-          <TrustItems />
-          <TrustItems />
+      {/* PROPERTY STRIP */}
+      <section className="pp-props">
+        <div className="pp-props-inner">
+          <Property
+            num="01"
+            title="High-strength"
+            desc="F3125 quenched-and-tempered structural bolts at 120 ksi (A325) and 150 ksi (A490) — the standard fasteners for steel-to-steel connections."
+          />
+          <Property
+            num="02"
+            title="Tested assemblies"
+            desc="Bolt, nut, and washer shipped together as matched kits. Lot-by-lot rotational-capacity testing per F3125 Annex A2 on every shipment."
+          />
+          <Property
+            num="03"
+            title="Galvanized or plain"
+            desc="Hot-dip galvanized, mechanically galvanized, weathering Type 3, or plain finish — matched coatings across the bolt, nut, and washer."
+          />
+          <Property
+            num="04"
+            title="Full traceability"
+            desc="MTRs and heat / lot traceability on every shipment. Domestic-melt and Buy America documentation available for DOT and bridge work."
+          />
         </div>
-      </div>
+      </section>
 
       {/* POSITIONING */}
       <section className="pp-intro">
@@ -377,7 +397,7 @@ export default function StructuralFastenersPage() {
       </section>
 
       {/* TRACEABILITY */}
-      <section className="pp-trace pp-trace--alt">
+      <section className="pp-trace">
         <div className="pp-trace-inner">
           <div className="pp-trace-header">
             <div className="eyebrow">Documentation</div>
@@ -415,7 +435,7 @@ export default function StructuralFastenersPage() {
       </section>
 
       {/* CROSS-LINKS */}
-      <section className="pp-cross">
+      <section className="pp-cross pp-cross--alt">
         <div className="pp-cross-inner">
           <div className="pp-cross-header">
             <h2>
@@ -469,7 +489,7 @@ export default function StructuralFastenersPage() {
       </section>
 
       {/* QUOTE FORM */}
-      <section className="pp-quote">
+      <section className="pp-quote pp-quote--alt">
         <div className="pp-quote-inner">
           <div className="pp-quote-text">
             <div className="eyebrow">Request a quote</div>
@@ -530,6 +550,16 @@ function HeroStat({ val, label }: { val: string; label: string }) {
     <div>
       <div className="pp-hero-stat-val">{val}</div>
       <div className="pp-hero-stat-label">{label}</div>
+    </div>
+  );
+}
+
+function Property({ num, title, desc }: { num: string; title: string; desc: string }) {
+  return (
+    <div className="pp-prop">
+      <div className="pn">{num}</div>
+      <h3>{title}</h3>
+      <p>{desc}</p>
     </div>
   );
 }
@@ -674,69 +704,3 @@ function CrossLink({
   );
 }
 
-/** Trust-bar marquee items rendered twice for the seamless loop. */
-function TrustItems() {
-  const items: Array<{ label: string; svg: React.ReactNode }> = [
-    {
-      label: "Fast Quotes",
-      svg: <path d="M13 2 3 14h9l-1 8 10-12h-9l1-8z" />,
-    },
-    {
-      label: "RCSC Tested",
-      svg: (
-        <>
-          <rect x="8" y="2" width="8" height="4" rx="1" ry="1" />
-          <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2" />
-          <path d="m9 14 2 2 4-4" />
-        </>
-      ),
-    },
-    {
-      label: "Hot-Dip Galv.",
-      svg: <path d="M3 6h18M7 12h10M10 18h4" />,
-    },
-    {
-      label: "Same Day Shipping",
-      svg: (
-        <>
-          <path d="M14 18V6a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2v11a1 1 0 0 0 1 1h2" />
-          <path d="M15 18H9" />
-          <path d="M19 18h2a1 1 0 0 0 1-1v-3.65a1 1 0 0 0-.22-.624l-3.48-4.35A1 1 0 0 0 17.52 8H14" />
-          <circle cx="17" cy="18" r="2" />
-          <circle cx="7" cy="18" r="2" />
-        </>
-      ),
-    },
-    {
-      label: "Bolt Specialists",
-      svg: (
-        <>
-          <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2" />
-          <circle cx="9" cy="7" r="4" />
-          <path d="M22 21v-2a4 4 0 0 0-3-3.87" />
-          <path d="M16 3.13a4 4 0 0 1 0 7.75" />
-        </>
-      ),
-    },
-    {
-      label: "Bolt + Nut + Washer Kits",
-      svg: (
-        <>
-          <path d="M12 2 2 7l10 5 10-5-10-5z" />
-          <path d="m2 17 10 5 10-5" />
-          <path d="m2 12 10 5 10-5" />
-        </>
-      ),
-    },
-  ];
-  return (
-    <>
-      {items.map((it) => (
-        <div key={it.label} className="pp-trust-item">
-          <svg viewBox="0 0 24 24">{it.svg}</svg>
-          <span>{it.label}</span>
-        </div>
-      ))}
-    </>
-  );
-}

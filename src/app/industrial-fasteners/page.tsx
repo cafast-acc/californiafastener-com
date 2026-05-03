@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import Image from "next/image";
 import "@/styles/cf-product-page.css";
 import "@/styles/cf-industrial-fasteners.css";
 import { CfNav } from "@/components/CfNav";
@@ -31,9 +32,9 @@ export default function IndustrialFastenersPage() {
             </div>
             <div className="pp-eyebrow">Industrial Fasteners</div>
             <h1>
-              Bolts, nuts &amp; washers
+              <i>Industrial</i> bolting for
               <br />
-              for <i>industrial</i>
+              mechanical &amp; process
               <br />
               assembly.
             </h1>
@@ -58,21 +59,43 @@ export default function IndustrialFastenersPage() {
           </div>
           <div className="pp-hero-image">
             <div className="pp-hero-image-tag">A193 B8M · 316 Stainless · Heavy Hex</div>
-            <Img
-              src="/assets/if-stamp-316.webp"
-              alt="Heavy hex bolt head stamped CA 316, A193 B8M 316 stainless"
+            <Image
+              src="/assets/structural-hero-bolt.png"
+              alt="Heavy hex bolt"
+              width={1478}
+              height={1021}
+              priority
+              sizes="(max-width: 1000px) 100vw, 750px"
             />
           </div>
         </div>
       </section>
 
-      {/* TRUST BAR */}
-      <div className="pp-trustbar" aria-hidden="true">
-        <div className="pp-trustbar-track">
-          <TrustItems />
-          <TrustItems />
+      {/* PROPERTY STRIP */}
+      <section className="pp-props">
+        <div className="pp-props-inner">
+          <Property
+            num="01"
+            title="Wide grade range"
+            desc="Carbon, alloy, and stainless across A307, SAE J429, A449, A193 B7/B16/B8/B8M, A574, F593 — the bolts you spec on most drawings."
+          />
+          <Property
+            num="02"
+            title="Matched nuts & washers"
+            desc="A194 heavy hex nuts and F436 hardened washers paired to the bolt grade. Ship as kits, tagged by heat and lot."
+          />
+          <Property
+            num="03"
+            title="Exotic on quote"
+            desc="Inconel, Monel, Hastelloy, 17-4 PH, 2205 / 2507 duplex, and titanium when the spec calls for more than standard stainless."
+          />
+          <Property
+            num="04"
+            title="MTRs every shipment"
+            desc="Heat and lot traceability with every order. DFARS, AS9102 FAI, and PMI documentation when your QA program requires it."
+          />
         </div>
-      </div>
+      </section>
 
       {/* POSITIONING */}
       <section className="pp-intro">
@@ -536,6 +559,16 @@ function HeroStat({ val, label }: { val: string; label: string }) {
   );
 }
 
+function Property({ num, title, desc }: { num: string; title: string; desc: string }) {
+  return (
+    <div className="pp-prop">
+      <div className="pn">{num}</div>
+      <h3>{title}</h3>
+      <p>{desc}</p>
+    </div>
+  );
+}
+
 function ProductCard({
   pnum,
   img,
@@ -669,68 +702,3 @@ function CrossLink({
   );
 }
 
-/** Trust-bar marquee items rendered twice for the seamless loop. */
-function TrustItems() {
-  const items: Array<{ label: string; svg: React.ReactNode }> = [
-    { label: "Fast Quotes", svg: <path d="M13 2 3 14h9l-1 8 10-12h-9l1-8z" /> },
-    {
-      label: "Full Traceability",
-      svg: (
-        <>
-          <rect x="8" y="2" width="8" height="4" rx="1" ry="1" />
-          <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2" />
-          <path d="m9 14 2 2 4-4" />
-        </>
-      ),
-    },
-    {
-      label: "Exotic Grades",
-      svg: (
-        <>
-          <path d="M6 3h12l4 6-10 13L2 9Z" />
-          <path d="M11 3 8 9l4 13 4-13-3-6" />
-          <path d="M2 9h20" />
-        </>
-      ),
-    },
-    {
-      label: "Same Day Shipping",
-      svg: (
-        <>
-          <path d="M14 18V6a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2v11a1 1 0 0 0 1 1h2" />
-          <path d="M15 18H9" />
-          <path d="M19 18h2a1 1 0 0 0 1-1v-3.65a1 1 0 0 0-.22-.624l-3.48-4.35A1 1 0 0 0 17.52 8H14" />
-          <circle cx="17" cy="18" r="2" />
-          <circle cx="7" cy="18" r="2" />
-        </>
-      ),
-    },
-    {
-      label: "Bolt Specialists",
-      svg: (
-        <>
-          <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2" />
-          <circle cx="9" cy="7" r="4" />
-          <path d="M22 21v-2a4 4 0 0 0-3-3.87" />
-          <path d="M16 3.13a4 4 0 0 1 0 7.75" />
-        </>
-      ),
-    },
-    {
-      label: "In-House CNC",
-      svg: (
-        <path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z" />
-      ),
-    },
-  ];
-  return (
-    <>
-      {items.map((it) => (
-        <div key={it.label} className="pp-trust-item">
-          <svg viewBox="0 0 24 24">{it.svg}</svg>
-          <span>{it.label}</span>
-        </div>
-      ))}
-    </>
-  );
-}

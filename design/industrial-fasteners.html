@@ -10,20 +10,6 @@
 <style>
   body { background: var(--bg); }
 
-  /* ── TRUST BAR MARQUEE ─────────────────────────────────── */
-  .if-trustbar { background: var(--white); padding: 26px 0; overflow: hidden; border-top: 1px solid var(--rule-soft); border-bottom: 1px solid var(--rule-soft); }
-  .if-trustbar-track { display: flex; width: max-content; animation: if-trust-scroll 45s linear infinite; }
-  .if-trustbar:hover .if-trustbar-track { animation-play-state: paused; }
-  .if-trust-item { display: flex; align-items: center; gap: 14px; padding: 0 48px; border-right: 1px solid var(--rule-soft); flex-shrink: 0; }
-  .if-trust-item svg { width: 26px; height: 26px; stroke: var(--blue-dark); fill: none; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; flex-shrink: 0; }
-  .if-trust-item span { font-weight: 600; font-size: 15px; color: var(--ink); letter-spacing: -0.005em; white-space: nowrap; }
-  @keyframes if-trust-scroll { from { transform: translateX(0); } to { transform: translateX(-50%); } }
-  @media (max-width: 680px) {
-    .if-trust-item { padding: 0 32px; }
-    .if-trust-item span { font-size: 13px; }
-    .if-trust-item svg { width: 22px; height: 22px; }
-  }
-
   /* ── HERO ──────────────────────────────────────────────── */
   .if-hero { padding: 80px 40px 0; background: linear-gradient(180deg, var(--bg) 0%, var(--bg-alt) 100%); overflow: hidden; }
   .if-hero-inner { max-width: 1440px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1.05fr; gap: 80px; align-items: center; min-height: 720px; }
@@ -42,10 +28,20 @@
   .if-hero-stat-val { font-size: 28px; font-weight: 600; letter-spacing: -0.02em; line-height: 1; margin-bottom: 6px; }
   .if-hero-stat-label { font-size: 11px; color: var(--mid); letter-spacing: 0.02em; text-transform: uppercase; line-height: 1.3; }
 
-  .if-hero-image { background: #E8E6E1; border-radius: 24px 0 0 0; min-height: 720px; margin-right: calc((100vw - 1440px) / -2); display: flex; align-items: center; justify-content: center; overflow: hidden; position: relative; }
+  .if-hero-image { background: #E8E6E1; border-radius: 24px 0 0 0; min-height: 720px; margin-right: calc((100vw - 1440px) / -2); display: flex; align-items: stretch; justify-content: stretch; overflow: hidden; position: relative; }
   @media (max-width: 1480px) { .if-hero-image { margin-right: -40px; } }
-  .if-hero-image img { width: 110%; height: auto; max-height: 95%; object-fit: contain; filter: drop-shadow(0 30px 50px rgba(0,0,0,0.2)); }
+  .if-hero-image img { width: 100%; height: 100%; object-fit: cover; object-position: center 30%; display: block; transform: scale(1.2); transform-origin: center 35%; }
   .if-hero-image-tag { position: absolute; top: 24px; left: 24px; background: rgba(255,255,255,0.92); backdrop-filter: blur(8px); padding: 8px 14px; border-radius: 100px; font-size: 11px; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; color: var(--ink); }
+
+  /* ── PROPERTY STRIP ────────────────────────────────────── */
+  .if-props { padding: 72px 40px; border-bottom: 1px solid var(--rule-soft); background: var(--bg); }
+  .if-props-inner { max-width: 1240px; margin: 0 auto; display: grid; grid-template-columns: repeat(4, 1fr); gap: 40px; }
+  .if-prop { padding-top: 24px; border-top: 2px solid var(--blue-dark); }
+  .if-prop .pn { font-family: "SF Mono", ui-monospace, monospace; font-size: 11px; color: var(--blue-dark); letter-spacing: 0.06em; margin-bottom: 10px; }
+  .if-prop h3 { font-size: 18px; font-weight: 600; letter-spacing: -0.015em; margin: 0 0 8px; }
+  .if-prop p { font-size: 14px; color: var(--mid); line-height: 1.5; margin: 0; }
+  @media (max-width: 1000px) { .if-props-inner { grid-template-columns: 1fr 1fr; } }
+  @media (max-width: 680px) { .if-props-inner { grid-template-columns: 1fr; gap: 24px; } }
 
   /* ── POSITIONING INTRO ─────────────────────────────────── */
   .if-intro { padding: 112px 40px; border-bottom: 1px solid var(--rule-soft); }
@@ -125,7 +121,7 @@
   .if-exotic { padding: 0; background: var(--ink); color: var(--dark-text); overflow: hidden; position: relative; }
   .if-exotic-inner { display: grid; grid-template-columns: 1.15fr 1fr; min-height: 620px; }
   .if-exotic-image { background: #1a1a1c; position: relative; overflow: hidden; }
-  .if-exotic-image img { width: 100%; height: 100%; object-fit: cover; opacity: 0.9; }
+  .if-exotic-image img { width: 100%; height: 100%; object-fit: cover; object-position: center 60%; opacity: 0.9; transform: scale(1.25); transform-origin: center 55%; }
   .if-exotic-image::after { content: ''; position: absolute; inset: 0; background: linear-gradient(90deg, transparent 55%, rgba(11,11,13,0.9) 100%); }
   .if-exotic-text { padding: 96px 80px; display: flex; flex-direction: column; justify-content: center; }
   .if-exotic-text .eyebrow { font-size: 13px; color: var(--blue); font-weight: 500; margin-bottom: 14px; letter-spacing: 0.04em; text-transform: uppercase; }
@@ -283,7 +279,7 @@
     <div class="if-hero-text">
       <div class="if-breadcrumb"><a href="homepage.html">Home</a><span>/</span><a href="#">Products</a><span>/</span>Industrial Fasteners</div>
       <div class="if-eyebrow">Industrial Fasteners</div>
-      <h1>Bolts, nuts &amp; washers<br>for <i>industrial</i><br>assembly.</h1>
+      <h1><i>Industrial</i> bolting for<br>mechanical &amp; process<br>assembly.</h1>
       <p class="if-hero-sub">Socket head, heavy hex, and the nuts and washers that go with them. Carbon, alloy, and stainless grades — stocked deep, shipped same day, and backed with full MTRs.</p>
       <div class="if-hero-ctas">
         <a href="quote-flow.html" class="cf-pill cf-pill--blue">Request a Quote</a>
@@ -298,31 +294,39 @@
     </div>
     <div class="if-hero-image">
       <div class="if-hero-image-tag">A193 B8M · 316 Stainless · Heavy Hex</div>
-      <img src="assets/if-stamp-316.webp" alt="Heavy hex bolt head stamped CA 316, A193 B8M 316 stainless" />
+      <img src="assets/structural-hero-bolt.png" alt="Heavy hex bolt" />
     </div>
   </div>
 </section>
 
-<!-- TRUST BAR -->
-<div class="if-trustbar" aria-hidden="true" data-screen-label="02 Trust bar">
-  <div class="if-trustbar-track">
-    <div class="if-trust-item"><svg viewBox="0 0 24 24"><path d="M13 2 3 14h9l-1 8 10-12h-9l1-8z"/></svg><span>Fast Quotes</span></div>
-    <div class="if-trust-item"><svg viewBox="0 0 24 24"><rect x="8" y="2" width="8" height="4" rx="1" ry="1"/><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"/><path d="m9 14 2 2 4-4"/></svg><span>Full Traceability</span></div>
-    <div class="if-trust-item"><svg viewBox="0 0 24 24"><path d="M6 3h12l4 6-10 13L2 9Z"/><path d="M11 3 8 9l4 13 4-13-3-6"/><path d="M2 9h20"/></svg><span>Exotic Grades</span></div>
-    <div class="if-trust-item"><svg viewBox="0 0 24 24"><path d="M14 18V6a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2v11a1 1 0 0 0 1 1h2"/><path d="M15 18H9"/><path d="M19 18h2a1 1 0 0 0 1-1v-3.65a1 1 0 0 0-.22-.624l-3.48-4.35A1 1 0 0 0 17.52 8H14"/><circle cx="17" cy="18" r="2"/><circle cx="7" cy="18" r="2"/></svg><span>Same Day Shipping</span></div>
-    <div class="if-trust-item"><svg viewBox="0 0 24 24"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg><span>Bolt Specialists</span></div>
-    <div class="if-trust-item"><svg viewBox="0 0 24 24"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg><span>In-House CNC</span></div>
-    <div class="if-trust-item"><svg viewBox="0 0 24 24"><path d="M13 2 3 14h9l-1 8 10-12h-9l1-8z"/></svg><span>Fast Quotes</span></div>
-    <div class="if-trust-item"><svg viewBox="0 0 24 24"><rect x="8" y="2" width="8" height="4" rx="1" ry="1"/><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"/><path d="m9 14 2 2 4-4"/></svg><span>Full Traceability</span></div>
-    <div class="if-trust-item"><svg viewBox="0 0 24 24"><path d="M6 3h12l4 6-10 13L2 9Z"/><path d="M11 3 8 9l4 13 4-13-3-6"/><path d="M2 9h20"/></svg><span>Exotic Grades</span></div>
-    <div class="if-trust-item"><svg viewBox="0 0 24 24"><path d="M14 18V6a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2v11a1 1 0 0 0 1 1h2"/><path d="M15 18H9"/><path d="M19 18h2a1 1 0 0 0 1-1v-3.65a1 1 0 0 0-.22-.624l-3.48-4.35A1 1 0 0 0 17.52 8H14"/><circle cx="17" cy="18" r="2"/><circle cx="7" cy="18" r="2"/></svg><span>Same Day Shipping</span></div>
-    <div class="if-trust-item"><svg viewBox="0 0 24 24"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg><span>Bolt Specialists</span></div>
-    <div class="if-trust-item"><svg viewBox="0 0 24 24"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg><span>In-House CNC</span></div>
+<!-- PROPERTY STRIP -->
+<section class="if-props" data-screen-label="02 Properties">
+  <div class="if-props-inner">
+    <div class="if-prop">
+      <div class="pn">01</div>
+      <h3>Wide grade range</h3>
+      <p>Carbon, alloy, and stainless across A307, SAE J429, A449, A193 B7/B16/B8/B8M, A574, F593 — the bolts you spec on most drawings.</p>
+    </div>
+    <div class="if-prop">
+      <div class="pn">02</div>
+      <h3>Matched nuts &amp; washers</h3>
+      <p>A194 heavy hex nuts and F436 hardened washers paired to the bolt grade. Ship as kits, tagged by heat and lot.</p>
+    </div>
+    <div class="if-prop">
+      <div class="pn">03</div>
+      <h3>Exotic on quote</h3>
+      <p>Inconel, Monel, Hastelloy, 17-4 PH, 2205 / 2507 duplex, and titanium when the spec calls for more than standard stainless.</p>
+    </div>
+    <div class="if-prop">
+      <div class="pn">04</div>
+      <h3>MTRs every shipment</h3>
+      <p>Heat and lot traceability with every order. DFARS, AS9102 FAI, and PMI documentation when your QA program requires it.</p>
+    </div>
   </div>
-</div>
+</section>
 
 <!-- POSITIONING -->
-<section class="if-intro" data-screen-label="02 Positioning">
+<section class="if-intro" data-screen-label="03 Positioning">
   <div class="if-intro-inner">
     <div class="if-intro-lead">
       <h2>The hardware that runs through<br>almost <i>every project.</i></h2>
@@ -337,7 +341,7 @@
 </section>
 
 <!-- PRODUCTS -->
-<section class="if-products" id="products" data-screen-label="03 Products">
+<section class="if-products" id="products" data-screen-label="04 Products">
   <div class="if-products-header">
     <div class="eyebrow">What we stock</div>
     <h2>Six product families.<br><i>One supplier.</i></h2>
@@ -421,7 +425,7 @@
 </section>
 
 <!-- GRADES -->
-<section class="if-grades" id="grades" data-screen-label="04 Grades">
+<section class="if-grades" id="grades" data-screen-label="05 Grades">
   <div class="if-grades-inner">
     <div class="if-grades-header">
       <h2>Grades and specs,<br>grouped by <i>family.</i></h2>
@@ -527,7 +531,7 @@
 </section>
 
 <!-- COMPANION HARDWARE -->
-<section class="if-companion" data-screen-label="05 Companion hardware">
+<section class="if-companion" data-screen-label="06 Companion hardware">
   <div class="if-companion-inner">
     <div class="if-companion-text">
       <div class="eyebrow">Nuts, washers &amp; companion hardware</div>
@@ -552,7 +556,7 @@
 </section>
 
 <!-- EXOTIC ALLOYS -->
-<section class="if-exotic" data-screen-label="06 Exotic alloys">
+<section class="if-exotic" data-screen-label="07 Exotic alloys">
   <div class="if-exotic-inner">
     <div class="if-exotic-image">
       <img src="assets/if-factory.webp" alt="Industrial process plant with piping and valves">
@@ -576,7 +580,7 @@
 </section>
 
 <!-- TRACEABILITY -->
-<section class="if-trace" data-screen-label="07 Traceability">
+<section class="if-trace" data-screen-label="08 Traceability">
   <div class="if-trace-inner">
     <div class="if-trace-header">
       <div class="eyebrow">Traceability &amp; documentation</div>
@@ -614,7 +618,7 @@
 </section>
 
 <!-- CROSS-LINKS -->
-<section class="if-cross" data-screen-label="08 Cross-links">
+<section class="if-cross" data-screen-label="09 Cross-links">
   <div class="if-cross-inner">
     <div class="if-cross-header">
       <h2>Not sure this is<br>the right <i>category?</i></h2>
@@ -656,7 +660,7 @@
 </section>
 
 <!-- QUOTE FORM -->
-<section class="if-quote" data-screen-label="09 Request a quote">
+<section class="if-quote" data-screen-label="10 Request a quote">
   <div class="if-quote-inner">
     <div class="if-quote-text">
       <div class="eyebrow">Request a quote</div>
@@ -686,7 +690,7 @@
 </section>
 
 <!-- CTA BAND -->
-<section class="if-cta" data-screen-label="10 CTA">
+<section class="if-cta" data-screen-label="11 CTA">
   <div class="if-cta-inner">
     <div class="if-cta-eyebrow">Talk to a bolt specialist</div>
     <h2>Know the spec.<br>Know the <i>service.</i></h2>
