@@ -14,7 +14,7 @@ import { titleCase } from "@/lib/specBuilder/scoring";
  *   input_16 = Full Name (required)
  *   input_3  = Email (required)
  *   input_4  = Company (required)
- *   input_5_full = Phone (optional)
+ *   input_5_full = Phone (required)
  *   input_6  = Message / textarea
  *   input_7..input_12 = hidden spec context (spec, grade, app, env, strength, constraints)
  */
@@ -75,21 +75,30 @@ export function QuoteModal({
     };
   }, [open, onClose]);
 
-  // Phone mask
+  // Phone mask. Don't append `") "` until there are 4+ digits so the user
+  // can backspace through the area code — the previous version locked it in
+  // the moment the third digit was entered.
   const handlePhoneInput = (e: React.FormEvent<HTMLInputElement>) => {
     const input = e.currentTarget;
     const v = input.value.replace(/\D/g, "").substring(0, 10);
     let out = "";
-    if (v.length > 0) out = "(" + v.substring(0, 3);
-    if (v.length >= 3) out += ") ";
-    if (v.length > 3) out += v.substring(3, 6);
-    if (v.length >= 6) out += "-" + v.substring(6, 10);
-    input.value = v.length === 0 ? "" : out;
+    if (v.length === 0) out = "";
+    else if (v.length <= 3) out = "(" + v;
+    else if (v.length <= 6) out = "(" + v.substring(0, 3) + ") " + v.substring(3);
+    else
+      out =
+        "(" +
+        v.substring(0, 3) +
+        ") " +
+        v.substring(3, 6) +
+        "-" +
+        v.substring(6, 10);
+    input.value = out;
   };
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     const form = e.currentTarget;
-    const required = ["input_16", "input_3", "input_4"];
+    const required = ["input_16", "input_3", "input_4", "input_5_full"];
     const newErrors: Record<string, boolean> = {};
     required.forEach((id) => {
       const f = form.querySelector<HTMLInputElement>(`#${id}`);
@@ -252,27 +261,31 @@ export function QuoteModal({
                     />
                   </div>
                 </li>
-                <li className="form-line" data-type="control_phone" id="id_5">
+                <li className="form-line jf-required" data-type="control_phone" id="id_5">
                   <label
                     className="form-label form-label-top form-label-auto"
                     id="label_5"
                     htmlFor="input_5_full"
                   >
-                    Phone <span className="sb-label-hint">(optional, for faster response)</span>
+                    Phone<span className="form-required">*</span>
                   </label>
-                  <div id="cid_5" className="form-input-wide">
+                  <div id="cid_5" className="form-input-wide jf-required">
                     <input
                       type="tel"
                       id="input_5_full"
                       name="q5_q5_phone3[full]"
                       data-type="mask-number"
-                      className="mask-phone-number form-textbox"
+                      className={`mask-phone-number form-textbox validate[required]${errors.input_5_full ? " is-error" : ""}`}
                       autoComplete="section-input_5 tel-national"
                       placeholder="(000) 000-0000"
                       data-component="phone"
-                      aria-label="Phone (optional)"
+                      aria-labelledby="label_5"
+                      required
                       defaultValue=""
-                      onInput={handlePhoneInput}
+                      onInput={(e) => {
+                        handlePhoneInput(e);
+                        setErrors((er) => ({ ...er, input_5_full: false }));
+                      }}
                     />
                   </div>
                 </li>
@@ -354,8 +367,8 @@ export function QuoteModal({
             </div>
             <h3>Got it — request sent.</h3>
             <p>
-              An estimator will reach out within one business day with pricing, lead time, and any
-              spec questions.
+              A team member will reach out within one business day with pricing, lead time, and
+              any spec questions.
             </p>
             <button type="button" className="sb-ty-close" onClick={onClose}>
               Back to results
