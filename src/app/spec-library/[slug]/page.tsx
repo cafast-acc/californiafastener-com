@@ -98,13 +98,28 @@ export default async function SpecDetailPage({
       <CfNav />
       <main className="sp-wrap">
         <div className="sp-crumbs">
-          <Link href="/">California Fastener</Link>
-          <span className="sep">/</span>
-          <Link href="/spec-library">Spec Library</Link>
-          <span className="sep">/</span>
-          <span style={{ color: "var(--mid)" }}>{SECTION_TITLES[spec.section]}</span>
-          <span className="sep">/</span>
-          <span style={{ color: "var(--ink)" }}>{spec.code}</span>
+          <Link href="/spec-library" className="sp-back">
+            <svg
+              className="sp-back-arrow"
+              viewBox="0 0 16 16"
+              width="14"
+              height="14"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="1.6"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              aria-hidden="true"
+            >
+              <path d="M10 4l-4 4 4 4" />
+            </svg>
+            Back to Spec Library
+          </Link>
+          <div className="sp-crumbs-trail">
+            <span style={{ color: "var(--mid)" }}>{SECTION_TITLES[spec.section]}</span>
+            <span className="sep">/</span>
+            <span style={{ color: "var(--ink)" }}>{spec.code}</span>
+          </div>
         </div>
 
         <header className="sp-hero">

@@ -7,7 +7,7 @@
   .sp-wrap { max-width: 1280px; margin: 0 auto; padding: 0 40px; }
   @media (max-width: 720px) { .sp-wrap { padding: 0 20px; } }
 
-  /* Breadcrumb */
+  /* Breadcrumb — left = back-to-library button, right = section / code trail */
   .sp-crumbs {
     font-family: var(--cf-font-mono);
     font-size: 11px;
@@ -15,10 +15,36 @@
     text-transform: uppercase;
     color: var(--mid);
     padding: 28px 0 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 24px;
+    flex-wrap: wrap;
   }
   .sp-crumbs a { color: var(--mid); text-decoration: none; }
   .sp-crumbs a:hover { color: var(--ink); }
   .sp-crumbs .sep { margin: 0 10px; color: var(--rule); }
+
+  /* Back-to-library link — visually a small inline-flex button.
+     Arrow nudges 2px left on hover (Apple "back" pattern). */
+  .sp-back {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    color: var(--ink-soft);
+  }
+  .sp-back:hover { color: var(--ink); }
+  .sp-back-arrow {
+    flex-shrink: 0;
+    transition: transform 160ms ease;
+  }
+  .sp-back:hover .sp-back-arrow { transform: translateX(-2px); }
+
+  /* Right side of the breadcrumb row */
+  .sp-crumbs-trail { display: inline-flex; align-items: center; }
+  @media (max-width: 720px) {
+    .sp-crumbs-trail { display: none; }
+  }
 
   /* Hero */
   .sp-hero {
