@@ -95,6 +95,7 @@ export default function HomePage() {
             alt="Industrial hex bolt and nut"
             width={1536}
             height={1016}
+            quality={95}
             sizes="(max-width: 1000px) 90vw, 600px"
           />
         </div>
@@ -143,6 +144,7 @@ export default function HomePage() {
             alt="A325 hex bolt render"
             width={1469}
             height={889}
+            quality={95}
             sizes="(max-width: 1100px) 100vw, 1100px"
           />
         </div>
@@ -156,6 +158,7 @@ export default function HomePage() {
             alt="Headed anchor bolt with nut and template plate"
             width={1587}
             height={1258}
+            quality={95}
             sizes="(max-width: 1000px) 90vw, 600px"
           />
         </div>
@@ -260,6 +263,7 @@ export default function HomePage() {
               className="specialty-image-hero"
               width={1029}
               height={951}
+              quality={95}
               sizes="(max-width: 860px) 100vw, 600px"
             />
           </div>

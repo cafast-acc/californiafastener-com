@@ -66,6 +66,7 @@ export default function StructuralFastenersPage() {
               width={1478}
               height={1021}
               priority
+              quality={95}
               sizes="(max-width: 1000px) 100vw, 750px"
             />
           </div>

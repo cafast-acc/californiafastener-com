@@ -7,6 +7,12 @@ const nextConfig: NextConfig = {
     // import.meta.dirname is reliable in Node 20.11+ ESM; __dirname isn't.
     root: import.meta.dirname,
   },
+  images: {
+    // Next 15+ requires non-default quality values to be allowlisted here.
+    // 95 = visually lossless for the product CAD renders; 75 stays available
+    // for any future placeholder / thumbnail use.
+    qualities: [75, 95],
+  },
   async headers() {
     // /public/assets/* gets a long browser cache. Vercel's defaults send
     // `Cache-Control: public, max-age=0, must-revalidate` for everything in

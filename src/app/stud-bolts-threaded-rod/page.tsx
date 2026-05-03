@@ -64,6 +64,7 @@ export default function StudBoltsThreadedRodPage() {
               width={916}
               height={750}
               priority
+              quality={95}
               sizes="(max-width: 1000px) 100vw, 750px"
             />
           </div>
