@@ -14,8 +14,8 @@ resume work on this repo on a different machine without losing context.
 | Vercel project | `california-fastener/cafastdotcom2026-2` (in the `california-fastener` team scope) |
 | Branch | `master` (auto-deploys to prod on push) |
 
-The repo has nine commits as of this handoff — homepage ported, three product
-pages ported, a shared `pp-*` CSS module extracted, image perf fixes landed.
+As of this handoff: homepage ported, three product pages ported, a shared
+`pp-*` CSS module extracted, image perf fixes landed.
 
 ## Set up the new machine
 
@@ -32,7 +32,9 @@ Optional, if you want to deploy from the new machine:
 ```sh
 npm i -g vercel
 vercel login                             # use the same Vercel account; OAuth
-vercel link                              # picks up .vercel/ from the repo
+vercel link                              # interactive — `.vercel/` is gitignored
+                                         # so re-select team `california-fastener`
+                                         # and project `cafastdotcom2026-2`
 ```
 
 Note: on the source machine the Vercel CLI was re-prompting for auth on each
@@ -140,11 +142,12 @@ Components:
   more shared CSS until you've ported the next 1-2 product pages and seen
   whether they fit.
 
-## Memory carry-over (write these to `~/.claude/projects/<project>/memory/` on the new machine if you want them persisted there too)
+## Memory carry-over (append to `CLAUDE.md` or `~/.claude/CLAUDE.md` on the new machine if you want them persisted there too)
 
 The memory facts I had on the source machine — these are also captured in this
 HANDOFF.md, so they don't strictly need to be re-created, but if you want them
-showing up automatically in future Claude Code sessions:
+showing up automatically in future Claude Code sessions, paste them into
+`CLAUDE.md` (project-scoped) or `~/.claude/CLAUDE.md` (user-scoped):
 
 **`project_overview.md`** — Building a marketing site for californiafastener.com
 (Bay Area industrial-fastener distributor + CNC shop, est. 1970, Vacaville CA).
