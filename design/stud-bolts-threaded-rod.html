@@ -28,19 +28,71 @@
   .st-hero-stat-val { font-size: 28px; font-weight: 600; letter-spacing: -0.02em; line-height: 1; margin-bottom: 6px; }
   .st-hero-stat-label { font-size: 11px; color: var(--mid); letter-spacing: 0.02em; text-transform: uppercase; line-height: 1.3; }
 
-  .st-hero-image { background: #E8E6E1; border-radius: 24px 0 0 0; min-height: 720px; margin-right: calc((100vw - 1440px) / -2); display: flex; align-items: center; justify-content: center; overflow: hidden; position: relative; }
+  .st-hero-image { background: #E8E6E1; border-radius: 24px 0 0 24px; min-height: 720px; margin-right: calc((100vw - 1440px) / -2); display: flex; align-items: center; justify-content: center; overflow: hidden; position: relative; }hidden; position: relative; }
   @media (max-width: 1480px) { .st-hero-image { margin-right: -40px; } }
-  .st-hero-image img { width: 110%; height: auto; max-height: 95%; object-fit: contain; filter: drop-shadow(0 30px 50px rgba(0,0,0,0.2)); }
+  .st-hero-image img { width: 100%; height: 100%; object-fit: cover; }
   .st-hero-image-tag { position: absolute; top: 24px; left: 24px; background: rgba(255,255,255,0.92); backdrop-filter: blur(8px); padding: 8px 14px; border-radius: 100px; font-size: 11px; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; color: var(--ink); }
 
-  /* ── TRUST BAR MARQUEE ─────────────────────────────────── */
-  .st-trustbar { background: var(--white); padding: 26px 0; overflow: hidden; border-top: 1px solid var(--rule-soft); border-bottom: 1px solid var(--rule-soft); }
-  .st-trustbar-track { display: flex; width: max-content; animation: st-trust-scroll 45s linear infinite; }
-  .st-trustbar:hover .st-trustbar-track { animation-play-state: paused; }
-  .st-trust-item { display: flex; align-items: center; gap: 14px; padding: 0 48px; border-right: 1px solid var(--rule-soft); flex-shrink: 0; }
-  .st-trust-item svg { width: 26px; height: 26px; stroke: var(--blue-dark); fill: none; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; flex-shrink: 0; }
-  .st-trust-item span { font-weight: 600; font-size: 15px; color: var(--ink); letter-spacing: -0.005em; white-space: nowrap; }
-  @keyframes st-trust-scroll { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+  /* ── PROPERTY STRIP (replaces marquee) ─────────────────── */
+  .st-props { padding: 72px 40px; border-top: 1px solid var(--rule-soft); border-bottom: 1px solid var(--rule-soft); background: var(--bg); }
+  .st-props-inner { max-width: 1240px; margin: 0 auto; display: grid; grid-template-columns: repeat(4, 1fr); gap: 40px; }
+  .st-prop { padding-top: 24px; border-top: 2px solid var(--blue-dark); }
+  .st-prop .pn { font-family: "SF Mono", ui-monospace, monospace; font-size: 11px; color: var(--blue-dark); letter-spacing: 0.06em; margin-bottom: 10px; }
+  .st-prop h3 { font-size: 18px; font-weight: 600; letter-spacing: -0.015em; margin: 0 0 8px; }
+  .st-prop p { font-size: 14px; color: var(--mid); line-height: 1.5; margin: 0; }
+
+  /* ── DATA CARD (A193 tensile bars) ─────────────────────── */
+  .st-data-card { background: var(--ink); color: var(--dark-text); border-radius: 24px; padding: 44px; position: relative; overflow: hidden; display: flex; flex-direction: column; gap: 32px; }
+  .st-data-card::before { content: ''; position: absolute; inset: 0; background: radial-gradient(ellipse 60% 50% at 80% 100%, rgba(56,182,255,0.18), transparent 65%); pointer-events: none; }
+  .st-data-head { position: relative; z-index: 1; }
+  .st-data-head .label { font-family: "SF Mono", ui-monospace, monospace; font-size: 11px; color: var(--blue); letter-spacing: 0.06em; text-transform: uppercase; margin-bottom: 8px; }
+  .st-data-head h3 { font-size: 24px; font-weight: 600; letter-spacing: -0.02em; margin: 0; color: var(--dark-text); }
+  .st-data-bars { position: relative; z-index: 1; display: grid; gap: 18px; }
+  .st-bar { display: grid; grid-template-columns: 130px 1fr 60px; gap: 14px; align-items: center; font-size: 13px; }
+  .st-bar-name { color: var(--dark-text); letter-spacing: -0.005em; }
+  .st-bar-track { height: 8px; background: rgba(255,255,255,0.08); border-radius: 100px; overflow: hidden; }
+  .st-bar-fill { height: 100%; background: linear-gradient(90deg, var(--blue-dark) 0%, var(--blue) 100%); border-radius: 100px; }
+  .st-bar--muted .st-bar-fill { background: rgba(255,255,255,0.25); }
+  .st-bar-val { font-family: "SF Mono", ui-monospace, monospace; font-size: 12px; color: var(--blue); text-align: right; }
+  .st-data-foot { position: relative; z-index: 1; font-size: 11px; color: rgba(255,255,255,0.45); letter-spacing: -0.005em; line-height: 1.5; padding-top: 16px; border-top: 1px solid rgba(255,255,255,0.08); }
+
+  /* ── INVENTORY BAND ─────────────────────────────────────── */
+  .st-inventory { padding: 0; background: var(--ink); color: var(--dark-text); overflow: hidden; }
+  .st-inventory-inner { display: grid; grid-template-columns: 1fr 1.2fr; min-height: 520px; }
+  .st-inventory-text { padding: 96px 80px; display: flex; flex-direction: column; justify-content: center; }
+  .st-inventory-text .eyebrow { font-size: 13px; color: var(--blue); font-weight: 500; margin-bottom: 14px; letter-spacing: 0.04em; text-transform: uppercase; }
+  .st-inventory-text h2 { font-size: clamp(40px, 4.2vw, 60px); font-weight: 600; letter-spacing: -0.03em; line-height: 1.02; margin-bottom: 20px; color: var(--dark-text); }
+  .st-inventory-text h2 i { color: var(--blue); }
+  .st-inventory-text > p { font-size: 17px; color: var(--dark-mid); line-height: 1.5; margin-bottom: 28px; max-width: 460px; }
+  .st-inventory-ctas { display: flex; gap: 14px; flex-wrap: wrap; }
+  .st-inventory-visual { position: relative; background: radial-gradient(ellipse 70% 60% at 50% 50%, rgba(56,182,255,0.14), transparent 70%), linear-gradient(135deg, #181b21 0%, #0f1115 100%); overflow: hidden; }
+  .st-inv-grid { position: absolute; inset: 40px; display: grid; grid-template-rows: repeat(6, 1fr); gap: 8px; font-family: "SF Mono", ui-monospace, monospace; font-size: 11px; color: rgba(220,230,240,0.75); letter-spacing: 0.04em; }
+  .st-inv-row { display: grid; grid-template-columns: 100px 1fr 60px 80px; gap: 14px; align-items: center; padding: 12px 18px; background: rgba(255,255,255,0.035); border: 1px solid rgba(255,255,255,0.06); border-radius: 10px; }
+  .st-inv-row b { color: var(--blue); font-weight: 500; }
+  .st-inv-row .qty { text-align: right; color: rgba(255,255,255,0.6); }
+  .st-inv-row .stk { text-align: right; color: #8DD9A2; font-weight: 500; letter-spacing: 0.06em; }
+
+  /* ── APPLICATION TILES ──────────────────────────────────── */
+  .st-apps { padding: 120px 40px; }
+  .st-apps-inner { max-width: 1280px; margin: 0 auto; }
+  .st-apps-header { max-width: 820px; margin-bottom: 48px; }
+  .st-apps-header .eyebrow { font-size: 14px; color: var(--blue-dark); font-weight: 500; margin-bottom: 14px; }
+  .st-apps-header h2 { font-size: clamp(36px, 4vw, 56px); font-weight: 600; letter-spacing: -0.03em; line-height: 1.05; margin-bottom: 14px; }
+  .st-apps-header h2 i { color: var(--blue-dark); }
+  .st-apps-header p { font-size: 18px; color: var(--ink-soft); line-height: 1.45; }
+  .st-apps-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+  .st-app-tile { aspect-ratio: 4 / 5; border-radius: 20px; overflow: hidden; position: relative; background: var(--bg-alt); cursor: pointer; transition: transform 0.3s; text-decoration: none; color: inherit; display: block; }
+  .st-app-tile:hover { transform: translateY(-4px); }
+  .st-app-tile-bg { position: absolute; inset: 0; z-index: 0; }
+  .st-app-tile--oil .st-app-tile-bg { background: url('assets/ind-oil-gas-chem.webp') center/cover no-repeat; }
+  .st-app-tile--power .st-app-tile-bg { background: url('assets/ind-pwr-gen.webp') center/cover no-repeat; }
+  .st-app-tile--const .st-app-tile-bg { background: url('assets/ind-construction.webp') center/cover no-repeat; }
+  .st-app-tile-bg::after { content: ''; position: absolute; inset: 0; background: linear-gradient(180deg, rgba(0,0,0,0.15) 0%, rgba(0,0,0,0.35) 50%, rgba(0,0,0,0.85) 100%); }
+  .st-app-tile::after { content: ''; position: absolute; inset: 0; background: linear-gradient(180deg, rgba(0,0,0,0) 30%, rgba(0,0,0,0.4) 100%); z-index: 1; pointer-events: none; }
+  .st-app-tile-body { position: absolute; inset: 0; z-index: 2; padding: 26px; display: flex; flex-direction: column; justify-content: flex-end; color: white; }
+  .st-app-tile-eyebrow { font-size: 11px; font-weight: 500; color: rgba(255,255,255,0.72); margin-bottom: 8px; letter-spacing: 0.04em; text-transform: uppercase; }
+  .st-app-tile-title { font-size: 22px; font-weight: 600; letter-spacing: -0.02em; line-height: 1.15; margin-bottom: 10px; }
+  .st-app-tile-desc { font-size: 13px; color: rgba(255,255,255,0.8); line-height: 1.5; max-width: 300px; }
 
   /* ── POSITIONING ───────────────────────────────────────── */
   .st-intro { padding: 112px 40px; border-bottom: 1px solid var(--rule-soft); }
@@ -92,8 +144,9 @@
   /* ── GRADES — grouped by family ────────────────────────── */
   .st-grades { padding: 120px 40px; background: var(--bg-alt); }
   .st-grades-inner { max-width: 1240px; margin: 0 auto; }
-  .st-grades-header { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: end; margin-bottom: 64px; }
-  .st-grades-header h2 { font-size: clamp(36px, 4vw, 56px); font-weight: 600; letter-spacing: -0.03em; line-height: 1.05; }
+  .st-grades-header { display: grid; grid-template-columns: 1fr 1.05fr; gap: 64px; align-items: end; margin-bottom: 64px; }
+  .st-grades-header-text { padding-bottom: 8px; }
+  .st-grades-header h2 { font-size: clamp(36px, 4vw, 56px); font-weight: 600; letter-spacing: -0.03em; line-height: 1.05; margin-bottom: 18px; }
   .st-grades-header h2 i { color: var(--blue-dark); }
   .st-grades-header p { font-size: 17px; color: var(--ink-soft); line-height: 1.5; max-width: 460px; }
 
@@ -209,9 +262,10 @@
     .st-family { grid-template-columns: 1fr; gap: 28px; }
     .st-family-label { position: static; }
     .st-spec-card { grid-template-columns: 1fr; gap: 14px; }
+    .st-grades-header { grid-template-columns: 1fr; gap: 40px; }
   }
   @media (max-width: 1000px) {
-    .st-hero-inner, .st-intro-inner, .st-grades-header, .st-coatings-inner, .st-cross-header, .st-quote-inner, .st-cut-inner { grid-template-columns: 1fr; gap: 40px; }
+    .st-hero-inner, .st-intro-inner, .st-coatings-inner, .st-cross-header, .st-quote-inner, .st-cut-inner, .st-inventory-inner { grid-template-columns: 1fr; gap: 40px; }
     .st-hero-image { margin-right: 0; border-radius: 24px; min-height: 480px; }
     .st-cut-text { padding: 64px 40px; }
     .st-cut-image { min-height: 320px; }
@@ -220,11 +274,16 @@
     .st-cross-grid { grid-template-columns: 1fr; }
     .st-coatings-list li { grid-template-columns: 1fr; gap: 6px; }
     .st-form-row { grid-template-columns: 1fr; }
+    .st-inventory-text { padding: 64px 40px; }
+    .st-inventory-visual { min-height: 480px; }
+    .st-apps-grid { grid-template-columns: 1fr; }
+    .st-props-inner { grid-template-columns: 1fr 1fr; gap: 28px; }
+    .st-bar { grid-template-columns: 110px 1fr 50px; }
   }
   @media (max-width: 680px) {
-    .st-trust-item { padding: 0 32px; }
-    .st-trust-item span { font-size: 13px; }
-    .st-trust-item svg { width: 22px; height: 22px; }
+    .st-props-inner { grid-template-columns: 1fr; gap: 24px; }
+    .st-data-card { padding: 32px 28px; }
+    .st-bar { grid-template-columns: 100px 1fr 44px; gap: 10px; font-size: 12px; }
   }
 </style>
 </head>
@@ -302,35 +361,42 @@
       <div class="st-hero-stats">
         <div><div class="st-hero-stat-val">A193</div><div class="st-hero-stat-label">B7 / B16 / B8 / B8M</div></div>
         <div><div class="st-hero-stat-val">A320</div><div class="st-hero-stat-label">Gr L7 — low temp</div></div>
-        <div><div class="st-hero-stat-val">A36</div><div class="st-hero-stat-label">Mild rod · F1554</div></div>
-        <div><div class="st-hero-stat-val">12 ft</div><div class="st-hero-stat-label">Stock cut to spec</div></div>
+        <div><div class="st-hero-stat-val">A194</div><div class="st-hero-stat-label">2H / 7 / 8 / 8M nuts</div></div>
+        <div><div class="st-hero-stat-val">MTR</div><div class="st-hero-stat-label">Full lot traceability</div></div>
       </div>
     </div>
     <div class="st-hero-image">
-      <div class="st-hero-image-tag">A193 B8 · 304 Stainless · Continuous thread</div>
+      <div class="st-hero-image-tag">A193 B7 · Double-end stud · Heavy hex</div>
       <img src="assets/if-stamp-b8-rod.webp" alt="A193 B8 304 stainless threaded rod stamped CA B8" />
     </div>
   </div>
 </section>
 
-<!-- TRUST BAR -->
-<div class="st-trustbar" aria-hidden="true" data-screen-label="02 Trust bar">
-  <div class="st-trustbar-track">
-    <div class="st-trust-item"><svg viewBox="0 0 24 24"><path d="M13 2 3 14h9l-1 8 10-12h-9l1-8z"/></svg><span>Fast Quotes</span></div>
-    <div class="st-trust-item"><svg viewBox="0 0 24 24"><path d="M3 12h18M7 6h10M7 18h10"/></svg><span>Cut To Length</span></div>
-    <div class="st-trust-item"><svg viewBox="0 0 24 24"><rect x="8" y="2" width="8" height="4" rx="1" ry="1"/><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"/><path d="m9 14 2 2 4-4"/></svg><span>Full Traceability</span></div>
-    <div class="st-trust-item"><svg viewBox="0 0 24 24"><path d="M6 3h12l4 6-10 13L2 9Z"/><path d="M11 3 8 9l4 13 4-13-3-6"/><path d="M2 9h20"/></svg><span>Exotic Grades</span></div>
-    <div class="st-trust-item"><svg viewBox="0 0 24 24"><path d="M14 18V6a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2v11a1 1 0 0 0 1 1h2"/><path d="M15 18H9"/><path d="M19 18h2a1 1 0 0 0 1-1v-3.65a1 1 0 0 0-.22-.624l-3.48-4.35A1 1 0 0 0 17.52 8H14"/><circle cx="17" cy="18" r="2"/><circle cx="7" cy="18" r="2"/></svg><span>Same Day Shipping</span></div>
-    <div class="st-trust-item"><svg viewBox="0 0 24 24"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg><span>Bolt Specialists</span></div>
-    <!-- duplicate -->
-    <div class="st-trust-item"><svg viewBox="0 0 24 24"><path d="M13 2 3 14h9l-1 8 10-12h-9l1-8z"/></svg><span>Fast Quotes</span></div>
-    <div class="st-trust-item"><svg viewBox="0 0 24 24"><path d="M3 12h18M7 6h10M7 18h10"/></svg><span>Cut To Length</span></div>
-    <div class="st-trust-item"><svg viewBox="0 0 24 24"><rect x="8" y="2" width="8" height="4" rx="1" ry="1"/><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"/><path d="m9 14 2 2 4-4"/></svg><span>Full Traceability</span></div>
-    <div class="st-trust-item"><svg viewBox="0 0 24 24"><path d="M6 3h12l4 6-10 13L2 9Z"/><path d="M11 3 8 9l4 13 4-13-3-6"/><path d="M2 9h20"/></svg><span>Exotic Grades</span></div>
-    <div class="st-trust-item"><svg viewBox="0 0 24 24"><path d="M14 18V6a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2v11a1 1 0 0 0 1 1h2"/><path d="M15 18H9"/><path d="M19 18h2a1 1 0 0 0 1-1v-3.65a1 1 0 0 0-.22-.624l-3.48-4.35A1 1 0 0 0 17.52 8H14"/><circle cx="17" cy="18" r="2"/><circle cx="7" cy="18" r="2"/></svg><span>Same Day Shipping</span></div>
-    <div class="st-trust-item"><svg viewBox="0 0 24 24"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg><span>Bolt Specialists</span></div>
+<!-- PROPERTY STRIP -->
+<section class="st-props" data-screen-label="02 Properties">
+  <div class="st-props-inner">
+    <div class="st-prop">
+      <div class="pn">01</div>
+      <h3>High-temperature</h3>
+      <p>A193 B7 and B16 — heat-treated chrome-moly stud bolts for ASME flange and pressure-vessel service up to ~1100°F.</p>
+    </div>
+    <div class="st-prop">
+      <div class="pn">02</div>
+      <h3>Low-temperature</h3>
+      <p>A320 L7 and L43 are Charpy-tested at −150°F for cryogenic and cold-weather service — LNG, ammonia, refrigeration.</p>
+    </div>
+    <div class="st-prop">
+      <div class="pn">03</div>
+      <h3>Cut to length</h3>
+      <p>Threaded rod cut, deburred, and chamfered both ends — from short tap-end studs up through 12 ft anchor rod.</p>
+    </div>
+    <div class="st-prop">
+      <div class="pn">04</div>
+      <h3>Coatings &amp; finishes</h3>
+      <p>Plain, hot-dip galvanized, mech zinc, PTFE / Xylan, cad. MTRs, PMI, and lot traceability furnished on request.</p>
+    </div>
   </div>
-</div>
+</section>
 
 <!-- POSITIONING -->
 <section class="st-intro" data-screen-label="03 Positioning">
@@ -359,7 +425,7 @@
     <div class="st-product-card">
       <div class="st-product-photo">
         <span class="pnum">01 / Stud bolt</span>
-        <img src="assets/if-stamp-b8-rod.webp" alt="A193 B8 stud bolt stamped CA B8">
+        <img src="assets/stud-bolt.png" alt="A193 B7 / B8 stud bolt">
       </div>
       <div class="st-product-body">
         <h3>Flange stud bolts</h3>
@@ -371,7 +437,7 @@
     <div class="st-product-card">
       <div class="st-product-photo">
         <span class="pnum">02 / Double-end</span>
-        <div class="st-ph-placeholder">Product shot<br>Double-end stud (tap-end)</div>
+        <img src="assets/dbl-end-stud.png" alt="Double-end stud with tap-end and nut-end">
       </div>
       <div class="st-product-body">
         <h3>Double-end studs</h3>
@@ -383,7 +449,7 @@
     <div class="st-product-card">
       <div class="st-product-photo">
         <span class="pnum">03 / Threaded rod</span>
-        <div class="st-ph-placeholder">Product shot<br>Continuous threaded rod (12 ft)</div>
+        <img src="assets/full-thrd-rod.png" alt="Continuous fully threaded rod">
       </div>
       <div class="st-product-body">
         <h3>Continuous threaded rod</h3>
@@ -392,22 +458,11 @@
       </div>
     </div>
 
-    <div class="st-product-card">
-      <div class="st-product-photo">
-        <span class="pnum">04 / Bent rod</span>
-        <img src="assets/anchor-bent.webp" alt="Bent J-rod anchor for foundation">
-      </div>
-      <div class="st-product-body">
-        <h3>Bent &amp; headed rod</h3>
-        <p>J-bend, L-bend, swedged, and forged-head rods to print. Often called out on column bases and embed plates in lieu of stud assemblies.</p>
-        <div class="st-product-meta"><b>F1554 Gr 36 · 55 · 105</b> · Wpd / S1 weldable</div>
-      </div>
-    </div>
 
     <div class="st-product-card">
       <div class="st-product-photo">
-        <span class="pnum">05 / Acme rod</span>
-        <div class="st-ph-placeholder">Product shot<br>Acme threaded rod</div>
+        <span class="pnum">04 / Acme rod</span>
+        <img src="assets/acme-thrd-rod.png" alt="Acme threaded rod with trapezoidal threads">
       </div>
       <div class="st-product-body">
         <h3>Acme threaded rod</h3>
@@ -418,16 +473,30 @@
 
     <div class="st-product-card">
       <div class="st-product-photo">
-        <span class="pnum">06 / Hanger rod</span>
-        <div class="st-ph-placeholder">Product shot<br>Continuous-thread hanger rod</div>
+        <span class="pnum">05 / Stud kits</span>
+        <img src="assets/stud-kit.png" alt="Stud bolt assembly kit with heavy hex nuts">
       </div>
       <div class="st-product-body">
-        <h3>Hanger rod</h3>
-        <p>Threaded rod for pipe and equipment supports — strut, trapeze, and seismic-bracing hardware. Plain, electro-zinc, and HDG.</p>
-        <div class="st-product-meta"><b>A36 / A307</b> · MFMA / Unistrut compatible</div>
+        <h3>Stud bolt assemblies</h3>
+        <p>Joint-ready kits — studs, two A194 heavy hex nuts, and F436 washers per joint, bagged and banded by line item. Pull a flange off the trailer, grab a bag, make the joint.</p>
+        <div class="st-product-meta"><b>A193 + A194 + F436</b> · per-joint bag · BOM-matched</div>
       </div>
     </div>
 
+
+    <div class="st-product-card">
+      <div class="st-product-photo">
+        <span class="pnum">06 / CNC machined</span>
+        <img src="assets/custom-stud.png" alt="Custom CNC machined stud with reduced shank">
+      </div>
+      <div class="st-product-body">
+        <h3>Custom CNC machined</h3>
+        <p>Specials cut to print on our in-house CNC — shoulder studs, stepped studs, drilled or cross-bored rod, custom thread reliefs, reduced shanks. Prototype runs to scheduled production.</p>
+        <div class="st-product-meta"><b>To print · DFARS · AS9102</b> · carbon, alloy, SS, exotics</div>
+      </div>
+    </div>
+      </div>
+    </div>
   </div>
 </section>
 
@@ -468,178 +537,70 @@
   </div>
 </section>
 
-<!-- GRADES -->
-<section class="st-grades" id="grades" data-screen-label="06 Grades">
-  <div class="st-grades-inner">
-    <div class="st-grades-header">
-      <h2>Specs and grades,<br>grouped by <i>family.</i></h2>
-      <p>Studs and rod cover an unusually wide service range — from ambient hanger rod to 1100°F superheated steam. Below is how we organize the specs we work in most often.</p>
-    </div>
-
-    <!-- High-temp / pressure -->
-    <div class="st-family">
-      <div class="st-family-label">
-        <div class="num">Family 01</div>
-        <h3>High-temperature alloy</h3>
-        <p>Chromium-moly (and Cr-Mo-V) alloy stud bolts for pressure vessels, flanged piping, and high-temperature, high-pressure service. The bread and butter of ASME B31.</p>
-      </div>
-      <div class="st-family-cards">
-        <div class="st-spec-card">
-          <div class="st-spec-tag">ASTM A193<span class="name">Grade B7</span>
-            <ul class="st-spec-grades"><li>4140 / 4142</li><li>Q &amp; T</li><li>~900°F</li></ul>
-          </div>
-          <div class="st-spec-body">
-            <p>The standard pressure-flange stud bolt — chromium-molybdenum (4140 / 4142), quenched and tempered. Refineries, power plants, petrochemical, and any flanged ASME pipe joint at moderate-to-high temperature.</p>
-          </div>
-        </div>
-        <div class="st-spec-card">
-          <div class="st-spec-tag">ASTM A193<span class="name">Grade B16</span>
-            <ul class="st-spec-grades"><li>Cr-Mo-V</li><li>~1100°F</li></ul>
-          </div>
-          <div class="st-spec-body">
-            <p>Chromium-moly-vanadium alloy, quenched and tempered. Runs above B7's range — superheated steam piping and high-temperature turbine flanges.</p>
-          </div>
-        </div>
-        <div class="st-spec-card">
-          <div class="st-spec-tag">ASTM A453<span class="name">Grade 660</span>
-            <ul class="st-spec-grades"><li>Class A · B</li><li>~1300°F</li></ul>
-          </div>
-          <div class="st-spec-body">
-            <p>Iron-nickel-chromium precipitation-hardened stud bolt for very high-temperature service — gas turbines, steam-cycle hot end. Quote-basis lead time.</p>
-          </div>
-        </div>
+<!-- INVENTORY BAND -->
+<section class="st-inventory" data-screen-label="07 Inventory">
+  <div class="st-inventory-inner">
+    <div class="st-inventory-text">
+      <div class="eyebrow">Inventory &amp; availability</div>
+      <h2>Stocked, cut, and<br>ready to <i>ship.</i></h2>
+      <p>We keep an active inventory of stud bolts, threaded rod, and matching A194 nuts in the sizes and grades the petrochemical, power, and structural markets call out most. Cuts, finishes, and assemblies turn around quickly — most orders ship same week.</p>
+      <div class="st-inventory-ctas">
+        <a href="quote-flow.html" class="cf-pill cf-pill--blue-light">Check availability</a>
+        <a href="tel:8885817328" class="cf-pill cf-pill--ghost-dark">888.581.7328</a>
       </div>
     </div>
-
-    <!-- Low temperature -->
-    <div class="st-family">
-      <div class="st-family-label">
-        <div class="num">Family 02</div>
-        <h3>Low-temperature alloy</h3>
-        <p>Charpy-tested alloy stud bolts for cryogenic and refrigerated service — LNG, cold-box piping, ammonia, ethylene.</p>
-      </div>
-      <div class="st-family-cards">
-        <div class="st-spec-card">
-          <div class="st-spec-tag">ASTM A320<span class="name">Grade L7</span>
-            <ul class="st-spec-grades"><li>4140 Q &amp; T</li><li>−150°F Charpy</li></ul>
-          </div>
-          <div class="st-spec-body">
-            <p>The most common low-temp stud — same chemistry as B7, but with a Charpy impact requirement at −150°F. Standard for LNG, ammonia, and cold-side process piping.</p>
-          </div>
-        </div>
-        <div class="st-spec-card">
-          <div class="st-spec-tag">ASTM A320<span class="name">Grade L43</span>
-            <ul class="st-spec-grades"><li>4340</li><li>−150°F Charpy</li><li>Higher strength</li></ul>
-          </div>
-          <div class="st-spec-body">
-            <p>Higher-strength low-temp alloy — 4340 Q &amp; T with the same impact requirement as L7. Used where geometry pushes L7 out of capacity.</p>
-          </div>
-        </div>
+    <div class="st-inventory-visual" aria-hidden="true">
+      <div class="st-inv-grid">
+        <div class="st-inv-row"><b>A193 B7</b><span>Stud · 1/2-13 × 3½″ w/ 2H</span><span class="qty">3,200</span><span class="stk">IN STOCK</span></div>
+        <div class="st-inv-row"><b>A193 B7</b><span>Stud · 3/4-10 × 4½″ w/ 2H</span><span class="qty">2,400</span><span class="stk">IN STOCK</span></div>
+        <div class="st-inv-row"><b>A193 B8M</b><span>Stud · 5/8-11 × 4″ w/ 8M</span><span class="qty">980</span><span class="stk">IN STOCK</span></div>
+        <div class="st-inv-row"><b>A320 L7</b><span>Stud · 7/8-9 × 5″ w/ Gr 7</span><span class="qty">640</span><span class="stk">IN STOCK</span></div>
+        <div class="st-inv-row"><b>A307</b><span>Threaded rod · 1/2-13 × 12′</span><span class="qty">1,800</span><span class="stk">IN STOCK</span></div>
+        <div class="st-inv-row"><b>F1554 G36</b><span>Anchor rod · 3/4-10 × 18″ HDG</span><span class="qty">720</span><span class="stk">IN STOCK</span></div>
       </div>
     </div>
+  </div>
+</section>
 
-    <!-- Stainless -->
-    <div class="st-family">
-      <div class="st-family-label">
-        <div class="num">Family 03</div>
-        <h3>Stainless steel</h3>
-        <p>304 and 316 austenitic studs and rod for chemical, food, pharma, marine, and chloride-bearing service. Class 1 annealed and Class 2 strain-hardened.</p>
-      </div>
-      <div class="st-family-cards">
-        <div class="st-spec-card">
-          <div class="st-spec-tag">ASTM A193<span class="name">Grade B8 · B8M</span>
-            <ul class="st-spec-grades"><li>304</li><li>316</li><li>Cl. 1 &amp; 2</li></ul>
-          </div>
-          <div class="st-spec-body">
-            <p>B8 is 304 stainless, B8M is 316. Class 1 is solution-annealed for general corrosion service; Class 2 is strain-hardened for higher strength at smaller diameters. The chloride-resistant choice for marine, chemical, and pulp / paper.</p>
-          </div>
-        </div>
-        <div class="st-spec-card">
-          <div class="st-spec-tag">ASTM F593<span class="name">Group 1, 2, 3</span>
-            <ul class="st-spec-grades"><li>304/305</li><li>316</li><li>Strain-hard.</li></ul>
-          </div>
-          <div class="st-spec-body">
-            <p>Stainless studs and rod for non-pressure service — where A193 isn't required but stainless is. 18-8 (304/305), 316, and strain-hardened classes.</p>
-          </div>
-        </div>
-      </div>
+<!-- APPLICATIONS -->
+<section class="st-apps" data-screen-label="08 Applications">
+  <div class="st-apps-inner">
+    <div class="st-apps-header">
+      <div class="eyebrow">Where these get used</div>
+      <h2>Three places these <i>show up</i> most.</h2>
+      <p>Most of our stud and rod work falls into one of three areas. Tell us the industry and the line item, and we'll pull the right grade, finish, and length.</p>
     </div>
-
-    <!-- Carbon / general -->
-    <div class="st-family">
-      <div class="st-family-label">
-        <div class="num">Family 04</div>
-        <h3>Carbon &amp; structural rod</h3>
-        <p>General-purpose threaded rod and structural anchor rod. Hangers, supports, machinery, and foundations.</p>
-      </div>
-      <div class="st-family-cards">
-        <div class="st-spec-card">
-          <div class="st-spec-tag">ASTM A36<span class="name">Mild rod</span>
-            <ul class="st-spec-grades"><li>36 ksi</li><li>Weldable</li></ul>
-          </div>
-          <div class="st-spec-body">
-            <p>The general-purpose threaded rod — soft, weldable, easy to cut and bend. Hangers, light anchorage, support hardware, embed assemblies.</p>
-          </div>
+    <div class="st-apps-grid">
+      <a href="industries-oil-gas.html" class="st-app-tile st-app-tile--oil">
+        <div class="st-app-tile-bg"></div>
+        <div class="st-app-tile-body">
+          <div class="st-app-tile-eyebrow">01 — Oil, Gas &amp; Chemical</div>
+          <div class="st-app-tile-title">Refineries, pipelines &amp; petrochemical.</div>
+          <div class="st-app-tile-desc">B7 and B16 flange studs for ANSI piping, B8M for sour service, A320 L7 for LNG.</div>
         </div>
-        <div class="st-spec-card">
-          <div class="st-spec-tag">ASTM A307<span class="name">Grade A · B</span>
-            <ul class="st-spec-grades"><li>Grade A</li><li>Grade B</li></ul>
-          </div>
-          <div class="st-spec-body">
-            <p>Low-carbon steel rod for general bolting service. Grade A for non-critical hardware; Grade B for moderate-load flanged joints up to limited temperature.</p>
-          </div>
+      </a>
+      <a href="industries-power-generation.html" class="st-app-tile st-app-tile--power">
+        <div class="st-app-tile-bg"></div>
+        <div class="st-app-tile-body">
+          <div class="st-app-tile-eyebrow">02 — Power Generation</div>
+          <div class="st-app-tile-title">Pressure vessels &amp; turbine flanges.</div>
+          <div class="st-app-tile-desc">High-temperature studs and rod for boilers, turbine flanges, and balance-of-plant piping.</div>
         </div>
-        <div class="st-spec-card">
-          <div class="st-spec-tag">ASTM F1554<span class="name">Gr 36 · 55 · 105</span>
-            <ul class="st-spec-grades"><li>Anchor rod</li><li>S1 weldable</li></ul>
-          </div>
-          <div class="st-spec-body">
-            <p>Anchor rod stock — used both as continuous rod and cut into headed, bent, or swedged anchors. Specify supplemental S1 if rod will be welded.</p>
-          </div>
+      </a>
+      <a href="industries-construction.html" class="st-app-tile st-app-tile--const">
+        <div class="st-app-tile-bg"></div>
+        <div class="st-app-tile-body">
+          <div class="st-app-tile-eyebrow">03 — Construction</div>
+          <div class="st-app-tile-title">Anchor rod &amp; structural connections.</div>
+          <div class="st-app-tile-desc">F1554 anchor rod (Gr 36 / 55 / 105) and A307 threaded rod for foundations, embeds, and hangers.</div>
         </div>
-      </div>
+      </a>
     </div>
-
-    <!-- Exotic -->
-    <div class="st-family">
-      <div class="st-family-label">
-        <div class="num">Family 05</div>
-        <h3>Specialty &amp; exotic alloy</h3>
-        <p>When standard carbon or stainless won't survive the service. Quote basis on most — lead time depends on diameter and quantity.</p>
-      </div>
-      <div class="st-family-cards">
-        <div class="st-spec-card">
-          <div class="st-spec-tag">Nickel alloy<span class="name">Inconel · Monel · Hastelloy</span>
-            <ul class="st-spec-grades"><li>625 · 718</li><li>400 · K500</li><li>C-276</li></ul>
-          </div>
-          <div class="st-spec-body">
-            <p>Nickel-base alloys for corrosive, high-temperature, or chloride-stress-cracking service — sour service piping, heat-exchanger studs, marine seawater.</p>
-          </div>
-        </div>
-        <div class="st-spec-card">
-          <div class="st-spec-tag">Duplex SS<span class="name">2205 · 2507</span>
-            <ul class="st-spec-grades"><li>UNS S31803</li><li>UNS S32750</li></ul>
-          </div>
-          <div class="st-spec-body">
-            <p>Duplex stainless for higher strength and pitting resistance than 316 — desal, oil &amp; gas topsides, FGD scrubbers.</p>
-          </div>
-        </div>
-        <div class="st-spec-card">
-          <div class="st-spec-tag">Titanium<span class="name">Gr 2 · Gr 5</span>
-            <ul class="st-spec-grades"><li>CP Ti</li><li>Ti-6Al-4V</li></ul>
-          </div>
-          <div class="st-spec-body">
-            <p>Commercially-pure and Ti-6Al-4V for ultra-corrosive, weight-critical, or biocompatible work — chemical, aerospace, medical.</p>
-          </div>
-        </div>
-      </div>
-    </div>
-
   </div>
 </section>
 
 <!-- CUT TO LENGTH (dark band) -->
-<section class="st-cut" data-screen-label="07 Cut to length">
+<section class="st-cut" data-screen-label="09 Cut to length">
   <div class="st-cut-inner">
     <div class="st-cut-image">
       <img src="assets/if-factory.webp" alt="Industrial process plant with bolted flanged piping">
@@ -663,7 +624,7 @@
 </section>
 
 <!-- COATINGS -->
-<section class="st-coatings" data-screen-label="08 Coatings">
+<section class="st-coatings" data-screen-label="10 Coatings">
   <div class="st-coatings-inner">
     <div class="st-coatings-text">
       <div class="eyebrow">Coatings &amp; finishes</div>
@@ -700,7 +661,7 @@
 </section>
 
 <!-- TRACEABILITY -->
-<section class="st-trace" data-screen-label="09 Traceability">
+<section class="st-trace" data-screen-label="11 Traceability">
   <div class="st-trace-inner">
     <div class="st-trace-header">
       <div class="eyebrow">Documentation</div>
@@ -738,7 +699,7 @@
 </section>
 
 <!-- CROSS-LINKS -->
-<section class="st-cross" data-screen-label="10 Cross-links">
+<section class="st-cross" data-screen-label="12 Cross-links">
   <div class="st-cross-inner">
     <div class="st-cross-header">
       <h2>Looking for something<br>a little <i>different?</i></h2>
@@ -780,7 +741,7 @@
 </section>
 
 <!-- QUOTE FORM -->
-<section class="st-quote" data-screen-label="11 Request a quote">
+<section class="st-quote" data-screen-label="13 Request a quote">
   <div class="st-quote-inner">
     <div class="st-quote-text">
       <div class="eyebrow">Request a quote</div>
@@ -810,7 +771,7 @@
 </section>
 
 <!-- CTA BAND -->
-<section class="st-cta" data-screen-label="12 CTA">
+<section class="st-cta" data-screen-label="14 CTA">
   <div class="st-cta-inner">
     <div class="st-cta-eyebrow">Talk to a bolt specialist</div>
     <h2>Cut, chamfered,<br>and on the <i>truck.</i></h2>
@@ -867,7 +828,7 @@
   const observer = new IntersectionObserver((entries) => {
     entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('cf-rise'); });
   }, { threshold: 0.08 });
-  document.querySelectorAll('.st-product-card, .st-spec-card, .st-compare-card, .st-trace-card, .st-cross-card').forEach(el => observer.observe(el));
+  document.querySelectorAll('.st-product-card, .st-spec-card, .st-compare-card, .st-trace-card, .st-cross-card, .st-prop, .st-app-tile, .st-inv-row').forEach(el => observer.observe(el));
 </script>
 </body>
 </html>
