@@ -1,7 +1,8 @@
 # Session handoff — pick up from another machine
 
-This file is a self-contained brief so you (or a new Claude Code session) can
-resume work on this repo on a different machine without losing context.
+Self-contained brief so you (or a new Claude Code session) can resume work on
+this repo without losing context. Last updated after porting the spec builder,
+spec library, 35 spec detail pages, and stud-bolts-threaded-rod.
 
 ---
 
@@ -14,8 +15,10 @@ resume work on this repo on a different machine without losing context.
 | Vercel project | `california-fastener/cafastdotcom2026-2` (in the `california-fastener` team scope) |
 | Branch | `master` (auto-deploys to prod on push) |
 
-The repo has nine commits as of this handoff — homepage ported, three product
-pages ported, a shared `pp-*` CSS module extracted, image perf fixes landed.
+18 commits on `master` as of this update. 8 routes shipped (counting the spec
+detail family as one): homepage, anchor-bolts, structural-fasteners,
+industrial-fasteners, spec-builder, spec-library, spec-library/[slug] (35),
+stud-bolts-threaded-rod.
 
 ## Set up the new machine
 
@@ -27,174 +30,245 @@ npm install
 npm run dev                              # http://localhost:3000
 ```
 
-Optional, if you want to deploy from the new machine:
+Optional Vercel CLI for local deploys (auto-deploy on push to master is
+already wired up regardless):
 
 ```sh
 npm i -g vercel
-vercel login                             # use the same Vercel account; OAuth
+vercel login
 vercel link                              # picks up .vercel/ from the repo
 ```
 
-Note: on the source machine the Vercel CLI was re-prompting for auth on each
-invocation — credentials weren't persisting between calls on Windows. Worth
-testing once on the new machine; if it persists, fall back to dashboard
-deploys (auto-deploys on `master` push are already wired up regardless).
+The Vercel CLI re-prompts for auth on each invocation on Windows — known
+quirk, doesn't block deploys.
 
-## Stack
+## Stack (unchanged)
 
 - Next.js 16 App Router + Turbopack + TypeScript + Tailwind v4
-- `next/font` with Inter + JetBrains Mono (substituting SF Pro — no license)
-- Sanity v3 planned for the blog and (possibly later) product-page content
-- Jotform planned for forms — defer until needed; restyle their embed rather
-  than build custom UI + API
-
-## Conventions worth knowing before editing
-
-The README and AGENTS.md cover the basics. The design system lives in:
-
-- `src/styles/cf-tokens.css` — all `--cf-*` design tokens (colors, type, radii,
-  spacing, motion). Lifted from `design/colors_and_type.css`. Don't redefine.
-- `src/styles/cf-shared.css` — global component CSS (`cf-nav`, `cf-pill`,
-  `cf-link`, `cf-footer`, `cf-rise`). Lifted from `design/_shared.css`.
-- `src/styles/cf-product-page.css` — the shared `pp-*` skeleton used by
-  `/structural-fasteners` and `/industrial-fasteners`. Hero, trustbar,
-  intro, products grid, grades-by-family, trace, cross, quote, CTA. Use
-  this for any new product page that fits the template.
-- `src/styles/cf-anchor-bolts.css`, `cf-homepage.css`, `cf-structural-fasteners.css`,
-  `cf-industrial-fasteners.css` — only page-unique sections; the shared
-  bits got pulled out into `cf-product-page.css`.
-
-Modifier vocabulary on `pp-*`:
-
-- `pp-trace pp-trace--alt` — trace section on `bg-alt` instead of `bg`
-- `pp-trace-grid pp-trace-grid--five` — 5-col trace grid (default 4)
-- `pp-cross pp-cross--alt` — cross section on `bg-alt` (cards flip to `bg`)
-- `pp-quote pp-quote--alt` — quote section on `bg`, form on `bg-alt`, inputs on `bg`
-
-Components:
-
-- `CfNav`, `CfFooter` — server components, CSS-only mega-menus
-- `Img` (client) — `<img>` wrapper with the design's `onError` "fail silently"
-  fallback. Use this for placeholder URLs (Unsplash/Squarespace) we don't
-  want next/image's external-domain config burden for.
-- `Image` (`next/image`) — used for owned product PNGs in `/public/assets/`
-  with explicit width/height + sizes for responsive srcset. WebP/AVIF auto.
-- `SpecBuilderTrigger` (client) — homepage spec-builder modal trigger + dialog
-- `QuoteFormPlaceholder` (client) — visual-only inline form for product pages.
-  Mimics the design's "Sent ✓" demo behavior. **Replace with a Jotform embed
-  when forms are wired up.**
+- `next/font` Inter + JetBrains Mono (sub for SF Pro — handoff caveat)
+- `next/image` for owned product PNGs at `quality={95}` (HD); `images.qualities`
+  is allowlisted in `next.config.ts`
+- Sanity v3 still pending — see "Suggested next moves"
+- Jotform deferred for new forms; `/spec-builder` is the one place a real
+  Jotform endpoint is wired (form ID `260995842557069` posts to a hidden
+  iframe target)
 
 ## Page status
 
 | Route | Status | Notes |
 |---|---|---|
-| `/` | ✅ Ported | Homepage, all 12 sections |
+| `/` (homepage) | ✅ Ported | All 4 product PNGs at quality 95 |
 | `/anchor-bolts` | ✅ Ported | Uses page-specific `ab-*` prefix (rotated hero image) |
-| `/structural-fasteners` | ✅ Ported | Uses shared `pp-*`; `sf-rcsc` was removed (redundant with `sf-joint`) |
-| `/industrial-fasteners` | ✅ Ported | Uses shared `pp-*` + `if-companion` + `if-exotic` + `pp-family--stainless` |
-| `/stud-bolts-threaded-rod` | ⏳ Pending | Should fit the `pp-*` template |
-| `/u-bolts` | ⏳ Pending | Should fit the `pp-*` template |
-| `/stainless-steel-fasteners` | ⏳ Pending | Should fit the `pp-*` template |
-| `/silicon-bronze` | ⏳ Pending | Bronze accent variant — check colors |
-| `/hollo-bolt`, `/hollo-bolt-selector` | ⏳ Pending | Selector is interactive |
+| `/structural-fasteners` | ✅ Ported | New cinematic hero + props strip after May handoff rework |
+| `/industrial-fasteners` | ✅ Ported | Same shared bolt hero image as structural |
+| `/spec-builder` | ✅ Ported | Real Jotform integration — submits live |
+| `/spec-library` | ✅ Ported | 35 specs faceted, three layout modes |
+| `/spec-library/[slug]` | ✅ Ported | All 35 routes statically pre-rendered |
+| `/stud-bolts-threaded-rod` | ✅ Ported | 4th product page on `pp-*` template |
+| `/silicon-bronze` | ⏳ Pending | Bronze accent variant — different palette/accent rule |
+| `/stainless-steel-fasteners` | ⏳ Pending | Should fit `pp-*` template |
+| `/u-bolts` | ⏳ Pending | Should fit `pp-*` template |
+| `/hollo-bolt`, `/hollo-bolt-selector` | ⏳ Pending | Selector is interactive (sizing tool) |
 | `/cnc-machining` | ⏳ Pending | Purple accent (CNC-only color rule) |
-| `/spec-library`, `/spec-builder`, `/spec/[id]` | ⏳ Pending | Need spec content + interactive logic from `design/spec-*-app.js` |
-| `/industries/*` | ⏳ Pending | 6 industry vertical pages |
-| `/quote` | ⏳ Pending | Jotform — defer |
+| `/quote` | ⏳ Pending | Jotform — restyle their embed when wired |
 | `/blog` | ⏳ Pending | Needs Sanity Studio + content model |
+| `/industries/*` | ⏳ Pending | 6 industry vertical pages |
 
-## Open caveats (inherited from the design handoff)
+## Conventions worth knowing
 
-- **Imagery is placeholder.** The hero, CNC, and industries images on the
-  homepage pull from Unsplash and Squarespace CDNs. Same for stud-bolts.
-  Replace with owned, licensed assets before launch. Customer logos in the
-  marquee also need written permission per the README.
-- **Fonts substituted.** Inter + JetBrains Mono via `next/font` standing in
-  for SF Pro Display + SF Mono. Tracking shifts slightly; acceptable in
-  early dev. Revisit if SF Pro gets licensed.
-- **Mobile <980px is unstyled.** Designs were authored at desktop widths.
-  The shared `pp-*` CSS has 1200px and 1000px breakpoints (and `cf-shared`
-  has the canonical responsive token scale), but layouts below 980px need
-  framework-level work. Single-column stack at 768px is the intended
-  pattern per the design handoff README.
-- **Quote forms are visual placeholders.** `QuoteFormPlaceholder` doesn't
-  submit anywhere. Wire up Jotform when ready.
+### Design tokens + global CSS
+- `src/styles/cf-tokens.css` — all `--cf-*` design tokens
+- `src/styles/cf-shared.css` — global component CSS (`cf-nav`, `cf-pill`,
+  `cf-link`, `cf-footer`, `cf-rise`)
+- Both imported globally via `globals.css`. Don't redefine tokens.
+
+### Product page template (`pp-*`)
+`src/styles/cf-product-page.css` — shared skeleton for hero, trustbar, intro,
+products, grades-by-family, trace, cross, quote, CTA. Used by
+`/structural-fasteners`, `/industrial-fasteners`, `/stud-bolts-threaded-rod`
+(`/anchor-bolts` is intentionally on its own `ab-*` prefix because its hero
+has a rotated bolt image and unique sections).
+
+**Modifier vocabulary** — four product pages now exercise four different
+combinations:
+
+| Page | trace | cross | quote |
+|---|---|---|---|
+| `/structural-fasteners` | `pp-trace` | `pp-cross--alt` | `pp-quote--alt` |
+| `/industrial-fasteners` | `pp-trace` (5-col via `--five`) | `pp-cross--alt` | `pp-quote--alt` |
+| `/stud-bolts-threaded-rod` | `pp-trace--alt` (5-col via `--five`) | `pp-cross` (default) | `pp-quote` (default) |
+
+When a future page diverges, just pick the right combination from
+`cf-product-page.css`. No new CSS needed unless the design introduces a
+genuinely new section.
+
+### Page-unique sections
+Each page's per-page CSS file (`src/styles/cf-{page}.css`) holds **only** the
+page's unique sections. Examples:
+- `cf-structural-fasteners.css` — `sf-joint`, `sf-coatings`
+- `cf-industrial-fasteners.css` — `if-companion`, `if-exotic`, `pp-family--stainless` variant
+- `cf-stud-bolts.css` — `st-compare`, `st-inventory`, `st-apps`, `st-cut`, `st-coatings`
+
+Use a 2-letter prefix derived from the route (`ab-`, `sf-`, `if-`, `st-`,
+etc.). Don't pollute `cf-product-page.css` unless ≥2 pages share the section.
+
+### Components
+- `CfNav`, `CfFooter` — server, CSS-only mega-menus
+- `Img` (client) — `<img>` wrapper with `onError` "fail silently" fallback.
+  Use for placeholder Unsplash/Squarespace URLs we don't want next/image's
+  external-domain config burden for.
+- `Image` from `next/image` — used for owned product PNGs in `/public/assets/`
+  with explicit `width`, `height`, `sizes`, and `quality={95}`. WebP/AVIF
+  auto-served.
+- `SpecBuilderTrigger` (client) — homepage spec-builder modal teaser
+- `QuoteFormPlaceholder` (client) — visual-only inline form for product pages.
+  Mimics "Sent ✓" demo behavior. **Not the spec builder's modal** — that
+  one (`src/components/spec-builder/QuoteModal.tsx`) is a real Jotform
+  integration with hidden field carry-over.
+
+### Spec library architecture
+- `src/lib/specLibrary/data.ts` — typed `LIB_SECTIONS` (6) + `LIB_SPECS` (35) + `LIB_FACETS`
+- `src/lib/specLibrary/filtering.ts` — pure `searchBlob` + `specMatchesFilter`
+- `src/lib/specLibrary/markdown.ts` — hand-rolled markdown renderer + `parseSpec`
+  + cross-reference auto-linking (regex turns "ASTM A194" mentions in body
+  into links to `/spec-library/astm-a194`)
+- `content/spec-library/*.md` — 35 source markdown files, read at build via
+  `fs` in the dynamic route's `generateStaticParams`. **Four are stubs**
+  marked `*This page is a working stub — content team will expand.*` at the
+  bottom: `din-931`, `din-934`, `iso-898-1`, `iso-3506`. Slugs are stable —
+  rewrite the file content in place when proper copy arrives.
+- `src/components/spec-detail/SpecToc.tsx` — client island for TOC scroll-spy
+- `src/styles/cf-spec-library.css`, `cf-spec-detail.css` — page-specific CSS
+
+The `design/assets/spec-library/*.md` folder (31 files) is the canonical
+reference; the 4 stub files only exist in `content/spec-library/`. The
+markdown renderer and structured extraction (At-a-glance pull-out, meta
+sidebar, related-specs panel) is purpose-built — don't swap for a generic
+markdown library without re-implementing the extraction.
+
+### Spec builder architecture
+- `src/lib/specBuilder/{options,data,scoring}.ts` — typed option lists,
+  23-material database, pure scoring engine
+- `src/components/spec-builder/SpecBuilder.tsx` — single client island holding
+  state across 4 stages + results
+- `src/components/spec-builder/QuoteModal.tsx` — real Jotform iframe
+  integration (form ID `260995842557069`, target `sb-jf-frame`). Hidden
+  fields `q7..q12` carry spec context (spec, grade, app, env, strength,
+  constraints). Phone field is required. Phone-mask handles backspace
+  through area code correctly.
+
+## Open caveats (carry-overs from prior handoffs + new ones)
+
+- **Imagery is placeholder.** Hero/CNC/industries images on the homepage pull
+  from Unsplash and Squarespace CDNs. Same for stud-bolts-split. Customer
+  logos in the marquee need written permission per the design README.
+- **Some product PNGs are smaller than ideal.** The hollo-bolt source is
+  1029×951 — at retina device pixels for the homepage's specialty section,
+  it upscales slightly. Quality 95 makes it as good as the source allows.
+  Drop-in 2000px+ replacements at `/public/assets/product-{anchor,hollobolt,
+  industrial,structural}.png` to fully eliminate. Same filenames, no code
+  changes needed.
+- **Fonts substituted** (Inter + JetBrains Mono for SF Pro Display + SF Mono).
+- **Mobile <980px is unstyled** per the design handoff.
+- **Quote forms are placeholders** except `/spec-builder`. `QuoteFormPlaceholder`
+  doesn't submit. Wire to Jotform when ready.
 - **CDN images are uncached.** Vercel's image optimizer only caches
-  Vercel-served images. The Unsplash/Squarespace placeholder URLs aren't
-  cached at the edge — replacing them with owned assets in `/public/assets/`
-  also unlocks edge caching.
+  Vercel-served images. Replacing the placeholder URLs with owned assets
+  in `/public/assets/` also unlocks edge caching.
+- **Spec detail cross-link regex** matches `ASTM A###`, `ASTM F###`,
+  `ASTM B###`, `SAE J###`, `ASME B1.x` only. Standalone grade codes (`B7`,
+  `Class 8.8`) stay as plain text. If you ever want more aggressive linking,
+  the regex lives in `src/lib/specLibrary/markdown.ts`.
 
-## Recent decisions worth not re-litigating
+## Decisions worth not re-litigating
 
-- `anchor-bolts` is intentionally **not** refactored to use `pp-*`. Its
-  hero image rotates (`-6deg`, max-height 90% vs `pp-hero`'s 95%) and its
-  sections (values, types, bend, apps, plates, spec-lib, partners) are
-  unique to the page anyway. Keep it on `ab-*`.
-- The "Pretension verification" section was removed from
-  `/structural-fasteners` because each pretension method was already named
-  in the joint-types section's tag line ("Turn-of-nut · DTI · TC bolts ·
-  calibrated wrench" lives on the Pretensioned joint card).
-- `cf-product-page.css` was extracted **after** porting the third product
-  page. Earlier, when only one product page existed, the duplication
-  picture wasn't clear enough to justify the abstraction. Don't extract
-  more shared CSS until you've ported the next 1-2 product pages and seen
-  whether they fit.
+- `anchor-bolts` is **not** refactored to use `pp-*`. Its hero rotates
+  (`-6deg`, max-height 90% vs `pp-hero`'s 95%) and its sections are unique.
+  Keep on `ab-*`.
+- `cf-product-page.css` was extracted **after** the third product page. Don't
+  prematurely extract more shared CSS — wait until ≥2 pages share a new
+  section pattern.
+- The structural-fasteners `sf-rcsc` "Pretension verification" section was
+  removed because each method was already named in the joint-types section's
+  tag line.
+- Spec builder phone field is **required**, mask supports clean backspace
+  through area code, thank-you copy reads "A team member" not "An estimator".
+- The structural-fasteners and industrial-fasteners pages share the same
+  hero bolt image (`structural-hero-bolt.png`) — that's intentional per
+  the May handoff.
+- Spec library / spec detail tweaks panels (Body width / TOC toggle / Layout)
+  are **not** ported — they're design-canvas tooling. Layout switching for
+  the library landing IS ported (editorial / grid / table) since users would
+  want it.
+- Stub specs (4 of 35) ship visibly marked. When real content arrives,
+  rewrite `content/spec-library/{din-931,din-934,iso-898-1,iso-3506}.md`
+  in place — slugs stay the same.
 
-## Memory carry-over (write these to `~/.claude/projects/<project>/memory/` on the new machine if you want them persisted there too)
+## Memory carry-over
 
-The memory facts I had on the source machine — these are also captured in this
-HANDOFF.md, so they don't strictly need to be re-created, but if you want them
-showing up automatically in future Claude Code sessions:
+The user's auto-memory at `~/.claude/projects/<project>/memory/` had three
+facts; they're also captured below so you don't strictly need to recreate
+them on a new machine:
 
-**`project_overview.md`** — Building a marketing site for californiafastener.com
-(Bay Area industrial-fastener distributor + CNC shop, est. 1970, Vacaville CA).
-Stack: Next.js 16 + TypeScript + Tailwind v4 + Sanity v3 (planned) + Jotform
+**Project overview** — California Fastener marketing site rebuild. Stack:
+Next.js 16 + TypeScript + Tailwind v4 + Sanity v3 (planned) + Jotform
 (deferred). Canonical design tokens in `design/colors_and_type.css` and
 `design/_shared.css`.
 
-**`jotform_plan.md`** — Forms handled by Jotform. User chose to restyle Jotform's
-embed code with hidden fields rather than build a custom React form that POSTs
-to Jotform's API. **Do not build custom form components preemptively.** When
-a page needs a form, drop in a placeholder section (e.g. `QuoteFormPlaceholder`)
-and note that Jotform integration is pending.
+**Jotform plan** — Forms handled by Jotform. User's preference: restyle
+Jotform's embed code with hidden fields rather than build custom React forms
+that POST to Jotform's API. **Do not build custom form components
+preemptively.** When a page needs a form, drop in a `QuoteFormPlaceholder`
+and note that Jotform integration is pending. Exception: `/spec-builder`
+already has a real Jotform integration via `QuoteModal` — that pattern is
+the model for any future Jotform-backed form (hidden iframe target, hidden
+field carry-over for context, body-scroll lock, ESC-to-close).
 
-**`imagery_and_fonts.md`** — Placeholder Unsplash/Squarespace imagery is fine
-during early dev. Owned/licensed photography swaps in before launch. Inter +
-JetBrains Mono are standing in for SF Pro Display + SF Mono via `next/font`.
+**Imagery and fonts** — Placeholder Unsplash/Squarespace imagery is fine
+during early dev. Owned/licensed photography swaps in before launch.
+Inter + JetBrains Mono are standing in for SF Pro Display + SF Mono via
+`next/font`.
 
 ## Suggested next moves (pick one)
 
-1. **Stand up Sanity** — embedded Studio at `/studio`, schemas for the blog
-   first, then optionally for product pages. Unblocks editable content. Gets
-   real content management workflow in place. Maybe an hour for the blog
-   schema + Studio embed + first content fetch.
-2. **Port the next product page** — `stud-bolts-threaded-rod` is the next
-   logical candidate. Should fit the `pp-*` template. Per-page CSS file
-   should land in 30-60 lines if the page genuinely conforms. If it doesn't,
-   that's a useful signal about whether the template needs to flex.
-3. **Wire up mobile breakpoints** — designs only defended desktop. The
-   `pp-*` and `cf-shared` CSS already has 1200px / 1000px breakpoints; below
-   that, real mobile work is needed. Pages currently look broken at <768px.
-4. **Replace placeholder imagery** — if you've got owned assets, swapping the
-   Unsplash/Squarespace URLs in the homepage's hero/CNC/industries unlocks
-   another ~4 MB of homepage weight reduction (rest of the post-perf-fixes
-   page weight is in those placeholders). Customer logos still need written
-   permission per the design README.
-5. **Custom domain** — `vercel domains add californiafastener.com` (or via
-   dashboard) once you're ready to point real DNS at the deploy. The current
-   site at the apex domain stays live until you do.
+Roughly ordered by ease and likelihood of fitting `pp-*` cleanly:
+
+1. **`/silicon-bronze`** — material page with the bronze accent variant
+   (separate from blue-dark). Likely fits `pp-*` template with a small
+   `cf-silicon-bronze.css` for bronze color overrides. ~1 hour.
+2. **`/stainless-steel-fasteners`** — should fit cleanly. ~1 hour.
+3. **`/u-bolts`** — same. ~1 hour.
+4. **`/cnc-machining`** — purple accent variant (CNC-only color rule).
+   Larger because it's a PPC landing surface, not just a product brochure.
+   ~2-3 hours.
+5. **`/hollo-bolt`** + **`/hollo-bolt-selector`** — selector is interactive
+   (sizing tool). Bigger lift; needs its own data + state.
+6. **`/industries/*` (6 pages)** — repeating template, content-heavy.
+7. **Stand up Sanity** — embedded Studio at `/studio`, schemas for blog
+   first, then optionally for product pages. Unblocks editable content.
+   Probably 4-8 hours of focused work.
+8. **Replace placeholder imagery** — when you've got owned assets for the
+   homepage hero, CNC, industries, and stud-bolts split. Just drop into
+   `/public/assets/` and update the `<Img>` srcs. ~30 min once images
+   are ready.
+9. **Higher-resolution product PNGs** — 2000px+ replacements for the four
+   `/public/assets/product-*.png` files. Drop-in, no code changes. Resolves
+   the slight upscaling on retina that quality 95 can't fully fix.
 
 ## Quick troubleshooting
 
 - **Dev server picks the wrong workspace root** — there's a stray
   `package-lock.json` in `C:\Users\aaron\` that confuses Turbopack. Fixed
   via `turbopack.root = import.meta.dirname` in `next.config.ts`. If you
-  see `Can't resolve 'tailwindcss'` errors in dev, that's the cause and
-  the config fix is in place.
-- **Claude Preview vs raw `npm run dev`** — `.claude/launch.json` configures
-  the Claude Preview MCP server to start on port 3000. If port 3000 is
-  occupied, kill the orphan with `taskkill //F //PID <PID>` after finding
-  it via `netstat -ano | grep :3000`.
+  see `Can't resolve 'tailwindcss'` in dev, that's the cause.
+- **Vercel CLI re-prompts for auth** — Windows quirk. Auto-deploy on push
+  works regardless. For local previews, fall back to the dashboard.
 - **CRLF warnings on every commit** — Windows line-ending normalization;
-  cosmetic, ignore. If they get noisy, set `git config core.autocrlf true`
-  globally.
+  cosmetic, ignore.
+- **Image optimizer 400 with `w=1200`** — make sure the value is in
+  `images.qualities` allowlist if specifying non-default quality, and that
+  the `w` is in `images.deviceSizes` (defaults cover 640..3840).
+- **Stale 'X is not defined' errors after edits** — Turbopack caches
+  aggressively in dev. The route may already render correctly via `curl`
+  while the error log shows old failures. Trust the curl status, not the
+  log.
