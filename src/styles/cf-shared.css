@@ -46,6 +46,10 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-rendering: optimizeLegibility;
+  /* Clip (not hidden) preserves position: sticky on inner ancestors while
+     containing any fixed/transformed descendant that drifts past the right
+     edge — e.g. the closed-state nav drawer at translateX(100%). */
+  overflow-x: clip;
 }
 
 img { display: block; max-width: 100%; }

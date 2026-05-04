@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useId, useRef, useState } from "react";
+import { createPortal } from "react-dom";
 import { CF_NAV_FLAT_LINKS, CF_NAV_SECTIONS, type CfNavSection } from "./cfNavSections";
 
 type Props = {
@@ -12,10 +13,15 @@ type Props = {
 export function CfNavMobile({ variant = "light" }: Props) {
   const [open, setOpen] = useState(false);
   const [expanded, setExpanded] = useState<CfNavSection["id"] | null>(null);
+  const [mounted, setMounted] = useState(false);
   const pathname = usePathname();
   const drawerRef = useRef<HTMLDivElement>(null);
   const toggleRef = useRef<HTMLButtonElement>(null);
   const drawerId = useId();
+
+  // Mount-gated portal — server-render the toggle only; drawer attaches to
+  // <body> on hydrate so it escapes the nav's backdrop-filter containing block.
+  useEffect(() => setMounted(true), []);
 
   // Close on route change.
   useEffect(() => {
@@ -52,21 +58,8 @@ export function CfNavMobile({ variant = "light" }: Props) {
   const drawerCls =
     "cf-nav-drawer" + (variant === "dark" ? " cf-nav-drawer--dark" : "");
 
-  return (
+  const drawer = (
     <>
-      <button
-        ref={toggleRef}
-        type="button"
-        className="cf-nav-toggle"
-        aria-label={open ? "Close menu" : "Open menu"}
-        aria-expanded={open}
-        aria-controls={drawerId}
-        onClick={() => setOpen((v) => !v)}
-      >
-        <span className="cf-nav-toggle-bars" aria-hidden="true">
-          <span />
-        </span>
-      </button>
       <div
         className="cf-nav-drawer-backdrop"
         data-open={open}
@@ -159,6 +152,25 @@ export function CfNavMobile({ variant = "light" }: Props) {
           </Link>
         </div>
       </div>
+    </>
+  );
+
+  return (
+    <>
+      <button
+        ref={toggleRef}
+        type="button"
+        className="cf-nav-toggle"
+        aria-label={open ? "Close menu" : "Open menu"}
+        aria-expanded={open}
+        aria-controls={drawerId}
+        onClick={() => setOpen((v) => !v)}
+      >
+        <span className="cf-nav-toggle-bars" aria-hidden="true">
+          <span />
+        </span>
+      </button>
+      {mounted ? createPortal(drawer, document.body) : null}
     </>
   );
 }
