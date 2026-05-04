@@ -79,7 +79,7 @@ export default function HomePage() {
         </div>
         <div className="stat-cell">
           <div className="stat-num stat-num-purple">USA</div>
-          <div className="stat-label">In-house domestic manufacturing.</div>
+          <div className="stat-label">Same-day domestic shipping.</div>
         </div>
       </section>
 
