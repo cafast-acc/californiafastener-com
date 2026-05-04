@@ -48,7 +48,7 @@ export function CfFooter() {
       </div>
       <div className="cf-footer-bottom">
         <div>© {new Date().getFullYear()} California Fastener · CA Fast LLC</div>
-        <div>Designed in Vacaville, California</div>
+        <div>Built in Benicia, California</div>
       </div>
     </footer>
   );
