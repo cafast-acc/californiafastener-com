@@ -1160,5 +1160,18 @@ body.lib-density--compact .lib-card-code { font-size: 17px; }
   margin-right: auto;
 }
 
+/* ─── Mobile / tablet polish ─────────────────────────── */
+@media (max-width: 1024px) {
+  .lib-hero-index { position: static; margin-top: 24px; }
+  .lib-quote { padding: 64px 0; }
+}
+@media (max-width: 640px) {
+  .lib-wrap { padding: 0 18px; }
+  .lib-quote { padding: 56px 0; }
+  .lib-quote-grid { gap: 32px; }
+  .lib-quote-actions { width: 100%; }
+  .lib-quote-cta { width: 100%; justify-content: center; }
+}
+
 
 /* ═══ TWEAKS PANEL ═══ */

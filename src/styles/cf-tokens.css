@@ -118,6 +118,11 @@
   --cf-dur-base: 200ms;
   --cf-dur-slow: 600ms;
   --cf-dur-rise: 900ms;
+
+  /* ── Touch + breakpoint conventions ─────────────────── */
+  --cf-touch-min: 44px;
+  --cf-bp-phone: 640px;
+  --cf-bp-tablet: 1024px;
 }
 
 /* ── Semantic type classes ────────────────────────────── */

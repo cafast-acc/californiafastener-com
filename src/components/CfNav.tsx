@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { CfNavMobile } from "./CfNavMobile";
 
 type NavVariant = "light" | "dark";
 export type NavSection =
@@ -113,6 +114,7 @@ export function CfNav({
         <Link href="/quote" className="cf-nav-quote">
           Get a Quote
         </Link>
+        <CfNavMobile variant={variant} />
       </div>
     </nav>
   );

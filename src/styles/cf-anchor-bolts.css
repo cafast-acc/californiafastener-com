@@ -156,3 +156,20 @@
   .ab-types-grid, .ab-apps-grid, .ab-values-grid { grid-template-columns: 1fr; }
   .ab-hero-stats { grid-template-columns: 1fr 1fr; gap: 20px 0; }
 }
+
+@media (max-width: 640px) {
+  .ab-hero,
+  .ab-values,
+  .ab-types,
+  .ab-grades,
+  .ab-bend,
+  .ab-plates,
+  .ab-apps,
+  .ab-spec-lib,
+  .ab-cta { padding-left: 18px; padding-right: 18px; }
+  .ab-hero { padding-top: 48px; padding-bottom: 32px; }
+  .ab-hero-image { min-height: 320px; border-radius: 18px; }
+  .ab-plates-text { padding: 32px 18px; }
+  .ab-cta-ctas { flex-direction: column; align-items: stretch; }
+  .ab-cta-ctas .cf-pill { width: 100%; }
+}

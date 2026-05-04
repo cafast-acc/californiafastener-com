@@ -152,7 +152,7 @@
     padding: 32px 0 80px;
     align-items: start;
   }
-  @media (max-width: 900px) { .sp-body-wrap { grid-template-columns: 1fr; gap: 24px; } }
+  @media (max-width: 1024px) { .sp-body-wrap { grid-template-columns: 1fr; gap: 24px; } }
 
   /* TOC */
   .sp-toc {
@@ -160,8 +160,64 @@
     top: 80px;
     font-size: 13px;
   }
-  @media (max-width: 900px) {
-    .sp-toc { position: static; margin-bottom: 24px; padding: 16px; background: var(--bg-alt); border-radius: 8px; }
+  /* Summary button only renders on mobile; hidden on desktop. */
+  .sp-toc-summary {
+    display: none;
+    width: 100%;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    padding: 12px 16px;
+    background: var(--bg-alt);
+    border: 1px solid var(--rule-soft);
+    border-radius: 10px;
+    color: inherit;
+    font-family: inherit;
+    cursor: pointer;
+    min-height: var(--cf-touch-min);
+    text-align: left;
+  }
+  .sp-toc-summary::after {
+    content: '';
+    width: 8px;
+    height: 8px;
+    border-right: 1.5px solid currentColor;
+    border-bottom: 1.5px solid currentColor;
+    transform: rotate(-45deg);
+    opacity: 0.5;
+    transition: transform 180ms var(--cf-ease);
+    flex-shrink: 0;
+  }
+  .sp-toc-summary[aria-expanded="true"]::after { transform: rotate(45deg); }
+  .sp-toc-active-label {
+    color: var(--ink);
+    font-size: 14px;
+    font-weight: 500;
+    letter-spacing: -0.01em;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    flex: 1 1 auto;
+  }
+  @media (max-width: 1024px) {
+    .sp-toc {
+      position: sticky;
+      top: 64px;
+      margin-bottom: 24px;
+      background: var(--bg);
+      z-index: 5;
+    }
+    .sp-toc-summary { display: inline-flex; }
+    .sp-toc[data-collapsed="true"] .sp-toc-list { display: none; }
+    .sp-toc[data-collapsed="false"] .sp-toc-list {
+      margin-top: 10px;
+      padding: 8px 14px;
+      background: var(--bg-alt);
+      border-radius: 10px;
+      max-height: 60vh;
+      overflow-y: auto;
+    }
+    .sp-toc-title { display: none; }
   }
   .sp-toc-title {
     font-family: var(--cf-font-mono);
@@ -425,4 +481,18 @@
     font-size: 12px;
     letter-spacing: 0.1em;
     text-transform: uppercase;
+  }
+
+  /* ─── Mobile / tablet polish ─────────────────────────── */
+  @media (max-width: 640px) {
+    .sp-wrap { padding: 0 18px; }
+    .sp-hero { padding: 32px 0 36px; gap: 24px; }
+    .sp-code { font-size: 36px; }
+    .sp-name { font-size: 18px; }
+    .sp-glance { padding: 20px; font-size: 16px; }
+    .sp-body h2 { font-size: 26px; margin-top: 36px; }
+    .sp-body h3 { font-size: 18px; }
+    .sp-quote { padding: 56px 18px; }
+    .sp-quote-head { font-size: 24px; }
+    .sp-btn-primary { width: 100%; justify-content: center; }
   }

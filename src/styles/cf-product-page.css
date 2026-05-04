@@ -208,3 +208,36 @@
 /* pp-props responsive */
 @media (max-width: 1000px) { .pp-props-inner { grid-template-columns: 1fr 1fr; } }
 @media (max-width: 680px) { .pp-props-inner { grid-template-columns: 1fr; gap: 24px; } }
+
+/* Phone: tighten vertical padding, drop side padding into shared container scale,
+   stack hero stats, give form inputs touch-safe sizing. */
+@media (max-width: 640px) {
+  .pp-hero { padding: 48px 18px 0; }
+  .pp-hero-inner { gap: 28px; min-height: 0; }
+  .pp-hero-text { padding: 24px 0; }
+  .pp-hero-stats { grid-template-columns: 1fr 1fr; max-width: 100%; padding-top: 20px; }
+  .pp-hero-image-tag { top: 12px; left: 12px; }
+  .pp-props { padding: 48px 18px; }
+  .pp-trust-item { padding: 0 18px; }
+  .pp-intro { padding: 64px 18px; }
+  .pp-products { padding: 64px 18px; }
+  .pp-grades { padding: 64px 18px; }
+  .pp-grades-header { gap: 24px; margin-bottom: 32px; }
+  .pp-trace { padding: 64px 18px; }
+  .pp-trace-grid, .pp-trace-grid--five { grid-template-columns: 1fr; gap: 12px; }
+  .pp-trace-card { padding: 22px 20px 26px; min-height: 0; }
+  .pp-cross { padding: 64px 18px; }
+  .pp-cross-header { gap: 24px; margin-bottom: 28px; }
+  .pp-quote { padding: 56px 18px; }
+  .pp-quote-inner { gap: 32px; }
+  .pp-quote-form { padding: 24px 22px 28px; border-radius: 18px; }
+  .pp-form-field input,
+  .pp-form-field textarea {
+    font-size: 16px;
+    padding: 12px 14px;
+    min-height: var(--cf-touch-min);
+  }
+  .pp-cta { padding: 64px 18px; }
+  .pp-spec-card { padding: 22px 22px; }
+  .pp-family { padding: 32px 0; gap: 18px; }
+}
