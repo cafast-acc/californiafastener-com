@@ -695,20 +695,9 @@ body.cf-no-scroll { overflow: hidden; }
   .cf-nav-center { display: none; }
   .cf-nav-right { gap: 12px; }
   .cf-nav-toggle { display: inline-flex; }
-  .cf-nav-quote {
-    padding: 10px 16px;
-    border-radius: 980px;
-    background: var(--ink);
-    color: var(--white);
-    font-size: 14px;
-    min-height: 40px;
-  }
-  .cf-nav-quote::after { color: var(--white); }
-  .cf-nav--dark .cf-nav-quote {
-    background: var(--white);
-    color: var(--ink);
-  }
-  .cf-nav--dark .cf-nav-quote::after { color: var(--ink); }
+  /* Drop the wordmark on small viewports; keep the brand-mark and bump it. */
+  .cf-nav-logo { font-size: 0; gap: 0; }
+  .cf-nav-logo-mark { width: 32px; height: 32px; }
   .cf-footer { padding: 24px 24px; }
   .cf-footer-cols {
     grid-template-columns: 1fr 1fr;
