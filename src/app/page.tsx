@@ -36,19 +36,24 @@ export default function HomePage() {
           </div>
         </div>
         <div className="hero-v1-image cf-rise cf-rise--delay-3">
-          <Img
-            src="https://images.unsplash.com/photo-1503387762-592deb58ef4e?auto=format&fit=crop&w=2400&q=80"
-            alt="Structural steel construction at scale"
+          <Image
+            src="/assets/hero-construction.jpg"
+            alt="Tower crane and curtain-wall construction at dusk"
+            width={2000}
+            height={1333}
+            priority
+            quality={90}
+            sizes="100vw"
           />
           <div className="hero-v1-image-specs">
             <div>
-              <strong>F1554 Gr 55</strong>Anchor Bolt Assembly
+              <strong>In stock</strong>Heavy hex · A325 · B7
             </div>
             <div>
-              <strong>±0.0005″</strong>Tolerance
+              <strong>Cut to length</strong>Studs · rod · anchors
             </div>
             <div>
-              <strong>24hr</strong>Quote
+              <strong>Full traceability</strong>MTRs · heat lots
             </div>
           </div>
         </div>
@@ -187,9 +192,13 @@ export default function HomePage() {
       {/* STUD BOLTS & THREADED ROD — split reversed */}
       <section className="split split--reverse split--alt">
         <div className="split-image">
-          <Img
-            src="https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?w=1200&q=80"
-            alt="Stud bolts and threaded rod"
+          <Image
+            src="/assets/dbl-end-stud.png"
+            alt="Double-end stud bolt render"
+            width={678}
+            height={443}
+            quality={95}
+            sizes="(max-width: 1000px) 90vw, 600px"
           />
         </div>
         <div className="split-text">
