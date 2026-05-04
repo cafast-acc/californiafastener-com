@@ -126,8 +126,12 @@ img { display: block; max-width: 100%; }
 }
 .cf-nav-center a:hover,
 .cf-nav-center > li > button:hover { opacity: 1; }
+.cf-nav-center > li.is-active > a,
+.cf-nav-center > li.is-active > button { opacity: 1; color: var(--ink); font-weight: 500; }
 .cf-nav--dark .cf-nav-center a,
 .cf-nav--dark .cf-nav-center > li > button { color: var(--dark-text); opacity: 0.8; }
+.cf-nav--dark .cf-nav-center > li.is-active > a,
+.cf-nav--dark .cf-nav-center > li.is-active > button { opacity: 1; color: var(--dark-text); font-weight: 500; }
 
 /* ── Dropdown / Mega-menu ─────────────────────────────── */
 .cf-nav-center .has-menu > button::after {
