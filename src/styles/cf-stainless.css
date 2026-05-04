@@ -1,0 +1,127 @@
+/* /stainless-steel-fasteners — page-unique sections only.
+   Hero, intro, products, trace, cross, and CTA all live in cf-product-page.css
+   under .pp-*. The four sections below are page-specific:
+   ss-chooser (grade-chooser cards), ss-compare (data table),
+   ss-finish (finish list), ss-gotchas (dark field-notes cards),
+   ss-industries (4-col industry tiles).
+
+   Class prefix: .ss-* */
+
+/* Color tokens for the table tags — green/amber/red also defined by
+   cf-spec-library.css; redefining here keeps the page self-contained
+   if the spec-library CSS isn't imported. */
+:root {
+  --ss-amber: #C08A3E;
+  --ss-green-dark: #2F6E4F;
+  --ss-red-dark: #9C3030;
+}
+
+/* ── GRADE CHOOSER (6-card grid) ─────────────────────── */
+.ss-chooser { padding: 120px 40px; background: var(--bg-alt); }
+.ss-chooser-inner { max-width: 1280px; margin: 0 auto; }
+.ss-chooser-header { max-width: 900px; margin-bottom: 56px; }
+.ss-chooser-header .eyebrow { font-size: 14px; color: var(--blue-dark); font-weight: 500; margin-bottom: 14px; }
+.ss-chooser-header h2 { font-size: clamp(40px, 4.5vw, 64px); font-weight: 600; letter-spacing: -0.03em; line-height: 1.05; margin-bottom: 16px; }
+.ss-chooser-header h2 i { color: var(--blue-dark); }
+.ss-chooser-header p { font-size: 19px; color: var(--ink-soft); max-width: 680px; line-height: 1.4; letter-spacing: -0.01em; }
+.ss-chooser-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+.ss-ch-card { background: var(--bg); border-radius: 24px; padding: 32px 32px 28px; display: flex; flex-direction: column; min-height: 340px; position: relative; overflow: hidden; }
+.ss-ch-card .ch-head { display: flex; justify-content: space-between; align-items: start; gap: 16px; margin-bottom: 18px; }
+.ss-ch-card .ch-num { font-family: var(--cf-font-mono); font-size: 11px; color: var(--blue-dark); letter-spacing: 0.06em; text-transform: uppercase; }
+.ss-ch-card .ch-chip { font-family: var(--cf-font-mono); font-size: 10px; background: var(--bg-alt); padding: 4px 10px; border-radius: 100px; color: var(--ink); letter-spacing: 0.04em; }
+.ss-ch-card h3 { font-size: 28px; font-weight: 600; letter-spacing: -0.02em; line-height: 1.08; margin-bottom: 10px; }
+.ss-ch-card .ch-alt { font-size: 13px; color: var(--mid); font-family: var(--cf-font-mono); letter-spacing: 0.02em; margin-bottom: 14px; }
+.ss-ch-card p { font-size: 14px; color: var(--ink-soft); line-height: 1.55; margin-bottom: 18px; }
+.ss-ch-card .ch-props { margin-top: auto; padding-top: 16px; border-top: 1px solid var(--rule-soft); display: grid; grid-template-columns: 1fr 1fr; gap: 10px 16px; }
+.ss-ch-card .ch-props > div { font-size: 12px; }
+.ss-ch-card .ch-props b { display: block; color: var(--mid); font-weight: 500; font-size: 10px; letter-spacing: 0.06em; text-transform: uppercase; margin-bottom: 3px; }
+.ss-ch-card .ch-props span { color: var(--ink); letter-spacing: -0.005em; }
+
+/* ── SPEC COMPARE TABLE ──────────────────────────────── */
+.ss-compare { padding: 120px 40px; background: var(--bg-alt); }
+.ss-compare-inner { max-width: 1280px; margin: 0 auto; }
+.ss-compare-header { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: end; margin-bottom: 48px; }
+.ss-compare-header h2 { font-size: clamp(36px, 4vw, 56px); font-weight: 600; letter-spacing: -0.03em; line-height: 1.05; }
+.ss-compare-header h2 i { color: var(--blue-dark); }
+.ss-compare-header p { font-size: 17px; color: var(--ink-soft); line-height: 1.5; max-width: 460px; }
+.ss-table-wrap { background: var(--bg); border-radius: 20px; overflow: hidden; border: 1px solid var(--rule-soft); }
+.ss-table { width: 100%; border-collapse: collapse; }
+.ss-table th, .ss-table td { padding: 16px 20px; text-align: left; font-size: 14px; letter-spacing: -0.005em; border-bottom: 1px solid var(--rule-soft); vertical-align: top; }
+.ss-table thead th { background: var(--bg-alt); font-weight: 500; color: var(--mid); font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; }
+.ss-table tbody tr:last-child td { border-bottom: none; }
+.ss-table td.grade { font-weight: 600; font-size: 15px; color: var(--ink); }
+.ss-table td.grade small { display: block; font-weight: 400; font-family: var(--cf-font-mono); color: var(--blue-dark); font-size: 11px; margin-top: 3px; letter-spacing: 0.04em; }
+.ss-table td.mono { font-family: var(--cf-font-mono); font-size: 12px; color: var(--ink-soft); }
+.ss-table td.pill-cell { white-space: nowrap; }
+.ss-table .tag { display: inline-block; padding: 3px 9px; border-radius: 100px; font-size: 11px; font-weight: 500; letter-spacing: -0.005em; background: var(--bg-alt); color: var(--ink); }
+.ss-table .tag.cost { font-family: var(--cf-font-mono); font-weight: 600; letter-spacing: 0.04em; }
+.ss-table .tag.cr-limited { background: rgba(156, 48, 48, 0.12); color: var(--ss-red-dark); }
+.ss-table .tag.cr-good { background: rgba(192, 138, 62, 0.14); color: var(--ss-amber); }
+.ss-table .tag.cr-better { background: rgba(47, 110, 79, 0.14); color: var(--ss-green-dark); }
+.ss-table .tag.cr-high { background: rgba(28, 82, 163, 0.14); color: var(--blue-dark); }
+.ss-table .tag.cr-best { background: var(--blue-dark); color: #fff; }
+
+/* ── FINISH LIST ─────────────────────────────────────── */
+.ss-finish { padding: 120px 40px; }
+.ss-finish-inner { max-width: 1240px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1.2fr; gap: 80px; align-items: start; }
+.ss-finish-text .eyebrow { font-size: 14px; color: var(--purple-dark); font-weight: 500; margin-bottom: 14px; }
+.ss-finish-text h2 { font-size: clamp(36px, 4vw, 56px); font-weight: 600; letter-spacing: -0.03em; line-height: 1.05; margin-bottom: 18px; }
+.ss-finish-text h2 i { color: var(--purple-dark); }
+.ss-finish-text > p { font-size: 17px; color: var(--ink-soft); line-height: 1.55; max-width: 440px; margin-bottom: 18px; }
+.ss-finish-list { list-style: none; padding: 0; margin: 32px 0 0; display: grid; gap: 0; }
+.ss-finish-list li { padding: 20px 0; border-top: 1px solid var(--rule-soft); display: grid; grid-template-columns: 140px 1fr; gap: 28px; align-items: start; }
+.ss-finish-list li:last-child { border-bottom: 1px solid var(--rule-soft); }
+.ss-finish-list b { font-family: var(--cf-font-mono); font-size: 11px; color: var(--purple-dark); letter-spacing: 0.06em; text-transform: uppercase; padding-top: 2px; }
+.ss-finish-list h4 { font-size: 17px; font-weight: 600; letter-spacing: -0.015em; margin: 0 0 4px; }
+.ss-finish-list p { font-size: 14px; color: var(--ink-soft); line-height: 1.5; margin: 0; max-width: 480px; }
+
+/* ── GOTCHAS (dark band, 6 cards) ─────────────────────── */
+.ss-gotchas { padding: 120px 40px; background: var(--ink); color: var(--dark-text); position: relative; overflow: hidden; }
+.ss-gotchas::before { content: ''; position: absolute; inset: 0; background: radial-gradient(ellipse 50% 40% at 15% 0%, rgba(56,182,255,0.08), transparent 70%), radial-gradient(ellipse 40% 40% at 85% 100%, rgba(140,82,255,0.08), transparent 70%); pointer-events: none; }
+.ss-gotchas-inner { max-width: 1240px; margin: 0 auto; position: relative; z-index: 1; }
+.ss-gotchas-header { max-width: 780px; margin-bottom: 56px; }
+.ss-gotchas-header .eyebrow { font-size: 13px; color: var(--blue); font-weight: 500; margin-bottom: 14px; letter-spacing: 0.04em; text-transform: uppercase; }
+.ss-gotchas-header h2 { font-size: clamp(36px, 4.2vw, 60px); font-weight: 600; letter-spacing: -0.03em; line-height: 1.02; margin-bottom: 16px; }
+.ss-gotchas-header h2 i { color: var(--blue); }
+.ss-gotchas-header p { font-size: 18px; color: var(--dark-mid); line-height: 1.5; }
+.ss-gotchas-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+.ss-gotcha { background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.08); border-radius: 18px; padding: 28px 28px 30px; display: flex; flex-direction: column; }
+.ss-gotcha .num { font-family: var(--cf-font-mono); font-size: 11px; color: var(--blue); letter-spacing: 0.06em; text-transform: uppercase; margin-bottom: 28px; }
+.ss-gotcha h4 { font-size: 19px; font-weight: 600; letter-spacing: -0.015em; line-height: 1.18; margin-bottom: 10px; color: var(--dark-text); }
+.ss-gotcha p { font-size: 14px; color: var(--dark-mid); line-height: 1.55; }
+.ss-gotcha .fix { margin-top: 16px; padding-top: 14px; border-top: 1px solid rgba(255,255,255,0.08); font-size: 12px; color: var(--dark-text); letter-spacing: -0.005em; }
+.ss-gotcha .fix b { color: var(--blue); font-family: var(--cf-font-mono); font-size: 10px; letter-spacing: 0.06em; text-transform: uppercase; display: block; margin-bottom: 4px; font-weight: 500; }
+
+/* ── INDUSTRIES STRIP (8 tiles, 4-col) ───────────────── */
+.ss-industries { padding: 120px 40px; }
+.ss-industries-inner { max-width: 1280px; margin: 0 auto; }
+.ss-industries-header { max-width: 800px; margin-bottom: 48px; }
+.ss-industries-header h2 { font-size: clamp(36px, 4vw, 56px); font-weight: 600; letter-spacing: -0.03em; line-height: 1.05; margin-bottom: 14px; }
+.ss-industries-header h2 i { color: var(--blue-dark); }
+.ss-industries-header p { font-size: 18px; color: var(--ink-soft); line-height: 1.45; max-width: 620px; }
+.ss-industries-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; }
+.ss-ind-tile { aspect-ratio: 4 / 5; border-radius: 20px; overflow: hidden; position: relative; background: var(--bg-cream); transition: transform 0.3s; text-decoration: none; color: inherit; display: block; }
+.ss-ind-tile:hover { transform: translateY(-4px); }
+.ss-ind-tile::after { content: ''; position: absolute; inset: 0; background: linear-gradient(180deg, rgba(0,0,0,0) 30%, rgba(0,0,0,0.78) 100%); z-index: 1; }
+.ss-ind-ph { position: absolute; inset: 0; background: repeating-linear-gradient(45deg, rgba(0,0,0,0.05), rgba(0,0,0,0.05) 10px, rgba(0,0,0,0.10) 10px, rgba(0,0,0,0.10) 20px); }
+.ss-ind-body { position: absolute; inset: 0; z-index: 2; padding: 24px; display: flex; flex-direction: column; justify-content: flex-end; color: white; }
+.ss-ind-eyebrow { font-size: 11px; font-weight: 500; color: rgba(255,255,255,0.75); margin-bottom: 6px; letter-spacing: 0.02em; text-transform: uppercase; }
+.ss-ind-title { font-size: 20px; font-weight: 600; letter-spacing: -0.02em; line-height: 1.15; margin-bottom: 8px; }
+.ss-ind-desc { font-size: 13px; color: rgba(255,255,255,0.82); line-height: 1.45; max-width: 260px; }
+.ss-ind-tag { position: absolute; top: 20px; left: 20px; z-index: 2; background: rgba(255,255,255,0.15); backdrop-filter: blur(8px); padding: 5px 10px; border-radius: 100px; font-family: var(--cf-font-mono); font-size: 10px; letter-spacing: 0.04em; color: white; text-transform: uppercase; }
+
+/* ── pp-trace--eight extension (8-card variant) ──────── */
+.pp-trace-grid--eight { grid-template-columns: repeat(4, 1fr); }
+
+/* ── RESPONSIVE ──────────────────────────────────────── */
+@media (max-width: 1200px) {
+  .ss-chooser-grid, .ss-gotchas-grid { grid-template-columns: repeat(2, 1fr); }
+  .ss-industries-grid { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 1000px) {
+  .ss-compare-header, .ss-finish-inner { grid-template-columns: 1fr; gap: 40px; }
+}
+@media (max-width: 680px) {
+  .ss-chooser-grid, .ss-gotchas-grid, .ss-industries-grid { grid-template-columns: 1fr; }
+  .ss-table th, .ss-table td { padding: 12px 14px; font-size: 13px; }
+}
