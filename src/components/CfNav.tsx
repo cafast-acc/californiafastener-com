@@ -1,9 +1,23 @@
 import Link from "next/link";
 
 type NavVariant = "light" | "dark";
+export type NavSection =
+  | "products"
+  | "industries"
+  | "cnc-machining"
+  | "resources"
+  | "about"
+  | "blog";
 
-export function CfNav({ variant = "light" }: { variant?: NavVariant }) {
+export function CfNav({
+  variant = "light",
+  active,
+}: {
+  variant?: NavVariant;
+  active?: NavSection;
+}) {
   const navClass = variant === "dark" ? "cf-nav cf-nav--dark" : "cf-nav";
+  const activeCls = (s: NavSection) => (active === s ? " is-active" : "");
   return (
     <nav className={navClass}>
       <Link href="/" className="cf-nav-logo">
@@ -11,7 +25,7 @@ export function CfNav({ variant = "light" }: { variant?: NavVariant }) {
         California Fastener
       </Link>
       <ul className="cf-nav-center">
-        <li className="has-menu">
+        <li className={`has-menu${activeCls("products")}`}>
           <button aria-haspopup="true">Products</button>
           <div className="cf-nav-menu cf-nav-menu--mega" role="menu">
             <div className="cf-nav-menu-label">Fasteners</div>
@@ -53,7 +67,7 @@ export function CfNav({ variant = "light" }: { variant?: NavVariant }) {
             </div>
           </div>
         </li>
-        <li className="has-menu">
+        <li className={`has-menu${activeCls("industries")}`}>
           <button aria-haspopup="true">Industries</button>
           <div className="cf-nav-menu" role="menu">
             <Link href="/industries/construction" role="menuitem">Construction</Link>
@@ -66,10 +80,10 @@ export function CfNav({ variant = "light" }: { variant?: NavVariant }) {
             <Link href="/industries/aerospace" role="menuitem">Aerospace &amp; Defense</Link>
           </div>
         </li>
-        <li>
+        <li className={activeCls("cnc-machining").trim()}>
           <Link href="/cnc-machining">CNC Machining</Link>
         </li>
-        <li className="has-menu">
+        <li className={`has-menu${activeCls("resources")}`}>
           <button aria-haspopup="true">Resources</button>
           <div className="cf-nav-menu" role="menu">
             <div className="cf-nav-menu-label">Technical</div>
@@ -88,10 +102,10 @@ export function CfNav({ variant = "light" }: { variant?: NavVariant }) {
             <Link href="/contact" role="menuitem">Contact Engineering</Link>
           </div>
         </li>
-        <li>
+        <li className={activeCls("about").trim()}>
           <Link href="/about">About</Link>
         </li>
-        <li>
+        <li className={activeCls("blog").trim()}>
           <Link href="/blog">Blog</Link>
         </li>
       </ul>
