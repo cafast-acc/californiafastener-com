@@ -243,16 +243,16 @@ export default function HomePage() {
             </p>
             <div className="specialty-specs">
               <div className="specialty-spec">
-                <div className="specialty-spec-label">Access</div>
-                <div className="specialty-spec-val">One-side only</div>
+                <div className="specialty-spec-label">Sizes</div>
+                <div className="specialty-spec-val">M8 – M20 · 5/16″ to 3/4″</div>
               </div>
               <div className="specialty-spec">
                 <div className="specialty-spec-label">Finishes</div>
                 <div className="specialty-spec-val">Zinc · HDG · 316SS</div>
               </div>
               <div className="specialty-spec">
-                <div className="specialty-spec-label">Sizes</div>
-                <div className="specialty-spec-val">M8 – M20 · 5/16″ to 3/4″</div>
+                <div className="specialty-spec-label">Access</div>
+                <div className="specialty-spec-val">One-side only</div>
               </div>
               <div className="specialty-spec">
                 <div className="specialty-spec-label">Approvals</div>
