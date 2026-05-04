@@ -766,15 +766,23 @@
   .hero-v1 { padding-top: 48px; }
   .hero-v1-copy { padding: 0 24px; }
   .hero-v1-image-specs { gap: 24px; left: 24px; bottom: 18px; }
+  /* 2×2 stats grid: horizontal rule between rows, vertical rule between
+     cols. Override the desktop :first-child / :last-child padding
+     resets so all four cells align evenly. */
   .stats-band {
     grid-template-columns: 1fr 1fr;
-    padding: 56px 24px;
-    gap: 8px 0;
+    padding: 48px 24px;
+    gap: 0;
   }
-  .stat-cell { padding: 16px 18px; border-right: none; border-bottom: 1px solid var(--rule-soft); }
+  .stat-cell {
+    padding: 22px 20px;
+    border-right: none;
+    border-bottom: none;
+  }
   .stat-cell:first-child,
-  .stat-cell:last-child { padding-left: 18px; padding-right: 18px; }
-  .stat-cell:nth-last-child(-n+2) { border-bottom: none; }
+  .stat-cell:last-child { padding-left: 20px; padding-right: 20px; }
+  .stat-cell:nth-child(-n+2) { border-bottom: 1px solid var(--rule-soft); }
+  .stat-cell:nth-child(odd) { border-right: 1px solid var(--rule-soft); }
   .feat,
   .specialty,
   .cnc-hero,
@@ -820,17 +828,16 @@
     bottom: 14px;
     right: 18px;
   }
-  .stats-band {
-    grid-template-columns: 1fr;
-    padding: 40px 18px;
-    gap: 0;
-  }
-  .stat-cell {
-    padding: 14px 0;
-    border-bottom: 1px solid var(--rule-soft);
-  }
-  .stat-cell:last-child { border-bottom: none; }
+  /* Stays a 2×2 grid on phone (inherited from the tablet block) — just
+     tighten padding and shrink the numerals so each cell fits a 360px
+     viewport comfortably. The :nth-child rules from the tablet block
+     keep the rules between rows / cols. */
+  .stats-band { padding: 32px 18px; }
+  .stat-cell { padding: 18px 14px; }
+  .stat-cell:first-child,
+  .stat-cell:last-child { padding-left: 14px; padding-right: 14px; }
   .stat-num { font-size: 36px; }
+  .stat-label { font-size: 12px; line-height: 1.35; }
   .feat,
   .specialty,
   .cnc-hero,
