@@ -818,12 +818,14 @@
   .hero-v1-sub { font-size: 18px; }
   .hero-v1-ctas {
     flex-direction: column;
-    align-items: stretch;
-    gap: 12px;
+    align-items: center;
+    gap: 14px;
     margin-bottom: 28px;
     width: 100%;
     padding: 0 8px;
   }
+  /* Pill stays full-width; the cf-link below it sits centered at
+     intrinsic width so it reads like the nav's "Get a Quote ›" CTA. */
   .hero-v1-ctas .cf-pill { width: 100%; }
   .hero-v1-image { aspect-ratio: 4 / 3; }
   .hero-v1-image-specs {
