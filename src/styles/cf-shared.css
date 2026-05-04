@@ -708,6 +708,8 @@ body.cf-no-scroll { overflow: hidden; }
     gap: 28px;
     padding: 20px 0 28px;
   }
+  /* Brand cell spans the row so the four link columns fall into a 2×2. */
+  .cf-footer-col:first-child { grid-column: 1 / -1; }
   .cf-subhead { font-size: 22px; }
 }
 
@@ -717,8 +719,8 @@ body.cf-no-scroll { overflow: hidden; }
   .cf-nav { padding: 0 14px; }
   .cf-footer { padding: 20px 18px; }
   .cf-footer-cols {
-    grid-template-columns: 1fr;
-    gap: 22px;
+    /* Stay 2×2 (inherited from the tablet block); just tighten gaps. */
+    gap: 22px 18px;
   }
   .cf-footer-bottom {
     flex-direction: column;
