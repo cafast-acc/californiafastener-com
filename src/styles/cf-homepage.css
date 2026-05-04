@@ -445,7 +445,9 @@
 }
 @media (max-width: 860px) {
   .specialty-inner { grid-template-columns: 1fr; gap: 32px; }
-  .specialty-text { padding-right: 0; }
+  .specialty-text { padding-right: 0; order: 0; }
+  /* Lead with the image once the specialty grid stacks. */
+  .specialty-image { order: -1; min-height: 320px; }
 }
 
 /* ─── CNC Dark section ─────────────── */
@@ -848,10 +850,21 @@
   .split-text { padding: 48px 18px; }
   .split-text h2 { font-size: 36px; }
   .split-image { min-height: 280px; }
-  .specialty { padding-top: 72px; padding-bottom: 72px; }
-  .specialty-specs { grid-template-columns: 1fr 1fr; gap: 16px; }
-  .specialty-ctas { flex-direction: column; align-items: stretch; gap: 12px; }
+  .specialty { padding-top: 64px; padding-bottom: 64px; }
+  .specialty-image { min-height: 260px; }
+  /* Don't override the 2px specialty-specs gap — it's what creates the
+     dividing rules between the four cells via the rule-soft background. */
+  .specialty-ctas {
+    flex-direction: column;
+    align-items: center;
+    gap: 16px;
+  }
   .specialty-ctas .cf-pill { width: 100%; }
+  /* Center the Shop … cf-links in the split sections + the structural
+     feat CTAs, so they read as deliberate end-of-section CTAs and match
+     the chevron CTA in the top nav. */
+  .split-text > div:last-child { text-align: center; }
+  .feat-ctas { justify-content: center; }
   .cnc-hero { padding-top: 80px; padding-bottom: 80px; }
   .cnc-hero-image { margin-top: 32px; aspect-ratio: 4 / 3; }
   .cnc-hero-spec-grid { grid-template-columns: 1fr; margin-top: 32px; }
