@@ -1,0 +1,141 @@
+/* /quote — 4-step quote wizard.
+   The page is wrapped by .qf-page (so we can flip body bg to bg-alt
+   without a global rule). Wizard renders inside .qf-card with a steps
+   bar above. Class prefix: .qf-* */
+
+.qf-page { background: var(--bg-alt); min-height: 100vh; }
+
+/* ── HERO ────────────────────────────────────────────── */
+.qf-hero { padding: 72px 40px 40px; text-align: center; max-width: 900px; margin: 0 auto; }
+.qf-hero-eyebrow { font-size: 14px; color: var(--blue-dark); font-weight: 500; margin-bottom: 14px; letter-spacing: -0.005em; }
+.qf-hero h1 { font-size: clamp(48px, 5.5vw, 72px); font-weight: 600; letter-spacing: -0.035em; line-height: 1.02; margin-bottom: 18px; color: var(--ink); }
+.qf-hero p { font-size: 21px; color: var(--ink-soft); max-width: 560px; margin: 0 auto; letter-spacing: -0.015em; line-height: 1.35; }
+
+/* ── STEPS BAR ──────────────────────────────────────── */
+.qf-steps { max-width: 900px; margin: 40px auto 0; padding: 0 40px; display: flex; gap: 8px; align-items: center; }
+.qf-step-cell { flex: 0 0 auto; display: flex; align-items: center; gap: 10px; padding: 12px 0; }
+.qf-step-dot { width: 26px; height: 26px; border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  background: var(--rule-soft); color: var(--mid);
+  font-size: 13px; font-weight: 500; flex-shrink: 0; }
+.qf-step-cell.done .qf-step-dot { background: var(--ink); color: white; }
+.qf-step-cell.active .qf-step-dot { background: var(--blue-dark); color: white; }
+.qf-step-cell.active .qf-step-label { color: var(--ink); font-weight: 500; }
+.qf-step-cell.done .qf-step-label { color: var(--ink-soft); }
+.qf-step-label { font-size: 13px; color: var(--mid); letter-spacing: -0.005em; }
+.qf-step-divider { flex: 1 1 auto; height: 1px; background: var(--rule-soft); margin: 0 10px; align-self: center; }
+
+/* ── CARD ───────────────────────────────────────────── */
+.qf-card { max-width: 900px; margin: 36px auto 80px; background: white; border-radius: 24px;
+  padding: 56px 64px; box-shadow: 0 1px 2px rgba(0,0,0,0.04), 0 20px 60px rgba(0,0,0,0.06); }
+@media (max-width: 720px) { .qf-card { padding: 36px 28px; margin: 24px 16px 56px; } }
+
+.qf-step-head { font-size: 14px; color: var(--mid); letter-spacing: -0.005em; margin-bottom: 8px; }
+.qf-step-title { font-size: 36px; font-weight: 600; letter-spacing: -0.03em; line-height: 1.1; margin-bottom: 10px; color: var(--ink); }
+.qf-step-sub { font-size: 17px; color: var(--ink-soft); letter-spacing: -0.01em; line-height: 1.4; margin-bottom: 36px; max-width: 520px; }
+
+/* ── STEP 1: PRODUCT CARDS ──────────────────────────── */
+.qf-product-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin-bottom: 10px; }
+@media (max-width: 720px) { .qf-product-grid { grid-template-columns: 1fr 1fr; } }
+.qf-product-card { padding: 22px; border: 1px solid var(--rule-soft); border-radius: 16px;
+  background: white; cursor: pointer; text-align: left; font-family: inherit; transition: all 0.15s;
+  display: flex; flex-direction: column; gap: 6px; min-height: 140px; }
+.qf-product-card:hover { border-color: var(--mid); }
+.qf-product-card.selected { border-color: var(--blue-dark); background: rgba(56, 182, 255, 0.04); box-shadow: 0 0 0 2px rgba(56, 182, 255, 0.25); }
+.qf-product-mark { width: 32px; height: 32px; border-radius: 8px; background: var(--bg-alt);
+  display: flex; align-items: center; justify-content: center; margin-bottom: 8px;
+  font-size: 14px; color: var(--ink); }
+.qf-product-card.selected .qf-product-mark { background: var(--blue-dark); color: white; }
+.qf-product-title { font-size: 15px; font-weight: 500; color: var(--ink); letter-spacing: -0.005em; }
+.qf-product-desc { font-size: 12px; color: var(--mid); letter-spacing: -0.005em; }
+
+/* ── FORM ──────────────────────────────────────────── */
+.qf-form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-bottom: 16px; }
+@media (max-width: 720px) { .qf-form-row { grid-template-columns: 1fr; } }
+.qf-field { display: flex; flex-direction: column; gap: 6px; }
+.qf-field label { font-size: 13px; color: var(--ink-soft); font-weight: 500; letter-spacing: -0.005em; }
+.qf-field input, .qf-field select, .qf-field textarea {
+  padding: 12px 14px; font-size: 15px; letter-spacing: -0.005em;
+  border: 1px solid var(--rule); border-radius: 10px;
+  font-family: inherit; background: white; color: var(--ink); }
+.qf-field input:focus, .qf-field select:focus, .qf-field textarea:focus {
+  outline: none; border-color: var(--blue-dark); box-shadow: 0 0 0 3px rgba(56, 182, 255, 0.15); }
+.qf-field textarea { min-height: 88px; resize: vertical; }
+.qf-field--full { grid-column: span 2; }
+@media (max-width: 720px) { .qf-field--full { grid-column: 1; } }
+.qf-field-hint { font-size: 12px; color: var(--mid); letter-spacing: -0.005em; }
+
+/* Quantity stepper */
+.qf-qty { display: flex; align-items: center; gap: 4px;
+  border: 1px solid var(--rule); border-radius: 10px; padding: 4px;
+  width: fit-content; }
+.qf-qty button { width: 32px; height: 32px; border: none; background: transparent;
+  font-size: 16px; cursor: pointer; color: var(--ink); border-radius: 6px; font-family: inherit; }
+.qf-qty button:hover { background: var(--bg-alt); }
+.qf-qty input { width: 80px; text-align: center; border: none; font-size: 15px; font-family: inherit; padding: 8px; background: transparent; color: var(--ink); }
+.qf-qty input:focus { outline: none; }
+
+/* Cert chips */
+.qf-chip-row { display: flex; gap: 8px; flex-wrap: wrap; }
+.qf-chip { display: inline-flex; align-items: center; gap: 6px; padding: 8px 14px;
+  border: 1px solid var(--rule); border-radius: 100px; font-size: 13px;
+  cursor: pointer; transition: border-color 0.15s, background 0.15s;
+  user-select: none; color: var(--ink); }
+.qf-chip:hover { border-color: var(--mid); }
+.qf-chip.checked { border-color: var(--blue-dark); background: rgba(56,182,255,0.06); }
+.qf-chip input { margin: 0; accent-color: var(--blue-dark); }
+
+/* ── STEP 3: UPLOAD ─────────────────────────────────── */
+.qf-upload { border: 2px dashed var(--rule); border-radius: 16px;
+  padding: 40px 24px; text-align: center; background: var(--bg);
+  margin-bottom: 20px; transition: border-color 0.15s, background 0.15s; cursor: pointer; }
+.qf-upload:hover { border-color: var(--blue-dark); background: rgba(56,182,255,0.03); }
+.qf-upload-icon { width: 48px; height: 48px; border-radius: 12px;
+  background: var(--bg-alt); margin: 0 auto 14px;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 22px; color: var(--blue-dark); }
+.qf-upload strong { font-size: 15px; font-weight: 500; color: var(--ink); letter-spacing: -0.005em; display: block; }
+.qf-upload .muted { font-size: 13px; color: var(--mid); margin-top: 4px; letter-spacing: -0.005em; }
+
+.qf-file-row { display: flex; align-items: center; gap: 12px;
+  padding: 12px 16px; background: var(--bg); border-radius: 10px;
+  margin-bottom: 8px; font-size: 14px; letter-spacing: -0.005em; }
+.qf-file-ic { width: 32px; height: 32px; background: var(--bg-cream); border-radius: 6px;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 11px; color: var(--mid); font-weight: 600; flex-shrink: 0; }
+.qf-file-name { flex: 1; color: var(--ink); overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.qf-file-size { color: var(--mid); font-size: 12px; flex-shrink: 0; }
+
+/* ── REVIEW ─────────────────────────────────────────── */
+.qf-review { margin-top: 28px; padding: 24px; background: var(--bg-alt); border-radius: 14px; }
+.qf-review-label { font-size: 13px; color: var(--mid); text-transform: uppercase; letter-spacing: 0.06em; font-weight: 600; margin-bottom: 12px; }
+.qf-review-row { display: flex; justify-content: space-between; align-items: flex-start;
+  padding: 16px 0; border-bottom: 1px solid var(--rule-soft); gap: 24px; }
+.qf-review-row:last-child { border-bottom: none; }
+.qf-review-row .label { font-size: 13px; color: var(--mid); flex-shrink: 0; width: 140px; letter-spacing: -0.005em; }
+.qf-review-row .val { font-size: 15px; color: var(--ink); flex: 1; letter-spacing: -0.005em; }
+.qf-review-row .edit { font-size: 13px; color: var(--blue-dark); text-decoration: none; cursor: pointer; background: none; border: none; padding: 0; font-family: inherit; flex-shrink: 0; }
+.qf-review-row .edit:hover { text-decoration: underline; }
+
+/* ── FOOTER ROW (back / continue) ───────────────────── */
+.qf-step-footer { margin-top: 36px; padding-top: 24px; border-top: 1px solid var(--rule-soft);
+  display: flex; justify-content: space-between; align-items: center; gap: 16px; flex-wrap: wrap; }
+.qf-back { color: var(--ink-soft); font-size: 15px; background: none; border: none; cursor: pointer;
+  letter-spacing: -0.005em; font-family: inherit; padding: 8px 0; }
+.qf-back::before { content: '‹ '; }
+.qf-meta { font-size: 13px; color: var(--mid); }
+
+/* ── SUCCESS ────────────────────────────────────────── */
+.qf-success { text-align: center; padding: 40px 0 20px; }
+.qf-success-mark { width: 72px; height: 72px; border-radius: 50%;
+  background: var(--blue-dark); color: white;
+  display: inline-flex; align-items: center; justify-content: center;
+  font-size: 36px; margin-bottom: 24px; }
+.qf-success h2 { font-size: 40px; font-weight: 600; letter-spacing: -0.03em; margin-bottom: 12px; line-height: 1.05; color: var(--ink); }
+.qf-success p { font-size: 17px; color: var(--ink-soft); max-width: 440px; margin: 0 auto 32px; letter-spacing: -0.01em; line-height: 1.4; }
+.qf-confirm { background: var(--bg-alt); border-radius: 14px;
+  padding: 20px 24px; max-width: 420px; margin: 0 auto 28px;
+  display: flex; justify-content: space-between; font-size: 14px; }
+.qf-confirm-label { color: var(--mid); letter-spacing: -0.005em; }
+.qf-confirm-val { color: var(--ink); font-weight: 500; font-family: var(--cf-font-mono); }
+.qf-success-ctas { display: flex; gap: 20px; justify-content: center; flex-wrap: wrap; }
