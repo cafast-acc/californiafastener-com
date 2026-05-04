@@ -68,6 +68,9 @@
   width: 100%;
   height: 100%;
   object-fit: cover;
+  /* Crane sits in the top-left of hero-construction.jpg; bias the crop
+     so it stays visible regardless of which axis the cover-fit trims. */
+  object-position: left top;
   filter: none;
 }
 .hero-v1-image::after {
