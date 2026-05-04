@@ -296,15 +296,21 @@
     margin: 36px 0;
   }
 
-  /* Tables */
+  /* Tables — wrapped in .sp-body-table-wrap so wide tables scroll
+     horizontally on touch viewports instead of clipping. */
+  .sp-body-table-wrap {
+    margin: 20px 0 28px;
+    border: 1px solid var(--rule-soft);
+    border-radius: 8px;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    background: var(--white);
+  }
   .sp-body table {
     width: 100%;
     border-collapse: collapse;
-    margin: 20px 0 28px;
+    margin: 0;
     font-size: 14px;
-    border: 1px solid var(--rule-soft);
-    border-radius: 8px;
-    overflow: hidden;
     background: var(--white);
   }
   .sp-body th {

@@ -209,8 +209,18 @@
 @media (max-width: 1000px) { .pp-props-inner { grid-template-columns: 1fr 1fr; } }
 @media (max-width: 680px) { .pp-props-inner { grid-template-columns: 1fr; gap: 24px; } }
 
+/* Tablet: prevent iOS zoom-on-focus on form inputs (≥16px) and ensure
+   touch-safe input sizing. */
+@media (max-width: 1024px) {
+  .pp-form-field input,
+  .pp-form-field textarea {
+    font-size: 16px;
+    min-height: var(--cf-touch-min);
+  }
+}
+
 /* Phone: tighten vertical padding, drop side padding into shared container scale,
-   stack hero stats, give form inputs touch-safe sizing. */
+   stack hero stats. */
 @media (max-width: 640px) {
   .pp-hero { padding: 48px 18px 0; }
   .pp-hero-inner { gap: 28px; min-height: 0; }
@@ -232,11 +242,7 @@
   .pp-quote-inner { gap: 32px; }
   .pp-quote-form { padding: 24px 22px 28px; border-radius: 18px; }
   .pp-form-field input,
-  .pp-form-field textarea {
-    font-size: 16px;
-    padding: 12px 14px;
-    min-height: var(--cf-touch-min);
-  }
+  .pp-form-field textarea { padding: 12px 14px; }
   .pp-cta { padding: 64px 18px; }
   .pp-spec-card { padding: 22px 22px; }
   .pp-family { padding: 32px 0; gap: 18px; }

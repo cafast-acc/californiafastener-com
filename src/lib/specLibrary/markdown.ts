@@ -118,13 +118,13 @@ export function renderMarkdown(md: string): string {
         );
         i++;
       }
-      let html = "<table><thead><tr>";
+      let html = '<div class="sp-body-table-wrap"><table><thead><tr>';
       html += header.map((h) => `<th>${inline(h)}</th>`).join("");
       html += "</tr></thead><tbody>";
       for (const r of rows) {
         html += "<tr>" + r.map((c) => `<td>${inline(c)}</td>`).join("") + "</tr>";
       }
-      html += "</tbody></table>";
+      html += "</tbody></table></div>";
       out.push(html);
       continue;
     }

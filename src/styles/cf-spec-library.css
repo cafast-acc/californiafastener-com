@@ -1171,6 +1171,16 @@ body.lib-density--compact .lib-card-code { font-size: 17px; }
   .lib-quote-grid { gap: 32px; }
   .lib-quote-actions { width: 100%; }
   .lib-quote-cta { width: 100%; justify-content: center; }
+  /* Table layout collapses to a stacked-card view (still distinct from
+     the editorial layout via tighter padding + visible title only). */
+  body.lib-layout--table .lib-sec-cards { display: block; }
+  body.lib-layout--table .lib-card {
+    grid-template-columns: 1fr;
+    gap: 6px;
+    padding: 14px 16px;
+  }
+  body.lib-layout--table .lib-card-title { font-size: 15px; }
+  body.lib-layout--table .lib-card-grade { justify-self: start; }
 }
 
 
