@@ -1,154 +1,290 @@
-/* /blog — page-specific CSS.
-   .bl-* prefix scopes to the blog. Follows the conventions used by
-   cf-spec-detail.css and cf-homepage.css: short-name token aliases
+/* /blog — page-specific CSS, ported from design/blog.html.
+   .bl-* prefix scopes to the blog. Short-name token aliases
    (--ink, --mid, etc.) come from cf-shared.css. */
 
-/* ─── Container ────────────────────────────────────────── */
-.bl-wrap { max-width: 1180px; margin: 0 auto; padding: 0 40px; }
+/* ─── Containers ───────────────────────────────────────── */
+.bl-wrap { max-width: 1440px; margin: 0 auto; padding: 0 40px; }
 .bl-wrap-narrow { max-width: 720px; margin: 0 auto; padding: 0 40px; }
 @media (max-width: 720px) {
   .bl-wrap { padding: 0 20px; }
   .bl-wrap-narrow { padding: 0 20px; }
 }
 
-/* ─── Crumb / kicker shared bits ───────────────────────── */
-.bl-kicker {
-  font-family: var(--cf-font-mono);
-  font-size: 11px;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  color: var(--blue-dark);
-  font-weight: 500;
-}
-
-/* ─── Index hero ───────────────────────────────────────── */
-.bl-index-hero {
-  padding: 64px 0 48px;
+/* ─── Masthead (blog index hero) ───────────────────────── */
+.bl-hero {
+  padding: 100px 40px 64px;
+  max-width: 1440px;
+  margin: 0 auto;
   border-bottom: 1px solid var(--rule-soft);
 }
-.bl-index-hero h1 {
-  font-size: clamp(48px, 6vw, 80px);
+@media (max-width: 720px) { .bl-hero { padding: 64px 20px 40px; } }
+
+.bl-hero-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: 32px;
+  margin-bottom: 48px;
+}
+@media (max-width: 720px) {
+  .bl-hero-top { flex-direction: column; align-items: flex-start; gap: 24px; margin-bottom: 32px; }
+}
+
+.bl-hero-eyebrow {
+  font-size: 14px;
+  color: var(--mid);
+  letter-spacing: -0.005em;
+  margin-bottom: 12px;
+}
+.bl-hero h1 {
+  font-size: clamp(56px, 8vw, 112px);
   font-weight: 600;
-  letter-spacing: -0.035em;
-  line-height: 1.0;
+  letter-spacing: -0.045em;
+  line-height: 0.95;
   color: var(--ink);
-  margin: 12px 0 16px;
+  margin: 0;
 }
-.bl-index-hero p {
-  font-size: 20px;
-  line-height: 1.45;
+.bl-hero h1 i {
+  font-style: normal;
+  color: var(--blue-dark);
+}
+
+.bl-hero-meta {
+  text-align: right;
+  max-width: 280px;
+  flex-shrink: 0;
+}
+@media (max-width: 720px) { .bl-hero-meta { text-align: left; max-width: none; } }
+.bl-hero-meta p {
+  font-size: 15px;
+  color: var(--mid);
+  line-height: 1.5;
+  margin: 0 0 8px;
+  letter-spacing: -0.005em;
+}
+.bl-hero-meta .bl-count {
+  font-size: 12px;
+  color: var(--mid-soft);
+  letter-spacing: 0.02em;
+}
+
+/* ─── Category pill bar ────────────────────────────────── */
+.bl-cat-bar {
+  display: flex;
+  gap: 2px;
+  overflow-x: auto;
+  scrollbar-width: none;
+  padding-top: 8px;
+}
+.bl-cat-bar::-webkit-scrollbar { display: none; }
+.bl-cat-pill {
+  font-size: 13px;
+  padding: 8px 16px;
+  border: 1px solid var(--rule-soft);
+  border-radius: 100px;
+  background: transparent;
   color: var(--ink-soft);
-  letter-spacing: -0.01em;
-  max-width: 600px;
+  cursor: pointer;
+  font-family: inherit;
+  letter-spacing: -0.005em;
+  white-space: nowrap;
+  transition: all 0.15s;
+}
+.bl-cat-pill:hover { background: var(--bg-alt); }
+.bl-cat-pill.is-active {
+  background: var(--ink);
+  color: white;
+  border-color: var(--ink);
 }
 
-/* ─── Index post grid ──────────────────────────────────── */
-.bl-index-grid {
-  padding: 48px 0 96px;
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 40px 32px;
+/* ─── Featured article ─────────────────────────────────── */
+.bl-featured {
+  padding: 80px 40px;
+  max-width: 1440px;
+  margin: 0 auto;
 }
-@media (max-width: 980px) {
-  .bl-index-grid { grid-template-columns: repeat(2, 1fr); }
-}
-@media (max-width: 640px) {
-  .bl-index-grid { grid-template-columns: 1fr; gap: 32px; }
-}
+@media (max-width: 720px) { .bl-featured { padding: 48px 20px; } }
 
-/* Featured (first) card spans the full width on wide layouts. */
-.bl-index-grid > .bl-card-featured {
-  grid-column: 1 / -1;
+.bl-featured-grid {
   display: grid;
   grid-template-columns: 1.1fr 1fr;
-  gap: 48px;
+  gap: 56px;
   align-items: center;
-  padding-bottom: 40px;
-  border-bottom: 1px solid var(--rule-soft);
-  margin-bottom: 8px;
 }
-@media (max-width: 980px) {
-  .bl-index-grid > .bl-card-featured { grid-template-columns: 1fr; gap: 24px; }
+@media (max-width: 900px) {
+  .bl-featured-grid { grid-template-columns: 1fr; gap: 32px; }
 }
 
-.bl-card { display: flex; flex-direction: column; min-width: 0; }
-.bl-card a.bl-card-link {
-  color: inherit;
-  text-decoration: none;
-  display: contents;
-}
-.bl-card-cover {
-  display: block;
-  position: relative;
-  aspect-ratio: 16 / 10;
-  border-radius: var(--cf-radius-lg);
+.bl-featured-img {
+  aspect-ratio: 5 / 4;
+  background: var(--bg-cream);
+  border-radius: 20px;
   overflow: hidden;
-  background: var(--bg-alt);
-  border: 1px solid var(--rule-soft);
+  position: relative;
 }
-.bl-card-cover img {
+.bl-featured-img img {
   width: 100%;
   height: 100%;
   object-fit: cover;
   display: block;
-  transition: transform 600ms var(--cf-ease);
 }
-.bl-card:hover .bl-card-cover img { transform: scale(1.02); }
 
-.bl-card-cats {
-  display: flex; flex-wrap: wrap; gap: 8px;
-  margin: 20px 0 8px;
+.bl-featured-cat {
+  font-size: 13px;
+  color: var(--purple-dark);
+  font-weight: 500;
+  margin-bottom: 12px;
+  letter-spacing: -0.005em;
 }
-.bl-card-cat {
-  font-family: var(--cf-font-mono);
-  font-size: 10px;
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
-  color: var(--blue-dark);
-  background: rgba(28,82,163,0.08);
-  padding: 4px 9px;
-  border-radius: 4px;
-}
-.bl-card-title {
-  font-size: 24px;
+.bl-featured h2 {
+  font-size: clamp(40px, 4vw, 56px);
   font-weight: 600;
-  letter-spacing: -0.02em;
-  line-height: 1.2;
+  letter-spacing: -0.03em;
+  line-height: 1.05;
+  margin: 0 0 16px;
   color: var(--ink);
-  margin: 6px 0 8px;
 }
-.bl-card-featured .bl-card-title {
-  font-size: clamp(32px, 3.4vw, 44px);
-  line-height: 1.1;
-  letter-spacing: -0.025em;
+.bl-featured-link {
+  text-decoration: none;
+  color: inherit;
+  display: block;
 }
-.bl-card:hover .bl-card-title { color: var(--blue-dark); }
-.bl-card-excerpt {
-  font-size: 16px;
-  line-height: 1.5;
+.bl-featured-link:hover h2 { color: var(--blue-dark); }
+.bl-featured p {
+  font-size: 19px;
   color: var(--ink-soft);
+  line-height: 1.45;
+  margin: 0 0 24px;
   letter-spacing: -0.01em;
-  margin: 0 0 12px;
+  max-width: 480px;
 }
-.bl-card-meta {
+.bl-featured-meta {
   font-size: 13px;
   color: var(--mid);
+  margin-bottom: 24px;
+}
+.bl-featured-cta {
+  font-size: 14px;
+  color: var(--blue-dark);
+  font-weight: 500;
+  letter-spacing: -0.005em;
+}
+.bl-featured-link:hover .bl-featured-cta { color: var(--blue-hover); }
+
+/* ─── Article grid (latest articles) ───────────────────── */
+.bl-articles {
+  padding: 24px 40px 120px;
+  max-width: 1440px;
+  margin: 0 auto;
+}
+@media (max-width: 720px) { .bl-articles { padding: 24px 20px 80px; } }
+
+.bl-articles-head {
   display: flex;
-  gap: 10px;
+  justify-content: space-between;
+  align-items: baseline;
+  padding-bottom: 24px;
+  margin-bottom: 40px;
+  border-top: 1px solid var(--rule-soft);
+  padding-top: 40px;
+}
+.bl-articles-head h3 {
+  font-size: 14px;
+  color: var(--mid);
+  font-weight: 500;
+  letter-spacing: -0.005em;
+  margin: 0;
+}
+.bl-articles-head .bl-sort {
+  font-size: 13px;
+  color: var(--ink-soft);
+  letter-spacing: -0.005em;
+}
+
+.bl-article-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 32px 24px;
+}
+@media (max-width: 900px) { .bl-article-grid { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 600px) { .bl-article-grid { grid-template-columns: 1fr; gap: 32px; } }
+
+.bl-article-card {
+  text-decoration: none;
+  color: var(--ink);
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.2s var(--cf-ease);
+}
+.bl-article-card:hover { transform: translateY(-3px); }
+.bl-article-img {
+  aspect-ratio: 4 / 3;
+  background: var(--bg-cream);
+  border-radius: 16px;
+  overflow: hidden;
+  margin-bottom: 18px;
+  position: relative;
+}
+.bl-article-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+.bl-article-img.is-placeholder {
+  background: repeating-linear-gradient(45deg, var(--bg-cream), var(--bg-cream) 10px, var(--bg-alt) 10px, var(--bg-alt) 20px);
+  display: flex;
   align-items: center;
+  justify-content: center;
+  color: var(--mid);
+  font-family: var(--cf-font-mono);
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+.bl-article-cat {
+  font-size: 12px;
+  color: var(--blue-dark);
+  font-weight: 500;
+  margin-bottom: 8px;
+  letter-spacing: -0.005em;
+}
+.bl-article-cat.is-purple { color: var(--purple-dark); }
+.bl-article-cat.is-mid { color: var(--mid); }
+.bl-article-card h4 {
+  font-size: 22px;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  line-height: 1.15;
+  margin: 0 0 10px;
+  color: var(--ink);
+}
+.bl-article-card p {
+  font-size: 14px;
+  color: var(--mid);
+  line-height: 1.5;
+  margin: 0 0 14px;
+  letter-spacing: -0.005em;
+}
+.bl-article-meta {
+  font-size: 12px;
+  color: var(--mid);
   margin-top: auto;
 }
-.bl-card-meta .dot { color: var(--rule); }
+.bl-article-meta span { margin-right: 12px; }
 
-/* ─── Article hero ─────────────────────────────────────── */
+/* ─── Article (post detail page) hero ──────────────────── */
 .bl-article-hero {
   padding: 56px 0 32px;
 }
 .bl-article-cats {
-  display: flex; flex-wrap: wrap; gap: 8px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
   margin-bottom: 20px;
 }
-.bl-article-cats .bl-card-cat { font-size: 11px; }
+.bl-article-cats .bl-article-cat { margin: 0; font-size: 13px; }
+
 .bl-article-title {
   font-size: clamp(36px, 5vw, 60px);
   font-weight: 600;
@@ -321,7 +457,7 @@
 }
 .bl-cta-btn:hover { background: var(--blue-hover); }
 
-/* ─── Author bio (bottom of article) ───────────────────── */
+/* ─── Author bio ──────────────────────────────────────── */
 .bl-author-bio {
   margin: 64px 0 32px;
   padding: 28px;
@@ -388,7 +524,7 @@
 
 /* ─── Empty state ──────────────────────────────────────── */
 .bl-empty {
-  padding: 96px 0;
+  padding: 96px 40px;
   text-align: center;
   color: var(--mid);
   font-size: 16px;

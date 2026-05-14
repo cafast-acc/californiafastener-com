@@ -72,3 +72,9 @@ export type SitemapPost = {
   publishedAt: string;
   _updatedAt: string;
 };
+
+export type BlogIndexData = {
+  posts: PostCard[];
+  categories: CategoryRef[];
+  total: number;
+};

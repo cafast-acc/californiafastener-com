@@ -19,12 +19,17 @@ const postCardFields = groq`
   tags
 `;
 
-export const homeQuery = groq`
-  *[_type == "post" && defined(slug.current) && defined(publishedAt) && !(seo.noIndex == true)]
+export const homeQuery = groq`{
+  "posts": *[_type == "post" && defined(slug.current) && defined(publishedAt) && !(seo.noIndex == true)]
     | order(publishedAt desc)[0...20]{
       ${postCardFields}
-    }
-`;
+    },
+  "categories": *[_type == "category"] | order(title asc){
+    title,
+    "slug": slug.current
+  },
+  "total": count(*[_type == "post" && defined(slug.current) && defined(publishedAt) && !(seo.noIndex == true)])
+}`;
 
 export const postSlugsQuery = groq`
   *[_type == "post" && defined(slug.current) && defined(publishedAt)][].slug.current

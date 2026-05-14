@@ -4,63 +4,67 @@ import Link from "next/link";
 import { urlFor } from "@/sanity/lib/image";
 import type { PostCard } from "@/sanity/lib/types";
 
-function formatDate(iso: string): string {
-  const d = new Date(iso);
-  return d.toLocaleDateString("en-US", {
-    year: "numeric",
-    month: "long",
-    day: "numeric",
-  });
+// Category → color modifier. Mirrors the design/blog.html palette:
+// CNC + Spec/Compliance lean purple; Case Studies are muted; everything else
+// uses the default steel-blue. Match on slug so editors can rename freely.
+const CAT_COLOR_BY_SLUG: Record<string, "purple" | "mid"> = {
+  "cnc-machining": "purple",
+  "spec-compliance": "purple",
+  "case-studies": "mid",
+  "case-study": "mid",
+};
+
+function formatShortDate(iso: string): string {
+  return new Date(iso).toLocaleDateString("en-US", { month: "short", day: "numeric" });
 }
 
-export function ArticleCard({
-  post,
-  featured = false,
-}: {
-  post: PostCard;
-  featured?: boolean;
-}) {
+function estimateMinutes(post: PostCard): number | null {
+  // No body in the listing projection; fall back to excerpt length as a
+  // very rough proxy so we can show something. Returns null if we have
+  // nothing to estimate from.
+  if (!post.excerpt) return null;
+  const words = post.excerpt.trim().split(/\s+/).length;
+  // Listings show *post* read time, but we only have excerpt here — assume
+  // articles are ~5x the excerpt length on average. Clamped 3-15 min.
+  return Math.min(15, Math.max(3, Math.round((words * 5) / 225)));
+}
+
+export function ArticleCard({ post }: { post: PostCard }) {
   const cover = post.coverImage;
-  const coverUrl = cover
-    ? urlFor(cover).width(featured ? 1200 : 800).quality(75).url()
-    : null;
+  const coverUrl = cover ? urlFor(cover).width(800).quality(75).url() : null;
+  const primaryCat = post.categories?.[0];
+  const catColor = primaryCat ? CAT_COLOR_BY_SLUG[primaryCat.slug] : undefined;
+  const minutes = estimateMinutes(post);
 
   return (
-    <article className={"bl-card" + (featured ? " bl-card-featured" : "")}>
-      <Link href={`/blog/${post.slug}`} className="bl-card-link">
-        {coverUrl ? (
-          <div className="bl-card-cover">
-            <Image
-              src={coverUrl}
-              alt={cover?.alt ?? post.title}
-              width={featured ? 1200 : 800}
-              height={featured ? 750 : 500}
-              sizes={featured ? "(max-width: 980px) 100vw, 600px" : "(max-width: 640px) 100vw, (max-width: 980px) 50vw, 360px"}
-              quality={75}
-              placeholder={cover?.lqip ? "blur" : "empty"}
-              blurDataURL={cover?.lqip}
-            />
-          </div>
-        ) : null}
-        <div>
-          {post.categories && post.categories.length > 0 ? (
-            <div className="bl-card-cats">
-              {post.categories.map((c) => (
-                <span key={c.slug} className="bl-card-cat">
-                  {c.title}
-                </span>
-              ))}
-            </div>
-          ) : null}
-          <h3 className="bl-card-title">{post.title}</h3>
-          {post.excerpt ? <p className="bl-card-excerpt">{post.excerpt}</p> : null}
-          <div className="bl-card-meta">
-            {post.author?.name ? <span>{post.author.name}</span> : null}
-            {post.author?.name ? <span className="dot">·</span> : null}
-            <time dateTime={post.publishedAt}>{formatDate(post.publishedAt)}</time>
-          </div>
+    <Link href={`/blog/${post.slug}`} className="bl-article-card">
+      {coverUrl ? (
+        <div className="bl-article-img">
+          <Image
+            src={coverUrl}
+            alt={cover?.alt ?? post.title}
+            width={800}
+            height={600}
+            sizes="(max-width: 600px) 100vw, (max-width: 900px) 50vw, 33vw"
+            quality={75}
+            placeholder={cover?.lqip ? "blur" : "empty"}
+            blurDataURL={cover?.lqip}
+          />
         </div>
-      </Link>
-    </article>
+      ) : (
+        <div className="bl-article-img is-placeholder">[ no image ]</div>
+      )}
+      {primaryCat ? (
+        <div className={"bl-article-cat" + (catColor ? " is-" + catColor : "")}>
+          {primaryCat.title}
+        </div>
+      ) : null}
+      <h4>{post.title}</h4>
+      {post.excerpt ? <p>{post.excerpt}</p> : null}
+      <div className="bl-article-meta">
+        <span>{formatShortDate(post.publishedAt)}</span>
+        {minutes ? <span>{minutes} min</span> : null}
+      </div>
+    </Link>
   );
 }
