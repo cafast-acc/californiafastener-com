@@ -9,9 +9,16 @@ const nextConfig: NextConfig = {
   },
   images: {
     // Next 15+ requires non-default quality values to be allowlisted here.
-    // 95 = visually lossless for the product CAD renders; 75 stays available
-    // for any future placeholder / thumbnail use.
+    // 95 = visually lossless for the product CAD renders; 75 = blog imagery
+    // served via Sanity's CDN (URL builder emits cdn.sanity.io).
     qualities: [75, 95],
+    remotePatterns: [
+      {
+        protocol: "https",
+        hostname: "cdn.sanity.io",
+        pathname: "/images/**",
+      },
+    ],
   },
   async headers() {
     // /public/assets/* gets a long browser cache. Vercel's defaults send

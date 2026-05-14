@@ -1,0 +1,395 @@
+/* /blog — page-specific CSS.
+   .bl-* prefix scopes to the blog. Follows the conventions used by
+   cf-spec-detail.css and cf-homepage.css: short-name token aliases
+   (--ink, --mid, etc.) come from cf-shared.css. */
+
+/* ─── Container ────────────────────────────────────────── */
+.bl-wrap { max-width: 1180px; margin: 0 auto; padding: 0 40px; }
+.bl-wrap-narrow { max-width: 720px; margin: 0 auto; padding: 0 40px; }
+@media (max-width: 720px) {
+  .bl-wrap { padding: 0 20px; }
+  .bl-wrap-narrow { padding: 0 20px; }
+}
+
+/* ─── Crumb / kicker shared bits ───────────────────────── */
+.bl-kicker {
+  font-family: var(--cf-font-mono);
+  font-size: 11px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--blue-dark);
+  font-weight: 500;
+}
+
+/* ─── Index hero ───────────────────────────────────────── */
+.bl-index-hero {
+  padding: 64px 0 48px;
+  border-bottom: 1px solid var(--rule-soft);
+}
+.bl-index-hero h1 {
+  font-size: clamp(48px, 6vw, 80px);
+  font-weight: 600;
+  letter-spacing: -0.035em;
+  line-height: 1.0;
+  color: var(--ink);
+  margin: 12px 0 16px;
+}
+.bl-index-hero p {
+  font-size: 20px;
+  line-height: 1.45;
+  color: var(--ink-soft);
+  letter-spacing: -0.01em;
+  max-width: 600px;
+}
+
+/* ─── Index post grid ──────────────────────────────────── */
+.bl-index-grid {
+  padding: 48px 0 96px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 40px 32px;
+}
+@media (max-width: 980px) {
+  .bl-index-grid { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 640px) {
+  .bl-index-grid { grid-template-columns: 1fr; gap: 32px; }
+}
+
+/* Featured (first) card spans the full width on wide layouts. */
+.bl-index-grid > .bl-card-featured {
+  grid-column: 1 / -1;
+  display: grid;
+  grid-template-columns: 1.1fr 1fr;
+  gap: 48px;
+  align-items: center;
+  padding-bottom: 40px;
+  border-bottom: 1px solid var(--rule-soft);
+  margin-bottom: 8px;
+}
+@media (max-width: 980px) {
+  .bl-index-grid > .bl-card-featured { grid-template-columns: 1fr; gap: 24px; }
+}
+
+.bl-card { display: flex; flex-direction: column; min-width: 0; }
+.bl-card a.bl-card-link {
+  color: inherit;
+  text-decoration: none;
+  display: contents;
+}
+.bl-card-cover {
+  display: block;
+  position: relative;
+  aspect-ratio: 16 / 10;
+  border-radius: var(--cf-radius-lg);
+  overflow: hidden;
+  background: var(--bg-alt);
+  border: 1px solid var(--rule-soft);
+}
+.bl-card-cover img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 600ms var(--cf-ease);
+}
+.bl-card:hover .bl-card-cover img { transform: scale(1.02); }
+
+.bl-card-cats {
+  display: flex; flex-wrap: wrap; gap: 8px;
+  margin: 20px 0 8px;
+}
+.bl-card-cat {
+  font-family: var(--cf-font-mono);
+  font-size: 10px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--blue-dark);
+  background: rgba(28,82,163,0.08);
+  padding: 4px 9px;
+  border-radius: 4px;
+}
+.bl-card-title {
+  font-size: 24px;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  line-height: 1.2;
+  color: var(--ink);
+  margin: 6px 0 8px;
+}
+.bl-card-featured .bl-card-title {
+  font-size: clamp(32px, 3.4vw, 44px);
+  line-height: 1.1;
+  letter-spacing: -0.025em;
+}
+.bl-card:hover .bl-card-title { color: var(--blue-dark); }
+.bl-card-excerpt {
+  font-size: 16px;
+  line-height: 1.5;
+  color: var(--ink-soft);
+  letter-spacing: -0.01em;
+  margin: 0 0 12px;
+}
+.bl-card-meta {
+  font-size: 13px;
+  color: var(--mid);
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  margin-top: auto;
+}
+.bl-card-meta .dot { color: var(--rule); }
+
+/* ─── Article hero ─────────────────────────────────────── */
+.bl-article-hero {
+  padding: 56px 0 32px;
+}
+.bl-article-cats {
+  display: flex; flex-wrap: wrap; gap: 8px;
+  margin-bottom: 20px;
+}
+.bl-article-cats .bl-card-cat { font-size: 11px; }
+.bl-article-title {
+  font-size: clamp(36px, 5vw, 60px);
+  font-weight: 600;
+  letter-spacing: -0.03em;
+  line-height: 1.05;
+  color: var(--ink);
+  margin: 0 0 16px;
+}
+.bl-article-excerpt {
+  font-size: 20px;
+  line-height: 1.45;
+  color: var(--ink-soft);
+  letter-spacing: -0.01em;
+  margin: 0 0 28px;
+}
+.bl-article-byline {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 16px 0;
+  border-top: 1px solid var(--rule-soft);
+  border-bottom: 1px solid var(--rule-soft);
+  font-size: 14px;
+  color: var(--ink-soft);
+}
+.bl-byline-avatar {
+  width: 36px; height: 36px;
+  border-radius: 50%;
+  background: var(--bg-alt);
+  overflow: hidden;
+  flex-shrink: 0;
+}
+.bl-byline-avatar img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.bl-byline-meta { display: flex; flex-direction: column; gap: 2px; }
+.bl-byline-name { color: var(--ink); font-weight: 500; }
+.bl-byline-role { color: var(--mid); font-size: 12px; }
+.bl-byline-spacer { margin-left: auto; }
+.bl-byline-date { color: var(--mid); font-size: 13px; }
+.bl-byline-reading { color: var(--mid); font-size: 13px; }
+.bl-byline-reading::before { content: " · "; }
+
+.bl-article-cover {
+  margin: 32px 0 48px;
+  border-radius: var(--cf-radius-lg);
+  overflow: hidden;
+  background: var(--bg-alt);
+  aspect-ratio: 16 / 9;
+}
+.bl-article-cover img { width: 100%; height: 100%; object-fit: cover; display: block; }
+
+/* ─── Article body (Portable Text) ─────────────────────── */
+.bl-body {
+  font-family: var(--cf-font-text);
+  font-size: 18px;
+  line-height: 1.65;
+  color: var(--ink-soft);
+  letter-spacing: -0.005em;
+}
+.bl-body > * + * { margin-top: 1.2em; }
+.bl-body h2 {
+  font-family: var(--cf-font-display);
+  font-size: 30px;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  line-height: 1.2;
+  color: var(--ink);
+  margin: 1.8em 0 0.6em;
+  scroll-margin-top: 96px;
+}
+.bl-body h3 {
+  font-family: var(--cf-font-display);
+  font-size: 22px;
+  font-weight: 600;
+  letter-spacing: -0.015em;
+  line-height: 1.25;
+  color: var(--ink);
+  margin: 1.6em 0 0.4em;
+  scroll-margin-top: 96px;
+}
+.bl-body h4 {
+  font-size: 17px;
+  font-weight: 600;
+  color: var(--ink);
+  margin: 1.4em 0 0.4em;
+}
+.bl-body p { margin: 0; }
+.bl-body a {
+  color: var(--blue-dark);
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 3px;
+}
+.bl-body a:hover { color: var(--blue-hover); }
+.bl-body ul, .bl-body ol { padding-left: 1.4em; margin: 0; }
+.bl-body li { margin: 0.4em 0; }
+.bl-body strong { color: var(--ink); font-weight: 600; }
+.bl-body em { font-style: italic; }
+.bl-body code {
+  font-family: var(--cf-font-mono);
+  font-size: 0.9em;
+  background: var(--bg-alt);
+  padding: 2px 6px;
+  border-radius: 4px;
+  color: var(--ink);
+}
+.bl-body blockquote {
+  border-left: 3px solid var(--blue-dark);
+  padding: 4px 0 4px 20px;
+  margin: 1.6em 0;
+  font-size: 20px;
+  line-height: 1.5;
+  letter-spacing: -0.01em;
+  color: var(--ink);
+}
+.bl-body figure {
+  margin: 2em 0;
+}
+.bl-body figure img {
+  width: 100%;
+  height: auto;
+  border-radius: var(--cf-radius-md);
+  display: block;
+  background: var(--bg-alt);
+}
+.bl-body figure figcaption {
+  font-size: 13px;
+  color: var(--mid);
+  margin-top: 10px;
+  text-align: center;
+}
+
+/* ─── In-article CTA block ─────────────────────────────── */
+.bl-cta {
+  margin: 2.4em 0;
+  padding: 24px 28px;
+  border: 1px solid var(--rule-soft);
+  border-radius: var(--cf-radius-lg);
+  background: var(--bg-alt);
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 20px;
+  align-items: center;
+}
+@media (max-width: 640px) { .bl-cta { grid-template-columns: 1fr; } }
+.bl-cta-heading {
+  font-size: 18px;
+  font-weight: 600;
+  color: var(--ink);
+  letter-spacing: -0.01em;
+  margin: 0 0 4px;
+}
+.bl-cta-body {
+  font-size: 15px;
+  color: var(--ink-soft);
+  margin: 0;
+}
+.bl-cta-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 12px 20px;
+  background: var(--blue-dark);
+  color: var(--cf-white);
+  border-radius: var(--cf-radius-pill);
+  font-size: 14px;
+  font-weight: 500;
+  text-decoration: none;
+  letter-spacing: -0.005em;
+  white-space: nowrap;
+}
+.bl-cta-btn:hover { background: var(--blue-hover); }
+
+/* ─── Author bio (bottom of article) ───────────────────── */
+.bl-author-bio {
+  margin: 64px 0 32px;
+  padding: 28px;
+  border: 1px solid var(--rule-soft);
+  border-radius: var(--cf-radius-lg);
+  background: var(--bg-alt);
+  display: grid;
+  grid-template-columns: 56px 1fr;
+  gap: 20px;
+  align-items: start;
+}
+.bl-author-avatar {
+  width: 56px; height: 56px;
+  border-radius: 50%;
+  overflow: hidden;
+  background: var(--cf-bg-cream);
+}
+.bl-author-avatar img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.bl-author-name { font-size: 17px; font-weight: 600; color: var(--ink); }
+.bl-author-role { font-family: var(--cf-font-mono); font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--mid); margin: 2px 0 10px; }
+.bl-author-bio-text { font-size: 15px; line-height: 1.55; color: var(--ink-soft); margin: 0; }
+
+/* ─── "Shop the article" linked products rail ──────────── */
+.bl-products {
+  margin: 48px 0 0;
+  padding-top: 40px;
+  border-top: 1px solid var(--rule-soft);
+}
+.bl-products h2 {
+  font-size: 22px;
+  font-weight: 600;
+  letter-spacing: -0.015em;
+  color: var(--ink);
+  margin: 0 0 20px;
+}
+.bl-products-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 16px;
+}
+.bl-product-card {
+  display: flex;
+  gap: 14px;
+  padding: 14px;
+  border: 1px solid var(--rule-soft);
+  border-radius: var(--cf-radius-md);
+  background: var(--cf-white);
+  text-decoration: none;
+  color: inherit;
+  transition: border-color 160ms var(--cf-ease);
+}
+.bl-product-card:hover { border-color: var(--blue-dark); }
+.bl-product-thumb {
+  width: 64px; height: 64px;
+  border-radius: var(--cf-radius-sm);
+  background: var(--bg-alt);
+  overflow: hidden;
+  flex-shrink: 0;
+}
+.bl-product-thumb img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.bl-product-info { display: flex; flex-direction: column; min-width: 0; }
+.bl-product-name { font-size: 15px; font-weight: 600; color: var(--ink); letter-spacing: -0.01em; }
+.bl-product-desc { font-size: 13px; color: var(--mid); line-height: 1.4; margin-top: 4px; }
+
+/* ─── Empty state ──────────────────────────────────────── */
+.bl-empty {
+  padding: 96px 0;
+  text-align: center;
+  color: var(--mid);
+  font-size: 16px;
+}
