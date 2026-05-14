@@ -43,14 +43,22 @@ export async function POST(req: NextRequest) {
     return new NextResponse("Bad payload", { status: 400 });
   }
 
-  // Next 16 requires a cache-life profile as the second arg. "max" applies
-  // long-lived caching to the *next* fetch after the purge — exactly what we
-  // want for blog content that only changes on the next publish webhook.
-  // Plural collection tag — every listing query uses this. e.g. "posts".
-  const collectionTag = `${body._type}s`;
-  revalidateTag(collectionTag, "max");
+  // Map document type → collection tag used by listing queries. Explicit
+  // rather than blindly suffixing "s" so "category" doesn't turn into
+  // "categorys". The per-document tag is `${_type}:${slug}` for the detail
+  // page. "max" is the cache-life profile (Next 16's revalidateTag now
+  // requires one) — pin tagged data to the longest profile so it survives
+  // until the next publish webhook fires.
+  const COLLECTION_TAG: Record<string, string> = {
+    post: "posts",
+    category: "categories",
+    author: "authors",
+  };
+  const collectionTag = COLLECTION_TAG[body._type];
+  if (collectionTag) {
+    revalidateTag(collectionTag, "max");
+  }
 
-  // Per-document tag for fast invalidation of the detail page.
   if (body.slug?.current) {
     revalidateTag(`${body._type}:${body.slug.current}`, "max");
   }

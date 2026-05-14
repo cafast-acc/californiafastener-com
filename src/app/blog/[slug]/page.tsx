@@ -16,6 +16,20 @@ import { urlFor } from "@/sanity/lib/image";
 
 export const revalidate = 3600;
 
+// Treat a thrown fetch (network blip, Sanity outage, env not wired up yet)
+// the same as "post doesn't exist" so visitors get a 404 instead of a 500.
+async function fetchPost(slug: string): Promise<PostDetail | null> {
+  try {
+    return await sanityFetch<PostDetail | null>(
+      postBySlugQuery,
+      { slug },
+      { tags: [`post:${slug}`] },
+    );
+  } catch {
+    return null;
+  }
+}
+
 export async function generateStaticParams() {
   // Don't crash the build if Sanity isn't reachable yet (e.g. before the
   // project is wired up). Falls back to on-demand SSR for each slug.
@@ -33,11 +47,7 @@ export async function generateMetadata({
   params: Promise<{ slug: string }>;
 }): Promise<Metadata> {
   const { slug } = await params;
-  const post = await sanityFetch<PostDetail | null>(
-    postBySlugQuery,
-    { slug },
-    { tags: [`post:${slug}`] },
-  );
+  const post = await fetchPost(slug);
   if (!post) return { title: "Post not found" };
 
   const title = post.seo?.metaTitle ?? post.title;
@@ -82,11 +92,7 @@ export default async function ArticlePage({
   params: Promise<{ slug: string }>;
 }) {
   const { slug } = await params;
-  const post = await sanityFetch<PostDetail | null>(
-    postBySlugQuery,
-    { slug },
-    { tags: [`post:${slug}`] },
-  );
+  const post = await fetchPost(slug);
   if (!post) notFound();
 
   const minutes = readingTimeMinutes(post.body);
