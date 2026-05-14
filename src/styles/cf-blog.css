@@ -514,6 +514,74 @@
 .bl-product-name { font-size: 15px; font-weight: 600; color: var(--ink); letter-spacing: -0.01em; }
 .bl-product-desc { font-size: 13px; color: var(--mid); line-height: 1.4; margin-top: 4px; }
 
+/* ─── Newsletter CTA (visual only — no list integration yet) ── */
+.bl-newsletter {
+  padding: 80px 40px;
+  background: var(--bg-alt);
+  border-top: 1px solid var(--rule-soft);
+}
+.bl-newsletter-inner {
+  max-width: 980px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 80px;
+  align-items: center;
+}
+@media (max-width: 720px) {
+  .bl-newsletter { padding: 56px 20px; }
+  .bl-newsletter-inner { grid-template-columns: 1fr; gap: 32px; }
+}
+.bl-newsletter h3 {
+  font-size: clamp(28px, 4vw, 40px);
+  font-weight: 600;
+  letter-spacing: -0.03em;
+  line-height: 1.05;
+  color: var(--ink);
+  margin: 0 0 14px;
+}
+.bl-newsletter p {
+  font-size: 17px;
+  color: var(--ink-soft);
+  letter-spacing: -0.01em;
+  line-height: 1.4;
+  margin: 0;
+}
+.bl-newsletter-form {
+  display: flex;
+  gap: 8px;
+}
+.bl-newsletter-form input {
+  flex: 1;
+  padding: 14px 18px;
+  font-size: 15px;
+  border: 1px solid var(--rule);
+  border-radius: 100px;
+  font-family: inherit;
+  background: white;
+  letter-spacing: -0.005em;
+  color: var(--ink);
+  min-width: 0;
+}
+.bl-newsletter-form input:focus {
+  outline: none;
+  border-color: var(--blue-dark);
+}
+.bl-newsletter-form button {
+  padding: 14px 24px;
+  font-size: 15px;
+  font-weight: 400;
+  background: var(--ink);
+  color: white;
+  border: none;
+  border-radius: 100px;
+  cursor: pointer;
+  font-family: inherit;
+  letter-spacing: -0.01em;
+  white-space: nowrap;
+}
+.bl-newsletter-form button:hover { background: var(--dark-2, #141417); }
+
 /* ─── Empty state ──────────────────────────────────────── */
 .bl-empty {
   padding: 96px 40px;

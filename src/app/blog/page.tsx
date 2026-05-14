@@ -5,6 +5,7 @@ import Link from "next/link";
 import { CfNav } from "@/components/CfNav";
 import { CfFooter } from "@/components/CfFooter";
 import { ArticleCard } from "@/components/blog/ArticleCard";
+import { NewsletterForm } from "@/components/blog/NewsletterForm";
 import { homeQuery } from "@/sanity/lib/queries";
 import { sanityFetch } from "@/sanity/lib/fetch";
 import { urlFor } from "@/sanity/lib/image";
@@ -154,6 +155,16 @@ export default async function BlogIndex() {
             ) : null}
           </>
         )}
+
+        <section className="bl-newsletter">
+          <div className="bl-newsletter-inner">
+            <div>
+              <h3>Get Field Notes in your inbox.</h3>
+              <p>Two technical articles a month. No marketing. Unsubscribe anytime.</p>
+            </div>
+            <NewsletterForm />
+          </div>
+        </section>
       </main>
       <CfFooter />
     </>
