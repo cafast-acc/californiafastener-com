@@ -18,7 +18,14 @@
 // To remove the sample content later, run with `--clear`:
 //   node --env-file=.env.local scripts/seed-blog.mjs --clear
 
+import { readFileSync } from "node:fs";
+import { resolve, dirname } from "node:path";
+import { fileURLToPath } from "node:url";
+
 import { createClient } from "@sanity/client";
+
+const __dirname = dirname(fileURLToPath(import.meta.url));
+const REPO_ROOT = resolve(__dirname, "..");
 
 const projectId = process.env.NEXT_PUBLIC_SANITY_PROJECT_ID;
 const dataset = process.env.NEXT_PUBLIC_SANITY_DATASET ?? "production";
@@ -65,6 +72,30 @@ function body(paragraphs) {
     children: [{ _key: `s${i}`, _type: "span", text, marks: [] }],
   }));
 }
+
+// Cover images shipped with the design handoff. Each entry maps to a post
+// slug below. Files live in public/blog/ so Next can serve them directly,
+// AND get uploaded to Sanity (deduped by content hash) so the urlFor()
+// pipeline + Studio editing works. Posts not in this map render the striped
+// placeholder, which is intentional per design.
+const COVERS = {
+  "why-distributors-cant-make-what-they-cant-source": {
+    file: "cnc-livetooling-lathe.webp",
+    alt: "Haas live-tooling lathe at California Fastener",
+  },
+  "f1554-grade-36-vs-55-vs-105": {
+    file: "headed-anchor-render.webp",
+    alt: "F1554 headed anchor bolt render",
+  },
+  "a325-is-dead-what-replaced-it": {
+    file: "hex-bolt-render.webp",
+    alt: "Structural hex bolt render",
+  },
+  "data-center-buildouts-fastener-lead-times-2026": {
+    file: "turbine-photo.webp",
+    alt: "Power-generation turbine in service",
+  },
+};
 
 const POSTS = [
   {
@@ -215,6 +246,25 @@ async function clearSample() {
   console.log(`   deleted ${docs.length} docs.`);
 }
 
+async function uploadCovers() {
+  // Sanity dedupes uploads by SHA-1 of the asset bytes, so re-runs are cheap
+  // (the second upload returns the same _id without re-storing). Returns
+  // { [slug]: { assetId, alt } }.
+  const out = {};
+  for (const [slug, cover] of Object.entries(COVERS)) {
+    const path = resolve(REPO_ROOT, "public/blog", cover.file);
+    const buf = readFileSync(path);
+    process.stdout.write(`   ↑ ${cover.file} `);
+    const asset = await client.assets.upload("image", buf, {
+      filename: cover.file,
+      contentType: "image/webp",
+    });
+    out[slug] = { assetId: asset._id, alt: cover.alt };
+    console.log(`→ ${asset._id}`);
+  }
+  return out;
+}
+
 async function seed() {
   console.log("→ Seeding author");
   await client.createOrReplace({
@@ -238,9 +288,13 @@ async function seed() {
   }
   await catTx.commit();
 
+  console.log("→ Uploading cover images");
+  const covers = await uploadCovers();
+
   console.log("→ Seeding posts");
   const postTx = client.transaction();
   for (const p of POSTS) {
+    const cover = covers[p.slug];
     postTx.createOrReplace({
       _id: `post.${p.slug}.sample`,
       _type: "post",
@@ -251,6 +305,15 @@ async function seed() {
       author: authorRef(),
       categories: p.categorySlugs.map(categoryRef),
       publishedAt: p.publishedAt,
+      ...(cover
+        ? {
+            coverImage: {
+              _type: "image",
+              asset: { _type: "reference", _ref: cover.assetId },
+              alt: cover.alt,
+            },
+          }
+        : {}),
     });
   }
   await postTx.commit();
