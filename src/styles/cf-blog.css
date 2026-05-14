@@ -163,14 +163,6 @@
   color: var(--mid);
   margin-bottom: 24px;
 }
-.bl-featured-cta {
-  font-size: 14px;
-  color: var(--blue-dark);
-  font-weight: 500;
-  letter-spacing: -0.005em;
-}
-.bl-featured-link:hover .bl-featured-cta { color: var(--blue-hover); }
-
 /* ─── Article grid (latest articles) ───────────────────── */
 .bl-articles {
   padding: 24px 40px 120px;

@@ -80,7 +80,7 @@ function FeaturedArticle({ post }: { post: PostCard }) {
               {post.author?.name ? `By ${post.author.name} · ` : ""}
               {formatLongDate(post.publishedAt)} · {minutes} min read
             </div>
-            <span className="bl-featured-cta">Read article →</span>
+            <span className="cf-link">Read article</span>
           </div>
         </div>
       </Link>
