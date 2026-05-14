@@ -4,12 +4,12 @@ import Link from "next/link";
 import { urlFor } from "@/sanity/lib/image";
 import type { PostCard } from "@/sanity/lib/types";
 
-// Category → color modifier. Mirrors the design/blog.html palette:
-// CNC + Spec/Compliance lean purple; Case Studies are muted; everything else
-// uses the default steel-blue. Match on slug so editors can rename freely.
+// Category → color modifier. Per design/blog.html + design handoff README:
+// only Spec & Compliance gets purple, only Case Studies gets mid; everything
+// else (including CNC Machining) uses the default steel-blue. Match on slug.
 const CAT_COLOR_BY_SLUG: Record<string, "purple" | "mid"> = {
-  "cnc-machining": "purple",
   "spec-compliance": "purple",
+  "spec-and-compliance": "purple",
   "case-studies": "mid",
   "case-study": "mid",
 };
