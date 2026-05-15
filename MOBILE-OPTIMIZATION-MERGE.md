@@ -18,6 +18,39 @@ to another agent on the target branch.
 - **17 existing files modified**: `layout.tsx`, `page.tsx`,
   `CfNav.tsx`, `CfFooter.tsx`, `SpecToc.tsx`, `markdown.ts`, and 11 CSS files.
 
+## Heads-up — `main` is also missing pre-mobile work
+
+The mobile/tablet commits sit on top of **5 earlier commits** that
+were already on the FuEdX branch when this work started, and those 5
+are also missing from `master`. They ship the CNC, quote, and
+industries pages, plus two small fixes:
+
+```
+91005cc  Sync local dev: autoPort in launch.json + lockfile name
+fe91f1b  CfNav: add active-section prop + is-active styling
+a96eb6d  Port six product pages: bronze, stainless, u-bolts, CNC, hollo-bolt + selector
+b7c3073  Port /quote 4-step wizard
+55b2f41  Port /industries/[slug] from design_handoff_industries
+```
+
+These are entire feature ports (each touches dozens of files), not
+documented file-by-file in this guide — but if you want `main` to have
+the CNC and quote pages, **you need to pull them too**. The simplest
+way is to expand the cherry-pick range to start from `91005cc`:
+
+```sh
+git checkout main
+git cherry-pick 91005cc^..1a70824   # 23 commits — pre-mobile + mobile + this doc
+```
+
+Note that `main` has its own commits that aren't on FuEdX (the
+`/products` index PR `a62d930` and its revert `472f986`). If those
+matter, reconcile by hand. Most likely they don't — the revert
+nullifies the add — and a clean cherry-pick will work.
+
+If you only want the mobile work and will port CNC/quote separately
+later, stick with the narrower range below.
+
 ## Approach options
 
 ### Option A — cherry-pick the range (cleanest)
