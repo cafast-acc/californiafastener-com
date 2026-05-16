@@ -82,7 +82,7 @@ export function CategoryPills({ categories }: { categories: CategoryRef[] }) {
 
 function FeaturedArticle({ post }: { post: PostCard }) {
   const cover = post.coverImage;
-  const coverUrl = cover ? urlFor(cover).width(1200).quality(75).url() : null;
+  const coverUrl = cover?.asset?._ref ? urlFor(cover).width(1200).quality(75).url() : null;
   const primaryCat = post.categories?.[0];
   const minutes = estimateFeaturedMinutes(post);
 

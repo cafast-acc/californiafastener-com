@@ -31,7 +31,7 @@ function estimateMinutes(post: PostCard): number | null {
 
 export function ArticleCard({ post }: { post: PostCard }) {
   const cover = post.coverImage;
-  const coverUrl = cover ? urlFor(cover).width(800).quality(75).url() : null;
+  const coverUrl = cover?.asset?._ref ? urlFor(cover).width(800).quality(75).url() : null;
   const primaryCat = post.categories?.[0];
   const catColor = primaryCat ? CAT_COLOR_BY_SLUG[primaryCat.slug] : undefined;
   const minutes = estimateMinutes(post);
