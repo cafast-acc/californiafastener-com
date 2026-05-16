@@ -17,7 +17,10 @@
 import { randomUUID } from "node:crypto";
 import { createClient } from "@sanity/client";
 
-const projectId = process.env.NEXT_PUBLIC_SANITY_PROJECT_ID;
+// Project ID falls back to the value committed in src/sanity/env.ts so the
+// seed runs with just SANITY_WRITE_TOKEN in .env.local — matches how the app
+// resolves the project ID.
+const projectId = process.env.NEXT_PUBLIC_SANITY_PROJECT_ID ?? "x5omyul2";
 const dataset = process.env.NEXT_PUBLIC_SANITY_DATASET ?? "production";
 const apiVersion = process.env.NEXT_PUBLIC_SANITY_API_VERSION ?? "2026-05-01";
 const token = process.env.SANITY_WRITE_TOKEN;
