@@ -33,6 +33,17 @@ const client = createClient({
   perspective: token ? "raw" : "published",
 });
 
+// Mirrors what the running app sees: no token, useCdn: true, published only.
+// If the dataset is set to Private in Sanity Manage, this client gets a 401
+// and the blog listing renders the empty state.
+const appClient = createClient({
+  projectId,
+  dataset,
+  apiVersion,
+  useCdn: true,
+  perspective: "published",
+});
+
 function fmt(value) {
   if (value === undefined || value === null) return "(missing)";
   if (typeof value === "string") return value;
@@ -105,6 +116,26 @@ async function run() {
   }
 
   console.log(`Summary: ${visibleCount} of ${posts.length} post(s) would render on /blog.`);
+
+  console.log("\nSecond check: what the running app sees (no token, CDN, published)...");
+  try {
+    const appPosts = await appClient.fetch(
+      `*[_type == "post" && defined(slug.current) && publishedAt <= now()]{ _id, title }`,
+    );
+    console.log(`  ✓ Unauthenticated query returned ${appPosts.length} post(s).`);
+    if (appPosts.length === 0 && visibleCount > 0) {
+      console.log("");
+      console.log("  → Dataset is reachable but returns no posts to an anonymous client.");
+      console.log("    Most likely the dataset is set to Private in Sanity Manage.");
+      console.log("    Fix: sanity.io/manage → x5omyul2 → Datasets → production → Visibility → Public.");
+    }
+  } catch (err) {
+    console.log(`  ✗ Unauthenticated query failed: ${err?.message ?? err}`);
+    console.log("");
+    console.log("  → The app can't read this dataset without a token. Either:");
+    console.log("    a) Flip the dataset to Public in sanity.io/manage → Datasets → production,");
+    console.log("    b) Add a SANITY_API_READ_TOKEN to .env.local and pass it to the client.");
+  }
   if (visibleCount === 0) {
     console.log("\nMost likely fix:");
     if (posts.some((p) => p._id.startsWith("drafts."))) {
