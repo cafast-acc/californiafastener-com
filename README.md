@@ -65,7 +65,7 @@ Auto-deploy on push to `master` via the GitHub → Vercel integration. Project:
 | `/spec-library`, `/spec-builder` | Pending (need spec content + interactive logic) |
 | `/industries/*` | Pending |
 | `/quote` | Pending (Jotform — defer until form is set up) |
-| `/blog` | Pending (needs Sanity Studio + content model) |
+| `/blog` (Field Notes) | Ported — Sanity v3 backend, Studio at `/studio`. See HANDOFF.md for env setup. |
 
 ## Open caveats from the handoff
 
