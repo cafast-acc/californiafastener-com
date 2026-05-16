@@ -1,14 +1,21 @@
 import { createClient } from "next-sanity";
-import { apiVersion, dataset, projectId, isConfigured } from "./env";
+import { apiVersion, dataset, projectId, isConfigured, readToken } from "./env";
 
 export const client = isConfigured
   ? createClient({
       projectId,
       dataset,
       apiVersion,
-      // CDN is fine for published reads; on-demand revalidation flushes via
+      // Server-only read token. Lets the app read documents that anonymous
+      // requests don't return (e.g. when the dataset has finer-grained access
+      // control beyond the public/private toggle). Token is never exposed
+      // client-side — this module is only imported from server components and
+      // the env var has no NEXT_PUBLIC_ prefix.
+      token: readToken || undefined,
+      // CDN can't be used when a token is set (Sanity bypasses it for
+      // authenticated reads). Next.js cache tags handle invalidation via
       // /api/revalidate when content changes in the Studio.
-      useCdn: true,
+      useCdn: readToken ? false : true,
       perspective: "published",
       stega: false,
     })
