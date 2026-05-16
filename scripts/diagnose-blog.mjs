@@ -44,6 +44,18 @@ const appClient = createClient({
   perspective: "published",
 });
 
+// Authenticated published-perspective. If this returns the same count as raw,
+// docs are genuinely published. If it returns fewer, the missing ones are
+// drafts that raw was showing — even if their _id didn't have "drafts." prefix.
+const tokenPublishedClient = createClient({
+  projectId,
+  dataset,
+  apiVersion,
+  token,
+  useCdn: false,
+  perspective: "published",
+});
+
 function fmt(value) {
   if (value === undefined || value === null) return "(missing)";
   if (typeof value === "string") return value;
@@ -118,23 +130,45 @@ async function run() {
   console.log(`Summary: ${visibleCount} of ${posts.length} post(s) would render on /blog.`);
 
   console.log("\nSecond check: what the running app sees (no token, CDN, published)...");
-  try {
-    const appPosts = await appClient.fetch(
-      `*[_type == "post" && defined(slug.current) && publishedAt <= now()]{ _id, title }`,
-    );
-    console.log(`  ✓ Unauthenticated query returned ${appPosts.length} post(s).`);
-    if (appPosts.length === 0 && visibleCount > 0) {
-      console.log("");
-      console.log("  → Dataset is reachable but returns no posts to an anonymous client.");
-      console.log("    Most likely the dataset is set to Private in Sanity Manage.");
-      console.log("    Fix: sanity.io/manage → x5omyul2 → Datasets → production → Visibility → Public.");
+  const appPosts = await appClient
+    .fetch(`*[_type == "post" && defined(slug.current) && publishedAt <= now()]{ _id, title }`)
+    .catch((err) => {
+      console.log(`  ✗ Unauthenticated query failed: ${err?.message ?? err}`);
+      return null;
+    });
+  if (Array.isArray(appPosts)) {
+    console.log(`  Unauthenticated query returned ${appPosts.length} post(s).`);
+  }
+
+  if (token) {
+    console.log("\nThird check: authenticated published-perspective (separates auth vs publish issues)...");
+    const tokenPosts = await tokenPublishedClient
+      .fetch(`*[_type == "post" && defined(slug.current) && publishedAt <= now()]{ _id, title }`)
+      .catch((err) => {
+        console.log(`  ✗ Authenticated published query failed: ${err?.message ?? err}`);
+        return null;
+      });
+    if (Array.isArray(tokenPosts)) {
+      console.log(`  Authenticated published-perspective returned ${tokenPosts.length} post(s).`);
+      const tokenIds = new Set(tokenPosts.map((p) => p._id));
+      const missing = posts.filter(
+        (p) => !p._id.startsWith("drafts.") && !tokenIds.has(p._id),
+      );
+      if (missing.length > 0) {
+        console.log(`\n  ${missing.length} document(s) appear in raw but NOT in published-perspective:`);
+        for (const m of missing) console.log(`    · ${m._id}  (${m.title})`);
+        console.log("\n  → These are drafts. Raw perspective shows the draft document at its");
+        console.log("    canonical _id (no \"drafts.\" prefix in newer API versions), but the");
+        console.log("    published API correctly excludes them.");
+        console.log("\n  Fix: open each in /studio and click \"Publish\" (top right).");
+        console.log("    The blue dot next to a post in the Studio nav means it has unpublished");
+        console.log("    edits. After publishing, anonymous /blog reads pick them up.");
+      } else if (Array.isArray(appPosts) && tokenPosts.length > appPosts.length) {
+        console.log(`\n  → Auth'd published shows ${tokenPosts.length} but anonymous only ${appPosts.length}.`);
+        console.log("    Dataset is restricted — flip to Public:");
+        console.log("    sanity.io/manage → x5omyul2 → Datasets → production → Visibility → Public.");
+      }
     }
-  } catch (err) {
-    console.log(`  ✗ Unauthenticated query failed: ${err?.message ?? err}`);
-    console.log("");
-    console.log("  → The app can't read this dataset without a token. Either:");
-    console.log("    a) Flip the dataset to Public in sanity.io/manage → Datasets → production,");
-    console.log("    b) Add a SANITY_API_READ_TOKEN to .env.local and pass it to the client.");
   }
   if (visibleCount === 0) {
     console.log("\nMost likely fix:");
