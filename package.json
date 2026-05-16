@@ -7,7 +7,8 @@
     "build": "next build --turbopack",
     "start": "next start",
     "typecheck": "tsc --noEmit",
-    "seed:blog": "node --env-file=.env.local scripts/seed-blog.mjs"
+    "seed:blog": "node --env-file=.env.local scripts/seed-blog.mjs",
+    "diagnose:blog": "node --env-file-if-exists=.env.local scripts/diagnose-blog.mjs"
   },
   "dependencies": {
     "@portabletext/react": "^6.2.0",
