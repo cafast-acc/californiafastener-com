@@ -44,6 +44,16 @@ const appClient = createClient({
   perspective: "published",
 });
 
+// Same as appClient but bypasses the CDN. If this returns more docs than
+// appClient, the CDN cache is stale.
+const appClientNoCdn = createClient({
+  projectId,
+  dataset,
+  apiVersion,
+  useCdn: false,
+  perspective: "published",
+});
+
 // Authenticated published-perspective. If this returns the same count as raw,
 // docs are genuinely published. If it returns fewer, the missing ones are
 // drafts that raw was showing — even if their _id didn't have "drafts." prefix.
@@ -137,7 +147,22 @@ async function run() {
       return null;
     });
   if (Array.isArray(appPosts)) {
-    console.log(`  Unauthenticated query returned ${appPosts.length} post(s).`);
+    console.log(`  Unauthenticated (CDN) returned ${appPosts.length} post(s).`);
+  }
+
+  const appPostsDirect = await appClientNoCdn
+    .fetch(`*[_type == "post" && defined(slug.current) && publishedAt <= now()]{ _id, title }`)
+    .catch((err) => {
+      console.log(`  ✗ Unauthenticated direct query failed: ${err?.message ?? err}`);
+      return null;
+    });
+  if (Array.isArray(appPostsDirect)) {
+    console.log(`  Unauthenticated (no CDN, direct) returned ${appPostsDirect.length} post(s).`);
+    if (Array.isArray(appPosts) && appPostsDirect.length > appPosts.length) {
+      console.log("\n  → Direct API returns more than CDN — the CDN cache is stale.");
+      console.log("    Sanity's CDN refreshes after writes but can lag a few minutes.");
+      console.log("    Workaround until it catches up: set useCdn: false in src/sanity/client.ts.");
+    }
   }
 
   if (token) {
