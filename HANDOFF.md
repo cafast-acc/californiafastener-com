@@ -189,6 +189,34 @@ build never blocks on missing credentials.
 5. Visit `/studio` while logged in to start writing. The Studio uses the same
    `NEXT_PUBLIC_SANITY_PROJECT_ID` env var to know which project to load.
 
+**Granting admin access (post authors anywhere on the internet):**
+
+The `/studio` route on the Vercel site is publicly reachable — anyone hitting
+it sees a Sanity login screen. Only people you've added to the Sanity project
+can actually edit content. To onboard a new admin:
+
+1. sanity.io/manage → the California Fastener project → **Members** → **Invite**
+2. Enter their email; role **Editor** for post authors, **Administrator** for
+   people who also need to manage schemas/users.
+3. They get a verification email, create a Sanity account (free), and can then
+   sign in at `https://<vercel-domain>/studio` from any network. No VPN, no
+   company SSO needed — Sanity handles auth.
+4. To remove access, the same Members page has a "Remove" action.
+
+**Seeding placeholder posts:**
+
+`scripts/seed-blog.mjs` pushes 1 author, 3 categories, and 5 placeholder Field
+Notes into the configured dataset. Run locally — never on Vercel.
+
+1. Generate a write token at sanity.io/manage → API → Tokens (role: Editor).
+2. Add it to `.env.local` as `SANITY_WRITE_TOKEN=<token>`.
+3. `npm run seed:blog`
+
+The script is idempotent — each document has a stable `_id` (`post.foo`,
+`category.foo`, `author.foo`), so re-running overwrites the same docs in place
+rather than duplicating. Once real posts replace the placeholders, delete or
+edit them in the Studio.
+
 **Code layout:**
 
 | | |
