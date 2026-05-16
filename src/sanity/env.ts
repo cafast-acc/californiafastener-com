@@ -6,7 +6,10 @@
  * fresh clones without Vercel env vars set.
  */
 
-export const projectId = process.env.NEXT_PUBLIC_SANITY_PROJECT_ID ?? "";
+// Project ID is a public identifier (it's in every API URL the browser sees),
+// so hardcoding it as the fallback is safe. Env var still overrides for
+// staging / preview datasets.
+export const projectId = process.env.NEXT_PUBLIC_SANITY_PROJECT_ID ?? "x5omyul2";
 export const dataset = process.env.NEXT_PUBLIC_SANITY_DATASET ?? "production";
 
 // Pin the API version. Bump deliberately when you start using a new feature
