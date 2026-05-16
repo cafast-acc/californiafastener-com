@@ -71,7 +71,7 @@ quirk, doesn't block deploys.
 | `/hollo-bolt`, `/hollo-bolt-selector` | ⏳ Pending | Selector is interactive (sizing tool) |
 | `/cnc-machining` | ⏳ Pending | Purple accent (CNC-only color rule) |
 | `/quote` | ⏳ Pending | Jotform — restyle their embed when wired |
-| `/blog` | ⏳ Pending | Needs Sanity Studio + content model |
+| `/blog` (Field Notes) | ✅ Ported | Sanity v3 backend, embedded Studio at `/studio` — see "Field Notes blog" below |
 | `/industries/*` | ⏳ Pending | 6 industry vertical pages |
 
 ## Conventions worth knowing
@@ -156,6 +156,70 @@ markdown library without re-implementing the extraction.
   fields `q7..q12` carry spec context (spec, grade, app, env, strength,
   constraints). Phone field is required. Phone-mask handles backspace
   through area code correctly.
+
+## Field Notes blog (Sanity v3)
+
+The blog ships at `/blog` (listing), `/blog/[slug]` (post), and `/blog/category/[slug]`
+(category). The Sanity Studio is embedded at `/studio`. All four routes render gracefully
+without env vars set — the listing shows a "Studio not connected" empty state — so the
+build never blocks on missing credentials.
+
+**One-time setup to publish posts:**
+
+1. Create a Sanity project at <https://sanity.io/manage>. Note the **project ID** and
+   leave the dataset as `production`.
+2. Copy `.env.example` → `.env.local` and fill in:
+   ```
+   NEXT_PUBLIC_SANITY_PROJECT_ID=<from sanity.io>
+   NEXT_PUBLIC_SANITY_DATASET=production
+   NEXT_PUBLIC_SANITY_API_VERSION=2026-05-01
+   SANITY_REVALIDATE_SECRET=<openssl rand -hex 32>
+   ```
+   Mirror the same vars in Vercel → Project Settings → Environment Variables.
+3. In Sanity Manage → API → CORS origins, add `http://localhost:3000` and the
+   production host (`https://cafastdotcom2026-2.vercel.app/` and
+   `https://californiafastener.com` when wired). Both with credentials enabled.
+4. In Sanity Manage → API → GROQ-powered Webhooks, add a webhook pointed at
+   `https://<your-domain>/api/revalidate`:
+   - Dataset: `production`
+   - Trigger on: Create, Update, Delete
+   - Filter: `_type in ["post", "category", "author"]`
+   - Projection: `{ _type, "slug": slug.current }`
+   - Secret: the same `SANITY_REVALIDATE_SECRET` value
+5. Visit `/studio` while logged in to start writing. The Studio uses the same
+   `NEXT_PUBLIC_SANITY_PROJECT_ID` env var to know which project to load.
+
+**Code layout:**
+
+| | |
+|---|---|
+| `sanity.config.ts` | Studio config — schemas, plugins (structure, vision), base path `/studio` |
+| `src/sanity/env.ts` | All env-var reads. `isConfigured` flag drives the empty-state fallback |
+| `src/sanity/client.ts` | `next-sanity` client + `sanityFetch` wrapper (handles tags + revalidate + Sanity-missing fallback) |
+| `src/sanity/image.ts` | `urlFor()` — `@sanity/image-url` builder |
+| `src/sanity/queries.ts` | GROQ queries: list, slug-list, detail, related, by-category |
+| `src/sanity/schemas/{post,author,category,index}.ts` | Document types. Post has Portable Text body with image + callout members |
+| `src/lib/blog/{types,format}.ts` | TS types matching GROQ projections + date / read-time helpers |
+| `src/components/blog/PortableBody.tsx` | Portable Text renderer with custom image and callout components |
+| `src/app/blog/page.tsx` | Listing — hero, featured post, grid |
+| `src/app/blog/[slug]/page.tsx` | Detail — header, hero, Portable Text body, author, related, quote band |
+| `src/app/blog/category/[slug]/page.tsx` | Category listing |
+| `src/app/api/revalidate/route.ts` | Sanity webhook → `revalidateTag('post' \| 'post:slug' \| 'category' \| ...)` |
+| `src/app/studio/[[...tool]]/{page,layout}.tsx` | Embedded Studio. `'use client'` because Studio needs browser APIs + styled-components |
+| `src/styles/cf-blog.css` | `bl-*` (listing) and `bp-*` (detail) — matches the spec library / detail visual vocabulary |
+
+**Caching strategy:**
+
+Lists and details set `next: { revalidate: 60, tags: [...] }` via `sanityFetch`.
+Tags revalidate on demand from the webhook with `revalidateTag(tag, 'max')` —
+the `'max'` profile is the long stale-while-revalidate window introduced in
+Next.js 16 (see `node_modules/next/dist/docs/01-app/01-getting-started/09-revalidating.md`).
+
+**Stub specs / draft posts:**
+
+Posts with `publishedAt` in the future are filtered out by the GROQ queries
+(`publishedAt <= now()`). Save in the Studio with a future date to schedule;
+nothing else needed.
 
 ## Open caveats (carry-overs from prior handoffs + new ones)
 
@@ -244,9 +308,11 @@ Roughly ordered by ease and likelihood of fitting `pp-*` cleanly:
 5. **`/hollo-bolt`** + **`/hollo-bolt-selector`** — selector is interactive
    (sizing tool). Bigger lift; needs its own data + state.
 6. **`/industries/*` (6 pages)** — repeating template, content-heavy.
-7. **Stand up Sanity** — embedded Studio at `/studio`, schemas for blog
-   first, then optionally for product pages. Unblocks editable content.
-   Probably 4-8 hours of focused work.
+7. ~~**Stand up Sanity** — embedded Studio at `/studio`, schemas for blog
+   first, then optionally for product pages. Unblocks editable content.~~
+   Done for the blog. Extending Sanity to drive product pages would still
+   be a 4-8 hour effort: define schemas, port each page to GROQ-driven
+   data, decide which sections become editable vs. stay code-defined.
 8. **Replace placeholder imagery** — when you've got owned assets for the
    homepage hero, CNC, industries, and stud-bolts split. Just drop into
    `/public/assets/` and update the `<Img>` srcs. ~30 min once images

@@ -12,6 +12,12 @@ const nextConfig: NextConfig = {
     // 95 = visually lossless for the product CAD renders; 75 stays available
     // for any future placeholder / thumbnail use.
     qualities: [75, 95],
+    remotePatterns: [
+      // Sanity CDN serves Field Notes blog imagery. The @sanity/image-url
+      // builder returns https://cdn.sanity.io/images/<project>/<dataset>/...
+      // URLs; allowlist the host so future next/image usage works.
+      { protocol: "https", hostname: "cdn.sanity.io", pathname: "/**" },
+    ],
   },
   async headers() {
     // /public/assets/* gets a long browser cache. Vercel's defaults send
