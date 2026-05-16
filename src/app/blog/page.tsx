@@ -6,8 +6,8 @@ import { CfFooter } from "@/components/CfFooter";
 import { sanityFetch } from "@/sanity/client";
 import { urlFor } from "@/sanity/image";
 import { isConfigured } from "@/sanity/env";
-import { POSTS_LIST_QUERY } from "@/sanity/queries";
-import type { BlogPostSummary } from "@/lib/blog/types";
+import { POSTS_LIST_QUERY, ALL_CATEGORIES_QUERY } from "@/sanity/queries";
+import type { BlogPostSummary, BlogCategory } from "@/lib/blog/types";
 import { formatPublishedAt } from "@/lib/blog/format";
 
 export const metadata: Metadata = {
@@ -19,11 +19,18 @@ export const metadata: Metadata = {
 export const revalidate = 60;
 
 export default async function BlogIndexPage() {
-  const posts = await sanityFetch<BlogPostSummary[]>({
-    query: POSTS_LIST_QUERY,
-    tags: ["post"],
-    fallback: [],
-  });
+  const [posts, categories] = await Promise.all([
+    sanityFetch<BlogPostSummary[]>({
+      query: POSTS_LIST_QUERY,
+      tags: ["post"],
+      fallback: [],
+    }),
+    sanityFetch<BlogCategory[]>({
+      query: ALL_CATEGORIES_QUERY,
+      tags: ["category"],
+      fallback: [],
+    }),
+  ]);
 
   const [featured, ...rest] = posts;
 
@@ -33,19 +40,38 @@ export default async function BlogIndexPage() {
 
       <section className="bl-hero">
         <div className="bl-wrap">
-          <div className="bl-crumbs">
-            <Link href="/">Home</Link>
-            <span className="sep">/</span>
-            <span className="here">Field Notes</span>
+          <div className="bl-hero-top">
+            <div>
+              <div className="bl-kicker">Field Notes</div>
+              <h1 className="bl-h1">
+                Notes from the<br />shop <i>floor.</i>
+              </h1>
+            </div>
+            <div className="bl-hero-meta">
+              <p>
+                Technical articles, industry insights, and hard-won knowledge from our team —
+                written for engineers and buyers.
+              </p>
+              <div className="bl-hero-count">
+                {posts.length} {posts.length === 1 ? "article" : "articles"} · Updated weekly
+              </div>
+            </div>
           </div>
-          <div className="bl-kicker">Field Notes</div>
-          <h1 className="bl-h1">
-            Notes from the <i>shop floor</i>.
-          </h1>
-          <p className="bl-lede">
-            Engineering writeups, application notes, and what we learned solving real fastener
-            problems for Bay Area shops, EPCs, and OEMs.
-          </p>
+
+          {categories.length > 0 && (
+            <div className="bl-filters">
+              <Link href="/blog" className="bl-chip is-active">All</Link>
+              {categories.map((cat) => (
+                <Link
+                  key={cat._id}
+                  href={`/blog/category/${cat.slug}`}
+                  className="bl-chip"
+                >
+                  {cat.title}
+                </Link>
+              ))}
+            </div>
+          )}
         </div>
       </section>
 
@@ -79,34 +105,41 @@ export default async function BlogIndexPage() {
       ) : (
         <>
           {featured && (
-            <section className="bl-wrap">
-              <div className="bl-featured">
-                <div className="bl-featured-media">
-                  {featured.heroImage?.asset ? (
-                    <img
-                      src={urlFor(featured.heroImage).width(1400).height(1050).fit("crop").auto("format").url()}
-                      alt={featured.heroImage.alt ?? featured.title}
-                    />
-                  ) : (
-                    <div className="bl-placeholder">No image</div>
-                  )}
-                </div>
-                <div>
-                  <div className="bl-featured-meta">
-                    {featured.featured && <b>Featured</b>}
-                    {featured.categories?.[0] && <b>{featured.categories[0].title}</b>}
-                    <span>{formatPublishedAt(featured.publishedAt)}</span>
+            <section className="bl-featured-section">
+              <div className="bl-wrap">
+                <div className="bl-featured">
+                  <div className="bl-featured-media">
+                    {featured.heroImage?.asset ? (
+                      <img
+                        src={urlFor(featured.heroImage)
+                          .width(1200)
+                          .height(960)
+                          .fit("crop")
+                          .auto("format")
+                          .url()}
+                        alt={featured.heroImage.alt ?? featured.title}
+                      />
+                    ) : (
+                      <div className="bl-placeholder">No image</div>
+                    )}
                   </div>
-                  <h2 className="bl-featured-title">
-                    <Link href={`/blog/${featured.slug}`}>{featured.title}</Link>
-                  </h2>
-                  <p className="bl-featured-sub">{featured.summary}</p>
-                  {featured.author && (
-                    <div className="bl-featured-byline">
-                      By <b>{featured.author.name}</b>
-                      {featured.author.role && <span> · {featured.author.role}</span>}
+                  <div>
+                    <div className="bl-featured-cat">
+                      Featured
+                      {featured.categories?.[0] && ` · ${featured.categories[0].title}`}
                     </div>
-                  )}
+                    <h2 className="bl-featured-title">
+                      <Link href={`/blog/${featured.slug}`}>{featured.title}</Link>
+                    </h2>
+                    <p className="bl-featured-sub">{featured.summary}</p>
+                    <div className="bl-featured-meta">
+                      {featured.author && <>By {featured.author.name} · </>}
+                      {formatPublishedAt(featured.publishedAt)}
+                    </div>
+                    <Link href={`/blog/${featured.slug}`} className="cf-link">
+                      Read article
+                    </Link>
+                  </div>
                 </div>
               </div>
             </section>
@@ -116,10 +149,8 @@ export default async function BlogIndexPage() {
             <section className="bl-list">
               <div className="bl-wrap">
                 <div className="bl-list-head">
-                  <div className="bl-list-title">More posts</div>
-                  <div className="bl-list-count">
-                    {rest.length} {rest.length === 1 ? "post" : "posts"}
-                  </div>
+                  <h3 className="bl-list-title">Latest articles</h3>
+                  <div className="bl-list-sort">Sort: Most recent</div>
                 </div>
                 <div className="bl-grid">
                   {rest.map((post) => (
@@ -129,6 +160,31 @@ export default async function BlogIndexPage() {
               </div>
             </section>
           )}
+
+          <section className="bl-newsletter">
+            <div className="bl-wrap bl-newsletter-inner">
+              <div>
+                <h3 className="bl-newsletter-title">Get Field Notes in your inbox.</h3>
+                <p className="bl-newsletter-sub">
+                  Two technical articles a month. No marketing. Unsubscribe anytime.
+                </p>
+              </div>
+              <form
+                className="bl-newsletter-form"
+                action="https://formspree.io/f/placeholder"
+                method="post"
+              >
+                <input
+                  type="email"
+                  name="email"
+                  placeholder="you@company.com"
+                  aria-label="Email address"
+                  required
+                />
+                <button type="submit">Subscribe</button>
+              </form>
+            </div>
+          </section>
         </>
       )}
 
@@ -151,12 +207,10 @@ function PostCard({ post }: { post: BlogPostSummary }) {
           <div className="bl-placeholder">No image</div>
         )}
       </div>
-      <div className="bl-card-meta">
-        {cat && <b>{cat.title}</b>}
-        <span>{formatPublishedAt(post.publishedAt)}</span>
-      </div>
-      <h3 className="bl-card-title">{post.title}</h3>
+      {cat && <div className="bl-card-cat">{cat.title}</div>}
+      <h4 className="bl-card-title">{post.title}</h4>
       <p className="bl-card-sub">{post.summary}</p>
+      <div className="bl-card-meta">{formatPublishedAt(post.publishedAt)}</div>
     </Link>
   );
 }

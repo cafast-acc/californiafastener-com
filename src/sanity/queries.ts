@@ -56,6 +56,15 @@ export const CATEGORY_BY_SLUG_QUERY = /* groq */ `
   }
 `;
 
+export const ALL_CATEGORIES_QUERY = /* groq */ `
+  *[_type == "category" && defined(slug.current)] | order(title asc) {
+    _id,
+    title,
+    "slug": slug.current,
+    description
+  }
+`;
+
 export const CATEGORY_SLUGS_QUERY = /* groq */ `
   *[_type == "category" && defined(slug.current)].slug.current
 `;
