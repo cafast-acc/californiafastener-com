@@ -1,4 +1,4 @@
-import { revalidateTag } from "next/cache";
+import { revalidatePath, revalidateTag } from "next/cache";
 import { type NextRequest, NextResponse } from "next/server";
 import { parseBody } from "next-sanity/webhook";
 
@@ -30,9 +30,13 @@ export async function POST(req: NextRequest) {
   }
 
   const tags = new Set<string>(["sanity", body._type, "blog:index"]);
+  const paths = new Set<string>(["/blog"]);
   if (body._type === "post") {
     const slug = typeof body.slug === "string" ? body.slug : body.slug?.current;
-    if (slug) tags.add(`post:${slug}`);
+    if (slug) {
+      tags.add(`post:${slug}`);
+      paths.add(`/blog/${slug}`);
+    }
     tags.add("post");
     tags.add("post:slugs");
   }
@@ -40,6 +44,13 @@ export async function POST(req: NextRequest) {
   for (const tag of tags) {
     revalidateTag(tag, "max");
   }
+  for (const path of paths) {
+    revalidatePath(path, "page");
+  }
 
-  return NextResponse.json({ ok: true, revalidated: Array.from(tags) });
+  return NextResponse.json({
+    ok: true,
+    revalidated: Array.from(tags),
+    paths: Array.from(paths),
+  });
 }
