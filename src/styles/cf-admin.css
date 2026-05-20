@@ -273,3 +273,65 @@
   background: var(--cf-bg);
   border-radius: var(--cf-radius-md);
 }
+
+/* ── Tables ──────────────────────────────────────────── */
+.cf-admin-table-wrap {
+  overflow-x: auto;
+  border: 1px solid var(--cf-rule-soft);
+  border-radius: var(--cf-radius-md);
+}
+.cf-admin-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 14px;
+  color: var(--cf-ink);
+}
+.cf-admin-table th,
+.cf-admin-table td {
+  text-align: left;
+  padding: 10px 14px;
+  border-bottom: 1px solid var(--cf-rule-soft);
+  vertical-align: top;
+}
+.cf-admin-table th {
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--cf-mid);
+  background: var(--cf-bg);
+  border-bottom-color: var(--cf-rule);
+}
+.cf-admin-table tbody tr:last-child td {
+  border-bottom: 0;
+}
+.cf-admin-table tbody tr:hover {
+  background: var(--cf-bg);
+}
+.cf-admin-table__time {
+  font-variant-numeric: tabular-nums;
+  color: var(--cf-ink-soft);
+  white-space: nowrap;
+}
+.cf-admin-table__sub {
+  font-size: 12px;
+  color: var(--cf-mid);
+}
+.cf-admin-table__url a {
+  color: var(--cf-blue-dark);
+  text-decoration: none;
+}
+.cf-admin-table__url a:hover {
+  text-decoration: underline;
+}
+
+.cf-admin-pill {
+  display: inline-block;
+  padding: 2px 8px;
+  border-radius: var(--cf-radius-pill);
+  background: var(--cf-bg-cream);
+  color: var(--cf-ink-soft);
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: -0.005em;
+}
