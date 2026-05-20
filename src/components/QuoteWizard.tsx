@@ -2,15 +2,13 @@
 
 import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
+import { pushEvent } from "@/lib/analytics";
 
 /**
- * Four-step quote wizard with success state. Visual placeholder behavior —
- * `submit()` advances to the success view without making a network call.
- *
- * When Jotform comes online, replace `submit()` with the same hidden-iframe
- * carry-over pattern used by `src/components/spec-builder/QuoteModal.tsx`:
- * map state fields onto the Jotform hidden fields (qNN names) and POST the
- * form to the iframe target.
+ * Four-step quote wizard. `submit()` POSTs the collected fields to
+ * /api/forms/quote which forwards to Jotform server-side and returns a
+ * submission id. On success the wizard advances to step 5 and fires a
+ * `lead_submitted` dataLayer event so GTM can fan out conversions.
  */
 
 const PRODUCTS = [
@@ -105,6 +103,8 @@ export function QuoteWizard() {
   const [phone, setPhone] = useState("");
   const [role, setRole] = useState(ROLES[0]);
   const [confirmationCode, setConfirmationCode] = useState<string | null>(null);
+  const [submitting, setSubmitting] = useState(false);
+  const [submitError, setSubmitError] = useState<string | null>(null);
 
   const cardRef = useRef<HTMLDivElement>(null);
 
@@ -135,10 +135,65 @@ export function QuoteWizard() {
     setFiles((prev) => [...prev, { name: pick, sizeKb }]);
   }
 
-  function submit() {
-    /* TODO: POST to Jotform hidden iframe (see QuoteModal pattern). */
-    setConfirmationCode(makeConfirmationCode());
-    go(5);
+  async function submit() {
+    if (submitting) return;
+    setSubmitError(null);
+    setSubmitting(true);
+    try {
+      const res = await fetch("/api/forms/quote", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          name,
+          email,
+          company,
+          phone,
+          role,
+          product,
+          grade,
+          finish,
+          diameter,
+          length,
+          qty,
+          neededBy,
+          shipTo,
+          certs: Array.from(certs),
+          fileNames: files.map((f) => f.name),
+          notes: appNotes,
+        }),
+      });
+      const payload = (await res.json().catch(() => ({}))) as {
+        ok?: boolean;
+        error?: string;
+        formId?: string;
+        submissionId?: string | null;
+      };
+      if (!res.ok || !payload.ok) {
+        const code = payload.error ?? `http_${res.status}`;
+        setSubmitError(
+          code === "invalid_email"
+            ? "Please check the email address."
+            : code === "missing_name" || code === "missing_email"
+              ? "Name and email are required."
+              : "Something went wrong sending your request. Please try again, or call us.",
+        );
+        return;
+      }
+      pushEvent("lead_submitted", {
+        form: "quote",
+        form_id: payload.formId,
+        submission_id: payload.submissionId,
+        product,
+      });
+      setConfirmationCode(payload.submissionId ?? makeConfirmationCode());
+      go(5);
+    } catch {
+      setSubmitError(
+        "We couldn't reach our server. Please check your connection and try again.",
+      );
+    } finally {
+      setSubmitting(false);
+    }
   }
 
   return (
@@ -459,12 +514,28 @@ export function QuoteWizard() {
               )}
             </div>
 
+            {submitError && (
+              <div className="qf-submit-error" role="alert">
+                {submitError}
+              </div>
+            )}
+
             <div className="qf-step-footer">
-              <button type="button" className="qf-back" onClick={() => go(3)}>
+              <button
+                type="button"
+                className="qf-back"
+                onClick={() => go(3)}
+                disabled={submitting}
+              >
                 Back
               </button>
-              <button type="button" className="cf-pill cf-pill--blue" onClick={submit}>
-                Submit Request ›
+              <button
+                type="button"
+                className="cf-pill cf-pill--blue"
+                onClick={submit}
+                disabled={submitting}
+              >
+                {submitting ? "Sending…" : "Submit Request ›"}
               </button>
             </div>
           </>

@@ -123,7 +123,11 @@
 .qf-back { color: var(--ink-soft); font-size: 15px; background: none; border: none; cursor: pointer;
   letter-spacing: -0.005em; font-family: inherit; padding: 8px 0; }
 .qf-back::before { content: '‹ '; }
+.qf-back:disabled { opacity: 0.5; cursor: not-allowed; }
 .qf-meta { font-size: 13px; color: var(--mid); }
+
+.qf-submit-error { margin-top: 16px; padding: 10px 12px; border-radius: 8px;
+  background: #fbeaea; border: 1px solid #f1c5c5; color: #8a1c1c; font-size: 14px; }
 
 /* ── SUCCESS ────────────────────────────────────────── */
 .qf-success { text-align: center; padding: 40px 0 20px; }
