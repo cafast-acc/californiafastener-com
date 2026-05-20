@@ -1,36 +1,36 @@
 import { getGa4Snapshot } from "@/lib/ga4";
 import { getWhatConvertsSnapshot } from "@/lib/whatconverts";
+import { getJotformSnapshot } from "@/lib/jotform";
 import { KpiCard } from "@/components/admin/KpiCard";
 import { TrafficChart } from "@/components/admin/TrafficChart";
 import { SourceBreakdown } from "@/components/admin/SourceBreakdown";
 import { LeadsTable } from "@/components/admin/LeadsTable";
+import { JotformCounts } from "@/components/admin/JotformCounts";
 
 const NUM = new Intl.NumberFormat("en-US");
 
 export default async function AdminDashboardPage() {
-  const [ga4, wc] = await Promise.all([
+  const [ga4, wc, jf] = await Promise.all([
     getGa4Snapshot(),
     getWhatConvertsSnapshot(),
+    getJotformSnapshot(),
   ]);
   const topSource = ga4.topSources[0]?.source ?? "—";
+  const missing: string[] = [];
+  if (!ga4.configured) missing.push("GA4 (GA4_PROPERTY_ID + GA4_SERVICE_ACCOUNT_JSON)");
+  if (!wc.configured) missing.push("WhatConverts (WHATCONVERTS_API_TOKEN + _SECRET)");
+  if (!jf.configured) missing.push("Jotform (JOTFORM_API_KEY)");
 
   return (
     <div className="cf-admin-stack">
-      {(!ga4.configured || !wc.configured) && (
+      {missing.length > 0 && (
         <div className="cf-admin-banner">
-          {!ga4.configured && (
-            <div>
-              GA4 isn&apos;t wired up. Set <code>GA4_PROPERTY_ID</code> +{" "}
-              <code>GA4_SERVICE_ACCOUNT_JSON</code> in Vercel.
-            </div>
-          )}
-          {!wc.configured && (
-            <div>
-              WhatConverts isn&apos;t wired up. Set{" "}
-              <code>WHATCONVERTS_API_TOKEN</code> +{" "}
-              <code>WHATCONVERTS_API_SECRET</code> in Vercel.
-            </div>
-          )}
+          <strong>Set these in Vercel to bring widgets online:</strong>
+          <ul className="cf-admin-banner__list">
+            {missing.map((m) => (
+              <li key={m}>{m}</li>
+            ))}
+          </ul>
         </div>
       )}
 
@@ -52,9 +52,10 @@ export default async function AdminDashboardPage() {
           muted={!wc.configured}
         />
         <KpiCard
-          label="Top source (30d)"
-          value={topSource}
-          muted={!ga4.configured}
+          label="Form submissions this week"
+          value={NUM.format(jf.totalWeek)}
+          sublabel={jf.configured ? `${NUM.format(jf.totalMonth)} in last 30 days` : undefined}
+          muted={!jf.configured}
         />
       </div>
 
@@ -62,7 +63,9 @@ export default async function AdminDashboardPage() {
         <section className="cf-admin-section">
           <header className="cf-admin-section__head">
             <h2 className="cf-t-h3">Traffic, last 30 days</h2>
-            <p className="cf-t-small">Sessions per day from Google Analytics 4.</p>
+            <p className="cf-t-small">
+              Sessions per day from Google Analytics 4. Top source: {topSource}.
+            </p>
           </header>
           <TrafficChart data={ga4.dailySessions} />
         </section>
@@ -83,6 +86,16 @@ export default async function AdminDashboardPage() {
           </p>
         </header>
         <LeadsTable leads={wc.recentLeads} />
+      </section>
+
+      <section className="cf-admin-section">
+        <header className="cf-admin-section__head">
+          <h2 className="cf-t-h3">Form submissions by form</h2>
+          <p className="cf-t-small">
+            Counts come straight from the Jotform API. Today / 7-day / 30-day per form.
+          </p>
+        </header>
+        <JotformCounts forms={jf.forms} />
       </section>
     </div>
   );
