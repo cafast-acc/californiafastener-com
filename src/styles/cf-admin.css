@@ -1,0 +1,170 @@
+/* ─────────────────────────────────────────────────────────
+   California Fastener — Admin dashboard surfaces
+   Scoped to /admin/*. Reuses cf-tokens.css. Distinct from
+   the public marketing chrome so admin can't be confused
+   with front-of-house pages.
+   ───────────────────────────────────────────────────────── */
+
+.cf-admin-shell {
+  min-height: 100vh;
+  background: var(--cf-bg-alt);
+  color: var(--cf-ink);
+  display: flex;
+  flex-direction: column;
+}
+
+.cf-admin-main {
+  width: 100%;
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: var(--cf-space-7) var(--cf-space-5);
+  flex: 1;
+}
+
+/* ── Top nav ─────────────────────────────────────────── */
+.cf-admin-nav {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--cf-space-5);
+  padding: var(--cf-space-3) var(--cf-space-5);
+  background: var(--cf-white);
+  border-bottom: 1px solid var(--cf-rule-soft);
+}
+.cf-admin-nav__brand {
+  display: flex;
+  align-items: baseline;
+  gap: var(--cf-space-3);
+}
+.cf-admin-nav__title {
+  font-family: var(--cf-font-display);
+  font-size: 18px;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  color: var(--cf-ink);
+}
+.cf-admin-nav__meta {
+  display: flex;
+  align-items: center;
+  gap: var(--cf-space-4);
+}
+
+/* ── Auth shell (login page) ─────────────────────────── */
+.cf-admin-auth-shell {
+  min-height: 100vh;
+  background: var(--cf-bg-alt);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--cf-space-5);
+}
+
+/* ── Cards / sections ────────────────────────────────── */
+.cf-admin-section {
+  background: var(--cf-white);
+  border: 1px solid var(--cf-rule-soft);
+  border-radius: var(--cf-radius-xl);
+  padding: var(--cf-space-7);
+  box-shadow: var(--cf-shadow-sm);
+}
+.cf-admin-section > h1,
+.cf-admin-section > h2 {
+  margin: 0 0 var(--cf-space-3);
+}
+.cf-admin-section > p {
+  margin: 0;
+}
+.cf-admin-section--auth {
+  width: 100%;
+  max-width: 420px;
+}
+
+/* ── Form primitives ─────────────────────────────────── */
+.cf-admin-form {
+  display: flex;
+  flex-direction: column;
+  gap: var(--cf-space-4);
+}
+.cf-admin-form h1 {
+  margin: 0;
+}
+.cf-admin-form p {
+  margin: 0;
+}
+.cf-admin-field {
+  display: flex;
+  flex-direction: column;
+  gap: var(--cf-space-2);
+}
+.cf-admin-field > span {
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--cf-ink-soft);
+  letter-spacing: -0.005em;
+}
+.cf-admin-field > input {
+  font-family: var(--cf-font-text);
+  font-size: 16px;
+  color: var(--cf-ink);
+  background: var(--cf-bg);
+  border: 1px solid var(--cf-rule);
+  border-radius: var(--cf-radius-md);
+  padding: 10px 12px;
+  min-height: var(--cf-touch-min);
+  transition: border-color var(--cf-dur-fast) var(--cf-ease);
+}
+.cf-admin-field > input:focus {
+  outline: none;
+  border-color: var(--cf-blue-dark);
+  box-shadow: 0 0 0 3px rgba(28, 82, 163, 0.15);
+}
+
+/* ── Buttons ─────────────────────────────────────────── */
+.cf-admin-btn {
+  font-family: var(--cf-font-display);
+  font-size: 15px;
+  font-weight: 500;
+  letter-spacing: -0.01em;
+  padding: 10px 18px;
+  min-height: var(--cf-touch-min);
+  border-radius: var(--cf-radius-pill);
+  border: 1px solid transparent;
+  cursor: pointer;
+  transition:
+    background var(--cf-dur-fast) var(--cf-ease),
+    color var(--cf-dur-fast) var(--cf-ease),
+    border-color var(--cf-dur-fast) var(--cf-ease);
+}
+.cf-admin-btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+.cf-admin-btn--primary {
+  background: var(--cf-blue-dark);
+  color: var(--cf-white);
+}
+.cf-admin-btn--primary:hover:not(:disabled) {
+  background: var(--cf-blue-hover);
+}
+.cf-admin-btn--ghost {
+  background: transparent;
+  color: var(--cf-ink-soft);
+  border-color: var(--cf-rule);
+}
+.cf-admin-btn--ghost:hover:not(:disabled) {
+  background: var(--cf-bg);
+  color: var(--cf-ink);
+}
+
+/* ── Error banner ────────────────────────────────────── */
+.cf-admin-error {
+  font-size: 14px;
+  color: #8a1c1c;
+  background: #fbeaea;
+  border: 1px solid #f1c5c5;
+  border-radius: var(--cf-radius-md);
+  padding: 10px 12px;
+}

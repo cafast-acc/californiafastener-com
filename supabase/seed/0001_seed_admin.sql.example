@@ -1,0 +1,8 @@
+-- Template only — NOT executed automatically.
+-- Run this in the Supabase SQL editor AFTER creating the first user via
+-- Authentication → Users → "Add user" (with Auto Confirm User checked).
+-- Replace the email below with the actual seed admin email.
+
+update public.profiles
+   set role = 'admin'
+ where email = 'YOUR_ADMIN_EMAIL@example.com';

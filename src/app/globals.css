@@ -4,6 +4,7 @@
 @import "../styles/cf-tokens.css";
 @import "../styles/cf-shared.css";
 @import "../styles/cf-blog.css";
+@import "../styles/cf-admin.css";
 
 /* Font substitution. We don't have an SF Pro license — Inter + JetBrains Mono via next/font.
    The next/font CSS variables (--font-inter, --font-jetbrains-mono) are exposed by app/layout.tsx
