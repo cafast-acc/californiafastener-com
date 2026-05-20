@@ -168,3 +168,108 @@
   border-radius: var(--cf-radius-md);
   padding: 10px 12px;
 }
+
+/* ── Dashboard surface ──────────────────────────────── */
+.cf-admin-stack {
+  display: flex;
+  flex-direction: column;
+  gap: var(--cf-space-5);
+}
+
+.cf-admin-banner {
+  background: #fff8e1;
+  border: 1px solid #f0d97d;
+  color: #6a4d00;
+  border-radius: var(--cf-radius-md);
+  padding: 12px 14px;
+  font-size: 14px;
+}
+.cf-admin-banner code {
+  font-family: var(--cf-font-mono);
+  font-size: 12px;
+  background: rgba(0, 0, 0, 0.05);
+  padding: 1px 6px;
+  border-radius: 4px;
+}
+
+.cf-admin-kpi-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: var(--cf-space-4);
+}
+@media (max-width: 900px) {
+  .cf-admin-kpi-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+.cf-admin-kpi {
+  background: var(--cf-white);
+  border: 1px solid var(--cf-rule-soft);
+  border-radius: var(--cf-radius-lg);
+  padding: var(--cf-space-5);
+  display: flex;
+  flex-direction: column;
+  gap: var(--cf-space-2);
+}
+.cf-admin-kpi--muted {
+  background: var(--cf-bg);
+  color: var(--cf-mid);
+}
+.cf-admin-kpi__label {
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  color: var(--cf-mid);
+}
+.cf-admin-kpi__value {
+  font-family: var(--cf-font-display);
+  font-size: 32px;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  color: var(--cf-ink);
+  line-height: 1.1;
+}
+.cf-admin-kpi--muted .cf-admin-kpi__value {
+  color: var(--cf-mid);
+}
+.cf-admin-kpi__sub {
+  font-size: 12px;
+  color: var(--cf-mid);
+}
+
+.cf-admin-chart-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 2fr) minmax(0, 1fr);
+  gap: var(--cf-space-5);
+}
+@media (max-width: 900px) {
+  .cf-admin-chart-grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
+.cf-admin-section__head {
+  display: flex;
+  flex-direction: column;
+  gap: var(--cf-space-1);
+  margin-bottom: var(--cf-space-4);
+}
+.cf-admin-section__head h2 {
+  margin: 0;
+}
+.cf-admin-section__head p {
+  margin: 0;
+}
+
+.cf-admin-chart-empty {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 200px;
+  color: var(--cf-mid);
+  font-size: 13px;
+  background: var(--cf-bg);
+  border-radius: var(--cf-radius-md);
+}
