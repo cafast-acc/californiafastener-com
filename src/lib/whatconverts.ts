@@ -1,5 +1,6 @@
 import "server-only";
 import { unstable_cache } from "next/cache";
+import type { DateRange } from "./dateRange";
 
 const API_TOKEN = process.env.WHATCONVERTS_API_TOKEN;
 const API_SECRET = process.env.WHATCONVERTS_API_SECRET;
@@ -23,19 +24,28 @@ export type Lead = {
 
 export type WhatConvertsSnapshot = {
   configured: boolean;
+  range: DateRange;
   recentLeads: Lead[];
-  leadsLast7Days: number;
-  leadsLast30Days: number;
+  leadsInRange: number;
   generatedAt: string;
 };
 
-const EMPTY_SNAPSHOT: WhatConvertsSnapshot = {
-  configured: false,
-  recentLeads: [],
-  leadsLast7Days: 0,
-  leadsLast30Days: 0,
-  generatedAt: new Date(0).toISOString(),
+export type LeadsSearchResult = {
+  configured: boolean;
+  leads: Lead[];
+  total: number;
+  page: number;
+  pageSize: number;
+  generatedAt: string;
 };
+
+const EMPTY_SNAPSHOT = (range: DateRange): WhatConvertsSnapshot => ({
+  configured: false,
+  range,
+  recentLeads: [],
+  leadsInRange: 0,
+  generatedAt: new Date(0).toISOString(),
+});
 
 type RawLead = {
   lead_id?: number | string;
@@ -61,10 +71,6 @@ type RawListResponse = {
 function authHeader(): string {
   const creds = `${API_TOKEN}:${API_SECRET}`;
   return `Basic ${Buffer.from(creds).toString("base64")}`;
-}
-
-function formatDate(d: Date): string {
-  return d.toISOString().slice(0, 10);
 }
 
 function normalizeLead(raw: RawLead): Lead {
@@ -106,40 +112,82 @@ async function fetchLeads(params: Record<string, string | number>): Promise<RawL
   return (await res.json()) as RawListResponse;
 }
 
-async function fetchSnapshot(): Promise<WhatConvertsSnapshot> {
-  if (!isWhatConvertsConfigured()) return EMPTY_SNAPSHOT;
+async function fetchSnapshot(range: DateRange): Promise<WhatConvertsSnapshot> {
+  if (!isWhatConvertsConfigured()) return EMPTY_SNAPSHOT(range);
 
-  const now = new Date();
-  const sevenAgo = new Date(now.getTime() - 7 * 24 * 60 * 60 * 1000);
-  const thirtyAgo = new Date(now.getTime() - 30 * 24 * 60 * 60 * 1000);
-
-  const [recent, week, month] = await Promise.all([
+  const [recent, inRange] = await Promise.all([
     fetchLeads({ page_size: 10, page_number: 1 }),
     fetchLeads({
       page_size: 1,
       page_number: 1,
-      start_date: formatDate(sevenAgo),
-      end_date: formatDate(now),
-    }),
-    fetchLeads({
-      page_size: 1,
-      page_number: 1,
-      start_date: formatDate(thirtyAgo),
-      end_date: formatDate(now),
+      start_date: range.startDate,
+      end_date: range.endDate,
     }),
   ]);
 
   return {
     configured: true,
+    range,
     recentLeads: (recent.leads ?? []).map(normalizeLead),
-    leadsLast7Days: week.total_records ?? 0,
-    leadsLast30Days: month.total_records ?? 0,
+    leadsInRange: inRange.total_records ?? 0,
     generatedAt: new Date().toISOString(),
   };
 }
 
 export const getWhatConvertsSnapshot = unstable_cache(
   fetchSnapshot,
-  ["admin:whatconverts:snapshot:v1"],
+  ["admin:whatconverts:snapshot:v2"],
   { revalidate: 600, tags: ["admin:whatconverts"] },
+);
+
+export type LeadsSearchParams = {
+  range: DateRange;
+  type?: string;
+  source?: string;
+  search?: string;
+  page?: number;
+  pageSize?: number;
+};
+
+async function fetchSearchLeads(params: LeadsSearchParams): Promise<LeadsSearchResult> {
+  if (!isWhatConvertsConfigured()) {
+    return {
+      configured: false,
+      leads: [],
+      total: 0,
+      page: params.page ?? 1,
+      pageSize: params.pageSize ?? 25,
+      generatedAt: new Date(0).toISOString(),
+    };
+  }
+  const pageSize = params.pageSize ?? 25;
+  const page = Math.max(1, params.page ?? 1);
+  const apiParams: Record<string, string | number> = {
+    page_size: pageSize,
+    page_number: page,
+    start_date: params.range.startDate,
+    end_date: params.range.endDate,
+  };
+  if (params.type) apiParams.lead_type = params.type;
+  if (params.source) apiParams.lead_source = params.source;
+  // The WhatConverts API exposes a free-text `quick_search` param; we pass it
+  // when set and let the API match across name / email / phone.
+  if (params.search) apiParams.quick_search = params.search;
+
+  const raw = await fetchLeads(apiParams);
+  return {
+    configured: true,
+    leads: (raw.leads ?? []).map(normalizeLead),
+    total: raw.total_records ?? 0,
+    page,
+    pageSize,
+    generatedAt: new Date().toISOString(),
+  };
+}
+
+// Cache keyed by all params; 5-minute revalidate (more granular than dashboard).
+export const searchLeads = unstable_cache(
+  fetchSearchLeads,
+  ["admin:whatconverts:search:v1"],
+  { revalidate: 300, tags: ["admin:whatconverts"] },
 );

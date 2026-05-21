@@ -4,7 +4,7 @@ const NUM = new Intl.NumberFormat("en-US");
 
 export function JotformCounts({ forms }: { forms: FormCounts[] }) {
   if (!forms.length) {
-    return <div className="cf-admin-chart-empty">No form submissions in the last 30 days.</div>;
+    return <div className="cf-admin-chart-empty">No form submissions in this range.</div>;
   }
   return (
     <div className="cf-admin-table-wrap">
@@ -13,8 +13,7 @@ export function JotformCounts({ forms }: { forms: FormCounts[] }) {
           <tr>
             <th>Form</th>
             <th className="cf-admin-table__num">Today</th>
-            <th className="cf-admin-table__num">Last 7 days</th>
-            <th className="cf-admin-table__num">Last 30 days</th>
+            <th className="cf-admin-table__num">In range</th>
           </tr>
         </thead>
         <tbody>
@@ -25,8 +24,7 @@ export function JotformCounts({ forms }: { forms: FormCounts[] }) {
                 <div className="cf-admin-table__sub">#{form.id}</div>
               </td>
               <td className="cf-admin-table__num">{NUM.format(form.today)}</td>
-              <td className="cf-admin-table__num">{NUM.format(form.week)}</td>
-              <td className="cf-admin-table__num">{NUM.format(form.month)}</td>
+              <td className="cf-admin-table__num">{NUM.format(form.inRange)}</td>
             </tr>
           ))}
         </tbody>

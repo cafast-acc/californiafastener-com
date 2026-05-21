@@ -26,13 +26,21 @@
   position: sticky;
   top: 0;
   z-index: 10;
+  background: var(--cf-white);
+  border-bottom: 1px solid var(--cf-rule-soft);
+}
+.cf-admin-nav__top {
   display: flex;
   align-items: center;
   justify-content: space-between;
   gap: var(--cf-space-5);
   padding: var(--cf-space-3) var(--cf-space-5);
-  background: var(--cf-white);
-  border-bottom: 1px solid var(--cf-rule-soft);
+  flex-wrap: wrap;
+}
+.cf-admin-nav__bottom {
+  padding: 6px var(--cf-space-5);
+  border-top: 1px solid var(--cf-rule-soft);
+  background: var(--cf-bg);
 }
 .cf-admin-nav__brand {
   display: flex;
@@ -380,4 +388,302 @@
 }
 .cf-admin-banner__list li {
   font-size: 13px;
+}
+
+/* ── Page head row (h1 + range picker side-by-side) ─── */
+.cf-admin-page-head {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: var(--cf-space-4);
+  flex-wrap: wrap;
+}
+.cf-admin-page-head h1 {
+  margin: 0;
+}
+.cf-admin-page-head p {
+  margin: 4px 0 0;
+}
+
+/* ── Section head with right-aligned actions ──────────── */
+.cf-admin-section__head--row {
+  flex-direction: row;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: var(--cf-space-4);
+  flex-wrap: wrap;
+}
+.cf-admin-section__head--row > div {
+  display: flex;
+  flex-direction: column;
+  gap: var(--cf-space-1);
+  min-width: 0;
+}
+.cf-admin-section__actions {
+  display: flex;
+  align-items: center;
+  gap: var(--cf-space-3);
+}
+
+/* ── Date range picker ───────────────────────────────── */
+.cf-admin-range {
+  display: flex;
+  align-items: center;
+  gap: var(--cf-space-3);
+}
+.cf-admin-range__presets {
+  display: flex;
+  align-items: center;
+  gap: var(--cf-space-2);
+  flex-wrap: wrap;
+}
+.cf-admin-range__btn {
+  font-family: var(--cf-font-display);
+  font-size: 13px;
+  font-weight: 500;
+  padding: 6px 12px;
+  border-radius: var(--cf-radius-pill);
+  background: var(--cf-white);
+  color: var(--cf-ink-soft);
+  border: 1px solid var(--cf-rule);
+  cursor: pointer;
+  letter-spacing: -0.005em;
+  transition: all var(--cf-dur-fast) var(--cf-ease);
+}
+.cf-admin-range__btn:hover {
+  border-color: var(--cf-blue-dark);
+  color: var(--cf-ink);
+}
+.cf-admin-range__btn.is-active {
+  background: var(--cf-blue-dark);
+  color: var(--cf-white);
+  border-color: var(--cf-blue-dark);
+}
+.cf-admin-range__custom {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin-left: var(--cf-space-2);
+  padding-left: var(--cf-space-3);
+  border-left: 1px solid var(--cf-rule-soft);
+}
+.cf-admin-range__custom input[type="date"] {
+  font-family: var(--cf-font-text);
+  font-size: 13px;
+  padding: 6px 8px;
+  border: 1px solid var(--cf-rule);
+  border-radius: var(--cf-radius-sm);
+  background: var(--cf-white);
+  color: var(--cf-ink);
+}
+
+/* ── Quick links strip (bottom of nav) ────────────────── */
+.cf-admin-quick-links {
+  display: flex;
+  align-items: center;
+  gap: var(--cf-space-4);
+  flex-wrap: wrap;
+}
+.cf-admin-quick-links__link {
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--cf-mid);
+  text-decoration: none;
+  letter-spacing: 0.01em;
+  display: inline-flex;
+  align-items: center;
+  gap: 2px;
+  transition: color var(--cf-dur-fast) var(--cf-ease);
+}
+.cf-admin-quick-links__link:hover {
+  color: var(--cf-blue-dark);
+}
+
+/* ── Lead filters ─────────────────────────────────────── */
+.cf-admin-filters {
+  display: flex;
+  align-items: flex-end;
+  gap: var(--cf-space-3);
+  flex-wrap: wrap;
+}
+.cf-admin-filters__field {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  min-width: 180px;
+}
+.cf-admin-filters__field--grow {
+  flex: 1 1 240px;
+}
+.cf-admin-filters__field > span {
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--cf-ink-soft);
+}
+.cf-admin-filters__field > input,
+.cf-admin-filters__field > select {
+  font-family: var(--cf-font-text);
+  font-size: 14px;
+  padding: 8px 10px;
+  border: 1px solid var(--cf-rule);
+  border-radius: var(--cf-radius-sm);
+  background: var(--cf-white);
+  color: var(--cf-ink);
+}
+.cf-admin-filters__actions {
+  display: flex;
+  gap: var(--cf-space-2);
+  align-items: center;
+}
+
+/* ── Pagination ──────────────────────────────────────── */
+.cf-admin-pagination {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--cf-space-3);
+  padding: var(--cf-space-3) 0;
+}
+.cf-admin-pagination .is-disabled {
+  pointer-events: none;
+  opacity: 0.5;
+}
+
+/* ── Button size + danger variants ────────────────────── */
+.cf-admin-btn--small {
+  font-size: 13px;
+  padding: 6px 14px;
+  min-height: 32px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+}
+.cf-admin-btn--danger {
+  color: #8a1c1c;
+  border-color: #f1c5c5;
+}
+.cf-admin-btn--danger:hover:not(:disabled) {
+  background: #fbeaea;
+  color: #8a1c1c;
+}
+
+/* ── Notices ─────────────────────────────────────────── */
+.cf-admin-notice {
+  font-size: 14px;
+  color: #1b5e20;
+  background: #e6f5ea;
+  border: 1px solid #b6dfc0;
+  border-radius: var(--cf-radius-md);
+  padding: 10px 12px;
+}
+
+/* ── Inline form layout ──────────────────────────────── */
+.cf-admin-form--inline {
+  flex-direction: row;
+  align-items: flex-end;
+  flex-wrap: wrap;
+  gap: var(--cf-space-3);
+}
+.cf-admin-field--grow {
+  flex: 1 1 280px;
+}
+
+/* ── Accent pill (admin role indicator) ──────────────── */
+.cf-admin-pill--accent {
+  background: var(--cf-blue-dark);
+  color: var(--cf-white);
+}
+
+/* ── Table action buttons ────────────────────────────── */
+.cf-admin-table__actions {
+  display: flex;
+  gap: var(--cf-space-2);
+  justify-content: flex-end;
+}
+.cf-admin-table__self {
+  font-size: 11px;
+  color: var(--cf-mid);
+  margin-left: var(--cf-space-2);
+}
+
+/* ── Skeleton + error variants ────────────────────────── */
+.cf-admin-section--skeleton {
+  background: linear-gradient(
+    90deg,
+    var(--cf-white) 0%,
+    var(--cf-bg) 50%,
+    var(--cf-white) 100%
+  );
+  background-size: 200% 100%;
+  animation: cf-admin-shimmer 1.4s linear infinite;
+}
+@keyframes cf-admin-shimmer {
+  0% { background-position: 200% 0; }
+  100% { background-position: -200% 0; }
+}
+.cf-admin-section--error {
+  border-color: #f1c5c5;
+  background: #fcf3f3;
+}
+.cf-admin-kpi--skeleton {
+  background: var(--cf-bg);
+  color: transparent;
+}
+
+/* ── Mobile responsive pass ──────────────────────────── */
+@media (max-width: 768px) {
+  .cf-admin-main {
+    padding: var(--cf-space-5) var(--cf-space-4);
+  }
+  .cf-admin-nav__top {
+    gap: var(--cf-space-3);
+  }
+  .cf-admin-nav__links {
+    order: 3;
+    flex-basis: 100%;
+    gap: var(--cf-space-4);
+    flex-wrap: wrap;
+  }
+  .cf-admin-kpi-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+  .cf-admin-kpi__value {
+    font-size: 26px;
+  }
+  .cf-admin-page-head {
+    align-items: flex-start;
+  }
+  .cf-admin-section__head--row {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .cf-admin-table th,
+  .cf-admin-table td {
+    padding: 8px 10px;
+  }
+}
+
+@media (max-width: 480px) {
+  .cf-admin-kpi-grid {
+    grid-template-columns: 1fr;
+  }
+  .cf-admin-kpi__value {
+    font-size: 24px;
+  }
+  .cf-admin-nav__meta {
+    flex-basis: 100%;
+    justify-content: space-between;
+  }
+  .cf-admin-range__custom {
+    flex-basis: 100%;
+    margin-left: 0;
+    padding-left: 0;
+    border-left: 0;
+    border-top: 1px solid var(--cf-rule-soft);
+    padding-top: var(--cf-space-2);
+  }
+  .cf-admin-section {
+    padding: var(--cf-space-5) var(--cf-space-4);
+  }
 }

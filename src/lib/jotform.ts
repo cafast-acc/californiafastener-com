@@ -1,5 +1,6 @@
 import "server-only";
 import { unstable_cache } from "next/cache";
+import type { DateRange } from "./dateRange";
 
 const API_KEY = process.env.JOTFORM_API_KEY;
 const BASE_URL = "https://api.jotform.com";
@@ -12,27 +13,26 @@ export type FormCounts = {
   id: string;
   title: string;
   today: number;
-  week: number;
-  month: number;
+  inRange: number;
 };
 
 export type JotformSnapshot = {
   configured: boolean;
+  range: DateRange;
   forms: FormCounts[];
   totalToday: number;
-  totalWeek: number;
-  totalMonth: number;
+  totalInRange: number;
   generatedAt: string;
 };
 
-const EMPTY_SNAPSHOT: JotformSnapshot = {
+const EMPTY_SNAPSHOT = (range: DateRange): JotformSnapshot => ({
   configured: false,
+  range,
   forms: [],
   totalToday: 0,
-  totalWeek: 0,
-  totalMonth: 0,
+  totalInRange: 0,
   generatedAt: new Date(0).toISOString(),
-};
+});
 
 type RawForm = { id?: string; title?: string };
 type RawSubmission = { id?: string; form_id?: string; created_at?: string };
@@ -52,24 +52,23 @@ async function jotformFetch<T>(path: string, params: Record<string, string>): Pr
   return (await res.json()) as T;
 }
 
-function formatDate(d: Date): string {
+function formatJotformDate(d: Date): string {
   return d.toISOString().slice(0, 19).replace("T", " ");
 }
 
-async function fetchSnapshot(): Promise<JotformSnapshot> {
-  if (!isJotformConfigured()) return EMPTY_SNAPSHOT;
+async function fetchSnapshot(range: DateRange): Promise<JotformSnapshot> {
+  if (!isJotformConfigured()) return EMPTY_SNAPSHOT(range);
 
-  const now = new Date();
-  const startOfToday = new Date(now);
+  const startOfToday = new Date();
   startOfToday.setHours(0, 0, 0, 0);
-  const weekAgo = new Date(now.getTime() - 7 * 24 * 60 * 60 * 1000);
-  const monthAgo = new Date(now.getTime() - 30 * 24 * 60 * 60 * 1000);
+  const rangeStart = new Date(`${range.startDate}T00:00:00Z`);
+  const rangeEnd = new Date(`${range.endDate}T23:59:59Z`);
 
   const [formsResp, submissionsResp] = await Promise.all([
     jotformFetch<RawListResponse<RawForm>>("/user/forms", { limit: "100" }),
     jotformFetch<RawListResponse<RawSubmission>>("/user/submissions", {
       limit: "1000",
-      filter: JSON.stringify({ "created_at:gt": formatDate(monthAgo) }),
+      filter: JSON.stringify({ "created_at:gt": formatJotformDate(rangeStart) }),
     }),
   ]);
 
@@ -80,19 +79,18 @@ async function fetchSnapshot(): Promise<JotformSnapshot> {
       id: f.id,
       title: f.title || `Form ${f.id}`,
       today: 0,
-      week: 0,
-      month: 0,
+      inRange: 0,
     });
   }
 
   let totalToday = 0;
-  let totalWeek = 0;
-  let totalMonth = 0;
+  let totalInRange = 0;
 
   for (const s of submissionsResp.content ?? []) {
     if (!s.created_at || !s.form_id) continue;
     const created = new Date(s.created_at);
     if (Number.isNaN(created.getTime())) continue;
+    if (created > rangeEnd) continue;
 
     const entry =
       formMap.get(s.form_id) ??
@@ -100,16 +98,11 @@ async function fetchSnapshot(): Promise<JotformSnapshot> {
         id: s.form_id,
         title: `Form ${s.form_id}`,
         today: 0,
-        week: 0,
-        month: 0,
+        inRange: 0,
       }).get(s.form_id)!;
 
-    entry.month += 1;
-    totalMonth += 1;
-    if (created >= weekAgo) {
-      entry.week += 1;
-      totalWeek += 1;
-    }
+    entry.inRange += 1;
+    totalInRange += 1;
     if (created >= startOfToday) {
       entry.today += 1;
       totalToday += 1;
@@ -117,21 +110,21 @@ async function fetchSnapshot(): Promise<JotformSnapshot> {
   }
 
   const forms = Array.from(formMap.values())
-    .filter((f) => f.month > 0)
-    .sort((a, b) => b.month - a.month);
+    .filter((f) => f.inRange > 0)
+    .sort((a, b) => b.inRange - a.inRange);
 
   return {
     configured: true,
+    range,
     forms,
     totalToday,
-    totalWeek,
-    totalMonth,
+    totalInRange,
     generatedAt: new Date().toISOString(),
   };
 }
 
 export const getJotformSnapshot = unstable_cache(
   fetchSnapshot,
-  ["admin:jotform:snapshot:v1"],
+  ["admin:jotform:snapshot:v2"],
   { revalidate: 600, tags: ["admin:jotform"] },
 );

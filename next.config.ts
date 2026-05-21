@@ -13,6 +13,41 @@ const nextConfig: NextConfig = {
     // for any future placeholder / thumbnail use.
     qualities: [75, 95],
   },
+  async redirects() {
+    // Phase 10 — starter set of 301s for old Squarespace URLs.
+    // Full migration map is TBD pending the Squarespace sitemap; these are
+    // the seven examples from the original plan doc. The three pointing at
+    // pages that don't exist yet (/about, /contact, /products) fall back to
+    // the closest live page; update destinations when those pages are built.
+    return [
+      // /products doesn't exist yet — homepage is the best fallback
+      { source: "/product-catalog", destination: "/", permanent: true },
+      // The four industry pages exist as dynamic [slug] routes
+      {
+        source: "/industries/fasteners-for-construction",
+        destination: "/industries/construction",
+        permanent: true,
+      },
+      {
+        source: "/industries/fasteners-for-manufacturing",
+        destination: "/industries/manufacturing",
+        permanent: true,
+      },
+      {
+        source: "/industries/fasteners-for-infrastructure",
+        destination: "/industries/infrastructure",
+        permanent: true,
+      },
+      {
+        source: "/industries/fasteners-for-power-transmission",
+        destination: "/industries/power-transmission",
+        permanent: true,
+      },
+      // /about and /contact aren't built yet — point at the closest live pages
+      { source: "/about", destination: "/", permanent: true },
+      { source: "/contact", destination: "/quote", permanent: true },
+    ];
+  },
   async headers() {
     // /public/assets/* gets a long browser cache. Vercel's defaults send
     // `Cache-Control: public, max-age=0, must-revalidate` for everything in
