@@ -5,6 +5,7 @@ import { GoogleTagManager } from "@next/third-parties/google";
 import { Analytics } from "@vercel/analytics/next";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import { AnalyticsRouteEvents } from "@/components/analytics/AnalyticsRouteEvents";
+import { getOrganizationSchema, jsonLdSafeStringify } from "@/lib/seo/schema";
 import "./globals.css";
 
 const inter = Inter({
@@ -46,6 +47,12 @@ export default function RootLayout({
     >
       <body>
         {gtmId && <GoogleTagManager gtmId={gtmId} />}
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: jsonLdSafeStringify(getOrganizationSchema()),
+          }}
+        />
         <Suspense fallback={null}>
           <AnalyticsRouteEvents />
         </Suspense>

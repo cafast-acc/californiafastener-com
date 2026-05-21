@@ -9,6 +9,7 @@ import { CfFooter } from "@/components/CfFooter";
 import { LIB_SECTIONS, LIB_SPECS, type SectionId } from "@/lib/specLibrary/data";
 import { getSpecBySlug, parseSpec } from "@/lib/specLibrary/markdown";
 import { SpecToc } from "@/components/spec-detail/SpecToc";
+import { getSpecArticleSchema, jsonLdSafeStringify } from "@/lib/seo/schema";
 
 const SECTION_TITLES: Record<SectionId, string> = LIB_SECTIONS.reduce(
   (acc, s) => {
@@ -95,6 +96,12 @@ export default async function SpecDetailPage({
 
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: jsonLdSafeStringify(getSpecArticleSchema(slug, parsed, spec)),
+        }}
+      />
       <CfNav />
       <main className="sp-wrap">
         <div className="sp-crumbs">
