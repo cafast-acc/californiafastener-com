@@ -385,6 +385,13 @@ export function QuoteModal({
           style={{ display: "none", width: 0, height: 0, border: "none" }}
           onLoad={() => {
             if (submitting) {
+              window.dataLayer = window.dataLayer || [];
+              window.dataLayer.push({
+                event: "quote_submit",
+                form_id: "spec-builder",
+                spec: data?.spec,
+                grade: data?.grade,
+              });
               setSubmitting(false);
               setSent(true);
             }
