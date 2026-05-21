@@ -1,5 +1,8 @@
 import type { Metadata, Viewport } from "next";
 import { Inter, JetBrains_Mono } from "next/font/google";
+import { Suspense } from "react";
+import { GoogleTagManager } from "@next/third-parties/google";
+import { AnalyticsRouteEvents } from "@/components/analytics/AnalyticsRouteEvents";
 import "./globals.css";
 
 const inter = Inter({
@@ -33,12 +36,19 @@ export const viewport: Viewport = {
 export default function RootLayout({
   children,
 }: Readonly<{ children: React.ReactNode }>) {
+  const gtmId = process.env.NEXT_PUBLIC_GTM_ID;
   return (
     <html
       lang="en"
       className={`${inter.variable} ${jetbrainsMono.variable}`}
     >
-      <body>{children}</body>
+      <body>
+        {gtmId && <GoogleTagManager gtmId={gtmId} />}
+        <Suspense fallback={null}>
+          <AnalyticsRouteEvents />
+        </Suspense>
+        {children}
+      </body>
     </html>
   );
 }
