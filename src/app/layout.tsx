@@ -2,6 +2,8 @@ import type { Metadata, Viewport } from "next";
 import { Inter, JetBrains_Mono } from "next/font/google";
 import { Suspense } from "react";
 import { GoogleTagManager } from "@next/third-parties/google";
+import { Analytics } from "@vercel/analytics/next";
+import { SpeedInsights } from "@vercel/speed-insights/next";
 import { AnalyticsRouteEvents } from "@/components/analytics/AnalyticsRouteEvents";
 import "./globals.css";
 
@@ -48,6 +50,8 @@ export default function RootLayout({
           <AnalyticsRouteEvents />
         </Suspense>
         {children}
+        <Analytics />
+        <SpeedInsights />
       </body>
     </html>
   );
