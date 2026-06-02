@@ -254,7 +254,7 @@ export default function StainlessSteelFastenersPage() {
           />
           <ProductCard
             pnum="08 / Sheet metal"
-            img="/assets/products/ss-self-tap-1.png"
+            img="/assets/products/ss-self-tap-2.png"
             imgAlt="Stainless self-tapping sheet metal screw"
             title="Self-tap & sheet metal"
             desc="Type A, AB, and 17 self-tappers; machine screws and thread-cutting fasteners for stainless panel and enclosure work."
