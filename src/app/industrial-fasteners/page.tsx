@@ -143,7 +143,8 @@ export default function IndustrialFastenersPage() {
         <div className="pp-products-grid">
           <ProductCard
             pnum="01 / SHCS"
-            placeholder={["Product shot", "Socket head cap screw"]}
+            img="/assets/products/industrial-socket-cap-1.png"
+            imgAlt="ASTM A574 socket head cap screw"
             title="Socket head cap screws"
             desc="High-strength machine screws for precision assembly — tight head clearance and torque control. Metric and inch."
             metaBold="ASTM A574"
@@ -168,8 +169,8 @@ export default function IndustrialFastenersPage() {
           />
           <ProductCard
             pnum="04 / Heavy hex nut"
-            img="/assets/if-stamp-105.webp"
-            imgAlt="Heavy hex nut stamped CA 105"
+            img="/assets/products/industrial-heavy-hex-nut-1.png"
+            imgAlt="ASTM A194 heavy hex nut"
             title="Heavy hex nuts"
             desc="Thicker, higher-strength nuts matched to heavy hex bolts and stud assemblies. Specified to pair with their mating bolt grade."
             metaBold="ASTM A194"
@@ -185,8 +186,8 @@ export default function IndustrialFastenersPage() {
           />
           <ProductCard
             pnum="06 / Set screw"
-            img="/assets/if-stamp-b8-rod.webp"
-            imgAlt="Threaded rod stamped CA B8 stainless"
+            img="/assets/products/industrial-set-screw-1.png"
+            imgAlt="Set screw — ASTM A574"
             title="Set screws"
             desc="Shaft and collar positioning screws in cup, cone, flat, dog, and oval points. Metric and inch."
             metaBold="ASTM A574"

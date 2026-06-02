@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import Image from "next/image";
+import { Img } from "@/components/Img";
 import "@/styles/cf-product-page.css";
 import "@/styles/cf-stainless.css";
 import { CfNav } from "@/components/CfNav";
@@ -190,6 +191,8 @@ export default function StainlessSteelFastenersPage() {
         <div className="pp-products-grid">
           <ProductCard
             pnum="01 / Heavy hex"
+            img="/assets/products/ss-threaded-stud-1.png"
+            imgAlt="Stainless A193 B8 stud bolt"
             title="Heavy hex bolts & studs"
             desc="Thicker-pattern hex heads for flanged and high-load joints. Stud bolts cut to length with A194 stainless nuts paired."
             metaBold="A193 B8 / B8M"
@@ -197,6 +200,8 @@ export default function StainlessSteelFastenersPage() {
           />
           <ProductCard
             pnum="02 / Hex cap"
+            img="/assets/products/ss-hex-cap-1.png"
+            imgAlt="Stainless hex cap screw"
             title="Hex cap screws"
             desc="Standard inch-pattern hex cap screws and tap bolts. The general-purpose bolt for non-pressure stainless work."
             metaBold="F593 G1 / G2"
@@ -204,6 +209,8 @@ export default function StainlessSteelFastenersPage() {
           />
           <ProductCard
             pnum="03 / Socket head"
+            img="/assets/products/ss-socket-head-1.png"
+            imgAlt="Stainless socket head cap screw"
             title="Socket head cap screws"
             desc="Precision-fit machine screws for tight head clearance and controlled torque. 18-8 and 316 stainless, inch and metric."
             metaBold="ASTM F837"
@@ -211,6 +218,8 @@ export default function StainlessSteelFastenersPage() {
           />
           <ProductCard
             pnum="04 / Flat head"
+            img="/assets/products/ss-flat-head-1.png"
+            imgAlt="Stainless flat head socket screw"
             title="Flat & button head"
             desc="Flush-mount and low-profile architectural and equipment screws. 82° (inch) and 90° (metric) countersinks."
             metaBold="ISO 10642 / 7380"
@@ -218,6 +227,8 @@ export default function StainlessSteelFastenersPage() {
           />
           <ProductCard
             pnum="05 / Hex nuts"
+            img="/assets/products/ss-hex-nut-1.png"
+            imgAlt="Stainless hex and heavy hex nut"
             title="Hex & heavy hex nuts"
             desc="Matched stainless nuts — A194 8 / 8M for pressure service, F594 for non-pressure. Nylon insert lock nuts stocked in 18-8."
             metaBold="A194 Gr 8 / 8M"
@@ -225,6 +236,8 @@ export default function StainlessSteelFastenersPage() {
           />
           <ProductCard
             pnum="06 / Washers"
+            img="/assets/products/ss-washer-1.png"
+            imgAlt="Stainless flat washer"
             title="Washers — flat & spring"
             desc="Flat, fender, spring lock, and internal / external tooth — 304 and 316 stainless. Thicker pattern for structural work on request."
             metaBold="F844"
@@ -232,6 +245,8 @@ export default function StainlessSteelFastenersPage() {
           />
           <ProductCard
             pnum="07 / Threaded rod"
+            img="/assets/products/ss-threaded-rod-1.png"
+            imgAlt="Stainless threaded rod"
             title="Threaded rod & studs"
             desc="Full-length rod in 3- and 6-ft lengths. Cut-to-length studs, double-end and tap-end, in 304 and 316."
             metaBold="A193 B8 / B8M"
@@ -239,6 +254,8 @@ export default function StainlessSteelFastenersPage() {
           />
           <ProductCard
             pnum="08 / Sheet metal"
+            img="/assets/products/ss-self-tap-1.png"
+            imgAlt="Stainless self-tapping sheet metal screw"
             title="Self-tap & sheet metal"
             desc="Type A, AB, and 17 self-tappers; machine screws and thread-cutting fasteners for stainless panel and enclosure work."
             metaBold="410 SS"
@@ -246,6 +263,8 @@ export default function StainlessSteelFastenersPage() {
           />
           <ProductCard
             pnum="09 / Specialty"
+            img="/assets/products/ss-specialty-1.png"
+            imgAlt="Stainless specialty and custom fastener"
             title="Specialty & custom"
             desc="Shoulder bolts, eye bolts, weldless rings, hanger bolts — and anything to print from our CNC shop in 304, 316, or 17-4 PH."
             metaBold="CNC to print"
@@ -574,18 +593,26 @@ function ProductCard({
   desc,
   metaBold,
   metaRest,
+  img,
+  imgAlt,
 }: {
   pnum: string;
   title: string;
   desc: string;
   metaBold: string;
   metaRest: string;
+  img?: string;
+  imgAlt?: string;
 }) {
   return (
     <div className="pp-product-card">
       <div className="pp-product-photo">
         <span className="pnum">{pnum}</span>
-        <div className="pp-ph-placeholder">{title}</div>
+        {img ? (
+          <Img src={img} alt={imgAlt ?? title} />
+        ) : (
+          <div className="pp-ph-placeholder">{title}</div>
+        )}
       </div>
       <div className="pp-product-body">
         <h3>{title}</h3>
