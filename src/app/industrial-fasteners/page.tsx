@@ -185,7 +185,7 @@ export default function IndustrialFastenersPage() {
           />
           <ProductCard
             pnum="06 / Set screw"
-            img="/assets/products/industrial-set-screw-1.png"
+            img="/assets/products/industrial-set-screw-new-1.png"
             imgAlt="Set screw — ASTM A574"
             title="Set screws"
             desc="Shaft and collar positioning screws in cup, cone, flat, dog, and oval points. Metric and inch."
