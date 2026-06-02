@@ -191,8 +191,8 @@ export default function StainlessSteelFastenersPage() {
         <div className="pp-products-grid">
           <ProductCard
             pnum="01 / Heavy hex"
-            img="/assets/products/ss-threaded-stud-1.png"
-            imgAlt="Stainless A193 B8 stud bolt"
+            img="/assets/products/ss-hex-cap-2.png"
+            imgAlt="Stainless heavy hex bolt — A193 B8"
             title="Heavy hex bolts & studs"
             desc="Thicker-pattern hex heads for flanged and high-load joints. Stud bolts cut to length with A194 stainless nuts paired."
             metaBold="A193 B8 / B8M"
