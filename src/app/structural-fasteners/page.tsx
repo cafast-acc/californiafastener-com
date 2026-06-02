@@ -146,8 +146,8 @@ export default function StructuralFastenersPage() {
         <div className="pp-products-grid">
           <ProductCard
             pnum="01 / Heavy hex structural"
-            img="/assets/if-stamp-105.webp"
-            imgAlt="Heavy hex structural bolt head stamped CA 105"
+            img="/assets/products/structural-heavy-hex-bolt-1.png"
+            imgAlt="Heavy hex structural bolt — F3125 A325"
             title="Heavy hex structural bolts"
             desc="The workhorse structural bolt — short, fully-threaded heavy hex pattern for steel-to-steel connections. Plain or galvanized."
             metaBold="F3125 Gr A325 · A490"
@@ -163,8 +163,8 @@ export default function StructuralFastenersPage() {
           />
           <ProductCard
             pnum="03 / Heavy hex nut"
-            img="/assets/if-stamp-105.webp"
-            imgAlt="Heavy hex nut stamped CA 105 — A563 DH"
+            img="/assets/products/structural-heavy-hex-nut-1.png"
+            imgAlt="A563 Grade DH heavy hex nut"
             title="Heavy hex nuts"
             desc="A563 Grade DH heavy hex matched to A325 and A490 structural bolts. Coatings matched to bolt — galv on galv, plain on plain."
             metaBold="ASTM A563"
@@ -172,7 +172,8 @@ export default function StructuralFastenersPage() {
           />
           <ProductCard
             pnum="04 / F436 washer"
-            placeholder={["Product shot", "F436 hardened washer"]}
+            img="/assets/products/structural-f436-washer-1.png"
+            imgAlt="F436 through-hardened structural washer"
             title="Hardened flat washers"
             desc="Through-hardened structural washers for the bolt head and / or nut side of high-strength joints. Type 1 plain, Type 3 weathering."
             metaBold="ASTM F436"
@@ -180,7 +181,8 @@ export default function StructuralFastenersPage() {
           />
           <ProductCard
             pnum="05 / DTI washer"
-            placeholder={["Product shot", "F959 DTI / squirter washer"]}
+            img="/assets/products/structural-dti-washer-1.png"
+            imgAlt="F959 direct-tension indicator (DTI) washer"
             title="Direct-tension indicators"
             desc='Load-indicating washers (DTIs / "squirters") that compress visibly when the bolt reaches pretension. Inspector-friendly verification.'
             metaBold="ASTM F959"

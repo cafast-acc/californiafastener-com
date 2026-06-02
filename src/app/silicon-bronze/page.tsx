@@ -5,6 +5,7 @@ import "@/styles/cf-silicon-bronze.css";
 import { CfNav } from "@/components/CfNav";
 import { CfFooter } from "@/components/CfFooter";
 import { QuoteFormPlaceholder } from "@/components/QuoteFormPlaceholder";
+import { Img } from "@/components/Img";
 
 export const metadata: Metadata = {
   title: "Silicon Bronze Hardware — Marine & Electrical Fasteners",
@@ -108,24 +109,32 @@ export default function SiliconBronzePage() {
             title="Hex head bolts"
             desc="Forged hex head, full or partial thread, plain or tinned finish. The standard bronze bolt for marine and electrical use."
             spec="ASTM F468 · C651"
+            img="/assets/products/bronze-hex-bolt-1.png"
+            imgAlt="Silicon bronze hex head bolt"
           />
           <RangeCard
             pnum="02 / Hex nut"
             title="Hex nuts"
             desc="Finished and heavy hex nuts machined from bronze bar. Sized to pair with our bolt inventory."
             spec="ASTM F467 · C651"
+            img="/assets/products/bronze-hex-nut-1.png"
+            imgAlt="Silicon bronze hex nut"
           />
           <RangeCard
             pnum="03 / Flat washer"
             title="Flat washers"
             desc="Flat washers in standard and fender patterns to distribute load and protect mating surfaces."
             spec="ASME B18.22.1 · C651"
+            img="/assets/products/bronze-washer-1.png"
+            imgAlt="Silicon bronze flat washer"
           />
           <RangeCard
             pnum="04 / Lock washer"
             title="Lock washers"
             desc="Split-ring lock washers for connections subject to vibration — electrical buswork, marine fittings, terminal lugs."
             spec="ASME B18.21.1 · C651"
+            img="/assets/products/bronze-lock-washer-1.png"
+            imgAlt="Silicon bronze split-ring lock washer"
           />
         </div>
       </section>
@@ -442,17 +451,25 @@ function RangeCard({
   title,
   desc,
   spec,
+  img,
+  imgAlt,
 }: {
   pnum: string;
   title: string;
   desc: string;
   spec: string;
+  img?: string;
+  imgAlt?: string;
 }) {
   return (
     <div className="pp-product-card">
       <div className="pp-product-photo">
         <span className="pnum">{pnum}</span>
-        <div className="pp-ph-placeholder">{title}</div>
+        {img ? (
+          <Img src={img} alt={imgAlt ?? title} />
+        ) : (
+          <div className="pp-ph-placeholder">{title}</div>
+        )}
       </div>
       <div className="pp-product-body">
         <h3>{title}</h3>
