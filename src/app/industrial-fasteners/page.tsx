@@ -178,7 +178,7 @@ export default function IndustrialFastenersPage() {
           />
           <ProductCard
             pnum="05 / F436 washer"
-            img="/assets/products/industrial-flat-washer-1.png"
+            img="/assets/products/industrial-flat-washer-2.png"
             imgAlt="F436 hardened flat washer"
             title="Hardened flat washers"
             desc="Through-hardened flat washers for high-strength bolted joints. Matched to A325, A490, and A193 B7 assemblies."
@@ -187,7 +187,7 @@ export default function IndustrialFastenersPage() {
           />
           <ProductCard
             pnum="06 / Set screw"
-            img="/assets/products/industrial-set-screw-new-1.png"
+            img="/assets/products/industrial-set-screw-update-2.png"
             imgAlt="Set screw — ASTM A574"
             title="Set screws"
             desc="Shaft and collar positioning screws in cup, cone, flat, dog, and oval points. Metric and inch."
