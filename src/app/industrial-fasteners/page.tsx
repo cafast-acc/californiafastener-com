@@ -160,8 +160,8 @@ export default function IndustrialFastenersPage() {
           />
           <ProductCard
             pnum="03 / Heavy hex bolt"
-            img="/assets/products/industrial-heavy-hex-bolt-1.png"
-            imgAlt="Heavy hex bolt — A307 / A193"
+            img="/assets/products/industrial-heavy-hex-bolt-b7-1.png"
+            imgAlt="Heavy hex bolt — A193 B7"
             title="Heavy hex bolts"
             desc="Heavier-pattern hex head bolts for flanged, bolted, and high-load assemblies. Galvanized, plain, PTFE, and Xylan coatings available."
             metaBold="A307 · A193 B7/B16/B8/B8M"
