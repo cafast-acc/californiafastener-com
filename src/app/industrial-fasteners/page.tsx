@@ -152,7 +152,8 @@ export default function IndustrialFastenersPage() {
           />
           <ProductCard
             pnum="02 / FHSCS"
-            placeholder={["Product shot", "Flat head socket cap"]}
+            img="/assets/products/industrial-flat-head-1.png"
+            imgAlt="Flat head socket cap screw — countersunk"
             title="Flat head socket screws"
             desc="Flush-mount screws for surfaces that need to stay smooth. Countersunk 82° (inch) or 90° (metric). Alloy and stainless."
             metaBold="ASTM F837"
