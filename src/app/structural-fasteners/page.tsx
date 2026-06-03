@@ -146,7 +146,7 @@ export default function StructuralFastenersPage() {
         <div className="pp-products-grid">
           <ProductCard
             pnum="01 / Heavy hex structural"
-            img="/assets/products/structural-heavy-hex-bolt-1.png"
+            img="/assets/products/industrial-heavy-hex-bolt-1.png"
             imgAlt="Heavy hex structural bolt — F3125 A325"
             title="Heavy hex structural bolts"
             desc="The workhorse structural bolt — short, fully-threaded heavy hex pattern for steel-to-steel connections. Plain or galvanized."
@@ -163,7 +163,7 @@ export default function StructuralFastenersPage() {
           />
           <ProductCard
             pnum="03 / Heavy hex nut"
-            img="/assets/products/structural-heavy-hex-nut-1.png"
+            img="/assets/products/industrial-heavy-hex-nut-1.png"
             imgAlt="A563 Grade DH heavy hex nut"
             title="Heavy hex nuts"
             desc="A563 Grade DH heavy hex matched to A325 and A490 structural bolts. Coatings matched to bolt — galv on galv, plain on plain."

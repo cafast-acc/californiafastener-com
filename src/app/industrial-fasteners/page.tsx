@@ -160,7 +160,8 @@ export default function IndustrialFastenersPage() {
           />
           <ProductCard
             pnum="03 / Heavy hex bolt"
-            placeholder={["Product shot", "A307 heavy hex bolt"]}
+            img="/assets/products/industrial-heavy-hex-bolt-1.png"
+            imgAlt="Heavy hex bolt — A307 / A193"
             title="Heavy hex bolts"
             desc="Heavier-pattern hex head bolts for flanged, bolted, and high-load assemblies. Galvanized, plain, PTFE, and Xylan coatings available."
             metaBold="A307 · A193 B7/B16/B8/B8M"
@@ -177,7 +178,8 @@ export default function IndustrialFastenersPage() {
           />
           <ProductCard
             pnum="05 / F436 washer"
-            placeholder={["Product shot", "F436 hardened washer"]}
+            img="/assets/products/industrial-flat-washer-1.png"
+            imgAlt="F436 hardened flat washer"
             title="Hardened flat washers"
             desc="Through-hardened flat washers for high-strength bolted joints. Matched to A325, A490, and A193 B7 assemblies."
             metaBold="ASTM F436"
