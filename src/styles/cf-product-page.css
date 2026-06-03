@@ -82,7 +82,9 @@
 .pp-product-card:hover { transform: translateY(-4px); }
 .pp-product-photo { background: #E8E6E1; aspect-ratio: 4 / 3; position: relative; overflow: hidden; display: flex; align-items: center; justify-content: center; }
 .pp-product-photo img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
-/* For long/wide product shots (e.g. anchor rod) — show the whole part, scaled to fit. */
+/* For long/wide product shots (e.g. anchor rod) — show the whole part, scaled to fit.
+   Background matches the render's studio backplate so the letterbox bands blend in. */
+.pp-product-photo--contain { background: #d6d6d6; }
 .pp-product-photo--contain img { object-fit: contain; padding: 18px 24px; }
 .pp-product-photo .pnum { position: absolute; top: 18px; left: 18px; font-family: var(--cf-font-mono); font-size: 11px; color: var(--mid); letter-spacing: 0.04em; z-index: 2; }
 .pp-product-photo .pp-ph-placeholder { width: 100%; height: 100%; background: repeating-linear-gradient(45deg, rgba(0,0,0,0.02), rgba(0,0,0,0.02) 10px, rgba(0,0,0,0.055) 10px, rgba(0,0,0,0.055) 20px); display: flex; align-items: center; justify-content: center; color: var(--mid); font-family: var(--cf-font-mono); font-size: 11px; letter-spacing: 0.04em; text-transform: uppercase; text-align: center; padding: 0 24px; }
