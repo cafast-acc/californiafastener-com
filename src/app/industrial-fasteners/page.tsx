@@ -143,7 +143,8 @@ export default function IndustrialFastenersPage() {
         <div className="pp-products-grid">
           <ProductCard
             pnum="01 / SHCS"
-            placeholder={["Product shot", "Socket head cap screw"]}
+            img="/assets/products/industrial-socket-cap-1.png"
+            imgAlt="ASTM A574 socket head cap screw"
             title="Socket head cap screws"
             desc="High-strength machine screws for precision assembly — tight head clearance and torque control. Metric and inch."
             metaBold="ASTM A574"
@@ -151,7 +152,8 @@ export default function IndustrialFastenersPage() {
           />
           <ProductCard
             pnum="02 / FHSCS"
-            placeholder={["Product shot", "Flat head socket cap"]}
+            img="/assets/products/industrial-flat-head-1.png"
+            imgAlt="Flat head socket cap screw — countersunk"
             title="Flat head socket screws"
             desc="Flush-mount screws for surfaces that need to stay smooth. Countersunk 82° (inch) or 90° (metric). Alloy and stainless."
             metaBold="ASTM F837"
@@ -159,8 +161,8 @@ export default function IndustrialFastenersPage() {
           />
           <ProductCard
             pnum="03 / Heavy hex bolt"
-            img="/assets/if-stamp-316.webp"
-            imgAlt="Heavy hex bolt stamped CA 316"
+            img="/assets/products/industrial-heavy-hex-bolt-b7-3.png"
+            imgAlt="Heavy hex bolt — A193 B7"
             title="Heavy hex bolts"
             desc="Heavier-pattern hex head bolts for flanged, bolted, and high-load assemblies. Galvanized, plain, PTFE, and Xylan coatings available."
             metaBold="A307 · A193 B7/B16/B8/B8M"
@@ -168,8 +170,8 @@ export default function IndustrialFastenersPage() {
           />
           <ProductCard
             pnum="04 / Heavy hex nut"
-            img="/assets/if-stamp-105.webp"
-            imgAlt="Heavy hex nut stamped CA 105"
+            img="/assets/products/industrial-heavy-hex-nut-1.png"
+            imgAlt="ASTM A194 heavy hex nut"
             title="Heavy hex nuts"
             desc="Thicker, higher-strength nuts matched to heavy hex bolts and stud assemblies. Specified to pair with their mating bolt grade."
             metaBold="ASTM A194"
@@ -177,7 +179,8 @@ export default function IndustrialFastenersPage() {
           />
           <ProductCard
             pnum="05 / F436 washer"
-            placeholder={["Product shot", "F436 hardened washer"]}
+            img="/assets/products/industrial-flat-washer-2.png"
+            imgAlt="F436 hardened flat washer"
             title="Hardened flat washers"
             desc="Through-hardened flat washers for high-strength bolted joints. Matched to A325, A490, and A193 B7 assemblies."
             metaBold="ASTM F436"
@@ -185,8 +188,8 @@ export default function IndustrialFastenersPage() {
           />
           <ProductCard
             pnum="06 / Set screw"
-            img="/assets/if-stamp-b8-rod.webp"
-            imgAlt="Threaded rod stamped CA B8 stainless"
+            img="/assets/products/industrial-set-screw-4.png"
+            imgAlt="Set screw — ASTM A574"
             title="Set screws"
             desc="Shaft and collar positioning screws in cup, cone, flat, dog, and oval points. Metric and inch."
             metaBold="ASTM A574"
