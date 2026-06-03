@@ -152,7 +152,7 @@ export default function IndustrialFastenersPage() {
           />
           <ProductCard
             pnum="02 / FHSCS"
-            img="/assets/products/industrial-flat-head-1.png"
+            img="/assets/products/industrial-flat-head-2.png"
             imgAlt="Flat head socket cap screw — countersunk"
             title="Flat head socket screws"
             desc="Flush-mount screws for surfaces that need to stay smooth. Countersunk 82° (inch) or 90° (metric). Alloy and stainless."
@@ -161,7 +161,8 @@ export default function IndustrialFastenersPage() {
           />
           <ProductCard
             pnum="03 / Heavy hex bolt"
-            img="/assets/products/industrial-heavy-hex-bolt-b7-3.png"
+            img="/assets/products/industrial-heavy-hex-bolt-b7-4.png"
+            imgPosition="62% center"
             imgAlt="Heavy hex bolt — A193 B7"
             title="Heavy hex bolts"
             desc="Heavier-pattern hex head bolts for flanged, bolted, and high-load assemblies. Galvanized, plain, PTFE, and Xylan coatings available."
@@ -577,6 +578,7 @@ function ProductCard({
   pnum,
   img,
   imgAlt,
+  imgPosition,
   placeholder,
   title,
   desc,
@@ -586,6 +588,7 @@ function ProductCard({
   pnum: string;
   img?: string;
   imgAlt?: string;
+  imgPosition?: string;
   placeholder?: [string, string];
   title: string;
   desc: string;
@@ -597,7 +600,11 @@ function ProductCard({
       <div className="pp-product-photo">
         <span className="pnum">{pnum}</span>
         {img ? (
-          <Img src={img} alt={imgAlt ?? ""} />
+          <Img
+            src={img}
+            alt={imgAlt ?? ""}
+            style={imgPosition ? { objectPosition: imgPosition } : undefined}
+          />
         ) : placeholder ? (
           <div className="pp-ph-placeholder">
             {placeholder[0]}
