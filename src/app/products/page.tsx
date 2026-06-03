@@ -134,13 +134,13 @@ const FAMILIES: Family[] = [
   },
   {
     order: "09",
-    eyebrow: "09 — Companion Hardware",
-    title: "Nuts, washers & companion hardware",
+    eyebrow: "09 — Nuts & Washers",
+    title: "Nuts & washers",
     description:
-      "Heavy hex nuts, F436 hardened washers, DTIs, and the companion parts that complete the assembly.",
+      "Heavy hex nuts, F436 hardened washers, and DTIs — the nuts and washers that complete every assembly.",
     grades: ["2H", "8M", "F436", "DTI F959"],
     href: "#",
-    cta: "Explore companion hardware",
+    cta: "Explore nuts & washers",
     variant: "light",
   },
   {
@@ -152,6 +152,8 @@ const FAMILIES: Family[] = [
     grades: ["±0.0005″", "Ti · Inconel · PEEK", "CMM"],
     href: "/cnc-machining",
     cta: "Explore CNC machining",
+    image: "/assets/custom-stud.png",
+    imageAlt: "Custom CNC machined stud with reduced shank",
     placeholder: "F1 · CNC live-tooling lathe",
     variant: "wide",
   },
