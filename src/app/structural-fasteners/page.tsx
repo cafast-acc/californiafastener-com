@@ -190,7 +190,7 @@ export default function StructuralFastenersPage() {
           />
           <ProductCard
             pnum="06 / Anchor rod"
-            img="/assets/products/structural-f1554-anchor-rod-1.png"
+            img="/assets/products/structural-f1554-anchor-rod-3.png"
             imgAlt="F1554 anchor rod assemblies"
             contain
             title="F1554 anchor rod"
