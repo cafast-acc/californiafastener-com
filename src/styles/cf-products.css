@@ -1,0 +1,402 @@
+/* ─────────────────────────────────────────────────────────
+   California Fastener — Browse Products (Direction A: editorial grid)
+   Recreates design_handoff_browse_products/products-editorial.html.
+   Tokens (--bg, --ink, --blue-dark, …) come from cf-shared.css (global).
+   Mono labels route through --cf-font-mono so the JetBrains substitution
+   applies, matching the rest of the codebase.
+   ───────────────────────────────────────────────────────── */
+
+.pe-page {
+  background: var(--bg);
+}
+
+/* ── HEADER ─────────────────────────────────────── */
+.pe-head {
+  padding: 80px 40px 56px;
+  max-width: 1320px;
+  margin: 0 auto;
+}
+.pe-breadcrumb {
+  font-size: 13px;
+  color: var(--mid);
+  margin-bottom: 28px;
+  letter-spacing: -0.005em;
+}
+.pe-breadcrumb a {
+  color: var(--mid);
+  text-decoration: none;
+}
+.pe-breadcrumb a:hover {
+  color: var(--ink);
+}
+.pe-breadcrumb span {
+  margin: 0 8px;
+  color: var(--rule);
+}
+.pe-head-row {
+  display: grid;
+  grid-template-columns: 1.2fr 0.8fr;
+  gap: 64px;
+  align-items: end;
+}
+.pe-head h1 {
+  font-size: clamp(52px, 6.5vw, 104px);
+  font-weight: 600;
+  line-height: 0.96;
+  letter-spacing: -0.045em;
+  color: var(--ink);
+  margin: 0;
+}
+.pe-head h1 i {
+  font-style: normal;
+  color: var(--blue-dark);
+}
+.pe-head-sub {
+  font-size: 19px;
+  color: var(--ink-soft);
+  line-height: 1.5;
+  letter-spacing: -0.01em;
+  margin: 0 0 6px;
+}
+.pe-head-meta {
+  display: flex;
+  gap: 28px;
+  margin-top: 18px;
+  padding-top: 18px;
+  border-top: 1px solid var(--rule-soft);
+}
+.pe-head-meta div {
+  font-size: 13px;
+  color: var(--mid);
+  letter-spacing: -0.005em;
+}
+.pe-head-meta b {
+  display: block;
+  font-size: 22px;
+  color: var(--ink);
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  margin-bottom: 2px;
+}
+@media (max-width: 900px) {
+  .pe-head-row {
+    grid-template-columns: 1fr;
+    gap: 28px;
+  }
+}
+
+/* ── GRID ───────────────────────────────────────── */
+.pe-grid {
+  max-width: 1320px;
+  margin: 0 auto;
+  padding: 0 40px 40px;
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 16px;
+}
+.pe-tile {
+  position: relative;
+  border-radius: 22px;
+  overflow: hidden;
+  background: var(--bg-cream);
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  min-height: 340px;
+  text-decoration: none;
+  color: var(--ink);
+  transition: transform 0.3s ease;
+  grid-column: span 2;
+}
+.pe-tile:hover {
+  transform: translateY(-4px);
+}
+.pe-tile:hover .pe-tile-cta {
+  gap: 9px;
+}
+.pe-tile:hover .pe-tile-art {
+  transform: scale(1.03);
+}
+
+/* featured spans */
+.pe-tile--wide {
+  grid-column: span 4;
+  min-height: 440px;
+}
+.pe-tile--tall {
+  grid-column: span 3;
+  min-height: 460px;
+}
+
+.pe-tile-art {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  transition: transform 0.5s ease;
+}
+.pe-tile-art img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.pe-tile-ph {
+  position: absolute;
+  inset: 0;
+  background: repeating-linear-gradient(
+    45deg,
+    #e8e6e1 0,
+    #e8e6e1 13px,
+    #e1ded4 13px,
+    #e1ded4 26px
+  );
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.pe-tile-ph::after {
+  content: attr(data-ph);
+  font-family: var(--cf-font-mono);
+  font-size: 10px;
+  color: var(--mid);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  background: rgba(251, 250, 247, 0.7);
+  padding: 5px 10px;
+  border-radius: 5px;
+}
+/* gradient scrim so text reads */
+.pe-tile-scrim {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background: linear-gradient(
+    180deg,
+    rgba(20, 18, 14, 0) 30%,
+    rgba(20, 18, 14, 0.78) 100%
+  );
+}
+.pe-tile-body {
+  position: relative;
+  z-index: 2;
+  padding: 26px 26px 24px;
+  color: #fff;
+}
+.pe-tile-num {
+  font-family: var(--cf-font-mono);
+  font-size: 11px;
+  color: rgba(255, 255, 255, 0.7);
+  letter-spacing: 0.08em;
+  margin-bottom: 10px;
+}
+.pe-tile-title {
+  font-size: 26px;
+  font-weight: 600;
+  letter-spacing: -0.025em;
+  line-height: 1.05;
+  margin: 0 0 8px;
+}
+.pe-tile--wide .pe-tile-title,
+.pe-tile--tall .pe-tile-title {
+  font-size: 34px;
+}
+.pe-tile-desc {
+  font-size: 14px;
+  color: rgba(255, 255, 255, 0.82);
+  line-height: 1.45;
+  letter-spacing: -0.005em;
+  max-width: 360px;
+  margin: 0 0 14px;
+}
+.pe-tile-grades {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-bottom: 16px;
+}
+.pe-tile-grades span {
+  font-family: var(--cf-font-mono);
+  font-size: 10.5px;
+  letter-spacing: 0.03em;
+  color: #fff;
+  background: rgba(255, 255, 255, 0.16);
+  backdrop-filter: blur(4px);
+  padding: 4px 9px;
+  border-radius: 100px;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+}
+.pe-tile-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 14px;
+  font-weight: 500;
+  letter-spacing: -0.005em;
+  color: #fff;
+  transition: gap 0.2s ease;
+}
+.pe-tile-cta::after {
+  content: "→";
+}
+
+/* light tile variant (no photo, cream) */
+.pe-tile--light {
+  background: var(--bg-alt);
+}
+.pe-tile--light .pe-tile-scrim {
+  display: none;
+}
+.pe-tile--light .pe-tile-body {
+  color: var(--ink);
+}
+.pe-tile--light .pe-tile-num {
+  color: var(--blue-dark);
+}
+.pe-tile--light .pe-tile-desc {
+  color: var(--ink-soft);
+}
+.pe-tile--light .pe-tile-grades span {
+  color: var(--ink);
+  background: var(--bg);
+  border-color: var(--rule-soft);
+}
+.pe-tile--light .pe-tile-cta {
+  color: var(--ink);
+}
+
+@media (max-width: 1024px) {
+  .pe-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .pe-tile,
+  .pe-tile--wide,
+  .pe-tile--tall {
+    grid-column: span 1;
+    min-height: 320px;
+  }
+}
+
+/* ── SHOP-BY band ───────────────────────────────── */
+.pe-shopby {
+  background: var(--bg-alt);
+  border-top: 1px solid var(--rule-soft);
+  margin-top: 40px;
+  padding: 88px 40px;
+}
+.pe-shopby-inner {
+  max-width: 1320px;
+  margin: 0 auto;
+}
+.pe-shopby-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  margin-bottom: 36px;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+.pe-shopby-head h2 {
+  font-size: clamp(28px, 3vw, 42px);
+  font-weight: 600;
+  letter-spacing: -0.03em;
+  line-height: 1.05;
+  margin: 0;
+}
+.pe-shopby-head a {
+  font-size: 14px;
+  color: var(--ink);
+  text-decoration: none;
+  border-bottom: 1px solid var(--rule);
+  padding-bottom: 2px;
+}
+.pe-shopby-head a:hover {
+  border-bottom-color: var(--ink);
+}
+.pe-chips {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 12px;
+}
+@media (max-width: 760px) {
+  .pe-chips {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+.pe-chip {
+  background: var(--bg);
+  border: 1px solid var(--rule-soft);
+  border-radius: 16px;
+  padding: 22px 22px 20px;
+  text-decoration: none;
+  color: var(--ink);
+  transition: border-color 0.2s, transform 0.2s;
+}
+.pe-chip:hover {
+  border-color: var(--ink);
+  transform: translateY(-2px);
+}
+.pe-chip-label {
+  font-size: 17px;
+  font-weight: 600;
+  letter-spacing: -0.015em;
+  margin-bottom: 6px;
+}
+.pe-chip-sub {
+  font-size: 13px;
+  color: var(--mid);
+  letter-spacing: -0.005em;
+  line-height: 1.4;
+}
+
+/* ── CTA ────────────────────────────────────────── */
+.pe-cta {
+  padding: 110px 40px 130px;
+  text-align: center;
+}
+.pe-cta h2 {
+  font-size: clamp(40px, 5vw, 76px);
+  font-weight: 600;
+  line-height: 1;
+  letter-spacing: -0.04em;
+  margin: 0 0 18px;
+}
+.pe-cta p {
+  font-size: 20px;
+  color: var(--ink-soft);
+  max-width: 520px;
+  margin: 0 auto 32px;
+  letter-spacing: -0.015em;
+  line-height: 1.4;
+}
+.pe-cta-ctas {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+.pe-cta-call {
+  background: transparent;
+  color: var(--ink);
+  border: 1px solid var(--rule);
+}
+.pe-cta-call:hover {
+  background: var(--bg-alt);
+}
+
+/* ── Reduced motion ─────────────────────────────── */
+@media (prefers-reduced-motion: reduce) {
+  .pe-tile,
+  .pe-tile-art,
+  .pe-tile-cta,
+  .pe-chip {
+    transition: none;
+  }
+  .pe-tile:hover {
+    transform: none;
+  }
+  .pe-tile:hover .pe-tile-art {
+    transform: none;
+  }
+  .pe-chip:hover {
+    transform: none;
+  }
+}
