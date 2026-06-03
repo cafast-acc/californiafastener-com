@@ -155,7 +155,8 @@ export default function StructuralFastenersPage() {
           />
           <ProductCard
             pnum="02 / TC bolt"
-            placeholder={["Product shot", "Tension-control bolt assembly"]}
+            img="/assets/products/structural-tc-bolt-1.png"
+            imgAlt="Tension-control (TC) bolt assembly — F3125 F1852 / F2280"
             title="Tension-control (TC) bolts"
             desc="Splined-end bolts that snap off at proper pretension. Faster, more consistent installation on slip-critical joints. Pre-assembled with nut and washer."
             metaBold="F3125 Gr F1852 · F2280"
