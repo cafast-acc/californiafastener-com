@@ -161,7 +161,7 @@ export default function IndustrialFastenersPage() {
           />
           <ProductCard
             pnum="03 / Heavy hex bolt"
-            img="/assets/products/industrial-heavy-hex-bolt-b7-1.png"
+            img="/assets/products/industrial-heavy-hex-bolt-b7-2.png"
             imgAlt="Heavy hex bolt — A193 B7"
             title="Heavy hex bolts"
             desc="Heavier-pattern hex head bolts for flanged, bolted, and high-load assemblies. Galvanized, plain, PTFE, and Xylan coatings available."
@@ -188,7 +188,7 @@ export default function IndustrialFastenersPage() {
           />
           <ProductCard
             pnum="06 / Set screw"
-            img="/assets/products/industrial-set-screw-update-2.png"
+            img="/assets/products/industrial-set-screw-4.png"
             imgAlt="Set screw — ASTM A574"
             title="Set screws"
             desc="Shaft and collar positioning screws in cup, cone, flat, dog, and oval points. Metric and inch."
