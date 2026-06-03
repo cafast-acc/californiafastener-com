@@ -190,8 +190,9 @@ export default function StructuralFastenersPage() {
           />
           <ProductCard
             pnum="06 / Anchor rod"
-            img="/assets/anchor-rods.webp"
+            img="/assets/products/structural-f1554-anchor-rod-1.png"
             imgAlt="F1554 anchor rod assemblies"
+            contain
             title="F1554 anchor rod"
             desc="Headed, bent, and straight anchor rod for column bases and embed plates. Cut to length, with matching nuts and plate washers."
             metaBold="ASTM F1554"
@@ -576,6 +577,7 @@ function ProductCard({
   desc,
   metaBold,
   metaRest,
+  contain,
 }: {
   pnum: string;
   img?: string;
@@ -585,10 +587,11 @@ function ProductCard({
   desc: string;
   metaBold: string;
   metaRest: string;
+  contain?: boolean;
 }) {
   return (
     <div className="pp-product-card">
-      <div className="pp-product-photo">
+      <div className={"pp-product-photo" + (contain ? " pp-product-photo--contain" : "")}>
         <span className="pnum">{pnum}</span>
         {img ? (
           <Img src={img} alt={imgAlt ?? ""} />
