@@ -190,7 +190,7 @@ export default function StructuralFastenersPage() {
           />
           <ProductCard
             pnum="06 / Anchor rod"
-            img="/assets/products/structural-f1554-anchor-rod-3.png"
+            img="/assets/products/structural-f1554-anchor-rod-4.png"
             imgAlt="F1554 anchor rod assemblies"
             title="F1554 anchor rod"
             desc="Headed, bent, and straight anchor rod for column bases and embed plates. Cut to length, with matching nuts and plate washers."
