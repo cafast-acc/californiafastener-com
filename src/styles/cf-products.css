@@ -132,22 +132,20 @@
   position: absolute;
   inset: 0;
   z-index: 0;
+  /* Renders are composited on the design's #E8E6E1 photo-bed. Matching the
+     art background to it means the image bleeds edge-to-edge with no visible
+     seam/rectangle against the tile. */
+  background: #e8e6e1;
   transition: transform 0.5s ease;
 }
 .pe-tile-art img {
   width: 100%;
   height: 100%;
-  /* contain (not cover) so the whole render fits — catalog shots otherwise
-     crop to an awkward zoom. Biased upward + padded so the part sits in the
-     top of the tile, leaving the lower third clear for the title/chips. */
-  object-fit: contain;
-  object-position: center 34%;
-  padding: 26px 26px 96px;
-  box-sizing: border-box;
-}
-.pe-tile--wide .pe-tile-art img,
-.pe-tile--tall .pe-tile-art img {
-  padding: 32px 32px 120px;
+  /* cover so the render fills the whole tile (its own bed reaches every edge)
+     — no letterbox rectangle, product not shrunk. Biased slightly upward so
+     the part clears the title/chips at the bottom. */
+  object-fit: cover;
+  object-position: center 38%;
 }
 .pe-tile-ph {
   position: absolute;
