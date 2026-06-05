@@ -8,6 +8,7 @@ const BASE_URL =
 
 const STATIC_ROUTES: { path: string; changeFrequency: MetadataRoute.Sitemap[number]["changeFrequency"]; priority: number }[] = [
   { path: "/", changeFrequency: "weekly", priority: 1 },
+  { path: "/products", changeFrequency: "monthly", priority: 0.9 },
   { path: "/anchor-bolts", changeFrequency: "monthly", priority: 0.8 },
   { path: "/structural-fasteners", changeFrequency: "monthly", priority: 0.8 },
   { path: "/industrial-fasteners", changeFrequency: "monthly", priority: 0.8 },
