@@ -12,7 +12,8 @@ export type IndustrySlug =
   | "power-transmission"
   | "manufacturing"
   | "infrastructure"
-  | "marine";
+  | "marine"
+  | "aerospace";
 
 export type ProductCardKey =
   | "industrial"
@@ -23,7 +24,9 @@ export type ProductCardKey =
   | "precision"
   | "inserts"
   | "stainless"
-  | "bronze";
+  | "bronze"
+  | "aerospace"
+  | "superalloy";
 
 export type Case = {
   title: string;
@@ -87,6 +90,8 @@ export const PRODUCT_CARDS: Record<ProductCardKey, ProductCard> = {
   inserts: { title: "Threaded Inserts", sub: "For plastics and soft material", placeholder: "Threaded Insert" },
   stainless: { title: "Stainless Steel Fasteners", sub: "304, 316, duplex", placeholder: "Stainless Bolt" },
   bronze: { title: "Silicon Bronze Hardware", sub: "Marine & architectural", placeholder: "Bronze Bolt" },
+  aerospace: { title: "Aerospace Hardware", sub: "NAS, MS, AN · Hi-Lok, lockbolts", placeholder: "Aero Bolt" },
+  superalloy: { title: "Titanium & Superalloy", sub: "Ti, A286, Inconel 718", placeholder: "Titanium Bolt" },
 };
 
 export const INDUSTRIES: Record<IndustrySlug, Industry> = {
@@ -446,6 +451,57 @@ export const INDUSTRIES: Record<IndustrySlug, Industry> = {
     quoteBody: "Port, pier, mooring, or offshore structure? Send us the anchorage schedule and corrosion spec. We’ll match the coating, stage to your pile and pour sequence, and cut to length in-house when the field moves — with the test docs your inspector needs.",
     quoteBg: "https://images.unsplash.com/photo-1494412574643-ff11b0a5c1c3?auto=format&fit=crop&w=1600&q=80",
   },
+
+  aerospace: {
+    seoSlug: "fasteners-for-aerospace-defense",
+    metaTitle: "Aerospace & Defense Fasteners — California Fastener",
+    navLabel: "Aerospace & Defense",
+    eyebrow: "Industries · Aerospace & Defense",
+    h1: "Traceable to the heat, every time.",
+    h1Accent: "every time",
+    h2: "AS9100 and NADCAP-backed fasteners with full chain-of-custody documentation.",
+    lead: "Airframe assembly, engine build-up, satellite structures, and defense platforms run on hardware that can be traced from the flight line back to the melt. We stock the grades, hold the certs, and ship the paperwork that clears receiving inspection on the first pass.",
+    heroImg: "https://images.unsplash.com/photo-1518364538800-6bae3c2ea0f2?auto=format&fit=crop&w=1600&q=80",
+    heroImgAlt: "Rocket launch for defense and space programs",
+    heroTag: "Airframe · Engine · Space · Defense",
+    contextH2: "The paperwork flies with the part.",
+    contextBody: [
+      "In aerospace, a fastener without a traceable pedigree is scrap. Receiving inspection wants the C of C, the chemical and physical test reports, the DFARS melt origin, and a heat-lot number that matches every box — before the hardware ever reaches the floor.",
+      "We supply AS9100-controlled, NADCAP-processed fasteners with full chain-of-custody: NAS, MS, and AN hardware, A286 and titanium bolts, and lockbolt and Hi-Lok systems — each lot documented and segregated so the trace never breaks.",
+    ],
+    bulletsH3: "Fasteners engineered for aerospace and defense.",
+    bullets: [
+      ["NAS / MS / AN Hardware", "Standard aerospace bolts, screws, and nuts to National Aerospace and Military Standards."],
+      ["A286 & Titanium Bolts", "High-strength, heat- and corrosion-resistant fasteners for airframe and engine structure."],
+      ["Hi-Lok & Lockbolt Systems", "Pin-and-collar fastening systems for primary and secondary airframe structure."],
+      ["Inconel 718 Fasteners", "Superalloy bolting for hot-section, exhaust, and high-temperature engine assemblies."],
+      ["Full Traceability Lots", "AS9100 / NADCAP documentation, DFARS melt origin, and C of C with every shipment."],
+    ],
+    products: ["aerospace", "superalloy", "precision", "custom"],
+    casesH2: "Aerospace fasteners at work.",
+    cases: [
+      {
+        title: "Airframe line, zero-defect receiving.",
+        problem: "A Tier 1 airframe builder was losing line hours to fastener lots held at receiving for incomplete or mismatched paperwork from a previous supplier.",
+        solution: "We moved the program to AS9100-controlled lots with C of C, chem/phys reports, and DFARS melt origin pre-matched to each heat, segregated and barcoded by part number.",
+        results: "Receiving holds dropped to zero across a full year of releases. The line stopped budgeting time for fastener paperwork rework.",
+        quote: "For the first time, the certs matched the boxes every single time. Receiving stopped being a bottleneck.",
+        attr: "Quality Manager, Tier 1 airframe builder",
+      },
+      {
+        title: "Satellite structure build.",
+        problem: "A spacecraft integrator needed A286 and titanium hardware in dozens of small lots, each with full traceability and no mixed heats, on a tight integration calendar.",
+        solution: "We pulled certified A286 and Ti from stock, kept each lot heat-segregated, and shipped with complete documentation packages matched to the integrator’s traveler.",
+        results: "Every lot cleared incoming inspection on first submittal. The integration schedule held through structure close-out.",
+        quote: "Heat-segregated small lots with complete paper is exactly what space work needs and rarely gets.",
+        attr: "Integration Engineer, satellite manufacturer",
+      },
+    ],
+    whyH2: "Why California Fastener for aerospace and defense.",
+    whyBody: "Aerospace is a documentation discipline wearing a fastener disguise. We run AS9100-controlled inventory, source NADCAP-processed hardware, hold DFARS-compliant domestic melt, and keep the certs indexed to the heat so the trace never breaks between the mill and the flight line. Three decades of quality-system rigor means the paperwork is as airworthy as the part.",
+    quoteBody: "Airframe, engine, space, or defense program? Send us the AML and quality clauses. We’ll match the grades, hold the heats segregated, and ship the C of C, test reports, and DFARS documentation that clears receiving on the first pass.",
+    quoteBg: "https://images.unsplash.com/photo-1518364538800-6bae3c2ea0f2?auto=format&fit=crop&w=1600&q=80",
+  },
 };
 
 /** Canonical display order — matches the design's INDUSTRY_ORDER. */
@@ -457,6 +513,7 @@ export const INDUSTRY_ORDER: IndustrySlug[] = [
   "manufacturing",
   "infrastructure",
   "marine",
+  "aerospace",
 ];
 
 /** Maps product card keys to product page hrefs. Used by the Shop by
@@ -471,6 +528,8 @@ export const PRODUCT_CARD_HREFS: Record<ProductCardKey, string> = {
   inserts: "/cnc-machining",
   stainless: "/stainless-steel-fasteners",
   bronze: "/silicon-bronze",
+  aerospace: "/cnc-machining",
+  superalloy: "/cnc-machining",
 };
 
 /** Legacy export kept for any callers that still import ALL_INDUSTRIES. */
