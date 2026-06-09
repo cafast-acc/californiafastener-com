@@ -144,16 +144,16 @@
 .hb-specs-header h2 i { color: var(--hb-accent); }
 .hb-specs-header p { font-size: 16px; color: var(--ink-soft); line-height: 1.55; margin: 0; max-width: 520px; }
 
-.hb-spec-table { background: var(--hb-ink); color: var(--dark-text); border-radius: 24px; overflow: hidden; position: relative; }
+.hb-spec-table { background: #FFFFFF; color: #0E1418; border: 1px solid var(--rule-soft); border-radius: 24px; overflow: hidden; position: relative; }
 .hb-spec-table::before { content: ''; position: absolute; inset: 0;
-  background: radial-gradient(ellipse 60% 40% at 100% 0%, rgba(28,82,163,0.18), transparent 65%); pointer-events: none; }
+  background: radial-gradient(ellipse 60% 40% at 100% 0%, rgba(28,82,163,0.05), transparent 65%); pointer-events: none; }
 .hb-spec-grid { display: grid; grid-template-columns: 120px repeat(5, 1fr);
   font-family: var(--cf-font-mono); font-size: 12px; position: relative; z-index: 1; }
-.hb-spec-grid > div { padding: 18px 20px; border-bottom: 1px solid rgba(255,255,255,0.08); }
-.hb-spec-grid .hb-spec-h { color: rgba(255,255,255,0.55); letter-spacing: 0.06em; text-transform: uppercase; font-weight: 500; font-size: 10px; border-bottom: 1px solid rgba(255,255,255,0.18); }
-.hb-spec-grid .hb-spec-size { color: var(--hb-accent-soft); font-weight: 500; letter-spacing: 0.04em; }
-.hb-spec-grid .hb-spec-val { color: var(--dark-text); letter-spacing: -0.005em; }
-.hb-spec-foot { padding: 16px 20px; font-size: 11px; color: rgba(255,255,255,0.5); letter-spacing: -0.005em; line-height: 1.6; border-top: 1px solid rgba(255,255,255,0.08); position: relative; z-index: 1; }
+.hb-spec-grid > div { padding: 18px 20px; border-bottom: 1px solid rgba(14,20,24,0.08); }
+.hb-spec-grid .hb-spec-h { color: #2A3742; letter-spacing: 0.06em; text-transform: uppercase; font-weight: 500; font-size: 10px; border-bottom: 1px solid rgba(14,20,24,0.16); }
+.hb-spec-grid .hb-spec-size { color: var(--hb-accent-deep); font-weight: 600; letter-spacing: 0.04em; }
+.hb-spec-grid .hb-spec-val { color: #0E1418; letter-spacing: -0.005em; }
+.hb-spec-foot { padding: 16px 20px; font-size: 11px; color: #5A6976; letter-spacing: -0.005em; line-height: 1.6; border-top: 1px solid rgba(14,20,24,0.08); position: relative; z-index: 1; }
 
 .hb-selector-cta { background: var(--hb-ink); color: var(--dark-text); border-radius: 24px; padding: 56px 64px; display: grid; grid-template-columns: 1.2fr 1fr; gap: 48px; align-items: center; position: relative; overflow: hidden; text-decoration: none; transition: transform 0.25s; }
 .hb-selector-cta:hover { transform: translateY(-3px); }
@@ -279,4 +279,41 @@
 @media (max-width: 680px) {
   .hb-hero-stats { grid-template-columns: 1fr 1fr; }
   .hb-props-inner { grid-template-columns: 1fr; gap: 24px; }
+}
+
+/* ── Selector modal / pop-up ──────────────────────── */
+/* The "Open the Selector" buttons launch the selector in an overlay instead
+   of navigating to the full /hollo-bolt-selector page. */
+.hb-selector-launch { all: unset; }
+button.cf-pill { border: none; font: inherit; cursor: pointer; }
+button.hb-selector-cta { border: none; font: inherit; text-align: left; width: 100%; cursor: pointer; }
+
+.hb-modal-overlay {
+  position: fixed; inset: 0; z-index: 1000;
+  background: rgba(14,20,24,0.55); backdrop-filter: blur(3px);
+  display: flex; align-items: flex-start; justify-content: center;
+  padding: 32px 16px; overflow-y: auto;
+  animation: hb-modal-fade 0.18s ease-out;
+}
+@keyframes hb-modal-fade { from { opacity: 0; } to { opacity: 1; } }
+.hb-modal {
+  position: relative; background: var(--bg); border-radius: 20px;
+  width: 100%; max-width: 1080px; margin: auto;
+  box-shadow: 0 30px 80px rgba(0,0,0,0.35);
+  animation: hb-modal-rise 0.22s ease-out;
+}
+@keyframes hb-modal-rise { from { transform: translateY(12px); opacity: 0; } to { transform: translateY(0); opacity: 1; } }
+.hb-modal-body { max-height: calc(100vh - 64px); overflow-y: auto; border-radius: 20px; }
+.hb-modal-close {
+  position: absolute; top: 14px; right: 14px; z-index: 3;
+  width: 40px; height: 40px; border-radius: 50%; border: none;
+  background: rgba(14,20,24,0.06); color: #0E1418;
+  font-size: 26px; line-height: 1; cursor: pointer;
+  display: flex; align-items: center; justify-content: center;
+  transition: background 0.2s;
+}
+.hb-modal-close:hover { background: rgba(14,20,24,0.14); }
+@media (max-width: 680px) {
+  .hb-modal-overlay { padding: 12px 8px; }
+  .hb-modal-body { max-height: calc(100vh - 24px); }
 }
