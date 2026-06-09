@@ -21,6 +21,7 @@ const STATIC_ROUTES: { path: string; changeFrequency: MetadataRoute.Sitemap[numb
   { path: "/hollo-bolt-selector", changeFrequency: "monthly", priority: 0.7 },
   { path: "/spec-library", changeFrequency: "monthly", priority: 0.7 },
   { path: "/spec-builder", changeFrequency: "monthly", priority: 0.7 },
+  { path: "/bolt-weight-calculator", changeFrequency: "monthly", priority: 0.7 },
   { path: "/quote", changeFrequency: "yearly", priority: 0.6 },
   { path: "/blog", changeFrequency: "weekly", priority: 0.9 },
 ];
