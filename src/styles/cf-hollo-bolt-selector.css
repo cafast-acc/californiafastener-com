@@ -138,3 +138,20 @@
 .hbs-footer { margin-top: 32px; padding-top: 16px; border-top: 1px solid var(--rule-soft); font-size: 12px; color: var(--mid); line-height: 1.6; }
 .hbs-footer a { color: var(--hbs-accent-dark); text-decoration: none; font-weight: 600; }
 .hbs-footer a:hover { text-decoration: underline; }
+
+/* ── Selector modal ──────────────────────────────────────────
+   Opens the selector as a full-screen overlay (from /hollo-bolt) instead of
+   navigating to the standalone page. The selector's fixed cart (z 1000) and
+   toast (z 2000) sit above the overlay (z 900); the close button is above the
+   cart (z 1100). */
+.hbs-modal { position: fixed; inset: 0; z-index: 900; background: var(--bg); overflow-y: auto; -webkit-overflow-scrolling: touch; }
+.hbs-modal-scroll { min-height: 100%; }
+.hbs-modal-close {
+  position: fixed; top: 16px; right: 20px; z-index: 1100;
+  width: 44px; height: 44px; border-radius: 50%;
+  border: 1px solid var(--rule); background: var(--white); color: var(--ink);
+  font-size: 26px; line-height: 1; cursor: pointer;
+  display: flex; align-items: center; justify-content: center;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.12); transition: background 0.15s;
+}
+.hbs-modal-close:hover { background: var(--bg-alt); }

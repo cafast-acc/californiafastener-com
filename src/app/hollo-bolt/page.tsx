@@ -5,6 +5,7 @@ import "@/styles/cf-hollo-bolt.css";
 import { CfNav } from "@/components/CfNav";
 import { CfFooter } from "@/components/CfFooter";
 import { QuoteFormPlaceholder } from "@/components/QuoteFormPlaceholder";
+import { HolloBoltSelectorTrigger } from "@/components/HolloBoltSelectorModal";
 
 export const metadata: Metadata = {
   title: "Lindapter Hollo-Bolt — Expansion Bolt for Structural Steel",
@@ -42,9 +43,9 @@ export default function HolloBoltPage() {
               styles, and multiple finishes.
             </p>
             <div className="hb-hero-ctas">
-              <Link href="/hollo-bolt-selector" className="cf-pill cf-pill--blue">
+              <HolloBoltSelectorTrigger className="cf-pill cf-pill--blue">
                 Open the Selector →
-              </Link>
+              </HolloBoltSelectorTrigger>
               <a href="#quote" className="cf-link">
                 Or request a quote ↓
               </a>
@@ -201,7 +202,7 @@ export default function HolloBoltPage() {
       {/* SELECTOR CTA */}
       <section className="hb-specs" style={{ paddingBottom: 0 }}>
         <div className="hb-specs-inner">
-          <Link href="/hollo-bolt-selector" className="hb-selector-cta">
+          <HolloBoltSelectorTrigger as="card" className="hb-selector-cta">
             <div className="hb-selector-cta-text">
               <div className="hb-selector-cta-eyebrow">Configure &amp; quote</div>
               <h3>
@@ -229,7 +230,7 @@ export default function HolloBoltPage() {
               </div>
               <div className="footer">→ Load data, SKU, quote cart</div>
             </div>
-          </Link>
+          </HolloBoltSelectorTrigger>
         </div>
       </section>
 
