@@ -633,15 +633,46 @@ function InvRow({ code, desc, qty }: { code: string; desc: string; qty: string }
 
 /* ── Diagram SVGs ──────────────────────────────────── */
 
+/* All four steps share one cross-section of a hollow steel section: a near
+   (top) wall the bolt fixes to, and a far (bottom) wall for context. The
+   Hollo-Bolt needs access to one side only — it anchors behind the near
+   wall, inside the hollow void. Matches Lindapter's published sequence. */
+
+/** Hollow section in cross-section. `hole` splits the near wall for the bolt. */
+function Section({ hole = false }: { hole?: boolean }) {
+  return (
+    <>
+      {/* near (exposed) wall — split around the clearance hole once drilled */}
+      {hole ? (
+        <>
+          <rect x="14" y="38" width="39" height="10" className="hb-d-steel" />
+          <rect x="67" y="38" width="39" height="10" className="hb-d-steel" />
+          <rect x="14" y="38" width="39" height="2.5" className="hb-d-steel-dark" />
+          <rect x="67" y="38" width="39" height="2.5" className="hb-d-steel-dark" />
+        </>
+      ) : (
+        <>
+          <rect x="14" y="38" width="92" height="10" className="hb-d-steel" />
+          <rect x="14" y="38" width="92" height="2.5" className="hb-d-steel-dark" />
+        </>
+      )}
+      {/* far wall — never drilled (single-side access) */}
+      <rect x="14" y="92" width="92" height="10" className="hb-d-steel" />
+      <rect x="14" y="92" width="92" height="2.5" className="hb-d-steel-dark" />
+    </>
+  );
+}
+
 function DrillSvg() {
   return (
     <svg className="hb-diagram" viewBox="0 0 120 120">
-      <rect x="18" y="30" width="84" height="60" rx="2" className="hb-d-steel" />
-      <rect x="18" y="30" width="84" height="8" className="hb-d-steel-dark" />
-      <rect x="18" y="82" width="84" height="8" className="hb-d-steel-dark" />
-      <rect x="57" y="8" width="6" height="36" fill="#888" />
-      <polygon points="54,40 66,40 60,56" fill="#444" />
-      <line x1="60" y1="42" x2="60" y2="92" className="hb-d-dim" />
+      <Section hole />
+      {/* drill bit cutting one hole through the near wall */}
+      <rect x="57" y="6" width="6" height="24" fill="#888" />
+      <line x1="58" y1="11" x2="63" y2="16" stroke="#666" strokeWidth="1" />
+      <line x1="58" y1="18" x2="63" y2="23" stroke="#666" strokeWidth="1" />
+      <polygon points="55,30 65,30 60,44" fill="#5A6976" />
+      <line x1="60" y1="30" x2="60" y2="90" className="hb-d-dim" />
     </svg>
   );
 }
@@ -649,14 +680,17 @@ function DrillSvg() {
 function InsertSvg() {
   return (
     <svg className="hb-diagram" viewBox="0 0 120 120">
-      <rect x="18" y="30" width="84" height="60" rx="2" className="hb-d-steel" />
-      <rect x="18" y="30" width="84" height="8" className="hb-d-steel-dark" />
-      <rect x="18" y="82" width="84" height="8" className="hb-d-steel-dark" />
-      <rect x="55" y="18" width="10" height="8" className="hb-d-bolt" />
-      <polygon points="48,26 72,26 70,34 50,34" className="hb-d-bolt" />
-      <rect x="54" y="34" width="12" height="56" className="hb-d-bolt" />
-      <line x1="60" y1="40" x2="60" y2="90" stroke="#5A6976" strokeWidth="0.8" />
-      <polygon points="56,88 64,88 62,94 58,94" className="hb-d-bolt-dark" />
+      <Section hole />
+      {/* insertion direction */}
+      <line x1="38" y1="10" x2="38" y2="26" className="hb-d-line" />
+      <polygon points="35,24 41,24 38,30" className="hb-d-accent" />
+      {/* unexpanded assembly: straight sleeve legs, bolt, cone, collar, head */}
+      <rect x="54" y="38" width="4" height="44" className="hb-d-bolt" />
+      <rect x="62" y="38" width="4" height="44" className="hb-d-bolt" />
+      <rect x="58.5" y="32" width="3" height="50" className="hb-d-bolt-dark" />
+      <polygon points="54,79 66,79 63,87 57,87" className="hb-d-bolt-dark" />
+      <rect x="46" y="32" width="28" height="6" className="hb-d-bolt-dark" />
+      <polygon points="53,18 67,18 70,25 67,32 53,32 50,25" className="hb-d-bolt" />
     </svg>
   );
 }
@@ -664,15 +698,17 @@ function InsertSvg() {
 function TorqueSvg() {
   return (
     <svg className="hb-diagram" viewBox="0 0 120 120">
-      <rect x="18" y="30" width="84" height="60" rx="2" className="hb-d-steel" />
-      <rect x="18" y="30" width="84" height="8" className="hb-d-steel-dark" />
-      <rect x="18" y="82" width="84" height="8" className="hb-d-steel-dark" />
-      <path d="M 38 20 A 22 22 0 1 1 82 20" className="hb-d-line" />
-      <polygon points="78,16 86,18 82,26" className="hb-d-accent" />
-      <polygon points="50,14 70,14 74,22 70,30 50,30 46,22" className="hb-d-bolt" />
-      <rect x="54" y="30" width="12" height="56" className="hb-d-bolt" />
-      <polygon points="50,86 70,86 66,96 54,96" className="hb-d-bolt-dark" />
-      <line x1="60" y1="86" x2="60" y2="96" stroke="#2A3742" strokeWidth="0.8" />
+      <Section hole />
+      {/* torque applied */}
+      <path d="M 45 16 A 17 17 0 1 1 78 15" className="hb-d-line" />
+      <polygon points="74,9 83,13 75,20" className="hb-d-accent" />
+      {/* cone drawn up, splaying the sleeve legs against the wall underside */}
+      <polygon points="54,40 58,40 50,70 45,68" className="hb-d-bolt" />
+      <polygon points="66,40 62,40 70,70 75,68" className="hb-d-bolt" />
+      <rect x="58.5" y="32" width="3" height="22" className="hb-d-bolt-dark" />
+      <polygon points="55,52 65,52 62,68 58,68" className="hb-d-accent" />
+      <rect x="46" y="32" width="28" height="6" className="hb-d-bolt-dark" />
+      <polygon points="53,18 67,18 70,25 67,32 53,32 50,25" className="hb-d-bolt" />
     </svg>
   );
 }
@@ -680,17 +716,19 @@ function TorqueSvg() {
 function ClampedSvg() {
   return (
     <svg className="hb-diagram" viewBox="0 0 120 120">
-      <rect x="18" y="30" width="84" height="60" rx="2" className="hb-d-steel" />
-      <rect x="18" y="30" width="84" height="8" className="hb-d-steel-dark" />
-      <rect x="18" y="82" width="84" height="8" className="hb-d-steel-dark" />
-      <polygon points="50,14 70,14 74,22 70,30 50,30 46,22" className="hb-d-bolt" />
-      <rect x="54" y="30" width="12" height="56" className="hb-d-bolt" />
-      <polygon points="48,86 72,86 66,100 54,100" className="hb-d-bolt-dark" />
-      <rect x="30" y="28" width="60" height="4" fill="#1C52A3" />
-      <line x1="40" y1="20" x2="40" y2="28" className="hb-d-line" />
-      <polygon points="37,26 43,26 40,32" className="hb-d-accent" />
-      <line x1="80" y1="20" x2="80" y2="28" className="hb-d-line" />
-      <polygon points="77,26 83,26 80,32" className="hb-d-accent" />
+      <Section hole />
+      {/* clamp load */}
+      <line x1="60" y1="1" x2="60" y2="7" className="hb-d-line" />
+      <polygon points="57,6 63,6 60,11" className="hb-d-accent" />
+      {/* expanded sleeve anchored behind the near wall */}
+      <polygon points="54,40 58,40 50,70 45,68" className="hb-d-bolt" />
+      <polygon points="66,40 62,40 70,70 75,68" className="hb-d-bolt" />
+      <rect x="58.5" y="27" width="3" height="27" className="hb-d-bolt-dark" />
+      <polygon points="55,52 65,52 62,68 58,68" className="hb-d-bolt-dark" />
+      {/* fixture clamped to the exposed face by head + collar */}
+      <rect x="28" y="33" width="64" height="5" className="hb-d-accent" />
+      <rect x="46" y="27" width="28" height="6" className="hb-d-bolt-dark" />
+      <polygon points="53,13 67,13 70,20 67,27 53,27 50,20" className="hb-d-bolt" />
     </svg>
   );
 }
