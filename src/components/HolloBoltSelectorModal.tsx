@@ -62,17 +62,25 @@ export function HolloBoltSelectorTrigger({
       )}
 
       {open && (
-        <div className="hbs-modal" role="dialog" aria-modal="true" aria-label="Hollo-Bolt Selector">
-          <button
-            type="button"
-            className="hbs-modal-close"
-            onClick={close}
-            aria-label="Close selector"
+        <div className="hbs-modal-overlay" onClick={close}>
+          <div
+            className="hbs-modal-window"
+            role="dialog"
+            aria-modal="true"
+            aria-label="Hollo-Bolt Selector"
+            onClick={(e) => e.stopPropagation()}
           >
-            ×
-          </button>
-          <div className="hbs-modal-scroll">
-            <HolloBoltSelector />
+            <button
+              type="button"
+              className="hbs-modal-close"
+              onClick={close}
+              aria-label="Close selector"
+            >
+              ×
+            </button>
+            <div className="hbs-modal-scroll">
+              <HolloBoltSelector />
+            </div>
           </div>
         </div>
       )}
