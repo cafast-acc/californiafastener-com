@@ -2,6 +2,7 @@
 
 import { useMemo, useState, type ReactNode } from "react";
 import Link from "next/link";
+import { Img } from "@/components/Img";
 import {
   calc,
   defaultSize,
@@ -20,43 +21,15 @@ import {
 } from "@/lib/boltWeight/data";
 
 // ── Type icons ───────────────────────────────────────────────
-// SVG_ROD / SVG_WASHER / SVG_SQWASH are ported verbatim from the prototype;
-// the hex-bolt, socket-cap, and hex-nut marks are drawn in the same warm-steel
-// line-art style (grey body #c8c8d0, dark edge #2d2d32, light highlight #d8d8de)
-// in place of the prototype's embedded base64 photos.
+// hex / hvyhex / shcs / nut / hvynut use the prototype's embedded base64 photos,
+// extracted into /public/assets/bolt-weight/*.png. SVG_ROD / SVG_WASHER /
+// SVG_SQWASH are ported verbatim from the prototype's inline SVG strings.
 const ROD_THREADS = Array.from({ length: 13 }, (_, i) => 6 + i * 3);
 
 const TYPE_ICONS: Record<FastenerTypeId, ReactNode> = {
-  hex: (
-    <svg viewBox="0 0 48 48" width="44" height="44" fill="none" strokeLinejoin="round">
-      <rect x="20" y="13" width="8" height="31" fill="#c8c8d0" stroke="#2d2d32" strokeWidth={2} />
-      {Array.from({ length: 9 }, (_, i) => 18 + i * 3).map((y) => (
-        <line key={y} x1="20" y1={y} x2="28" y2={y} stroke="#a0a0aa" strokeWidth={1.2} />
-      ))}
-      <polygon points="14,7 17,4 31,4 34,7 34,14 14,14" fill="#c8c8d0" stroke="#2d2d32" strokeWidth={2} />
-      <polygon points="14,7 17,4 31,4 34,7" fill="#d8d8de" stroke="none" />
-    </svg>
-  ),
-  hvyhex: (
-    <svg viewBox="0 0 48 48" width="44" height="44" fill="none" strokeLinejoin="round">
-      <rect x="20" y="13" width="8" height="31" fill="#c8c8d0" stroke="#2d2d32" strokeWidth={2} />
-      {Array.from({ length: 9 }, (_, i) => 18 + i * 3).map((y) => (
-        <line key={y} x1="20" y1={y} x2="28" y2={y} stroke="#a0a0aa" strokeWidth={1.2} />
-      ))}
-      <polygon points="14,7 17,4 31,4 34,7 34,14 14,14" fill="#c8c8d0" stroke="#2d2d32" strokeWidth={2} />
-      <polygon points="14,7 17,4 31,4 34,7" fill="#d8d8de" stroke="none" />
-    </svg>
-  ),
-  shcs: (
-    <svg viewBox="0 0 48 48" width="44" height="44" fill="none" strokeLinejoin="round">
-      <rect x="19" y="16" width="10" height="28" fill="#c8c8d0" stroke="#2d2d32" strokeWidth={2} />
-      {Array.from({ length: 8 }, (_, i) => 20 + i * 3).map((y) => (
-        <line key={y} x1="19" y1={y} x2="29" y2={y} stroke="#a0a0aa" strokeWidth={1.2} />
-      ))}
-      <rect x="14" y="4" width="20" height="13" rx="1.5" fill="#c8c8d0" stroke="#2d2d32" strokeWidth={2} />
-      <polygon points="24,6 30,9.5 30,13.5 24,17 18,13.5 18,9.5" fill="#fff" stroke="#2d2d32" strokeWidth={1.6} strokeLinejoin="round" />
-    </svg>
-  ),
+  hex: <Img src="/assets/bolt-weight/hex-bolt.png" alt="" />,
+  hvyhex: <Img src="/assets/bolt-weight/hex-bolt.png" alt="" />,
+  shcs: <Img src="/assets/bolt-weight/socket-cap.png" alt="" />,
   rod: (
     <svg viewBox="0 0 48 48" width="44" height="44" fill="none" strokeLinecap="round" strokeLinejoin="round">
       <rect x="18" y="2" width="12" height="44" fill="#c8c8d0" stroke="#2d2d32" strokeWidth={2} />
@@ -67,24 +40,8 @@ const TYPE_ICONS: Record<FastenerTypeId, ReactNode> = {
       <path d="M18,46 L24,48 L30,46" fill="#c8c8d0" stroke="#2d2d32" strokeWidth={1.5} />
     </svg>
   ),
-  nut: (
-    <svg viewBox="0 0 48 48" width="44" height="44" fill="none" strokeLinejoin="round">
-      <polygon points="24,4 41,14 41,34 24,44 7,34 7,14" fill="#c8c8d0" stroke="#2d2d32" strokeWidth={2} />
-      <polygon points="24,4 41,14 24,24 7,14" fill="#d8d8de" stroke="none" />
-      <polygon points="24,4 41,14 41,34 24,44 7,34 7,14" fill="none" stroke="#2d2d32" strokeWidth={2} />
-      <circle cx="24" cy="24" r="9" fill="#fff" stroke="#2d2d32" strokeWidth={2} />
-      <circle cx="24" cy="24" r="10.5" fill="none" stroke="#a0a0aa" strokeWidth={0.6} />
-    </svg>
-  ),
-  hvynut: (
-    <svg viewBox="0 0 48 48" width="44" height="44" fill="none" strokeLinejoin="round">
-      <polygon points="24,4 41,14 41,34 24,44 7,34 7,14" fill="#c8c8d0" stroke="#2d2d32" strokeWidth={2} />
-      <polygon points="24,4 41,14 24,24 7,14" fill="#d8d8de" stroke="none" />
-      <polygon points="24,4 41,14 41,34 24,44 7,34 7,14" fill="none" stroke="#2d2d32" strokeWidth={2} />
-      <circle cx="24" cy="24" r="9" fill="#fff" stroke="#2d2d32" strokeWidth={2} />
-      <circle cx="24" cy="24" r="10.5" fill="none" stroke="#a0a0aa" strokeWidth={0.6} />
-    </svg>
-  ),
+  nut: <Img src="/assets/bolt-weight/hex-nut.png" alt="" />,
+  hvynut: <Img src="/assets/bolt-weight/hex-nut.png" alt="" />,
   washer: (
     <svg viewBox="0 0 48 48" width="44" height="44" fill="none">
       <circle cx="24" cy="24" r="20" fill="#c8c8d0" stroke="#2d2d32" strokeWidth={2} />
