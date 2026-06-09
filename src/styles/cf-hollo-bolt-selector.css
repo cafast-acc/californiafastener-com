@@ -11,9 +11,9 @@
   --hbs-warning: #C08A3E;
   --hbs-warning-bg: rgba(192, 138, 62, 0.12);
   --hbs-error: #9C3030;
-  --hbs-radius-sm: 6px;
-  --hbs-radius-md: 10px;
-  --hbs-radius-lg: 14px;
+  --hbs-radius-sm: 8px;
+  --hbs-radius-md: 12px;
+  --hbs-radius-lg: 16px;
 }
 
 /* Hero band */
@@ -28,31 +28,31 @@
 
 /* Selector container */
 .hbs-root { max-width: 1240px; margin: 0 auto; padding: 36px 40px 200px; }
-.hbs-header { border-bottom: 1px solid var(--rule-soft); padding-bottom: 24px; margin-bottom: 32px; }
+.hbs-header { border-bottom: 1px solid var(--rule-soft); padding-bottom: 28px; margin-bottom: 36px; }
 .hbs-header h2 { font-size: clamp(36px, 3.8vw, 52px); font-weight: 600; letter-spacing: -0.03em; line-height: 1.05; color: var(--ink); margin: 0 0 12px; }
 .hbs-header > p { font-size: 17px; line-height: 1.5; color: var(--ink-soft); max-width: 720px; margin: 0; }
 .hbs-badges { margin-top: 14px; display: flex; flex-wrap: wrap; gap: 6px; }
 .hbs-badge { display: inline-block; background: var(--ink); color: var(--white); font-size: 11px; font-weight: 600; padding: 4px 10px; border-radius: 100px; letter-spacing: 0.03em; text-transform: uppercase; }
 .hbs-badge.accent { background: #DCE8F7; color: var(--hbs-accent-dark); }
 
-.hbs-grid { display: grid; grid-template-columns: minmax(280px, 340px) 1fr; gap: 24px; align-items: start; }
+.hbs-grid { display: grid; grid-template-columns: minmax(290px, 350px) 1fr; gap: 32px; align-items: start; }
 @media (max-width: 900px) { .hbs-grid { grid-template-columns: 1fr; } }
 
 /* Filter panel */
-.hbs-filters { background: var(--bg-alt); border: 1px solid var(--rule-soft); border-radius: var(--hbs-radius-lg); padding: 20px; position: sticky; top: 80px; }
+.hbs-filters { background: var(--bg-alt); border: 1px solid var(--rule-soft); border-radius: var(--hbs-radius-lg); padding: 24px; position: sticky; top: 80px; }
 @media (max-width: 900px) { .hbs-filters { position: static; } }
-.hbs-filters h3 { color: var(--ink); font-size: 13px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.08em; margin: 0 0 16px; }
-.hbs-field { margin-bottom: 18px; }
+.hbs-filters h3 { color: var(--ink); font-size: 13px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.08em; margin: 0 0 20px; }
+.hbs-field { margin-bottom: 22px; }
 .hbs-field:last-child { margin-bottom: 0; }
 .hbs-label { display: block; font-size: 11px; font-weight: 600; color: var(--ink); text-transform: uppercase; letter-spacing: 0.04em; margin-bottom: 8px; }
 .hbs-label .hint { font-weight: 400; text-transform: none; letter-spacing: 0; color: var(--mid); font-size: 11px; margin-left: 4px; }
 
-.hbs-select, .hbs-input { width: 100%; padding: 10px 12px; font-size: 14px; font-family: inherit; border: 1px solid var(--rule-soft); border-radius: var(--hbs-radius-sm); background: var(--white); color: var(--ink); transition: border-color 120ms, box-shadow 120ms; }
+.hbs-select, .hbs-input { width: 100%; padding: 11px 14px; font-size: 14px; font-family: inherit; border: 1px solid var(--rule-soft); border-radius: var(--hbs-radius-sm); background: var(--white); color: var(--ink); transition: border-color 120ms, box-shadow 120ms; }
 .hbs-select:focus, .hbs-input:focus { outline: none; border-color: var(--hbs-accent); box-shadow: 0 0 0 3px rgba(28,82,163,0.18); }
 .hbs-input[type="number"] { font-variant-numeric: tabular-nums; }
 
-.hbs-segmented { display: flex; flex-wrap: wrap; gap: 4px; }
-.hbs-seg-btn { flex: 1 1 auto; min-width: 60px; padding: 9px 6px; font-size: 13px; font-weight: 600; font-family: inherit; background: var(--white); color: var(--ink-soft); border: 1px solid var(--rule-soft); border-radius: var(--hbs-radius-sm); cursor: pointer; transition: all 120ms; }
+.hbs-segmented { display: flex; flex-wrap: wrap; gap: 6px; }
+.hbs-seg-btn { flex: 1 1 auto; min-width: 60px; padding: 10px 8px; font-size: 13px; font-weight: 600; font-family: inherit; background: var(--white); color: var(--ink-soft); border: 1px solid var(--rule-soft); border-radius: var(--hbs-radius-sm); cursor: pointer; transition: all 120ms; }
 .hbs-seg-btn:hover:not(:disabled) { border-color: var(--hbs-accent); color: var(--ink); }
 .hbs-seg-btn.active { background: var(--ink); color: var(--white); border-color: var(--ink); }
 .hbs-seg-btn:disabled { opacity: 0.35; cursor: not-allowed; }
@@ -69,11 +69,11 @@
 .hbs-btn.ghost:hover { color: var(--ink); border-color: var(--ink); }
 
 /* Results */
-.hbs-results h3 { color: var(--ink); font-size: 18px; font-weight: 600; margin: 0 0 8px; }
-.hbs-result-meta { font-size: 13px; color: var(--mid); margin-bottom: 18px; }
+.hbs-results h3 { color: var(--ink); font-size: 18px; font-weight: 600; margin: 0 0 10px; }
+.hbs-result-meta { font-size: 13px; color: var(--mid); margin-bottom: 22px; line-height: 1.5; }
 .hbs-result-meta strong { color: var(--ink); }
-.hbs-result-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 14px; }
-.hbs-card { background: var(--white); border: 1px solid var(--rule-soft); border-radius: var(--hbs-radius-md); padding: 18px; display: flex; flex-direction: column; gap: 12px; transition: border-color 120ms, box-shadow 120ms; position: relative; }
+.hbs-result-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 18px; }
+.hbs-card { background: var(--white); border: 1px solid var(--rule-soft); border-radius: var(--hbs-radius-md); padding: 22px; display: flex; flex-direction: column; gap: 14px; transition: border-color 120ms, box-shadow 120ms; position: relative; }
 .hbs-card:hover { border-color: var(--hbs-accent); box-shadow: 0 4px 14px rgba(0,0,0,0.06); }
 .hbs-card.recommended { border-color: var(--hbs-accent); border-width: 2px; }
 .hbs-card.recommended::before { content: "BEST FIT"; position: absolute; top: -10px; right: 14px; background: var(--hbs-accent); color: var(--white); font-size: 10px; font-weight: 700; padding: 3px 10px; border-radius: 100px; letter-spacing: 0.05em; }
@@ -81,7 +81,7 @@
 .hbs-card-subtitle { font-size: 12px; color: var(--mid); text-transform: uppercase; letter-spacing: 0.06em; margin-top: -6px; }
 .hbs-hcf-tag { display: inline-block; background: #fff4cc; color: #a36300; font-size: 10px; font-weight: 700; padding: 2px 6px; border-radius: 3px; letter-spacing: 0.04em; vertical-align: middle; margin-left: 4px; }
 
-.hbs-specs { display: grid; grid-template-columns: repeat(2, 1fr); gap: 6px 10px; padding: 10px; background: var(--bg-alt); border-radius: var(--hbs-radius-sm); font-size: 12px; }
+.hbs-specs { display: grid; grid-template-columns: repeat(2, 1fr); gap: 8px 14px; padding: 14px; background: var(--bg-alt); border-radius: var(--hbs-radius-sm); font-size: 12px; }
 .hbs-spec-label { color: var(--mid); }
 .hbs-spec-value { color: var(--ink); font-weight: 600; font-variant-numeric: tabular-nums; text-align: right; }
 .hbs-loads { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
@@ -154,16 +154,23 @@
 .hbs-modal-window {
   position: relative;
   display: flex; flex-direction: column;
-  width: 100%; max-width: 1120px; max-height: 90vh;
+  width: 100%; max-width: 1160px; max-height: 92vh;
   background: var(--bg);
   border-radius: 20px; overflow: hidden;
   box-shadow: 0 32px 90px rgba(0, 0, 0, 0.45);
 }
 .hbs-modal-scroll { flex: 1; overflow-y: auto; -webkit-overflow-scrolling: touch; }
-/* The standalone page reserves space for a global nav; inside the popup there
-   is none, so tighten the sticky filter offset and trim the selector padding. */
-.hbs-modal-window .hbs-root { padding: 28px 32px 160px; }
+/* The standalone page reserves space for a global nav and a viewport-pinned
+   cart; inside the popup there is none, so scale the header to fit the window,
+   tighten the sticky filter offset, and trim the (otherwise huge) padding to
+   just clear the collapsed cart handle. */
+.hbs-modal-window .hbs-root { padding: 36px 44px 96px; }
+.hbs-modal-window .hbs-header { padding-bottom: 24px; margin-bottom: 32px; }
+.hbs-modal-window .hbs-header h2 { font-size: clamp(28px, 2.6vw, 38px); }
 .hbs-modal-window .hbs-filters { top: 16px; }
+@media (max-width: 720px) {
+  .hbs-modal-window .hbs-root { padding: 28px 22px 88px; }
+}
 /* Contain the cart/toast within the popup window instead of the viewport. */
 .hbs-modal-window .hbs-cart {
   position: absolute; left: 0; right: 0; bottom: 0; z-index: 30;
