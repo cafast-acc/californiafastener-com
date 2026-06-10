@@ -104,10 +104,10 @@
 .hb-heads-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
 .hb-head-card { background: var(--bg-alt); border-radius: 20px; overflow: hidden; display: flex; flex-direction: column; transition: transform 0.3s; }
 .hb-head-card:hover { transform: translateY(-4px); }
-.hb-head-photo { aspect-ratio: 4 / 5; position: relative; overflow: hidden;
+.hb-head-photo { aspect-ratio: 4 / 3; position: relative; overflow: hidden;
   background: #E7E5E0;
   display: flex; align-items: center; justify-content: center; }
-.hb-head-photo img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: contain; padding: 8%; z-index: 1; }
+.hb-head-photo img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; z-index: 1; }
 .hb-head-photo .pnum { position: absolute; top: 18px; left: 20px; font-family: var(--cf-font-mono); font-size: 11px; color: rgba(14,20,24,0.6); letter-spacing: 0.06em; z-index: 2; }
 .hb-head-body { padding: 24px 28px 28px; display: flex; flex-direction: column; flex: 1; }
 .hb-head-body h3 { font-size: 22px; font-weight: 600; letter-spacing: -0.02em; line-height: 1.15; margin: 0 0 8px; }

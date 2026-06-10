@@ -149,7 +149,7 @@ export default function HolloBoltPage() {
               desc="The standard Hollo-Bolt. Hex head with captive washer, installed with a standard wrench or socket. Specified on most structural connections."
               spec="HB · Cl. 8.8 · 5/16″ → 3/4″"
               phLabel="Hex head"
-              img="/assets/products/hollo-bolt-hex-head.png"
+              img="/assets/products/hollo-bolt-hex-head-2.png"
               imgAlt="Lindapter Hollo-Bolt hex head expansion bolt"
             />
             <HeadCard
@@ -158,7 +158,7 @@ export default function HolloBoltPage() {
               desc="Flat, 82° countersunk head with internal hex drive. Sits flush with the fixture face for applications where a low profile is required."
               spec="HBCSK · Cl. 8.8 · 5/16″ → 3/4″"
               phLabel="Countersunk"
-              img="/assets/products/hollo-bolt-countersunk.png"
+              img="/assets/products/hollo-bolt-countersunk-2.png"
               imgAlt="Lindapter Hollo-Bolt countersunk head expansion bolt"
             />
             <HeadCard
@@ -167,7 +167,7 @@ export default function HolloBoltPage() {
               desc="Recessed head that sits below the face of the steel when installed in a counterbored pocket. Clean appearance for exposed architectural work."
               spec="HBFF · Cl. 8.8 · 3/8″ → 3/4″"
               phLabel="Flush-fit"
-              img="/assets/products/hollo-bolt-flush-fit.png"
+              img="/assets/products/hollo-bolt-flush-fit-2.png"
               imgAlt="Lindapter Hollo-Bolt flush-fit head expansion bolt"
             />
           </div>
