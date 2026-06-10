@@ -267,11 +267,11 @@ export default function HomePage() {
           <div className="specialty-image">
             <div className="specialty-image-tag">Lindapter Hollo-Bolt HB1</div>
             <Image
-              src="/assets/products/hollo-bolt-hex-head.png"
+              src="/assets/products/hollo-bolt-hex-head-2.png"
               alt="Lindapter Hollo-Bolt HB1 expansion bolt"
               className="specialty-image-hero"
-              width={3840}
-              height={2399}
+              width={2992}
+              height={2244}
               quality={95}
               sizes="(max-width: 860px) 100vw, 600px"
             />
