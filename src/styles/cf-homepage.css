@@ -416,7 +416,7 @@
 }
 .specialty-ctas { display: flex; gap: 24px; align-items: center; flex-wrap: wrap; }
 .specialty-image {
-  background: var(--bg-cream);
+  background: #E7E5E0;
   border-radius: 20px;
   overflow: hidden;
   display: flex; align-items: center; justify-content: center;
@@ -430,7 +430,7 @@
 .specialty-image img.specialty-image-hero {
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  object-fit: contain;
   filter: none;
 }
 .specialty-image-tag {
