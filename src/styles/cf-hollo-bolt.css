@@ -35,12 +35,19 @@
 .hb-hero-stat-label { font-size: 11px; color: var(--mid); letter-spacing: 0.04em; text-transform: uppercase; line-height: 1.3; }
 
 .hb-hero-visual { position: relative; min-height: 720px;
-  background: radial-gradient(ellipse 70% 60% at 30% 30%, rgba(255,255,255,0.7), transparent 60%),
-              linear-gradient(155deg, #E7EBEE 0%, #B8C2CB 60%, #7C8894 100%);
+  /* Background matches the product render's own #ece8de photo-bed (lighter at
+     top, warmer at the base) so the contain'd render blends edge-to-edge with
+     no visible rectangle/seam against the placard. The soft radial highlight
+     keeps the studio depth. */
+  background: radial-gradient(ellipse 70% 60% at 30% 30%, rgba(255,255,255,0.55), transparent 60%),
+              linear-gradient(180deg, #efece3 0%, #ece8de 55%, #e9e4db 100%);
   border-radius: 28px 0 0 0; margin-right: calc((100vw - 1440px) / -2); overflow: hidden; }
 @media (max-width: 1480px) { .hb-hero-visual { margin-right: -40px; } }
 .hb-hero-photo { position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; z-index: 1; }
-.hb-hero-photo img { height: 80%; width: auto; object-fit: contain; filter: drop-shadow(0 40px 60px rgba(14,20,24,0.35)); }
+/* No drop-shadow: the render bed is opaque, so a filter shadow would trace the
+   image's rectangular bounding box and re-introduce the very outline we're
+   removing. The part's own shadow is already baked into the render bed. */
+.hb-hero-photo img { height: 80%; width: auto; object-fit: contain; }
 .hb-hero-tag { position: absolute; top: 28px; left: 28px; background: rgba(255,255,255,0.92); backdrop-filter: blur(8px); padding: 9px 16px; border-radius: 100px; font-size: 11px; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; color: var(--hb-ink); z-index: 2; }
 .hb-hero-spec { position: absolute; bottom: 28px; right: 28px;
   background: rgba(14,20,24,0.88); color: var(--dark-text); backdrop-filter: blur(8px);
