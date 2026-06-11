@@ -128,8 +128,8 @@ const FAMILIES: Family[] = [
     description: "Blind bolts, girder clamps — authorized distributor.",
     grades: ["Hollo-Bolt", "Girder clamp"],
     href: "/hollo-bolt",
-    image: "/assets/product-hollobolt.png",
-    imageAlt: "Lindapter Hollo-Bolt hex head expansion bolt",
+    image: "/assets/products/hollo-bolt-trio.png",
+    imageAlt: "Lindapter Hollo-Bolt hex, countersunk, and flush-fit expansion bolts",
     placeholder: "A2 · Hollo-Bolt",
   },
   {
