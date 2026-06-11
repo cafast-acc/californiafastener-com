@@ -35,12 +35,11 @@
 .hb-hero-stat-label { font-size: 11px; color: var(--mid); letter-spacing: 0.04em; text-transform: uppercase; line-height: 1.3; }
 
 .hb-hero-visual { position: relative; min-height: 720px;
-  background: radial-gradient(ellipse 70% 60% at 30% 30%, rgba(255,255,255,0.7), transparent 60%),
-              linear-gradient(155deg, #E7EBEE 0%, #B8C2CB 60%, #7C8894 100%);
+  background: #E7E5E0;
   border-radius: 28px 0 0 0; margin-right: calc((100vw - 1440px) / -2); overflow: hidden; }
 @media (max-width: 1480px) { .hb-hero-visual { margin-right: -40px; } }
 .hb-hero-photo { position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; z-index: 1; }
-.hb-hero-photo img { height: 80%; width: auto; object-fit: contain; filter: drop-shadow(0 40px 60px rgba(14,20,24,0.35)); }
+.hb-hero-photo img { width: 94%; height: auto; max-height: 92%; object-fit: contain; }
 .hb-hero-tag { position: absolute; top: 28px; left: 28px; background: rgba(255,255,255,0.92); backdrop-filter: blur(8px); padding: 9px 16px; border-radius: 100px; font-size: 11px; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; color: var(--hb-ink); z-index: 2; }
 .hb-hero-spec { position: absolute; bottom: 28px; right: 28px;
   background: rgba(14,20,24,0.88); color: var(--dark-text); backdrop-filter: blur(8px);
@@ -48,7 +47,7 @@
   font-family: var(--cf-font-mono); font-size: 11px; letter-spacing: 0.04em; line-height: 1.7;
   z-index: 2; }
 .hb-hero-spec b { color: var(--hb-accent-soft); font-weight: 500; }
-.hb-hero-grid { position: absolute; inset: 0; pointer-events: none; opacity: 0.3;
+.hb-hero-grid { display: none; position: absolute; inset: 0; pointer-events: none; opacity: 0.3;
   background-image: linear-gradient(0deg, rgba(14,20,24,0.18) 1px, transparent 1px),
                     linear-gradient(90deg, rgba(14,20,24,0.18) 1px, transparent 1px);
   background-size: 60px 60px;
