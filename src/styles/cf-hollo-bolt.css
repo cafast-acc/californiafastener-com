@@ -111,10 +111,16 @@
 .hb-heads-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
 .hb-head-card { background: var(--bg-alt); border-radius: 20px; overflow: hidden; display: flex; flex-direction: column; transition: transform 0.3s; }
 .hb-head-card:hover { transform: translateY(-4px); }
-.hb-head-photo { aspect-ratio: 4 / 3; position: relative; overflow: hidden;
+/* 3:2 (not 4:3) so object-fit: cover trims the renders' empty vertical bed
+   margin and the horizontal bolt fills the frame. The bolts span the full
+   width of their beds, so we can't crop sideways without clipping the tips —
+   3:2 is the widest frame that fills the hex/countersunk renders while still
+   showing the (more square) flush-fit part whole. Bed (#E7E5E0) matches the
+   render beds, so any residual margin stays seamless. */
+.hb-head-photo { aspect-ratio: 3 / 2; position: relative; overflow: hidden;
   background: #E7E5E0;
   display: flex; align-items: center; justify-content: center; }
-.hb-head-photo img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; z-index: 1; }
+.hb-head-photo img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: center; z-index: 1; }
 .hb-head-photo .pnum { position: absolute; top: 18px; left: 20px; font-family: var(--cf-font-mono); font-size: 11px; color: rgba(14,20,24,0.6); letter-spacing: 0.06em; z-index: 2; }
 .hb-head-body { padding: 24px 28px 28px; display: flex; flex-direction: column; flex: 1; }
 .hb-head-body h3 { font-size: 22px; font-weight: 600; letter-spacing: -0.02em; line-height: 1.15; margin: 0 0 8px; }
