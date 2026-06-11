@@ -127,8 +127,8 @@ export default function AnchorBoltsPage() {
           />
           <TypeCard
             pnum="02 / Rods & assemblies"
-            img="/assets/anchor-rods.webp"
-            imgAlt="Anchor rod with double-end threading, nuts, and square plate washer"
+            img="/assets/products/structural-f1554-anchor-rod-5.png"
+            imgAlt="F1554 anchor rod assembly with hex nuts and square plate washer"
             title="Anchor rods & assemblies"
             desc="Customizable rods and full assemblies to meet the specific needs of diverse structural projects — strength and versatility with every part shipped together."
             metaBold="F1554 Gr 55 / 105"
