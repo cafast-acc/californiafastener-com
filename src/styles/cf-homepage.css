@@ -416,7 +416,7 @@
 }
 .specialty-ctas { display: flex; gap: 24px; align-items: center; flex-wrap: wrap; }
 .specialty-image {
-  background: var(--bg-cream);
+  background: #E7E5E0;
   border-radius: 20px;
   overflow: hidden;
   display: flex; align-items: center; justify-content: center;

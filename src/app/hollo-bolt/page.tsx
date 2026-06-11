@@ -147,6 +147,8 @@ export default function HolloBoltPage() {
               desc="The standard Hollo-Bolt. Hex head with captive washer, installed with a standard wrench or socket. Specified on most structural connections."
               spec="HB · Cl. 8.8 · 5/16″ → 3/4″"
               phLabel="Hex head"
+              img="/assets/products/hollo-bolt-hex-head-2.png"
+              imgAlt="Lindapter Hollo-Bolt hex head expansion bolt"
             />
             <HeadCard
               pnum="HBCSK / COUNTERSUNK"
@@ -154,6 +156,8 @@ export default function HolloBoltPage() {
               desc="Flat, 82° countersunk head with internal hex drive. Sits flush with the fixture face for applications where a low profile is required."
               spec="HBCSK · Cl. 8.8 · 5/16″ → 3/4″"
               phLabel="Countersunk"
+              img="/assets/products/hollo-bolt-countersunk-2.png"
+              imgAlt="Lindapter Hollo-Bolt countersunk head expansion bolt"
             />
             <HeadCard
               pnum="HBFF / FLUSH-FIT"
@@ -161,6 +165,8 @@ export default function HolloBoltPage() {
               desc="Recessed head that sits below the face of the steel when installed in a counterbored pocket. Clean appearance for exposed architectural work."
               spec="HBFF · Cl. 8.8 · 3/8″ → 3/4″"
               phLabel="Flush-fit"
+              img="/assets/products/hollo-bolt-flush-fit-2.png"
+              imgAlt="Lindapter Hollo-Bolt flush-fit head expansion bolt"
             />
           </div>
         </div>
@@ -541,20 +547,28 @@ function HeadCard({
   desc,
   spec,
   phLabel,
+  img,
+  imgAlt,
 }: {
   pnum: string;
   title: string;
   desc: string;
   spec: string;
   phLabel: string;
+  img?: string;
+  imgAlt?: string;
 }) {
   return (
     <div className="hb-head-card">
       <div className="hb-head-photo">
         <span className="pnum">{pnum}</span>
-        <div style={{ position: "absolute", inset: 0, display: "flex", alignItems: "center", justifyContent: "center", color: "rgba(14,20,24,0.5)", fontFamily: "var(--cf-font-mono)", fontSize: 12, letterSpacing: "0.06em", textTransform: "uppercase", textAlign: "center", padding: 24, zIndex: 1 }}>
-          [ {phLabel} product photo ]
-        </div>
+        {img ? (
+          <Image src={img} alt={imgAlt ?? ""} fill sizes="(max-width: 900px) 100vw, 360px" />
+        ) : (
+          <div style={{ position: "absolute", inset: 0, display: "flex", alignItems: "center", justifyContent: "center", color: "rgba(14,20,24,0.5)", fontFamily: "var(--cf-font-mono)", fontSize: 12, letterSpacing: "0.06em", textTransform: "uppercase", textAlign: "center", padding: 24, zIndex: 1 }}>
+            [ {phLabel} product photo ]
+          </div>
+        )}
       </div>
       <div className="hb-head-body">
         <h3>{title}</h3>
