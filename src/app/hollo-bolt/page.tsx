@@ -59,7 +59,6 @@ export default function HolloBoltPage() {
             </div>
           </div>
           <div className="hb-hero-visual">
-            <div className="hb-hero-grid" />
             <div className="hb-hero-tag">Hex Head · Hot-Dip Galvanized</div>
             <div className="hb-hero-photo">
               <Image
