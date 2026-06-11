@@ -420,7 +420,8 @@
   border-radius: 20px;
   overflow: hidden;
   display: flex; align-items: center; justify-content: center;
-  min-height: 440px;
+  aspect-ratio: 5 / 3;
+  align-self: center;
   position: relative;
 }
 .specialty-image img {
@@ -450,7 +451,7 @@
   .specialty-inner { grid-template-columns: 1fr; gap: 32px; }
   .specialty-text { padding-right: 0; order: 0; }
   /* Lead with the image once the specialty grid stacks. */
-  .specialty-image { order: -1; min-height: 320px; }
+  .specialty-image { order: -1; }
 }
 
 /* ─── CNC Dark section ─────────────── */
@@ -872,7 +873,6 @@
   .split-text h2 { font-size: 36px; }
   .split-image { min-height: 280px; }
   .specialty { padding-top: 64px; padding-bottom: 64px; }
-  .specialty-image { min-height: 260px; }
   /* Don't override the 2px specialty-specs gap — it's what creates the
      dividing rules between the four cells via the rule-soft background. */
   .specialty-ctas {

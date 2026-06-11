@@ -58,13 +58,13 @@ export default function HolloBoltPage() {
           </div>
           <div className="hb-hero-visual">
             <div className="hb-hero-grid" />
-            <div className="hb-hero-tag">Hex Head · Hot-Dip Galvanized</div>
+            <div className="hb-hero-tag">Hex · Countersunk · Flush-fit</div>
             <div className="hb-hero-photo">
               <Image
-                src="/assets/product-hollobolt.png"
-                alt="Lindapter Hollo-Bolt hex head expansion bolt"
-                width={1029}
-                height={951}
+                src="/assets/products/hollo-bolt-trio.png"
+                alt="Lindapter Hollo-Bolt hex, countersunk, and flush-fit expansion bolts"
+                width={3165}
+                height={1899}
                 priority
                 quality={95}
                 sizes="(max-width: 1100px) 100vw, 700px"
