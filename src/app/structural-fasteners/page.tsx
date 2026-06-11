@@ -61,10 +61,10 @@ export default function StructuralFastenersPage() {
           <div className="pp-hero-image">
             <div className="pp-hero-image-tag">F3125 Gr A325 · Type 1 · Hot-dip galvanized</div>
             <Image
-              src="/assets/structural-hero-bolt.png"
-              alt="Structural heavy hex bolt"
-              width={1478}
-              height={1021}
+              src="/assets/products/structural-heavy-hex-bolt-1.png"
+              alt="F3125 Grade A325 structural heavy hex bolt"
+              width={3840}
+              height={2399}
               priority
               quality={95}
               sizes="(max-width: 1000px) 100vw, 750px"
