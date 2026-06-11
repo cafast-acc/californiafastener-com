@@ -35,15 +35,21 @@
 .hb-hero-stat-label { font-size: 11px; color: var(--mid); letter-spacing: 0.04em; text-transform: uppercase; line-height: 1.3; }
 
 .hb-hero-visual { position: relative; min-height: 720px;
-  background: radial-gradient(ellipse 70% 60% at 30% 30%, rgba(255,255,255,0.7), transparent 60%),
-              linear-gradient(155deg, #E7EBEE 0%, #B8C2CB 60%, #7C8894 100%);
+  background: #ece8de; /* fallback if the image fails */
   border-radius: 28px 0 0 0; margin-right: calc((100vw - 1440px) / -2); overflow: hidden; }
+/* Fill the placard with a blurred, enlarged copy of the SAME render, so the
+   render's own bed extends past its edges with no seam/rectangle. The crisp,
+   whole render sits on top (object-fit: contain) at its natural size — the
+   product is never cropped or modified. scale() overscans so the blur doesn't
+   fade the placard edges. */
+.hb-hero-visual::before { content: ""; position: absolute; inset: 0; z-index: 0;
+  background: url("/assets/product-hollobolt.png") center / cover no-repeat;
+  filter: blur(40px); transform: scale(1.3); }
 @media (max-width: 1480px) { .hb-hero-visual { margin-right: -40px; } }
 .hb-hero-photo { position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; z-index: 1; }
-/* Render is a transparent cutout (no baked bed), so the bolt sits directly on
-   the studio gradient with a real, bolt-shaped drop-shadow — no rectangle/
-   outline. contain keeps it centered at its natural size. */
-.hb-hero-photo img { height: 80%; width: auto; object-fit: contain; filter: drop-shadow(0 40px 60px rgba(14,20,24,0.35)); }
+/* No drop-shadow: the render bed is opaque, so a filter shadow would trace the
+   image's rectangular bounding box. */
+.hb-hero-photo img { height: 80%; width: auto; object-fit: contain; }
 .hb-hero-tag { position: absolute; top: 28px; left: 28px; background: rgba(255,255,255,0.92); backdrop-filter: blur(8px); padding: 9px 16px; border-radius: 100px; font-size: 11px; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; color: var(--hb-ink); z-index: 2; }
 .hb-hero-spec { position: absolute; bottom: 28px; right: 28px;
   background: rgba(14,20,24,0.88); color: var(--dark-text); backdrop-filter: blur(8px);
@@ -51,12 +57,6 @@
   font-family: var(--cf-font-mono); font-size: 11px; letter-spacing: 0.04em; line-height: 1.7;
   z-index: 2; }
 .hb-hero-spec b { color: var(--hb-accent-soft); font-weight: 500; }
-.hb-hero-grid { position: absolute; inset: 0; pointer-events: none; opacity: 0.3;
-  background-image: linear-gradient(0deg, rgba(14,20,24,0.18) 1px, transparent 1px),
-                    linear-gradient(90deg, rgba(14,20,24,0.18) 1px, transparent 1px);
-  background-size: 60px 60px;
-  -webkit-mask-image: radial-gradient(ellipse 80% 80% at 50% 50%, black 30%, transparent 80%);
-          mask-image: radial-gradient(ellipse 80% 80% at 50% 50%, black 30%, transparent 80%); }
 
 /* ── PROPERTY STRIP ──────────────────────────────────── */
 .hb-props { padding: 72px 40px; border-bottom: 1px solid var(--rule-soft); background: var(--bg); }
@@ -107,14 +107,13 @@
 .hb-heads-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
 .hb-head-card { background: var(--bg-alt); border-radius: 20px; overflow: hidden; display: flex; flex-direction: column; transition: transform 0.3s; }
 .hb-head-card:hover { transform: translateY(-4px); }
-/* Renders are transparent cutouts (no baked bed), so each bolt sits directly
-   on the card with a real, bolt-shaped drop-shadow — no rectangle/outline.
-   contain keeps the bolt centered at its natural size. */
+/* The renders are 4:3 with the bed reaching every edge, and the frame is 4:3,
+   so object-fit: cover fills it exactly — the card background never shows and
+   there is no rectangle/outline. */
 .hb-head-photo { aspect-ratio: 4 / 3; position: relative; overflow: hidden;
   background: #E7E5E0;
   display: flex; align-items: center; justify-content: center; }
-.hb-head-photo img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: contain; object-position: center;
-  filter: drop-shadow(0 18px 26px rgba(14,20,24,0.22)); z-index: 1; }
+.hb-head-photo img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; z-index: 1; }
 .hb-head-photo .pnum { position: absolute; top: 18px; left: 20px; font-family: var(--cf-font-mono); font-size: 11px; color: rgba(14,20,24,0.6); letter-spacing: 0.06em; z-index: 2; }
 .hb-head-body { padding: 24px 28px 28px; display: flex; flex-direction: column; flex: 1; }
 .hb-head-body h3 { font-size: 22px; font-weight: 600; letter-spacing: -0.02em; line-height: 1.15; margin: 0 0 8px; }
