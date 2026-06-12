@@ -53,10 +53,10 @@ export default function AnchorBoltsPage() {
             </div>
           </div>
           <div className="ab-hero-image">
-            <div className="ab-hero-image-tag">F1554 · Headed Anchor Assembly</div>
+            <div className="ab-hero-image-tag">F1554 · Anchor Rod Assembly</div>
             <Img
-              src="/assets/anchor-headed.webp"
-              alt="F1554 headed anchor bolt with hex nut and washer"
+              src="/assets/anchor-f1554-rod-hero.png"
+              alt="F1554 anchor rod assembly with heavy hex nuts and square plate washer"
             />
           </div>
         </div>
@@ -127,7 +127,7 @@ export default function AnchorBoltsPage() {
           />
           <TypeCard
             pnum="02 / Rods & assemblies"
-            img="/assets/products/structural-f1554-anchor-rod-5.png"
+            img="/assets/products/structural-f1554-anchor-rod-2.png"
             imgAlt="F1554 anchor rod assembly with hex nuts and square plate washer"
             title="Anchor rods & assemblies"
             desc="Customizable rods and full assemblies to meet the specific needs of diverse structural projects — strength and versatility with every part shipped together."

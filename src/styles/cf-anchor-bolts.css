@@ -23,7 +23,7 @@
 
 .ab-hero-image { background: #E8E6E1; border-radius: 24px 0 0 0; min-height: 720px; margin-right: calc((100vw - 1440px) / -2); display: flex; align-items: center; justify-content: center; overflow: hidden; position: relative; }
 @media (max-width: 1480px) { .ab-hero-image { margin-right: -40px; } }
-.ab-hero-image img { width: 110%; height: auto; max-height: 90%; object-fit: contain; transform: rotate(-6deg); filter: drop-shadow(0 30px 50px rgba(0,0,0,0.2)); }
+.ab-hero-image img { width: 100%; height: 100%; object-fit: contain; }
 .ab-hero-image-tag { position: absolute; top: 24px; left: 24px; background: rgba(255,255,255,0.92); backdrop-filter: blur(8px); padding: 8px 14px; border-radius: 100px; font-size: 11px; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; color: var(--ink); }
 
 /* VALUES */
