@@ -159,10 +159,10 @@ export default function HomePage() {
       <section className="split split--anchor">
         <div className="split-image">
           <Image
-            src="/assets/anchor-headed.webp"
-            alt="F1554 headed anchor bolt with hex nut and washer"
-            width={1334}
-            height={750}
+            src="/assets/anchor-f1554-assembly.png"
+            alt="F1554 anchor rod assembly with heavy hex nut and plate washer"
+            width={2560}
+            height={1599}
             quality={95}
             sizes="(max-width: 1000px) 90vw, 600px"
           />
