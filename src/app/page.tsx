@@ -159,7 +159,7 @@ export default function HomePage() {
       <section className="split split--anchor">
         <div className="split-image">
           <Image
-            src="/assets/anchor-f1554-rod.png"
+            src="/assets/anchor-f1554-rod-home.png"
             alt="F1554 anchor rod assembly with heavy hex nut and square plate washer"
             width={2560}
             height={1599}
