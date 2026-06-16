@@ -59,10 +59,10 @@ export default function StainlessSteelFastenersPage() {
           <div className="pp-hero-image">
             <div className="pp-hero-image-tag">A193 B8M · 316 Stainless · Heavy Hex</div>
             <Image
-              src="/assets/if-stamp-b8-rod.webp"
+              src="/assets/products/ss-hex-cap-1.png"
               alt="A193 B8M 316 stainless heavy hex bolt"
-              width={916}
-              height={750}
+              width={1280}
+              height={800}
               priority
               quality={95}
               sizes="(max-width: 1000px) 100vw, 750px"
