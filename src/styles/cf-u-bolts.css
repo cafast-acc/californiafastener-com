@@ -9,7 +9,7 @@
    Class prefix: .ub-* */
 
 /* ── PRODUCT-CARD SVG SHAPE ──────────────────────────── */
-.ub-shape { background: #E8E6E1; aspect-ratio: 4 / 3; position: relative; overflow: hidden; display: flex; align-items: center; justify-content: center; }
+.ub-shape { background: #E7E5E0; aspect-ratio: 4 / 3; position: relative; overflow: hidden; display: flex; align-items: center; justify-content: center; }
 .ub-shape svg { width: 70%; height: 70%; }
 .ub-shape svg path, .ub-shape svg line, .ub-shape svg circle, .ub-shape svg rect { stroke: var(--ink); fill: none; stroke-width: 6; stroke-linecap: round; stroke-linejoin: round; }
 .ub-shape svg .thread { stroke-width: 1.5; stroke: var(--ink); opacity: 0.6; }

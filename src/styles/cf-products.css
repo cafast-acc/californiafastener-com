@@ -132,10 +132,10 @@
   position: absolute;
   inset: 0;
   z-index: 0;
-  /* Renders are composited on the design's #E8E6E1 photo-bed. Matching the
+  /* Renders are composited on the design's #E7E5E0 photo-bed. Matching the
      art background to it means the image bleeds edge-to-edge with no visible
      seam/rectangle against the tile. */
-  background: #e8e6e1;
+  background: #E7E5E0;
   transition: transform 0.5s ease;
 }
 .pe-tile-art img {
@@ -152,8 +152,8 @@
   inset: 0;
   background: repeating-linear-gradient(
     45deg,
-    #e8e6e1 0,
-    #e8e6e1 13px,
+    #E7E5E0 0,
+    #E7E5E0 13px,
     #e1ded4 13px,
     #e1ded4 26px
   );
