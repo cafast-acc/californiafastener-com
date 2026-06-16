@@ -127,7 +127,7 @@ export default function AnchorBoltsPage() {
           />
           <TypeCard
             pnum="02 / Rods & assemblies"
-            img="/assets/anchor-rods.webp"
+            img="/assets/anchor-rods-flat.webp"
             imgAlt="F1554 anchor rod assembly with hex nuts and square plate washer"
             title="Anchor rods & assemblies"
             desc="Customizable rods and full assemblies to meet the specific needs of diverse structural projects — strength and versatility with every part shipped together."
@@ -234,7 +234,7 @@ export default function AnchorBoltsPage() {
           </div>
           <div className="ab-bend-visual">
             <Img
-              src="/assets/anchor-rods.webp"
+              src="/assets/anchor-rods-flat.webp"
               alt="Full anchor bolt assembly with rod, heavy hex nuts, and square plate washer"
             />
             <div className="ab-bend-visual-tag">Full assembly · Rod + hex nuts + plate washer</div>
