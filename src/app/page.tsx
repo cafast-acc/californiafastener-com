@@ -193,10 +193,10 @@ export default function HomePage() {
       <section className="split split--reverse split--alt">
         <div className="split-image">
           <Image
-            src="/assets/dbl-end-stud.png"
-            alt="Double-end stud bolt render"
-            width={678}
-            height={443}
+            src="/assets/products/stud-threaded-rod-1.png"
+            alt="Stud bolt and threaded rod render"
+            width={1600}
+            height={1000}
             quality={95}
             sizes="(max-width: 1000px) 90vw, 600px"
           />
