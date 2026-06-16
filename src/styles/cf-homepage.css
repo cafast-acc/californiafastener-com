@@ -326,7 +326,7 @@
 .split--reverse .split-image { order: 2; }
 .split--reverse .split-text   { order: 1; }
 .split--alt { background: var(--bg-alt); }
-.split--alt .split-image { background: #FFFFFF; padding: 0; }
+.split--alt .split-image { background: #E8E6E1; padding: 0; }
 .split--alt .split-image img {
   width: 100%;
   height: 100%;
@@ -334,11 +334,11 @@
   object-position: center bottom;
 }
 
-.split--anchor .split-image { padding: 0; }
+.split--anchor .split-image { padding: 0; background: #DEDBD8; }
 .split--anchor .split-image img {
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  object-fit: contain;
 }
 
 /* ─── Specialty / partner product (Lindapter) ─────────── */

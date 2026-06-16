@@ -96,6 +96,10 @@ export function CfNav({
               Spec Builder
               <span className="cf-nav-menu-sub">Find the right material &amp; grade</span>
             </Link>
+            <Link href="/bolt-weight-calculator" role="menuitem">
+              Bolt Weight Calculator
+              <span className="cf-nav-menu-sub">Estimate weight for shipping &amp; quoting</span>
+            </Link>
             <Link href="/catalog" role="menuitem">Product Catalog (PDF)</Link>
             <div className="cf-nav-menu-divider" />
             <div className="cf-nav-menu-label">Tools</div>

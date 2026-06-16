@@ -102,6 +102,11 @@ export const CF_NAV_SECTIONS: CfNavSection[] = [
             label: "Spec Builder",
             sub: "Find the right material & grade",
           },
+          {
+            href: "/bolt-weight-calculator",
+            label: "Bolt Weight Calculator",
+            sub: "Estimate weight for shipping & quoting",
+          },
           { href: "/catalog", label: "Product Catalog (PDF)" },
         ],
       },

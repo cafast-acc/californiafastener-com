@@ -2,9 +2,11 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import Image from "next/image";
 import "@/styles/cf-hollo-bolt.css";
+import "@/styles/cf-product-page.css";
 import { CfNav } from "@/components/CfNav";
 import { CfFooter } from "@/components/CfFooter";
 import { QuoteFormPlaceholder } from "@/components/QuoteFormPlaceholder";
+import { HolloBoltSelectorTrigger } from "@/components/HolloBoltSelectorModal";
 
 export const metadata: Metadata = {
   title: "Lindapter Hollo-Bolt — Expansion Bolt for Structural Steel",
@@ -42,9 +44,9 @@ export default function HolloBoltPage() {
               styles, and multiple finishes.
             </p>
             <div className="hb-hero-ctas">
-              <Link href="/hollo-bolt-selector" className="cf-pill cf-pill--blue">
+              <HolloBoltSelectorTrigger className="cf-pill cf-pill--blue">
                 Open the Selector →
-              </Link>
+              </HolloBoltSelectorTrigger>
               <a href="#quote" className="cf-link">
                 Or request a quote ↓
               </a>
@@ -61,10 +63,10 @@ export default function HolloBoltPage() {
             <div className="hb-hero-tag">Hex · Countersunk · Flush-fit</div>
             <div className="hb-hero-photo">
               <Image
-                src="/assets/products/hollo-bolt-trio.png"
+                src="/assets/products/hollo-bolt-trio-hero-2.png"
                 alt="Lindapter Hollo-Bolt hex, countersunk, and flush-fit expansion bolts"
-                width={3165}
-                height={1899}
+                width={3671}
+                height={2622}
                 priority
                 quality={95}
                 sizes="(max-width: 1100px) 100vw, 700px"
@@ -111,16 +113,16 @@ export default function HolloBoltPage() {
           </div>
           <div className="hb-how-steps">
             <HowStep num="01 / DRILL" title="Drill a clearance hole." desc="One clean hole through both walls of the section, sized per the published fixture hole chart.">
-              <DrillSvg />
+              <img className="hb-how-photo" src="/assets/hollo-bolt/install-drill.png" alt="Clearance hole drilled through both faces of a steel section" />
             </HowStep>
             <HowStep num="02 / INSERT" title="Insert the Hollo-Bolt." desc="The assembly — bolt, sleeve, cone, and head — drops in as one piece. No back-side access required.">
-              <InsertSvg />
+              <img className="hb-how-photo" src="/assets/hollo-bolt/install-insert.png" alt="Hollo-Bolt assembly: hex head, expansion sleeve, and cone" />
             </HowStep>
             <HowStep num="03 / TORQUE" title="Tighten to spec." desc="Apply the specified torque. The cone draws up inside the sleeve, splaying its four segments against the blind face.">
-              <TorqueSvg />
+              <img className="hb-how-photo" src="/assets/hollo-bolt/install-tighten.png" alt="Tightening the Hollo-Bolt to torque with a spanner" />
             </HowStep>
             <HowStep num="04 / CLAMPED" title="Secured both sides." desc="The fixture is clamped against the exposed face; the expanded sleeve holds it from behind. Removable, re-usable.">
-              <ClampedSvg />
+              <img className="hb-how-photo" src="/assets/hollo-bolt/install-done.png" alt="Cutaway of the installed Hollo-Bolt with the expansion sleeve gripping inside the section" />
             </HowStep>
           </div>
         </div>
@@ -147,7 +149,7 @@ export default function HolloBoltPage() {
               desc="The standard Hollo-Bolt. Hex head with captive washer, installed with a standard wrench or socket. Specified on most structural connections."
               spec="HB · Cl. 8.8 · 5/16″ → 3/4″"
               phLabel="Hex head"
-              img="/assets/products/hollo-bolt-hex-head-2.png"
+              img="/assets/products/hollo-bolt-hex-head-3.png"
               imgAlt="Lindapter Hollo-Bolt hex head expansion bolt"
             />
             <HeadCard
@@ -156,7 +158,7 @@ export default function HolloBoltPage() {
               desc="Flat, 82° countersunk head with internal hex drive. Sits flush with the fixture face for applications where a low profile is required."
               spec="HBCSK · Cl. 8.8 · 5/16″ → 3/4″"
               phLabel="Countersunk"
-              img="/assets/products/hollo-bolt-countersunk-2.png"
+              img="/assets/products/hollo-bolt-countersunk-3.png"
               imgAlt="Lindapter Hollo-Bolt countersunk head expansion bolt"
             />
             <HeadCard
@@ -165,7 +167,7 @@ export default function HolloBoltPage() {
               desc="Recessed head that sits below the face of the steel when installed in a counterbored pocket. Clean appearance for exposed architectural work."
               spec="HBFF · Cl. 8.8 · 3/8″ → 3/4″"
               phLabel="Flush-fit"
-              img="/assets/products/hollo-bolt-flush-fit-2.png"
+              img="/assets/products/hollo-bolt-flush-fit-3.png"
               imgAlt="Lindapter Hollo-Bolt flush-fit head expansion bolt"
             />
           </div>
@@ -207,7 +209,7 @@ export default function HolloBoltPage() {
       {/* SELECTOR CTA */}
       <section className="hb-specs" style={{ paddingBottom: 0 }}>
         <div className="hb-specs-inner">
-          <Link href="/hollo-bolt-selector" className="hb-selector-cta">
+          <HolloBoltSelectorTrigger as="card" className="hb-selector-cta">
             <div className="hb-selector-cta-text">
               <div className="hb-selector-cta-eyebrow">Configure &amp; quote</div>
               <h3>
@@ -235,7 +237,7 @@ export default function HolloBoltPage() {
               </div>
               <div className="footer">→ Load data, SKU, quote cart</div>
             </div>
-          </Link>
+          </HolloBoltSelectorTrigger>
         </div>
       </section>
 
@@ -645,66 +647,3 @@ function InvRow({ code, desc, qty }: { code: string; desc: string; qty: string }
   );
 }
 
-/* ── Diagram SVGs ──────────────────────────────────── */
-
-function DrillSvg() {
-  return (
-    <svg className="hb-diagram" viewBox="0 0 120 120">
-      <rect x="18" y="30" width="84" height="60" rx="2" className="hb-d-steel" />
-      <rect x="18" y="30" width="84" height="8" className="hb-d-steel-dark" />
-      <rect x="18" y="82" width="84" height="8" className="hb-d-steel-dark" />
-      <rect x="57" y="8" width="6" height="36" fill="#888" />
-      <polygon points="54,40 66,40 60,56" fill="#444" />
-      <line x1="60" y1="42" x2="60" y2="92" className="hb-d-dim" />
-    </svg>
-  );
-}
-
-function InsertSvg() {
-  return (
-    <svg className="hb-diagram" viewBox="0 0 120 120">
-      <rect x="18" y="30" width="84" height="60" rx="2" className="hb-d-steel" />
-      <rect x="18" y="30" width="84" height="8" className="hb-d-steel-dark" />
-      <rect x="18" y="82" width="84" height="8" className="hb-d-steel-dark" />
-      <rect x="55" y="18" width="10" height="8" className="hb-d-bolt" />
-      <polygon points="48,26 72,26 70,34 50,34" className="hb-d-bolt" />
-      <rect x="54" y="34" width="12" height="56" className="hb-d-bolt" />
-      <line x1="60" y1="40" x2="60" y2="90" stroke="#5A6976" strokeWidth="0.8" />
-      <polygon points="56,88 64,88 62,94 58,94" className="hb-d-bolt-dark" />
-    </svg>
-  );
-}
-
-function TorqueSvg() {
-  return (
-    <svg className="hb-diagram" viewBox="0 0 120 120">
-      <rect x="18" y="30" width="84" height="60" rx="2" className="hb-d-steel" />
-      <rect x="18" y="30" width="84" height="8" className="hb-d-steel-dark" />
-      <rect x="18" y="82" width="84" height="8" className="hb-d-steel-dark" />
-      <path d="M 38 20 A 22 22 0 1 1 82 20" className="hb-d-line" />
-      <polygon points="78,16 86,18 82,26" className="hb-d-accent" />
-      <polygon points="50,14 70,14 74,22 70,30 50,30 46,22" className="hb-d-bolt" />
-      <rect x="54" y="30" width="12" height="56" className="hb-d-bolt" />
-      <polygon points="50,86 70,86 66,96 54,96" className="hb-d-bolt-dark" />
-      <line x1="60" y1="86" x2="60" y2="96" stroke="#2A3742" strokeWidth="0.8" />
-    </svg>
-  );
-}
-
-function ClampedSvg() {
-  return (
-    <svg className="hb-diagram" viewBox="0 0 120 120">
-      <rect x="18" y="30" width="84" height="60" rx="2" className="hb-d-steel" />
-      <rect x="18" y="30" width="84" height="8" className="hb-d-steel-dark" />
-      <rect x="18" y="82" width="84" height="8" className="hb-d-steel-dark" />
-      <polygon points="50,14 70,14 74,22 70,30 50,30 46,22" className="hb-d-bolt" />
-      <rect x="54" y="30" width="12" height="56" className="hb-d-bolt" />
-      <polygon points="48,86 72,86 66,100 54,100" className="hb-d-bolt-dark" />
-      <rect x="30" y="28" width="60" height="4" fill="#1C52A3" />
-      <line x1="40" y1="20" x2="40" y2="28" className="hb-d-line" />
-      <polygon points="37,26 43,26 40,32" className="hb-d-accent" />
-      <line x1="80" y1="20" x2="80" y2="28" className="hb-d-line" />
-      <polygon points="77,26 83,26 80,32" className="hb-d-accent" />
-    </svg>
-  );
-}

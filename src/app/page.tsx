@@ -96,10 +96,10 @@ export default function HomePage() {
       <section className="split split--alt">
         <div className="split-image">
           <Image
-            src="/assets/product-industrial.png"
-            alt="Industrial hex bolt and nut"
-            width={1536}
-            height={1016}
+            src="/assets/products/industrial-socket-cap-1.png"
+            alt="ASTM A574 socket head cap screw"
+            width={3840}
+            height={2399}
             quality={95}
             sizes="(max-width: 1000px) 90vw, 600px"
           />
@@ -145,10 +145,10 @@ export default function HomePage() {
         </div>
         <div className="feat-image">
           <Image
-            src="/assets/product-structural.png"
-            alt="A325 hex bolt render"
-            width={1469}
-            height={889}
+            src="/assets/products/industrial-heavy-hex-bolt-1.png"
+            alt="A325 heavy hex structural bolt render"
+            width={2560}
+            height={1599}
             quality={95}
             sizes="(max-width: 1100px) 100vw, 1100px"
           />
@@ -159,10 +159,10 @@ export default function HomePage() {
       <section className="split split--anchor">
         <div className="split-image">
           <Image
-            src="/assets/product-anchor.png"
-            alt="Headed anchor bolt with nut and template plate"
-            width={1587}
-            height={1258}
+            src="/assets/anchor-headed.webp"
+            alt="F1554 headed anchor bolt with hex nut and washer"
+            width={1334}
+            height={750}
             quality={95}
             sizes="(max-width: 1000px) 90vw, 600px"
           />
