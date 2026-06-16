@@ -55,7 +55,7 @@ export default function AnchorBoltsPage() {
           <div className="ab-hero-image">
             <div className="ab-hero-image-tag">F1554 · Anchor Rod Assembly</div>
             <Img
-              src="/assets/anchor-f1554-rod-hero.png"
+              src="/assets/anchor-f1554-rod.png"
               alt="F1554 anchor rod assembly with heavy hex nuts and square plate washer"
             />
           </div>
@@ -118,7 +118,7 @@ export default function AnchorBoltsPage() {
         <div className="ab-types-grid">
           <TypeCard
             pnum="01 / Headed"
-            img="/assets/anchor-headed.webp"
+            img="/assets/anchor-headed-hires.png"
             imgAlt="Headed anchor bolt with hex nut and washer"
             title="Headed anchors"
             desc="Designed for structural connections. Forged hex head makes them reliable for heavy-duty applications where tension and pull-out are critical."
@@ -136,7 +136,7 @@ export default function AnchorBoltsPage() {
           />
           <TypeCard
             pnum="03 / Bent"
-            img="/assets/anchor-bent.webp"
+            img="/assets/anchor-bent-hires.png"
             imgAlt="L-bent anchor bolt with hex nut"
             title="Bent anchors"
             desc="Ideal for foundational stability, our J-bolts and L-bolts are crafted for securing structural columns and equipment bases. Custom bend radius to your drawing."
@@ -145,7 +145,7 @@ export default function AnchorBoltsPage() {
           />
           <TypeCard
             pnum="04 / Post-install"
-            img="/assets/anchor-postinstall.webp"
+            img="/assets/anchor-postinstall-hires.png"
             imgAlt="Post-install anchor with wedge and threaded rod components"
             title="Post-install anchors"
             descNode={
