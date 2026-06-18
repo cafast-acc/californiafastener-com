@@ -69,7 +69,7 @@ export default function HolloBoltPage() {
                 height={2622}
                 priority
                 quality={95}
-                sizes="(max-width: 1100px) 100vw, 700px"
+                sizes="(max-width: 1100px) 100vw, 50vw"
               />
             </div>
             <div className="hb-hero-spec">
