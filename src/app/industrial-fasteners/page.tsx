@@ -337,15 +337,13 @@ export default function IndustrialFastenersPage() {
               <Img src="/assets/if-stamp-105.webp" alt="Heavy hex head stamped CA 105" />
               <span className="tag">A194 2H · Heavy hex</span>
             </div>
-            <div className="ph">
-              F436
-              <br />
-              hardened washer
+            <div>
+              <Img src="/assets/products/structural-f436-washer-1.png" alt="F436 hardened flat washer" />
+              <span className="tag">F436 · Hardened washer</span>
             </div>
-            <div className="ph">
-              A563 DH
-              <br />
-              heavy hex nut
+            <div>
+              <Img src="/assets/products/industrial-heavy-hex-nut-1.png" alt="A563 DH heavy hex nut" />
+              <span className="tag">A563 DH · Heavy hex nut</span>
             </div>
           </div>
         </div>
