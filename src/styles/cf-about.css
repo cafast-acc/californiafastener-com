@@ -450,55 +450,45 @@
   .visit-map-frame { transition: none; }
 }
 
-/* Floating address card — static UI over the map, not a map pin. */
-.visit-map-card {
-  position: absolute;
-  left: 24px;
-  bottom: 24px;
-  z-index: 3;
-  background: rgba(255, 255, 255, 0.96);
-  backdrop-filter: blur(6px);
-  border: 1px solid var(--rule-soft);
-  border-radius: 8px;
-  padding: 18px 20px;
-  max-width: 260px;
-  box-shadow: 0 8px 28px rgba(0, 0, 0, 0.14);
-}
-.visit-map-card-name {
-  font-size: 14px;
-  font-weight: 600;
-  color: var(--ink);
-  letter-spacing: -0.01em;
-  margin-bottom: 6px;
-}
-.visit-map-card-addr {
-  font-size: 13px;
-  color: var(--ink-soft);
-  line-height: 1.45;
-  letter-spacing: -0.005em;
-  margin-bottom: 14px;
-}
+/* Compact directions pill — tucked into a corner so the map stays open. */
 .visit-map-directions {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  z-index: 3;
   display: inline-flex;
   align-items: center;
-  gap: 8px;
-  background: var(--blue-dark);
-  color: #fff;
-  font-size: 13px;
+  gap: 6px;
+  background: rgba(255, 255, 255, 0.96);
+  backdrop-filter: blur(6px);
+  color: var(--blue-dark);
+  font-size: 12px;
   font-weight: 600;
   letter-spacing: -0.005em;
-  padding: 9px 16px;
+  padding: 7px 13px;
   border-radius: 999px;
   text-decoration: none;
-  transition: background 0.2s ease, transform 0.2s ease;
+  box-shadow: 0 3px 12px rgba(0, 0, 0, 0.16);
+  transition: background 0.2s ease;
 }
 .visit-map-directions span { transition: transform 0.2s ease; }
-.visit-map-directions:hover { background: #16407f; }
-.visit-map-directions:hover span { transform: translateX(3px); }
+.visit-map-directions:hover { background: #fff; }
+.visit-map-directions:hover span { transform: translateX(2px); }
 .visit-map-directions:focus-visible {
   outline: 2px solid var(--blue-dark);
   outline-offset: 2px;
 }
+
+/* Subtle directions link in the contact info panel — matches the
+   phone/email link treatment in .visit-info-val, just spaced below. */
+.visit-info-val a.visit-directions-link {
+  display: inline-block;
+  margin-top: 10px;
+  font-size: 14px;
+  color: var(--blue-dark);
+  border-bottom-color: rgba(28, 82, 163, 0.35);
+}
+.visit-info-val a.visit-directions-link:hover { border-bottom-color: var(--blue-dark); }
 
 /* Editorial coordinate tag, carried over from the original illustration. */
 .visit-map-coords {

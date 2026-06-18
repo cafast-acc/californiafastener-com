@@ -362,6 +362,15 @@ export default function AboutPage() {
                     465 Industrial Way, Ste A
                     <br />
                     Benicia, CA 94510
+                    <br />
+                    <a
+                      className="visit-directions-link"
+                      href="https://www.google.com/maps/dir/?api=1&destination=465+Industrial+Way%2C+Benicia%2C+CA+94510"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      Get directions →
+                    </a>
                   </div>
                 </div>
                 <div className="visit-info-row">
@@ -397,23 +406,15 @@ export default function AboutPage() {
                 referrerPolicy="no-referrer-when-downgrade"
                 allowFullScreen
               />
-              <div className="visit-map-card">
-                <div className="visit-map-card-name">California Fastener — Benicia HQ</div>
-                <div className="visit-map-card-addr">
-                  465 Industrial Way, Ste A
-                  <br />
-                  Benicia, CA 94510
-                </div>
-                <a
-                  className="visit-map-directions"
-                  href="https://www.google.com/maps/dir/?api=1&destination=465+Industrial+Way%2C+Benicia%2C+CA+94510"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  Get Directions
-                  <span aria-hidden="true">→</span>
-                </a>
-              </div>
+              <a
+                className="visit-map-directions"
+                href="https://www.google.com/maps/dir/?api=1&destination=465+Industrial+Way%2C+Benicia%2C+CA+94510"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Get Directions
+                <span aria-hidden="true">→</span>
+              </a>
               <div className="visit-map-coords">38°02′N · 122°08′W</div>
             </div>
           </div>
