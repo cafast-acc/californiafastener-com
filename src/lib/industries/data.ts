@@ -77,19 +77,22 @@ export type Industry = {
 export type ProductCard = {
   title: string;
   sub: string;
+  /** Striped-bed label shown when no `img` is set (or when it fails to load). */
   placeholder: string;
+  /** Product render shown in the card image bed. Falls back to `placeholder`. */
+  img?: string;
 };
 
 export const PRODUCT_CARDS: Record<ProductCardKey, ProductCard> = {
-  industrial: { title: "Industrial Fasteners", sub: "A193, Gr 5/8, heavy hex", placeholder: "Industrial Hex" },
-  studbolt: { title: "Stud Bolts & Threaded Rod", sub: "B7, B8, B16 · cut to length", placeholder: "Stud Bolt" },
-  anchor: { title: "Anchor Bolts", sub: "F1554 · headed, bent, rod", placeholder: "Anchor Bolt" },
-  custom: { title: "Custom Products", sub: "Built to your print", placeholder: "Custom Part" },
-  structural: { title: "Structural Bolts", sub: "A325, A490, TC bolts", placeholder: "Structural Bolt" },
-  precision: { title: "Precision Screws", sub: "Electronics & fine mech.", placeholder: "Precision Screw" },
+  industrial: { title: "Industrial Fasteners", sub: "A193, Gr 5/8, heavy hex", placeholder: "Industrial Hex", img: "/assets/products/industrial-heavy-hex-bolt-b7-4.png" },
+  studbolt: { title: "Stud Bolts & Threaded Rod", sub: "B7, B8, B16 · cut to length", placeholder: "Stud Bolt", img: "/assets/products/stud-threaded-rod-1.png" },
+  anchor: { title: "Anchor Bolts", sub: "F1554 · headed, bent, rod", placeholder: "Anchor Bolt", img: "/assets/products/structural-f1554-anchor-rod-5.png" },
+  custom: { title: "Custom Products", sub: "Built to your print", placeholder: "Custom Part", img: "/assets/custom-stud.png" },
+  structural: { title: "Structural Bolts", sub: "A325, A490, TC bolts", placeholder: "Structural Bolt", img: "/assets/products/structural-heavy-hex-bolt-1.png" },
+  precision: { title: "Precision Screws", sub: "Electronics & fine mech.", placeholder: "Precision Screw", img: "/assets/products/ss-socket-head-1.png" },
   inserts: { title: "Threaded Inserts", sub: "For plastics and soft material", placeholder: "Threaded Insert" },
-  stainless: { title: "Stainless Steel Fasteners", sub: "304, 316, duplex", placeholder: "Stainless Bolt" },
-  bronze: { title: "Silicon Bronze Hardware", sub: "Marine & architectural", placeholder: "Bronze Bolt" },
+  stainless: { title: "Stainless Steel Fasteners", sub: "304, 316, duplex", placeholder: "Stainless Bolt", img: "/assets/products/ss-hex-cap-1.png" },
+  bronze: { title: "Silicon Bronze Hardware", sub: "Marine & architectural", placeholder: "Bronze Bolt", img: "/assets/products/bronze-hex-bolt-1.png" },
   aerospace: { title: "Aerospace Hardware", sub: "NAS, MS, AN · Hi-Lok, lockbolts", placeholder: "Aero Bolt" },
   superalloy: { title: "Titanium & Superalloy", sub: "Ti, A286, Inconel 718", placeholder: "Titanium Bolt" },
 };

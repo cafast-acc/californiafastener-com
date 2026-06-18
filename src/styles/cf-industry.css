@@ -96,10 +96,11 @@
   text-decoration: none; color: inherit; display: flex; flex-direction: column;
   transition: transform 180ms, background 180ms; }
 .ind-product-card:hover { transform: translateY(-3px); background: var(--bg-cream); }
-.ind-product-card-img { aspect-ratio: 4 / 3; background: var(--bg-cream);
+.ind-product-card-img { aspect-ratio: 4 / 3; background: #E7E5E0;
   display: flex; align-items: center; justify-content: center; position: relative; overflow: hidden; }
-.ind-product-card-img img { width: 70%; height: 70%; object-fit: contain;
-  filter: drop-shadow(0 12px 24px rgba(0,0,0,0.14)); }
+/* Renders sit on the design's #E7E5E0 photo-bed; matching the card bed lets
+   contain show the whole part with no visible seam or letterbox rectangle. */
+.ind-product-card-img img { width: 100%; height: 100%; object-fit: contain; }
 .ind-product-card-placeholder { position: absolute; inset: 0;
   background: repeating-linear-gradient(135deg, transparent 0 14px, rgba(29,29,31,0.04) 14px 15px);
   display: flex; align-items: center; justify-content: center;
