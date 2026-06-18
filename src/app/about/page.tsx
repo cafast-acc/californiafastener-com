@@ -388,53 +388,33 @@ export default function AboutPage() {
                 </div>
               </div>
             </div>
-            <div className="visit-map" aria-label="Map of California showing Benicia">
-              <svg
-                className="visit-map-svg"
-                viewBox="0 0 400 480"
-                preserveAspectRatio="xMidYMid slice"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <defs>
-                  <pattern id="mapgrid" width="24" height="24" patternUnits="userSpaceOnUse">
-                    <path d="M 24 0 L 0 0 0 24" fill="none" stroke="#DCD9D0" strokeWidth="0.5" opacity="0.6" />
-                  </pattern>
-                </defs>
-                <rect width="400" height="480" fill="#EFECE2" />
-                <rect width="400" height="480" fill="url(#mapgrid)" />
-                {/* stylized California outline (simplified) */}
-                <path
-                  d="M 130 30 L 175 35 L 200 60 L 215 90 L 230 130 L 260 165 L 280 200 L 290 235 L 305 275 L 320 320 L 335 360 L 340 400 L 320 440 L 290 460 L 250 455 L 220 430 L 195 395 L 175 360 L 160 320 L 150 280 L 140 240 L 120 210 L 105 180 L 95 145 L 100 100 L 115 60 Z"
-                  fill="#FBFAF7"
-                  stroke="#DCD9D0"
-                  strokeWidth="1.5"
-                />
-                {/* coastline shading */}
-                <path
-                  d="M 130 30 L 115 60 L 100 100 L 95 145 L 105 180 L 120 210 L 140 240 L 150 280 L 160 320 L 175 360 L 195 395 L 220 430 L 250 455"
-                  fill="none"
-                  stroke="#5FA8FF"
-                  strokeWidth="0.8"
-                  opacity="0.5"
-                />
-                {/* bay area / inland */}
-                <circle cx="208" cy="220" r="5" fill="#A4A4A9" opacity="0.5" />
-                <text x="216" y="224" fontFamily="ui-monospace, Menlo, monospace" fontSize="9" fill="#77777C" letterSpacing="0.5">SF</text>
-                <circle cx="245" cy="240" r="4" fill="#A4A4A9" opacity="0.5" />
-                <text x="252" y="244" fontFamily="ui-monospace, Menlo, monospace" fontSize="9" fill="#77777C" letterSpacing="0.5">SAC</text>
-                <circle cx="268" cy="350" r="4" fill="#A4A4A9" opacity="0.5" />
-                <text x="275" y="354" fontFamily="ui-monospace, Menlo, monospace" fontSize="9" fill="#77777C" letterSpacing="0.5">FRESNO</text>
-                <circle cx="225" cy="430" r="4" fill="#A4A4A9" opacity="0.5" />
-                <text x="180" y="447" fontFamily="ui-monospace, Menlo, monospace" fontSize="9" fill="#77777C" letterSpacing="0.5">LOS ANGELES</text>
-                {/* coordinate ticks */}
-                <text x="12" y="20" fontFamily="ui-monospace, Menlo, monospace" fontSize="8" fill="#A4A4A9" letterSpacing="0.5">42°N</text>
-                <text x="12" y="240" fontFamily="ui-monospace, Menlo, monospace" fontSize="8" fill="#A4A4A9" letterSpacing="0.5">38°N</text>
-                <text x="12" y="465" fontFamily="ui-monospace, Menlo, monospace" fontSize="8" fill="#A4A4A9" letterSpacing="0.5">33°N</text>
-              </svg>
-              <div className="visit-map-pin" style={{ top: "46%", left: "55%" }}>
-                <div className="visit-map-pin-dot" />
-                <div className="visit-map-pin-label">Benicia, CA · 465 Industrial Way</div>
+            <div className="visit-map">
+              <iframe
+                className="visit-map-frame"
+                title="Map showing California Fastener at 465 Industrial Way, Benicia, CA 94510"
+                src="https://maps.google.com/maps?q=465%20Industrial%20Way%2C%20Benicia%2C%20CA%2094510&z=15&output=embed"
+                loading="lazy"
+                referrerPolicy="no-referrer-when-downgrade"
+                allowFullScreen
+              />
+              <div className="visit-map-card">
+                <div className="visit-map-card-name">California Fastener — Benicia HQ</div>
+                <div className="visit-map-card-addr">
+                  465 Industrial Way, Ste A
+                  <br />
+                  Benicia, CA 94510
+                </div>
+                <a
+                  className="visit-map-directions"
+                  href="https://www.google.com/maps/dir/?api=1&destination=465+Industrial+Way%2C+Benicia%2C+CA+94510"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  Get Directions
+                  <span aria-hidden="true">→</span>
+                </a>
               </div>
+              <div className="visit-map-coords">38°02′N · 122°08′W</div>
             </div>
           </div>
         </div>
