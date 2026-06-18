@@ -145,10 +145,10 @@ export default function HomePage() {
         </div>
         <div className="feat-image">
           <Image
-            src="/assets/products/industrial-heavy-hex-bolt-1.png"
+            src="/assets/products/structural-heavy-hex-bolt-1.png"
             alt="A325 heavy hex structural bolt render"
-            width={2560}
-            height={1599}
+            width={3840}
+            height={2399}
             quality={95}
             sizes="(max-width: 1100px) 100vw, 1100px"
           />
@@ -159,10 +159,10 @@ export default function HomePage() {
       <section className="split split--anchor">
         <div className="split-image">
           <Image
-            src="/assets/anchor-f1554-rod-home.png"
+            src="/assets/anchor-f1554-rod-home-hi.png"
             alt="F1554 anchor rod assembly with heavy hex nut and square plate washer"
-            width={2560}
-            height={1599}
+            width={3840}
+            height={2399}
             quality={95}
             sizes="(max-width: 1000px) 90vw, 50vw"
           />
@@ -193,10 +193,10 @@ export default function HomePage() {
       <section className="split split--reverse split--alt">
         <div className="split-image">
           <Image
-            src="/assets/products/stud-threaded-rod-1.png"
+            src="/assets/products/stud-threaded-rod-hi.png"
             alt="Stud bolt and threaded rod render"
-            width={2560}
-            height={1599}
+            width={3840}
+            height={2399}
             quality={95}
             sizes="(max-width: 1000px) 90vw, 50vw"
           />
