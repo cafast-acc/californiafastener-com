@@ -101,7 +101,7 @@ export default function HomePage() {
             width={3840}
             height={2399}
             quality={95}
-            sizes="(max-width: 1000px) 90vw, 600px"
+            sizes="(max-width: 1000px) 90vw, 50vw"
           />
         </div>
         <div className="split-text">
@@ -164,7 +164,7 @@ export default function HomePage() {
             width={2560}
             height={1599}
             quality={95}
-            sizes="(max-width: 1000px) 90vw, 600px"
+            sizes="(max-width: 1000px) 90vw, 50vw"
           />
         </div>
         <div className="split-text">
@@ -195,10 +195,10 @@ export default function HomePage() {
           <Image
             src="/assets/products/stud-threaded-rod-1.png"
             alt="Stud bolt and threaded rod render"
-            width={1600}
-            height={1000}
+            width={2560}
+            height={1599}
             quality={95}
-            sizes="(max-width: 1000px) 90vw, 600px"
+            sizes="(max-width: 1000px) 90vw, 50vw"
           />
         </div>
         <div className="split-text">
