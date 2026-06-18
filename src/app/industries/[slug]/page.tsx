@@ -123,7 +123,11 @@ export default async function IndustryPage({
             return (
               <Link key={key} href={href} className="ind-product-card">
                 <div className="ind-product-card-img">
-                  <div className="ind-product-card-placeholder">{card.placeholder}</div>
+                  {card.img ? (
+                    <Img src={card.img} alt={card.title} />
+                  ) : (
+                    <div className="ind-product-card-placeholder">{card.placeholder}</div>
+                  )}
                 </div>
                 <div className="ind-product-card-body">
                   <div className="ind-product-card-title">{card.title}</div>
