@@ -334,8 +334,8 @@ export default function IndustrialFastenersPage() {
           </div>
           <div className="if-companion-visual">
             <div className="big">
-              <Img src="/assets/if-stamp-105.webp" alt="Heavy hex head stamped CA 105" />
-              <span className="tag">A194 2H · Heavy hex</span>
+              <Img src="/assets/products/industrial-heavy-hex-bolt-b7-4.png" alt="A193 B7 heavy hex bolt" />
+              <span className="tag">A193 B7 · Heavy hex</span>
             </div>
             <div>
               <Img src="/assets/products/structural-f436-washer-1.png" alt="F436 hardened flat washer" />
