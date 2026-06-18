@@ -127,7 +127,7 @@ export default function AnchorBoltsPage() {
           />
           <TypeCard
             pnum="02 / Rods & assemblies"
-            img="/assets/anchor-rods.webp"
+            img="/assets/anchor-rods-flat.webp"
             imgAlt="F1554 anchor rod assembly with hex nuts and square plate washer"
             title="Anchor rods & assemblies"
             desc="Customizable rods and full assemblies to meet the specific needs of diverse structural projects — strength and versatility with every part shipped together."
@@ -180,8 +180,8 @@ export default function AnchorBoltsPage() {
           <div className="ab-grades-cards">
             <GradeCard
               spec="ASTM F1554"
-              img="/assets/stamp-105.webp"
-              imgAlt="CA 105 head stamp on F1554 Grade 105 anchor bolt"
+              img="/assets/products/structural-carbon-heavy-hex-1.png"
+              imgAlt="F1554 structural carbon heavy hex anchor bolt render"
               title="Structural carbon"
               desc="Weldable low-carbon and heat-treated alloy anchor bar. The go-to spec for cast-in-place structural anchorage."
               grades={["Grade 36", "Grade 55", "Grade 105"]}
@@ -196,8 +196,8 @@ export default function AnchorBoltsPage() {
             />
             <GradeCard
               spec="ASTM F593"
-              img="/assets/stamp-316.webp"
-              imgAlt="CA 316 head stamp on F593 316 stainless anchor"
+              img="/assets/products/structural-carbon-heavy-hex-1.png"
+              imgAlt="F593 stainless steel anchor bolt render"
               title="Stainless anchors"
               desc="304 and 316 stainless anchor bolts for food-grade, marine, wastewater, and architectural applications."
               grades={["304 SS", "316 SS"]}
@@ -234,7 +234,7 @@ export default function AnchorBoltsPage() {
           </div>
           <div className="ab-bend-visual">
             <Img
-              src="/assets/anchor-rods.webp"
+              src="/assets/anchor-rods-flat.webp"
               alt="Full anchor bolt assembly with rod, heavy hex nuts, and square plate washer"
             />
             <div className="ab-bend-visual-tag">Full assembly · Rod + hex nuts + plate washer</div>

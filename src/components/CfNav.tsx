@@ -104,7 +104,6 @@ export function CfNav({
             <div className="cf-nav-menu-divider" />
             <div className="cf-nav-menu-label">Tools</div>
             <Link href="/quote" role="menuitem">Request a Quote</Link>
-            <Link href="/contact" role="menuitem">Contact Engineering</Link>
           </div>
         </li>
         <li className={activeCls("about").trim()}>

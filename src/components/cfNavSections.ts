@@ -114,7 +114,6 @@ export const CF_NAV_SECTIONS: CfNavSection[] = [
         heading: "Tools",
         items: [
           { href: "/quote", label: "Request a Quote" },
-          { href: "/contact", label: "Contact Engineering" },
         ],
       },
     ],

@@ -59,13 +59,13 @@ export default function StudBoltsThreadedRodPage() {
           <div className="pp-hero-image">
             <div className="pp-hero-image-tag">A193 B7 · Double-end stud · Heavy hex</div>
             <Image
-              src="/assets/if-stamp-b8-rod.webp"
-              alt="A193 B8 304 stainless threaded rod stamped CA B8"
-              width={916}
-              height={750}
+              src="/assets/products/stud-threaded-rod-1.png"
+              alt="Double-end stud bolt and threaded rod"
+              width={2560}
+              height={1599}
               priority
               quality={95}
-              sizes="(max-width: 1000px) 100vw, 750px"
+              sizes="(max-width: 1000px) 100vw, 60vw"
             />
           </div>
         </div>
