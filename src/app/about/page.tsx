@@ -388,53 +388,131 @@ export default function AboutPage() {
                 </div>
               </div>
             </div>
-            <div className="visit-map" aria-label="Map of California showing Benicia">
+            <div
+              className="visit-map"
+              aria-label="Map of Benicia, California showing California Fastener at 465 Industrial Way, just off Interstate 680"
+            >
               <svg
                 className="visit-map-svg"
                 viewBox="0 0 400 480"
                 preserveAspectRatio="xMidYMid slice"
+                role="img"
                 xmlns="http://www.w3.org/2000/svg"
               >
+                <title>California Fastener — 465 Industrial Way, Benicia, CA, off I-680</title>
                 <defs>
-                  <pattern id="mapgrid" width="24" height="24" patternUnits="userSpaceOnUse">
-                    <path d="M 24 0 L 0 0 0 24" fill="none" stroke="#DCD9D0" strokeWidth="0.5" opacity="0.6" />
+                  <pattern id="mapgrid" width="40" height="40" patternUnits="userSpaceOnUse">
+                    <path d="M 40 0 L 0 0 0 40" fill="none" stroke="#DEDACF" strokeWidth="0.5" opacity="0.5" />
                   </pattern>
+                  <filter id="pinShadow" x="-50%" y="-50%" width="200%" height="200%">
+                    <feDropShadow dx="0" dy="3" stdDeviation="3" floodColor="#1C52A3" floodOpacity="0.45" />
+                  </filter>
                 </defs>
-                <rect width="400" height="480" fill="#EFECE2" />
+
+                {/* land base + faint blueprint grid */}
+                <rect width="400" height="480" fill="#F3F0E8" />
                 <rect width="400" height="480" fill="url(#mapgrid)" />
-                {/* stylized California outline (simplified) */}
+
+                {/* open space / parkland (Benicia Community Park, Jack London Park) */}
                 <path
-                  d="M 130 30 L 175 35 L 200 60 L 215 90 L 230 130 L 260 165 L 280 200 L 290 235 L 305 275 L 320 320 L 335 360 L 340 400 L 320 440 L 290 460 L 250 455 L 220 430 L 195 395 L 175 360 L 160 320 L 150 280 L 140 240 L 120 210 L 105 180 L 95 145 L 100 100 L 115 60 Z"
-                  fill="#FBFAF7"
-                  stroke="#DCD9D0"
-                  strokeWidth="1.5"
+                  d="M 14 92 C 62 80 110 86 124 118 C 134 150 124 190 96 200 C 56 212 22 196 14 160 C 8 134 8 108 14 92 Z"
+                  fill="#E6E9DC"
                 />
-                {/* coastline shading */}
                 <path
-                  d="M 130 30 L 115 60 L 100 100 L 95 145 L 105 180 L 120 210 L 140 240 L 150 280 L 160 320 L 175 360 L 195 395 L 220 430 L 250 455"
+                  d="M 286 112 C 320 104 350 112 360 138 C 366 162 354 188 326 192 C 300 196 282 180 280 154 C 279 136 280 120 286 112 Z"
+                  fill="#E6E9DC"
+                />
+
+                {/* water — Lake Herman (north), Carquinez Strait (south) + slough (east) */}
+                <ellipse cx="248" cy="44" rx="34" ry="15" fill="#D7E9F4" stroke="#A8D0EA" strokeWidth="1" />
+                <path
+                  d="M 0 432 C 52 420 100 428 152 421 C 208 413 252 426 302 417 C 342 410 372 416 400 410 L 400 480 L 0 480 Z"
+                  fill="#D7E9F4"
+                  stroke="#A8D0EA"
+                  strokeWidth="1"
+                />
+                <path
+                  d="M 400 244 C 360 262 346 296 356 338 C 363 372 380 398 400 412 L 400 244 Z"
+                  fill="#D7E9F4"
+                  stroke="#A8D0EA"
+                  strokeWidth="1"
+                />
+                <ellipse cx="364" cy="318" rx="14" ry="22" fill="#E9F3FA" />
+
+                {/* secondary streets */}
+                <g fill="none" stroke="#D3CFC3" strokeWidth="1.4" strokeLinecap="round">
+                  <path d="M 138 74 C 132 150 142 222 158 296 C 166 332 176 350 186 366" />
+                  <path d="M 150 206 C 178 199 208 204 236 214" />
+                  <path d="M 160 252 C 190 247 220 251 248 261" />
+                  <path d="M 236 214 C 240 262 235 312 226 352" />
+                  <path d="M 86 300 L 168 286" />
+                </g>
+
+                {/* downtown Benicia street grid (SW waterfront) */}
+                <g fill="none" stroke="#D3CFC3" strokeWidth="1.2" strokeLinecap="round">
+                  <path d="M 30 392 L 118 376" />
+                  <path d="M 36 408 L 120 392" />
+                  <path d="M 44 424 L 122 408" />
+                  <path d="M 54 388 L 60 420" />
+                  <path d="M 78 384 L 84 416" />
+                  <path d="M 102 380 L 108 412" />
+                </g>
+
+                {/* Interstate 680 (NE → Benicia–Martinez Bridge) */}
+                <path
+                  d="M 322 14 C 300 70 270 132 248 194 C 232 242 214 302 208 352 C 205 396 200 442 196 480"
                   fill="none"
-                  stroke="#5FA8FF"
-                  strokeWidth="0.8"
-                  opacity="0.5"
+                  stroke="#9DB2CC"
+                  strokeWidth="5.5"
+                  strokeLinecap="round"
                 />
-                {/* bay area / inland */}
-                <circle cx="208" cy="220" r="5" fill="#A4A4A9" opacity="0.5" />
-                <text x="216" y="224" fontFamily="ui-monospace, Menlo, monospace" fontSize="9" fill="#77777C" letterSpacing="0.5">SF</text>
-                <circle cx="245" cy="240" r="4" fill="#A4A4A9" opacity="0.5" />
-                <text x="252" y="244" fontFamily="ui-monospace, Menlo, monospace" fontSize="9" fill="#77777C" letterSpacing="0.5">SAC</text>
-                <circle cx="268" cy="350" r="4" fill="#A4A4A9" opacity="0.5" />
-                <text x="275" y="354" fontFamily="ui-monospace, Menlo, monospace" fontSize="9" fill="#77777C" letterSpacing="0.5">FRESNO</text>
-                <circle cx="225" cy="430" r="4" fill="#A4A4A9" opacity="0.5" />
-                <text x="180" y="447" fontFamily="ui-monospace, Menlo, monospace" fontSize="9" fill="#77777C" letterSpacing="0.5">LOS ANGELES</text>
-                {/* coordinate ticks */}
-                <text x="12" y="20" fontFamily="ui-monospace, Menlo, monospace" fontSize="8" fill="#A4A4A9" letterSpacing="0.5">42°N</text>
-                <text x="12" y="240" fontFamily="ui-monospace, Menlo, monospace" fontSize="8" fill="#A4A4A9" letterSpacing="0.5">38°N</text>
-                <text x="12" y="465" fontFamily="ui-monospace, Menlo, monospace" fontSize="8" fill="#A4A4A9" letterSpacing="0.5">33°N</text>
+                {/* Interstate 780 (W → interchange) */}
+                <path
+                  d="M 2 286 C 72 306 130 320 168 342 C 186 352 198 354 208 360"
+                  fill="none"
+                  stroke="#9DB2CC"
+                  strokeWidth="5"
+                  strokeLinecap="round"
+                />
+
+                {/* highway shields */}
+                <g>
+                  <rect x="214" y="138" width="26" height="17" rx="3.5" fill="#1C52A3" />
+                  <text x="227" y="150.5" textAnchor="middle" fontFamily="ui-monospace, Menlo, monospace" fontSize="10" fontWeight="700" fill="#fff">680</text>
+                  <rect x="74" y="316" width="26" height="17" rx="3.5" fill="#1C52A3" />
+                  <text x="87" y="328.5" textAnchor="middle" fontFamily="ui-monospace, Menlo, monospace" fontSize="10" fontWeight="700" fill="#fff">780</text>
+                </g>
+
+                {/* place labels */}
+                <g fontFamily="ui-monospace, Menlo, monospace" letterSpacing="0.5">
+                  <text x="248" y="46" textAnchor="middle" fontSize="8" fill="#6E91A8">LAKE HERMAN</text>
+                  <text x="74" y="448" fontSize="9" fill="#77777C" fontWeight="700">BENICIA</text>
+                  <text x="318" y="448" textAnchor="middle" fontSize="8" fill="#6E91A8">CARQUINEZ STRAIT</text>
+                  <text x="300" y="170" textAnchor="middle" fontSize="7.5" fill="#9A9A9F">VALERO REFINERY</text>
+                </g>
+
+                {/* compass + scale bar (spec-sheet flavor) */}
+                <g fontFamily="ui-monospace, Menlo, monospace" fill="#A4A09A">
+                  <path d="M 372 18 L 376 30 L 372 27 L 368 30 Z" fill="#86868B" />
+                  <text x="372" y="42" textAnchor="middle" fontSize="8" fill="#86868B">N</text>
+                  <line x1="24" y1="462" x2="74" y2="462" stroke="#A4A09A" strokeWidth="1.5" />
+                  <line x1="24" y1="459" x2="24" y2="465" stroke="#A4A09A" strokeWidth="1.5" />
+                  <line x1="74" y1="459" x2="74" y2="465" stroke="#A4A09A" strokeWidth="1.5" />
+                  <text x="49" y="456" textAnchor="middle" fontSize="7.5">1 MI</text>
+                </g>
+
+                {/* location pin — 465 Industrial Way */}
+                <g>
+                  <circle cx="190" cy="216" r="8" fill="none" stroke="#1C52A3" strokeWidth="1.5">
+                    <animate attributeName="r" values="8;28" dur="2.4s" repeatCount="indefinite" />
+                    <animate attributeName="opacity" values="0.55;0" dur="2.4s" repeatCount="indefinite" />
+                  </circle>
+                  <circle cx="190" cy="216" r="7.5" fill="#1C52A3" stroke="#fff" strokeWidth="3" filter="url(#pinShadow)" />
+                  <rect x="113" y="232" width="154" height="22" rx="5" fill="#fff" stroke="#E6E4DF" strokeWidth="1" />
+                  <text x="190" y="246.5" textAnchor="middle" fontFamily="ui-monospace, Menlo, monospace" fontSize="9.5" fontWeight="700" letterSpacing="0.4" fill="#1D1D1F">465 INDUSTRIAL WAY</text>
+                  <text x="190" y="272" textAnchor="middle" fontFamily="ui-monospace, Menlo, monospace" fontSize="8" letterSpacing="0.6" fill="#86868B">38.07° N · 122.13° W</text>
+                </g>
               </svg>
-              <div className="visit-map-pin" style={{ top: "46%", left: "55%" }}>
-                <div className="visit-map-pin-dot" />
-                <div className="visit-map-pin-label">Benicia, CA · 465 Industrial Way</div>
-              </div>
             </div>
           </div>
         </div>
