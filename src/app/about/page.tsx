@@ -411,7 +411,7 @@ export default function AboutPage() {
               <iframe
                 className="visit-map-frame"
                 title="Map showing California Fastener at 465 Industrial Way, Benicia, CA 94510"
-                src="https://maps.google.com/maps?q=465%20Industrial%20Way%2C%20Benicia%2C%20CA%2094510&z=15&output=embed"
+                src="https://maps.google.com/maps?q=California%20Fastener%2C%20465%20Industrial%20Way%2C%20Benicia%2C%20CA%2094510&z=16&output=embed"
                 loading="lazy"
                 referrerPolicy="no-referrer-when-downgrade"
                 allowFullScreen
