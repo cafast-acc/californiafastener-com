@@ -96,7 +96,7 @@ export default function HomePage() {
       <section className="split split--alt">
         <div className="split-image">
           <Image
-            src="/assets/products/industrial-socket-cap-1.png"
+            src="/assets/products/industrial-socket-cap-hires.png"
             alt="ASTM A574 socket head cap screw"
             width={3840}
             height={2399}

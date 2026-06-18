@@ -69,7 +69,7 @@ const FAMILIES: Family[] = [
     description: "Heavy hex, socket head, flange & A193 bolting.",
     grades: ["Gr 5 / 8", "A193 B7", "SHCS"],
     href: "/industrial-fasteners",
-    image: "/assets/products/industrial-socket-cap-1.png",
+    image: "/assets/products/industrial-socket-cap-hires.png",
     imageAlt: "Socket head cap screw",
     placeholder: "A1 · Heavy hex",
   },

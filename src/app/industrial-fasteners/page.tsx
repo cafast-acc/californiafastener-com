@@ -143,7 +143,7 @@ export default function IndustrialFastenersPage() {
         <div className="pp-products-grid">
           <ProductCard
             pnum="01 / SHCS"
-            img="/assets/products/industrial-socket-cap-1.png"
+            img="/assets/products/industrial-socket-cap-hires.png"
             imgAlt="ASTM A574 socket head cap screw"
             title="Socket head cap screws"
             desc="High-strength machine screws for precision assembly — tight head clearance and torque control. Metric and inch."
