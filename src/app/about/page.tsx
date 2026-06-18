@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
 import "@/styles/cf-about.css";
 import { CfNav } from "@/components/CfNav";
@@ -38,9 +39,15 @@ export default function AboutPage() {
 
       {/* FACILITY MARQUEE */}
       <section className="facility-marquee">
-        <div className="facility-marquee-placeholder">
-          [ shop floor / facility hero photo — 21:9 ]
-        </div>
+        <Image
+          src="/assets/facility-storefront.png"
+          alt="California Fastener storefront and facility in Benicia, California"
+          fill
+          priority
+          quality={90}
+          sizes="100vw"
+          style={{ objectFit: "cover" }}
+        />
         <div className="facility-marquee-caption">
           <div>
             <strong>Benicia, California</strong> — manufacturing &amp; distribution
@@ -75,11 +82,14 @@ export default function AboutPage() {
               </p>
             </div>
             <div className="story-image">
-              <div className="ph-stripes">
-                [ founder / floor portrait
-                <br />
-                4:5 placeholder ]
-              </div>
+              <Image
+                src="/assets/cnc-floor.webp"
+                alt="CNC machining on the shop floor at California Fastener"
+                fill
+                quality={90}
+                sizes="(max-width: 900px) 100vw, 50vw"
+                style={{ objectFit: "cover" }}
+              />
             </div>
           </div>
         </div>
