@@ -58,12 +58,12 @@ export default function IndustrialFastenersPage() {
             </div>
           </div>
           <div className="pp-hero-image">
-            <div className="pp-hero-image-tag">A193 B8M · 316 Stainless · Heavy Hex</div>
+            <div className="pp-hero-image-tag">A193 B7 · Alloy Steel · Heavy Hex</div>
             <Image
-              src="/assets/structural-hero-bolt.png"
-              alt="Heavy hex bolt"
-              width={1478}
-              height={1021}
+              src="/assets/products/industrial-heavy-hex-bolt-b7-4.png"
+              alt="A193 B7 alloy steel heavy hex bolt"
+              width={3840}
+              height={2399}
               priority
               quality={95}
               sizes="(max-width: 1000px) 100vw, 60vw"
