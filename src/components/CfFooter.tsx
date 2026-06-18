@@ -35,6 +35,7 @@ export function CfFooter() {
           <h4>Resources</h4>
           <Link href="/spec-builder">Spec Builder</Link>
           <Link href="/spec-library">Spec Library</Link>
+          <Link href="/bolt-weight-calculator">Bolt Weight Calculator</Link>
           <Link href="/catalog">Product Catalog</Link>
           <Link href="/blog">Field Notes (Blog)</Link>
         </div>
