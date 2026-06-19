@@ -127,8 +127,8 @@
 .hb-sizes-row em { font-style: normal; font-family: var(--cf-font-mono); font-size: 11px; color: var(--mid); letter-spacing: 0.04em; }
 
 .hb-sizes-photo { aspect-ratio: 1172 / 614; border-radius: 20px; overflow: hidden;
-  background: radial-gradient(ellipse 60% 50% at 50% 40%, rgba(255,255,255,0.6), transparent 70%),
-              linear-gradient(155deg, #E7EBEE 0%, #CBD3DA 100%);
+  /* Match the render's #E7E5E0 photo-bed so the contained trio sits seamlessly. */
+  background: #E7E5E0;
   display: flex; align-items: center; justify-content: center; padding: 40px; position: relative; }
 .hb-sizes-photo img { width: 100%; height: 100%; object-fit: contain; position: relative; z-index: 1; }
 .hb-sizes-photo .tag { position: absolute; top: 20px; left: 20px; background: rgba(255,255,255,0.92); backdrop-filter: blur(8px); padding: 8px 14px; border-radius: 100px; font-size: 11px; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; color: var(--hb-ink); z-index: 2; }
@@ -233,10 +233,10 @@
 .hb-finish-item em { font-style: normal; font-family: var(--cf-font-mono); font-size: 11px; color: var(--hb-accent-deep); letter-spacing: 0.04em; }
 
 .hb-finish-visual { aspect-ratio: 1 / 1; border-radius: 24px; overflow: hidden;
-  background: linear-gradient(160deg, #17405A 0%, #0C2335 100%);
-  display: flex; align-items: center; justify-content: center; position: relative; padding: 60px; }
-.hb-finish-visual::after { content: ''; position: absolute; inset: 0;
-  background: radial-gradient(ellipse 60% 50% at 50% 40%, rgba(95,168,255,0.18), transparent 65%); }
+  /* Match the render's #E7E5E0 photo-bed; render fills the tile edge-to-edge. */
+  background: #E7E5E0;
+  display: flex; align-items: center; justify-content: center; position: relative; }
+.hb-finish-visual img { width: 100%; height: 100%; object-fit: cover; }
 .hb-finish-visual-ph { color: rgba(220,232,247,0.6); font-family: var(--cf-font-mono); font-size: 12px; letter-spacing: 0.06em; text-transform: uppercase; text-align: center; position: relative; z-index: 1; padding: 24px; border: 1px dashed rgba(220,232,247,0.3); border-radius: 12px; }
 
 /* ── INVENTORY BAND ──────────────────────────────────── */
