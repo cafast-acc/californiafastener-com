@@ -97,37 +97,6 @@ export default function HolloBoltPage() {
         </div>
       </section>
 
-      {/* HOW IT WORKS */}
-      <section className="hb-how">
-        <div className="hb-how-inner">
-          <div className="hb-how-header">
-            <div className="eyebrow">How it works</div>
-            <h2>
-              Drill, insert, tighten, <i>done.</i>
-            </h2>
-            <p>
-              A single clearance hole through both faces of the steel section. The Hollo-Bolt goes
-              in, the bolt is torqued, and a four-segment sleeve expands behind the blind face to
-              form a secure connection.
-            </p>
-          </div>
-          <div className="hb-how-steps">
-            <HowStep num="01 / DRILL" title="Drill a clearance hole." desc="One clean hole through both walls of the section, sized per the published fixture hole chart.">
-              <img className="hb-how-photo" src="/assets/hollo-bolt/install-drill.png" alt="Clearance hole drilled through both faces of a steel section" />
-            </HowStep>
-            <HowStep num="02 / INSERT" title="Insert the Hollo-Bolt." desc="The assembly — bolt, sleeve, cone, and head — drops in as one piece. No back-side access required.">
-              <img className="hb-how-photo" src="/assets/hollo-bolt/install-insert.png" alt="Hollo-Bolt assembly: hex head, expansion sleeve, and cone" />
-            </HowStep>
-            <HowStep num="03 / TORQUE" title="Tighten to spec." desc="Apply the specified torque. The cone draws up inside the sleeve, splaying its four segments against the blind face.">
-              <img className="hb-how-photo" src="/assets/hollo-bolt/install-tighten.png" alt="Tightening the Hollo-Bolt to torque with a spanner" />
-            </HowStep>
-            <HowStep num="04 / CLAMPED" title="Secured both sides." desc="The fixture is clamped against the exposed face; the expanded sleeve holds it from behind. Removable, re-usable.">
-              <img className="hb-how-photo" src="/assets/hollo-bolt/install-done.png" alt="Cutaway of the installed Hollo-Bolt with the expansion sleeve gripping inside the section" />
-            </HowStep>
-          </div>
-        </div>
-      </section>
-
       {/* HEAD STYLES */}
       <section className="hb-heads" id="range">
         <div className="hb-heads-inner">
@@ -197,11 +166,41 @@ export default function HolloBoltPage() {
           </div>
           <div className="hb-sizes-photo">
             <span className="tag">Every diameter</span>
-            <div className="hb-sizes-ph">
-              [ Hollo-Bolt diameter range
-              <br />
-              5/16″ → 3/4″ ]
-            </div>
+            <img
+              src="/assets/products/hollo-bolt-trio.png"
+              alt="Lindapter Hollo-Bolt range across all five diameters, 5/16 inch to 3/4 inch"
+            />
+          </div>
+        </div>
+      </section>
+
+      {/* HOW IT WORKS */}
+      <section className="hb-how">
+        <div className="hb-how-inner">
+          <div className="hb-how-header">
+            <div className="eyebrow">How it works</div>
+            <h2>
+              Drill, insert, tighten, <i>done.</i>
+            </h2>
+            <p>
+              A single clearance hole through both faces of the steel section. The Hollo-Bolt goes
+              in, the bolt is torqued, and a four-segment sleeve expands behind the blind face to
+              form a secure connection.
+            </p>
+          </div>
+          <div className="hb-how-steps">
+            <HowStep num="01 / DRILL" title="Drill a clearance hole." desc="One clean hole through both walls of the section, sized per the published fixture hole chart.">
+              <img className="hb-how-photo" src="/assets/hollo-bolt/install-drill.png" alt="Clearance hole drilled through both faces of a steel section" />
+            </HowStep>
+            <HowStep num="02 / INSERT" title="Insert the Hollo-Bolt." desc="The assembly — bolt, sleeve, cone, and head — drops in as one piece. No back-side access required.">
+              <img className="hb-how-photo" src="/assets/hollo-bolt/install-insert.png" alt="Hollo-Bolt assembly: hex head, expansion sleeve, and cone" />
+            </HowStep>
+            <HowStep num="03 / TORQUE" title="Tighten to spec." desc="Apply the specified torque. The cone draws up inside the sleeve, splaying its four segments against the blind face.">
+              <img className="hb-how-photo" src="/assets/hollo-bolt/install-tighten.png" alt="Tightening the Hollo-Bolt to torque with a spanner" />
+            </HowStep>
+            <HowStep num="04 / CLAMPED" title="Secured both sides." desc="The fixture is clamped against the exposed face; the expanded sleeve holds it from behind. Removable, re-usable.">
+              <img className="hb-how-photo" src="/assets/hollo-bolt/install-done.png" alt="Cutaway of the installed Hollo-Bolt with the expansion sleeve gripping inside the section" />
+            </HowStep>
           </div>
         </div>
       </section>
@@ -396,11 +395,10 @@ export default function HolloBoltPage() {
             </div>
           </div>
           <div className="hb-finish-visual">
-            <div className="hb-finish-visual-ph">
-              [ Every finish badge —
-              <br />
-              ZN · HDG · SH · SS316 ]
-            </div>
+            <img
+              src="/assets/products/hollo-bolt-trio-hero-2.png"
+              alt="Lindapter Hollo-Bolt expansion bolts in hex, countersunk, and flush-fit heads"
+            />
           </div>
         </div>
       </section>
