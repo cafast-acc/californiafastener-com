@@ -286,7 +286,10 @@ export default function HolloBoltPage() {
       <section className="hb-case">
         <div className="hb-case-inner">
           <div className="hb-case-photo">
-            <div className="hb-case-ph">[ St Pancras Station — Barlow Shed refurbishment photo ]</div>
+            <img
+              src="https://images.squarespace-cdn.com/content/v1/5efbb68d03da3677c3455ba6/1df61635-d95e-47b3-ba2b-633da74f8021/AdobeStock_170240857.jpeg"
+              alt="Large-span structural steel hall, representative of the Barlow Shed train shed at St Pancras"
+            />
             <div className="ov" />
             <span className="hb-case-photo-tag">Case study</span>
             <div className="hb-case-photo-caption">
@@ -338,7 +341,12 @@ export default function HolloBoltPage() {
           </div>
           <div className="hb-apps-grid">
             <Link href="/structural-fasteners" className="hb-app-tile hb-app-tile--steel">
-              <div className="hb-app-tile-bg" />
+              <div className="hb-app-tile-bg">
+                <img
+                  src="https://images.squarespace-cdn.com/content/v1/5efbb68d03da3677c3455ba6/1e76177d-d96a-4d9d-8931-3f7d049e12d7/construction.jpg"
+                  alt=""
+                />
+              </div>
               <div className="hb-app-tile-body">
                 <div className="hb-app-tile-eyebrow">01 — Structural steel</div>
                 <div className="hb-app-tile-title">HSS, beams &amp; columns.</div>
@@ -349,7 +357,12 @@ export default function HolloBoltPage() {
               </div>
             </Link>
             <Link href="/industries/infrastructure" className="hb-app-tile hb-app-tile--offshore">
-              <div className="hb-app-tile-bg" />
+              <div className="hb-app-tile-bg">
+                <img
+                  src="https://images.squarespace-cdn.com/content/v1/5efbb68d03da3677c3455ba6/261f100b-3496-48f2-b1ee-245eca151e58/AdobeStock_753784784.jpeg"
+                  alt=""
+                />
+              </div>
               <div className="hb-app-tile-body">
                 <div className="hb-app-tile-eyebrow">02 — Infrastructure</div>
                 <div className="hb-app-tile-title">Bridges, transit &amp; platforms.</div>
@@ -360,7 +373,12 @@ export default function HolloBoltPage() {
               </div>
             </Link>
             <Link href="/industries/manufacturing" className="hb-app-tile hb-app-tile--mod">
-              <div className="hb-app-tile-bg" />
+              <div className="hb-app-tile-bg">
+                <img
+                  src="https://images.squarespace-cdn.com/content/v1/5efbb68d03da3677c3455ba6/606418c4-1057-49ac-821b-ce572774f5b9/AdobeStock_731342733.jpeg"
+                  alt=""
+                />
+              </div>
               <div className="hb-app-tile-body">
                 <div className="hb-app-tile-eyebrow">03 — Modular &amp; plant</div>
                 <div className="hb-app-tile-title">Modules, racks &amp; skids.</div>
