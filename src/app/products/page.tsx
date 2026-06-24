@@ -108,6 +108,8 @@ const FAMILIES: Family[] = [
     description: "Standard & custom profiles, bent to your radius.",
     grades: ["Round", "Square", "Custom"],
     href: "/u-bolts",
+    image: "/assets/products/ub-round-bend.png",
+    imageAlt: "Round-bend U-bolt with hex nuts",
     placeholder: "A1 · U-bolt",
   },
   {
