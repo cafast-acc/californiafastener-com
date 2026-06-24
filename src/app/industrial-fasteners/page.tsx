@@ -280,8 +280,8 @@ export default function IndustrialFastenersPage() {
             <div className="pp-family-cards">
               <div className="pp-spec-card pp-spec-card--hero">
                 <div className="pp-spec-photo">
-                  <Img src="/assets/if-stamp-316.webp" alt="CA 316 head stamp — A193 B8M" />
-                  <Img src="/assets/if-stamp-b8-rod.webp" alt="CA B8 rod stamp — A193 B8" />
+                  <Img src="/assets/products/ss-hex-cap-1.png" alt="A193 B8M stainless hex bolt render" />
+                  <Img src="/assets/threaded-rod-render-1.png" alt="A193 B8 stainless stud bolt render" />
                 </div>
               </div>
               <SpecCard

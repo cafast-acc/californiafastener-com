@@ -188,8 +188,8 @@ export default function AnchorBoltsPage() {
             />
             <GradeCard
               spec="ASTM A193"
-              img="/assets/stamp-b8.webp"
-              imgAlt="CA B8 stamp on A193 B8 stainless anchor rod"
+              img="/assets/threaded-rod-render-2.png"
+              imgAlt="A193 B8 stainless anchor rod render"
               title="High-temp alloy & SS"
               desc="Chrome-moly and stainless bar for pressure equipment, turbine skids, and corrosion-critical anchorage."
               grades={["Grade B7", "Grade B8", "Grade B8M"]}
