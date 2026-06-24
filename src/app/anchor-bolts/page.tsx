@@ -55,8 +55,8 @@ export default function AnchorBoltsPage() {
           <div className="ab-hero-image">
             <div className="ab-hero-image-tag">F1554 · Anchor Rod Assembly</div>
             <Img
-              src="/assets/anchor-f1554-rod.png"
-              alt="F1554 anchor rod assembly with heavy hex nuts and square plate washer"
+              src="/assets/products/anchor-rod-render.png"
+              alt="F1554 anchor rod assembly with heavy hex nuts and square plate washers"
             />
           </div>
         </div>
@@ -127,8 +127,8 @@ export default function AnchorBoltsPage() {
           />
           <TypeCard
             pnum="02 / Rods & assemblies"
-            img="/assets/anchor-rods-flat.webp"
-            imgAlt="F1554 anchor rod assembly with hex nuts and square plate washer"
+            img="/assets/products/anchor-rod-render.png"
+            imgAlt="F1554 anchor rod assembly with hex nuts and square plate washers"
             title="Anchor rods & assemblies"
             desc="Anchor rod assemblies with the heavy hex nut, plate washer, and matched coatings shipped together — banded per location so the crew grabs one bag, not five."
             metaBold="F1554 Gr 55 / 105"
@@ -233,8 +233,8 @@ export default function AnchorBoltsPage() {
           </div>
           <div className="ab-bend-visual">
             <Img
-              src="/assets/anchor-rods-flat.webp"
-              alt="Full anchor bolt assembly with rod, heavy hex nuts, and square plate washer"
+              src="/assets/products/anchor-rod-render.png"
+              alt="Full anchor bolt assembly with rod, heavy hex nuts, and square plate washers"
             />
             <div className="ab-bend-visual-tag">Full assembly · Rod + hex nuts + plate washer</div>
           </div>

@@ -83,7 +83,7 @@ export type ProductCard = {
 export const PRODUCT_CARDS: Record<ProductCardKey, ProductCard> = {
   industrial: { title: "Industrial Fasteners", sub: "A193, Gr 5/8, heavy hex", placeholder: "Industrial Hex", img: "/assets/products/industrial-heavy-hex-bolt-b7-4.png" },
   studbolt: { title: "Stud Bolts & Threaded Rod", sub: "B7, B8, B16 · cut to length", placeholder: "Stud Bolt", img: "/assets/products/stud-threaded-rod-1.png" },
-  anchor: { title: "Anchor Bolts", sub: "F1554 · headed, bent, rod", placeholder: "Anchor Bolt", img: "/assets/products/structural-f1554-anchor-rod-5.png" },
+  anchor: { title: "Anchor Bolts", sub: "F1554 · headed, bent, rod", placeholder: "Anchor Bolt", img: "/assets/products/anchor-rod-render.png" },
   custom: { title: "Custom Products", sub: "Built to your print", placeholder: "Custom Part", img: "/assets/custom-stud.png" },
   structural: { title: "Structural Bolts", sub: "A325, A490, TC bolts", placeholder: "Structural Bolt", img: "/assets/products/structural-heavy-hex-a325-1.png" },
   precision: { title: "Precision Screws", sub: "Electronics & fine mech.", placeholder: "Precision Screw", img: "/assets/products/ss-socket-head-1.png" },
