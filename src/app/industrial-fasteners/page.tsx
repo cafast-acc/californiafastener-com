@@ -280,8 +280,7 @@ export default function IndustrialFastenersPage() {
             <div className="pp-family-cards">
               <div className="pp-spec-card pp-spec-card--hero">
                 <div className="pp-spec-photo">
-                  <Img src="/assets/hex-bolt-render.png" alt="A193 B8M stainless hex bolt render" />
-                  <Img src="/assets/threaded-rod-render.png" alt="A193 B8 stainless stud bolt render" />
+                  <Img src="/assets/stainless-placard.png" alt="A193 B8M stainless hex bolt next to A193 B8 stainless stud bolt — staged silver-tone product shot" />
                 </div>
               </div>
               <SpecCard
