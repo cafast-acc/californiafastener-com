@@ -22,11 +22,8 @@ export type ProductCardKey =
   | "custom"
   | "structural"
   | "precision"
-  | "inserts"
   | "stainless"
-  | "bronze"
-  | "aerospace"
-  | "superalloy";
+  | "bronze";
 
 export type Case = {
   title: string;
@@ -90,11 +87,8 @@ export const PRODUCT_CARDS: Record<ProductCardKey, ProductCard> = {
   custom: { title: "Custom Products", sub: "Built to your print", placeholder: "Custom Part", img: "/assets/custom-stud.png" },
   structural: { title: "Structural Bolts", sub: "A325, A490, TC bolts", placeholder: "Structural Bolt", img: "/assets/products/structural-heavy-hex-a325-1.png" },
   precision: { title: "Precision Screws", sub: "Electronics & fine mech.", placeholder: "Precision Screw", img: "/assets/products/ss-socket-head-1.png" },
-  inserts: { title: "Threaded Inserts", sub: "For plastics and soft material", placeholder: "Threaded Insert" },
   stainless: { title: "Stainless Steel Fasteners", sub: "304, 316, duplex", placeholder: "Stainless Bolt", img: "/assets/products/ss-hex-cap-1.png" },
   bronze: { title: "Silicon Bronze Hardware", sub: "Marine & architectural", placeholder: "Bronze Bolt", img: "/assets/products/bronze-hex-bolt-1.png" },
-  aerospace: { title: "Aerospace Hardware", sub: "NAS, MS, AN · Hi-Lok, lockbolts", placeholder: "Aero Bolt" },
-  superalloy: { title: "Titanium & Superalloy", sub: "Ti, A286, Inconel 718", placeholder: "Titanium Bolt" },
 };
 
 export const INDUSTRIES: Record<IndustrySlug, Industry> = {
@@ -323,11 +317,11 @@ export const INDUSTRIES: Record<IndustrySlug, Industry> = {
     bullets: [
       ["Socket Head Cap Screws", "Alloy and stainless SHCS in inch and metric, packaged to your bin count."],
       ["Flange & Frame Bolts", "Grade 5, 8, 10.9, and 12.9 hex and flange bolts for equipment and frame assembly."],
-      ["Threaded Inserts", "Heli-Coil, key-locking, and press-in inserts for aluminum castings and soft material."],
+      ["Stainless Steel Hardware", "304 and 316 fasteners for food, pharma, and washdown equipment lines."],
       ["PPAP / PPM Programs", "First-article AS9102/PPAP documented parts for automotive and industrial OEMs."],
       ["Custom CNC Parts", "In-house five-axis machining for proprietary fasteners, bushings, and pins."],
     ],
-    products: ["precision", "industrial", "inserts", "custom"],
+    products: ["precision", "industrial", "stainless", "custom"],
     casesH2: "Manufacturing fasteners in action.",
     cases: [
       {
@@ -480,7 +474,7 @@ export const INDUSTRIES: Record<IndustrySlug, Industry> = {
       ["Inconel 718 Fasteners", "Superalloy bolting for hot-section, exhaust, and high-temperature engine assemblies."],
       ["Full Traceability Lots", "AS9100 / NADCAP documentation, DFARS melt origin, and C of C with every shipment."],
     ],
-    products: ["aerospace", "superalloy", "precision", "custom"],
+    products: ["custom", "precision", "stainless", "industrial"],
     casesH2: "Aerospace fasteners at work.",
     cases: [
       {
@@ -528,11 +522,8 @@ export const PRODUCT_CARD_HREFS: Record<ProductCardKey, string> = {
   custom: "/cnc-machining",
   structural: "/structural-fasteners",
   precision: "/cnc-machining",
-  inserts: "/cnc-machining",
   stainless: "/stainless-steel-fasteners",
   bronze: "/silicon-bronze",
-  aerospace: "/cnc-machining",
-  superalloy: "/cnc-machining",
 };
 
 /** Legacy export kept for any callers that still import ALL_INDUSTRIES. */
