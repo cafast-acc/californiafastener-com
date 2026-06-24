@@ -55,9 +55,10 @@
   background: radial-gradient(ellipse 70% 60% at 30% 30%, rgba(255,245,220,0.5), transparent 60%),
               radial-gradient(ellipse 40% 50% at 80% 90%, rgba(80,40,10,0.35), transparent 70%);
 }
-/* Hero product render sits centered on the bronze gradient, not cropped
-   (the default .pp-hero-image scale/crop is for wide product photos). */
-.sb-page .pp-hero-image img { transform: none; object-fit: contain; object-position: center; padding: 8% 12%; mix-blend-mode: multiply; filter: drop-shadow(0 28px 36px rgba(60,30,5,0.35)); }
+/* Hero product render sits centered on the bronze gradient — using a
+   transparent-bg cutout (bronze-hex-bolt-1-cutout.png) so the gradient
+   shows through without a rectangular render outline. */
+.sb-page .pp-hero-image img { transform: none; object-fit: contain; object-position: center; padding: 6% 10%; filter: drop-shadow(0 30px 28px rgba(60,30,5,0.35)); }
 
 /* ── ELECTRICAL CONDUCTIVITY SPLIT ───────────────────── */
 .sb-split { padding: 120px 40px; }
