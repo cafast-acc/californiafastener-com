@@ -45,8 +45,8 @@
    wide photo strip at the top of the family. Uses .pp-family--stainless
    modifier on the shared family component. */
 .pp-family--stainless .pp-spec-card--hero { grid-template-columns: 1fr; padding: 0; background: none; }
-.pp-family--stainless .pp-spec-card--hero .pp-spec-photo { aspect-ratio: 16 / 6; background: #E7E5E0; border-radius: 18px; overflow: hidden; display: grid; grid-template-columns: 1fr 1fr; }
-.pp-family--stainless .pp-spec-card--hero .pp-spec-photo img { width: 100%; height: 100%; object-fit: cover; }
+.pp-family--stainless .pp-spec-card--hero .pp-spec-photo { aspect-ratio: 16 / 6; background: #E8E6E1; border-radius: 18px; overflow: hidden; display: grid; grid-template-columns: 1fr 1fr; gap: 0; }
+.pp-family--stainless .pp-spec-card--hero .pp-spec-photo img { width: 100%; height: 100%; object-fit: contain; display: block; }
 
 /* RESPONSIVE — page-unique sections only */
 @media (max-width: 1000px) {
