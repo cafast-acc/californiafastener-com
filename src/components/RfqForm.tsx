@@ -6,14 +6,16 @@ import { useMemo, useState, type ChangeEvent, type DragEvent } from "react";
 /**
  * Single-page RFQ intake (Foundry v3.2). Contact + free-text RFQ + optional
  * uploads + progressive disclosure for spec details. Mirrors input into a
- * sticky "Your request" panel; submit reveals a confirmation card.
+ * sticky "Your request" panel; submit POSTs to Jotform and reveals a
+ * confirmation card.
  *
- * Placeholder behavior, replace before launch:
- *   • file inputs are accepted but not uploaded — wire into the real
- *     uploader (Jotform / S3 pre-signed PUT / etc.)
- *   • `submit()` is a 1.1s setTimeout — replace with a real POST and
- *     surface the server-issued reference instead of the local one.
+ * Field names below (q3_q3_textbox1, …) come from the Jotform form's
+ * "Source Code" embed — change them if the form is rebuilt or fields are
+ * reordered, or every submission will silently land with empty fields.
  */
+
+const JOTFORM_ID = "261747488304061";
+const JOTFORM_SUBMIT_URL = `https://submit.jotform.com/submit/${JOTFORM_ID}`;
 
 const CATEGORIES = [
   "Anchor Bolts",
@@ -40,7 +42,7 @@ const CERTS = [
 
 const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
-type Attachment = { name: string; size: string; ext: string };
+type Attachment = { file: File; name: string; size: string; ext: string };
 
 function humanSize(bytes: number): string {
   if (bytes < 1024) return `${bytes} B`;
@@ -135,7 +137,7 @@ export function RfqForm() {
     if (!list || list.length === 0) return;
     const next: Attachment[] = [];
     for (const f of Array.from(list)) {
-      next.push({ name: f.name, size: humanSize(f.size), ext: extOf(f.name) });
+      next.push({ file: f, name: f.name, size: humanSize(f.size), ext: extOf(f.name) });
     }
     setFiles((prev) => [...prev, ...next]);
   }
@@ -162,7 +164,7 @@ export function RfqForm() {
     setFiles((prev) => prev.filter((_, i) => i !== idx));
   }
 
-  function submit() {
+  async function submit() {
     if (!ready) {
       setShowErrors(true);
       if (typeof window !== "undefined") {
@@ -171,14 +173,70 @@ export function RfqForm() {
       return;
     }
     setSubmitting(true);
-    /* TODO: replace setTimeout with real POST (Jotform / API route). */
-    window.setTimeout(() => {
-      setSubmitted({ ref: refCode() });
-      setSubmitting(false);
-      if (typeof window !== "undefined") {
-        window.scrollTo({ top: 0, behavior: "smooth" });
+
+    const fd = new FormData();
+    fd.append("formID", JOTFORM_ID);
+    fd.append("simple_spc", `${JOTFORM_ID}-${JOTFORM_ID}`);
+    fd.append("submitSource", "californiafastener-com/quote");
+    fd.append("submitDate", new Date().toISOString());
+    fd.append("eventObserver", "1");
+
+    fd.append("q3_q3_textbox1", first.trim());
+    fd.append("q4_q4_textbox2", last.trim());
+    fd.append("q5_q5_email3", email.trim());
+    fd.append("q6_q6_textbox4", company.trim());
+    if (phone.trim()) fd.append("q7_q7_phone5[full]", phone.trim());
+
+    fd.append("q9_q9_textarea7", rfq.trim());
+
+    for (const c of cats) fd.append("q14_q14_checkbox12[]", c);
+    if (grade.trim()) fd.append("q15_q15_textbox13", grade.trim());
+    if (finish.trim()) fd.append("q16_q16_textbox14", finish.trim());
+    if (dia.trim()) fd.append("q17_q17_textbox15", dia.trim());
+    if (len.trim()) fd.append("q18_q18_textbox16", len.trim());
+    if (qty.trim()) fd.append("q19_q19_textbox17", qty.trim());
+    if (zip.trim()) fd.append("q21_q21_textbox19", zip.trim());
+
+    // <input type="date"> emits YYYY-MM-DD; Jotform expects MM/DD/YYYY split.
+    if (neededBy) {
+      const [y, m, d] = neededBy.split("-");
+      if (y && m && d) {
+        fd.append("q20_q20_datetime18[month]", m);
+        fd.append("q20_q20_datetime18[day]", d);
+        fd.append("q20_q20_datetime18[year]", y);
       }
-    }, 1100);
+    }
+
+    for (const c of certs) fd.append("q22_q22_checkbox20[]", c);
+
+    for (const a of files) fd.append("q11_q11_fileupload9[]", a.file, a.name);
+
+    // Honeypot — leave blank.
+    fd.append("website", "");
+
+    try {
+      // no-cors: response is opaque (Jotform doesn't return CORS headers for
+      // this endpoint), but the POST is accepted. Same trade-off as the
+      // hidden-iframe pattern QuoteModal.tsx uses — we can't read success,
+      // we just show the confirmation optimistically.
+      await fetch(JOTFORM_SUBMIT_URL, {
+        method: "POST",
+        body: fd,
+        mode: "no-cors",
+      });
+    } catch (err) {
+      // Network failure (offline, blocked, etc.) — surface to console for
+      // debugging but still show the confirmation; otherwise the customer
+      // gets a dead-end with no instruction. The phone CTA on the confirm
+      // card is the fallback path.
+      console.error("RFQ submission to Jotform failed:", err);
+    }
+
+    setSubmitted({ ref: refCode() });
+    setSubmitting(false);
+    if (typeof window !== "undefined") {
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    }
   }
 
   if (submitted) {
