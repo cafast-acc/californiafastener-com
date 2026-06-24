@@ -381,14 +381,14 @@ export function RfqForm() {
               <div className="qf-upload-ic" aria-hidden="true">↑</div>
               <strong>Drag drawings, BOMs, or past quotes here</strong>
               <div className="qf-upload-muted">
-                <span className="qf-upload-types">PDF · PNG · JPG</span>
+                <span className="qf-upload-types">PDF · STEP · IGES · DWG · DXF · Images · Docs</span>
                 <br />
                 Optional — up to 25 MB per file
               </div>
               <input
                 type="file"
                 multiple
-                accept=".pdf,.png,.jpg,.jpeg"
+                accept=".pdf,.doc,.docx,.xls,.xlsx,.csv,.txt,.rtf,.html,.zip,.png,.jpg,.jpeg,.gif,.tiff,.bmp,.step,.stp,.iges,.igs,.dwg,.dxf,.sldprt,.sldasm,.x_t,.x_b,.sat,.ipt,.iam,.prt,.asm,.stl"
                 onChange={onFilePick}
                 style={{ display: "none" }}
               />
