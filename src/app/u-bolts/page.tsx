@@ -59,7 +59,15 @@ export default function UBoltsPage() {
           </div>
           <div className="pp-hero-image">
             <div className="pp-hero-image-tag">Round-bend · 304 SS · 2″ NPS</div>
-            <UBoltHeroSvg />
+            <Image
+              src="/assets/products/ub-round-bend.png"
+              alt="Round-bend U-bolt with hex nuts — stainless steel render"
+              width={1800}
+              height={1350}
+              quality={95}
+              priority
+              sizes="(max-width: 1024px) 100vw, 720px"
+            />
           </div>
         </div>
       </section>
@@ -596,30 +604,6 @@ function CrossLink({
 }
 
 /* ── SVG SHAPES ─────────────────────────────────────── */
-
-function UBoltHeroSvg() {
-  return (
-    <svg viewBox="0 0 400 400" aria-hidden="true" className="ub-hero-svg">
-      <circle cx="200" cy="240" r="92" fill="#FFFFFF" stroke="#0B0B0D" strokeWidth="3" />
-      <circle cx="200" cy="240" r="74" fill="none" stroke="#0B0B0D" strokeWidth="1.5" opacity="0.4" />
-      <path d="M 110 360 L 110 240 A 90 90 0 0 1 290 240 L 290 360" fill="none" stroke="#0B0B0D" strokeWidth="14" strokeLinecap="round" />
-      <path d="M 110 350 L 110 245 A 80 80 0 0 1 200 165" fill="none" stroke="#FFFFFF" strokeWidth="3" strokeLinecap="round" opacity="0.55" />
-      <g stroke="#0B0B0D" strokeWidth="1.5" opacity="0.55">
-        <line x1="98" y1="345" x2="122" y2="345" />
-        <line x1="98" y1="357" x2="122" y2="357" />
-        <line x1="98" y1="369" x2="122" y2="369" />
-        <line x1="278" y1="345" x2="302" y2="345" />
-        <line x1="278" y1="357" x2="302" y2="357" />
-        <line x1="278" y1="369" x2="302" y2="369" />
-      </g>
-      <rect x="78" y="372" width="244" height="14" rx="3" fill="#FFFFFF" stroke="#0B0B0D" strokeWidth="3" />
-      <g fill="#FFFFFF" stroke="#0B0B0D" strokeWidth="3">
-        <polygon points="92,386 128,386 134,392 128,398 92,398 86,392" />
-        <polygon points="272,386 308,386 314,392 308,398 272,398 266,392" />
-      </g>
-    </svg>
-  );
-}
 
 function SizingDiagram() {
   return (
