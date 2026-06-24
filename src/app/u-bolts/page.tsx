@@ -9,7 +9,7 @@ import { QuoteFormPlaceholder } from "@/components/QuoteFormPlaceholder";
 export const metadata: Metadata = {
   title: "U-Bolts — Round, Square, Long Tangent & Custom Profiles",
   description:
-    "Standard and custom U-bolts for pipe, conduit, and structural support. Round and square bend, long-tangent, V-bolts, and made-to-print profiles. Carbon, alloy, 304, 316, hot-dip galvanized.",
+    "U-bolts for pipe, conduit, and structural support. Round-bend, square-bend, and long-tangent profiles in carbon, alloy, 304, 316, and hot-dip galvanized.",
 };
 
 export default function UBoltsPage() {
@@ -37,9 +37,9 @@ export default function UBoltsPage() {
               Infinite shapes.
             </h1>
             <p className="pp-hero-sub">
-              Round-bend, square-bend, long-tangent, and made-to-print U-bolts for pipe, conduit,
-              exhaust, structural support, and equipment clamping. Carbon, alloy, 304, 316, hot-dip
-              galvanized — stocked deep, bent in-house when stock won&apos;t fit.
+              Round-bend, square-bend, and long-tangent U-bolts for pipe, conduit, structural
+              support, and equipment clamping. Carbon, alloy, 304, 316, hot-dip galvanized —
+              stocked deep, bent in-house when stock won&apos;t fit.
             </p>
             <div className="pp-hero-ctas">
               <Link href="/quote" className="cf-pill cf-pill--blue">
@@ -53,7 +53,7 @@ export default function UBoltsPage() {
               <HeroStat val="¼″–2½″" label="Stock diameters" />
               <HeroStat val="A36" label="A193 · F593 · 316" />
               <HeroStat val="HDG" label="Plain · zinc · stainless" />
-              <HeroStat val="∞" label="Made-to-print profiles" />
+              <HeroStat val="3" label="Stocked bend profiles" />
             </div>
           </div>
           <div className="pp-hero-image">
@@ -97,13 +97,13 @@ export default function UBoltsPage() {
         <div className="pp-products-header">
           <div className="eyebrow">Profiles we run</div>
           <h2>
-            Six bend profiles.
+            Three bend profiles.
             <br />
             <i>One supplier.</i>
           </h2>
           <p>
-            The standard catalog runs round-bend over square-bend, plus the long-tangent and V-bend
-            variants the hangers and exhaust shops keep specifying.
+            The standard catalog runs round-bend over square-bend, plus the long-tangent variant
+            the hangers keep specifying.
           </p>
         </div>
         <div className="pp-products-grid">
@@ -130,30 +130,6 @@ export default function UBoltsPage() {
             desc="Round bend with extended thread length on the legs — for stacked saddles, multiple plates, insulated pipe, or where a longer reach is needed."
             metaBold="Custom leg length"
             metaRest=" · per drawing"
-          />
-          <ShapeCard
-            pnum="04 / V-bolt"
-            shape={<VBolt />}
-            title="V-bend U-bolt"
-            desc="Two-sided V profile that grips angle iron and tapered geometry. Common on guy-wire anchorages and angle-bracket assemblies."
-            metaBold="Angle clamping"
-            metaRest=" · grip stock per spec"
-          />
-          <ShapeCard
-            pnum="05 / Muffler / exhaust"
-            shape={<Muffler />}
-            title="Muffler U-bolt"
-            desc="Round-bend U-bolt with saddle clamp included — used on automotive and OEM exhaust, light-duty pipe joining, repair clamps."
-            metaBold="U-bolt + saddle"
-            metaRest=" · sold as set"
-          />
-          <ShapeCard
-            pnum="06 / Made-to-print"
-            shape={<MadeToPrint />}
-            title="Made-to-print U-bolts"
-            desc="Compound bends, oversized diameters, exotic material, weather-resistant coatings. If it can be drawn, we can quote it."
-            metaBold="Quote-basis"
-            metaRest=" · send a sketch or DXF"
           />
         </div>
       </section>
@@ -230,8 +206,8 @@ export default function UBoltsPage() {
                 hot-dip galvanized.
               </SpecCard>
               <SpecCard tag="ASTM A307" name="Grade A · B" grades={["Grade A", "Grade B"]}>
-                Low-carbon steel for general bolting service. Common on muffler U-bolts and OEM
-                exhaust hardware. A307-B for moderate-load, moderate-temperature joints.
+                Low-carbon steel for general bolting service — moderate-load, moderate-temperature
+                clamping. A307-B for pressure piping support and structural hangers.
               </SpecCard>
               <SpecCard tag="SAE J429" name="Grade 5 · 8" grades={["Heat-treated", "Q & T"]}>
                 Heat-treated U-bolts in SAE J429 Grade 5 and Grade 8 for higher-load, dynamic, or
@@ -294,7 +270,7 @@ export default function UBoltsPage() {
               fit. <i>That&apos;s fine.</i>
             </h2>
             <p>
-              Most jobs end up with at least one made-to-print U-bolt — odd pipe size, structural
+              Plenty of jobs end up needing a made-to-print U-bolt — odd pipe size, structural
               section that won&apos;t take a stock bend, exotic material, or a profile we&apos;ve
               never seen. That&apos;s our day job.
             </p>
@@ -356,7 +332,7 @@ export default function UBoltsPage() {
             <Coating
               title="Electro-zinc plate"
               spec="ASTM B633 SC1 / SC3"
-              desc="Bright zinc plate for indoor or light-duty outdoor service. Standard upgrade on muffler and HVAC U-bolts."
+              desc="Bright zinc plate for indoor or light-duty outdoor service. Standard upgrade on HVAC and conduit-support U-bolts."
             />
             <Coating
               title="Hot-dip galvanized"
@@ -662,41 +638,6 @@ function LongTangent() {
         <line x1="152" y1="125" x2="168" y2="125" />
         <line x1="152" y1="135" x2="168" y2="135" />
         <line x1="152" y1="145" x2="168" y2="145" />
-      </g>
-    </svg>
-  );
-}
-
-function VBolt() {
-  return (
-    <svg viewBox="0 0 200 160" aria-hidden="true">
-      <path d="M 40 150 L 40 80 L 100 50 L 160 80 L 160 150" />
-      <ThreadHash side="left" />
-      <ThreadHash side="right" />
-    </svg>
-  );
-}
-
-function Muffler() {
-  return (
-    <svg viewBox="0 0 200 160" aria-hidden="true">
-      <path d="M 40 150 L 40 90 A 60 60 0 0 1 160 90 L 160 150" />
-      <rect x="60" y="100" width="80" height="20" rx="2" />
-      <ThreadHash side="left" />
-      <ThreadHash side="right" />
-    </svg>
-  );
-}
-
-function MadeToPrint() {
-  return (
-    <svg viewBox="0 0 200 160" aria-hidden="true">
-      <path d="M 40 150 L 40 100 L 60 80 L 80 95 L 100 60 L 120 95 L 140 80 L 160 100 L 160 150" />
-      <g className="thread" strokeDasharray="3 3">
-        <line x1="32" y1="120" x2="48" y2="120" />
-        <line x1="32" y1="135" x2="48" y2="135" />
-        <line x1="152" y1="120" x2="168" y2="120" />
-        <line x1="152" y1="135" x2="168" y2="135" />
       </g>
     </svg>
   );
