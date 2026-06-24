@@ -64,21 +64,21 @@ export default function AboutPage() {
               <div className="about-section-eyebrow">Our Story</div>
               <h2>A fastener company that picks up the phone.</h2>
               <p>
-                California Fastener is a family-owned and operated fastener and industrial supply
-                company in the Bay Area. For more than a decade we’ve supplied the screws, bolts,
-                nuts, washers, anchors, and specialty hardware that a wide range of industries depend
-                on.
+                California Fastener (founded 2020) carries on a Bay Area fastener business that&rsquo;s
+                been serving the trade since 1964. We bought the inventory, the customer
+                relationships, and six decades of tribal knowledge — and have spent the years since
+                adding our own.
               </p>
               <p>
-                We built the business on long-term relationships, not one-off transactions — the best
-                products, honest pricing, and service that actually picks up the phone. We stock
-                current, dependable hardware from leading manufacturers, and back it with in-house
-                CNC machining for the custom parts a catalog can’t cover.
+                We built the business on repeat customers, not one-off transactions — in-stock,
+                dependable hardware from the leading manufacturers, backed by in-house CNC machining
+                for the parts a catalog won&rsquo;t cover.
               </p>
               <p>
-                Need it fast? Orders placed before 3 PM PST ship the same day. And whether it’s one
-                specialty bolt or a full bill of materials, you’re working with knowledgeable people
-                who know the inventory and stand behind it.
+                Need it fast? Orders placed before 3 PM PST ship the same day. Need it after 3? Call
+                us — we&rsquo;ve gotten more than a few crews out of a same-day jam. Whether it&rsquo;s
+                one specialty bolt or a full bill of materials, you&rsquo;re working with people who
+                know the inventory and stand behind it.
               </p>
             </div>
             <div className="story-image">

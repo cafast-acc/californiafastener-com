@@ -15,7 +15,7 @@ export default function HomePage() {
       <section className="hero-v1">
         <div className="hero-v1-copy">
           <div className="hero-v1-eyebrow cf-rise">
-            New. <i>Built to your print.</i>
+            Stocked. Cut. <i>Built to your print.</i>
           </div>
           <h1 className="cf-rise cf-rise--delay-1">
             Fasteners for the
@@ -23,7 +23,7 @@ export default function HomePage() {
             next generation of <span className="accent-blue">building.</span>
           </h1>
           <p className="hero-v1-sub cf-rise cf-rise--delay-2">
-            Industrial and structural fasteners engineered for construction, infrastructure, power
+            Industrial and structural fasteners for construction, infrastructure, power
             generation, and heavy manufacturing — in stock, fully certified.
           </p>
           <div className="hero-v1-ctas cf-rise cf-rise--delay-3">
@@ -68,14 +68,14 @@ export default function HomePage() {
           <div className="stat-label">Quote turnaround, every order.</div>
         </div>
         <div className="stat-cell">
-          <div className="stat-num stat-num-blue">±.0005″</div>
-          <div className="stat-label">CNC tolerance capability.</div>
+          <div className="stat-num stat-num-blue">28K+</div>
+          <div className="stat-label">Stock SKUs, ready to ship.</div>
         </div>
         <div className="stat-cell">
           <div className="stat-num">
             100<span style={{ fontSize: "0.55em" }}>%</span>
           </div>
-          <div className="stat-label">Full traceability and certification.</div>
+          <div className="stat-label">Heat-and-lot traceable. MTRs on request.</div>
         </div>
         <div className="stat-cell">
           <div className="stat-num stat-num-purple">USA</div>
@@ -116,10 +116,10 @@ export default function HomePage() {
             flange bolts, and ASTM A193 bolting for pressure, piping, and heavy equipment.
           </p>
           <ul>
-            <li><strong>A193 B7, B16, B8, B8M</strong><span>Alloy / stainless</span></li>
-            <li><strong>Heavy hex &amp; flange bolts</strong><span>Grade 5, 8, A490</span></li>
-            <li><strong>Socket head cap screws</strong><span>1960-series alloy</span></li>
-            <li><strong>Hot-dip galvanized</strong><span>F2329 &amp; mechanical</span></li>
+            <li><strong>A193 B7, B16, B8, B8M</strong><span>Alloy / stainless studs &amp; bolts</span></li>
+            <li><strong>Carbon hex bolts</strong><span>A307, A449, SAE Grade 5 / 8</span></li>
+            <li><strong>Socket head cap screws</strong><span>A574 alloy</span></li>
+            <li><strong>Matched nuts &amp; washers</strong><span>A194 / F436 / A563</span></li>
           </ul>
           <div>
             <Link href="/industrial-fasteners" className="cf-link">Shop industrial fasteners</Link>
@@ -332,8 +332,8 @@ export default function HomePage() {
             href="/industries/power-generation"
             num="02"
             name="Power Generation"
-            title="Energy meeting tomorrow's demand."
-            desc="High-temperature and high-pressure fasteners for gas turbines, steam systems, and renewable installations at unprecedented scale."
+            title="Gas, steam, and renewable generation."
+            desc="High-temperature and high-pressure fasteners for gas turbines, steam systems, and renewable installations."
             img="https://images.squarespace-cdn.com/content/v1/5efbb68d03da3677c3455ba6/1df61635-d95e-47b3-ba2b-633da74f8021/AdobeStock_170240857.jpeg"
           />
           <IndustryTile
@@ -341,23 +341,23 @@ export default function HomePage() {
             num="03"
             name="Infrastructure"
             title="Bridges, rail, and long-service civil work."
-            desc="Long-service-life fasteners for bridges, highways, rail systems, and the critical civil projects connecting everything together."
+            desc="Long-service-life fasteners for bridges, highways, rail systems, and other civil projects."
             img="https://images.squarespace-cdn.com/content/v1/5efbb68d03da3677c3455ba6/261f100b-3496-48f2-b1ee-245eca151e58/AdobeStock_753784784.jpeg"
           />
           <IndustryTile
             href="/industries/manufacturing"
             num="04"
             name="Manufacturing"
-            title="High-output facilities, no downtime."
-            desc="Precision-aligned fasteners for heavy machinery, production lines, and fabricated steel assemblies — the parts that keep production running."
+            title="Heavy machinery and production lines."
+            desc="Fasteners for heavy machinery, production lines, and fabricated steel assemblies — the parts that keep production running."
             img="https://images.squarespace-cdn.com/content/v1/5efbb68d03da3677c3455ba6/606418c4-1057-49ac-821b-ce572774f5b9/AdobeStock_731342733.jpeg"
           />
           <IndustryTile
             href="/industries/power-transmission"
             num="05"
             name="Power Transmission"
-            title="The grid, carrying increasing loads."
-            desc="Fasteners for substations, transmission towers, and distribution networks being upgraded to meet surging capacity requirements."
+            title="Substations, transmission, and distribution."
+            desc="Fasteners for substations, transmission towers, and distribution networks."
             img="https://images.squarespace-cdn.com/content/v1/5efbb68d03da3677c3455ba6/79392af3-9542-4258-987d-76124ceec2f3/AdobeStock_182646517.jpeg"
           />
           <IndustryTile
@@ -365,7 +365,7 @@ export default function HomePage() {
             num="06"
             name="Oil, Gas & Chemical"
             title="Corrosion-resistant, high-pressure service."
-            desc="Upstream, midstream, downstream, and chemical processing — engineered for extreme temperatures, pressures, and harsh service environments."
+            desc="Upstream, midstream, downstream, and chemical processing — sized for extreme temperatures, pressures, and harsh service environments."
             img="https://images.squarespace-cdn.com/content/v1/5efbb68d03da3677c3455ba6/dcbe43bd-d8ab-4d13-afff-b45c323f0ade/AdobeStock_71932049.jpeg"
           />
         </div>
@@ -431,7 +431,7 @@ export default function HomePage() {
           a quote.
         </h2>
         <p>
-          Every quote gets personal attention from our team. Upload your drawings and we&apos;ll
+          Every quote goes to a real person — not a routing queue. Upload your drawings and we&apos;ll
           respond within 24 hours.
         </p>
         <div className="quote-cta-ctas">
@@ -443,7 +443,7 @@ export default function HomePage() {
           </a>
         </div>
         <div className="quote-cta-meta">
-          No account required · 24-hour response · USA-manufactured
+          No account required · 24-hour response · Full traceability
         </div>
       </section>
 

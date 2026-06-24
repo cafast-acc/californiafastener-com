@@ -486,7 +486,7 @@ export default function StructuralFastenersPage() {
               href="/cnc-machining"
               question="Custom geometry or non-standard part?"
               title="CNC Machining"
-              spec="In-house · DFARS · AS9102"
+              spec="In-house · DFARS · CMM inspection"
             />
           </div>
         </div>

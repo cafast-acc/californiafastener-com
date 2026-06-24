@@ -401,7 +401,7 @@ export default function UBoltsPage() {
             <CrossLink href="/hollo-bolt" question="Bolting onto a beam flange or HSS?" title="Lindapter Hollo-Bolt" spec="Beam clamps · blind expansion fasteners" />
             <CrossLink href="/industrial-fasteners" question="Heavy hex, socket cap, finished hardware?" title="Industrial Fasteners" spec="A193 · A574 · A194 · F436" />
             <CrossLink href="/stainless-steel-fasteners" question="Stainless-only, corrosion-driven spec?" title="Stainless Steel Fasteners" spec="304 · 316 · duplex · PH grades" />
-            <CrossLink href="/cnc-machining" question="Custom geometry beyond a bend?" title="CNC Machining" spec="In-house · DFARS · AS9102" />
+            <CrossLink href="/cnc-machining" question="Custom geometry beyond a bend?" title="CNC Machining" spec="In-house · DFARS · CMM inspection" />
           </div>
         </div>
       </section>

@@ -34,8 +34,8 @@ export default function AnchorBoltsPage() {
               <i>every foundation.</i>
             </h1>
             <p className="ab-hero-sub">
-              Durable, reliable anchor bolts in a range of materials, specifications, styles, and
-              configurations — engineered to secure your project&apos;s foundation.
+              F1554, A193, A36, and F593 anchor bolts in every grade, length, and configuration —
+              headed, bent, straight rod, and full assemblies with nuts, washers, and template plates.
             </p>
             <div className="ab-hero-ctas">
               <Link href="/quote" className="cf-pill cf-pill--blue">
@@ -72,8 +72,8 @@ export default function AnchorBoltsPage() {
               half the <i>job.</i>
             </h2>
             <p>
-              At California Fastener we provide high-quality anchor bolts with the service and
-              support that make projects finish on schedule.
+              Most anchor jobs go sideways on the soft stuff — the wrong bend radius, a missing
+              template plate, a delivery that misses the pour date. We sort that out.
             </p>
           </div>
           <div className="ab-values-grid">
@@ -85,17 +85,17 @@ export default function AnchorBoltsPage() {
             <Value
               num="02"
               title="Complete assemblies"
-              desc="Nuts, washers, and template plates supplied with the bolts for a ready-to-install solution."
+              desc="Nuts, washers, and template plates banded with the bolts — one kit per anchor location, not a parts puzzle."
             />
             <Value
               num="03"
               title="Custom fabrication"
-              desc="Tailored bolts for any unique application — custom threading, lengths, specialty materials, and coatings."
+              desc="Custom threading, lengths, materials, and coatings — bent rod, drilled rod, swedged ends, oversize diameters."
             />
             <Value
               num="04"
               title="Quick turnaround"
-              desc="Fast and efficient delivery to meet your project deadlines. Most quotes turn around within 24 hours."
+              desc="Most quotes turn around within 24 hours. Stock items ship same day; cut and bent assemblies in days, not weeks."
             />
           </div>
         </div>
@@ -121,7 +121,7 @@ export default function AnchorBoltsPage() {
             img="/assets/anchor-headed-hires.png"
             imgAlt="Headed anchor bolt with hex nut and washer"
             title="Headed anchors"
-            desc="Designed for structural connections. Forged hex head makes them reliable for heavy-duty applications where tension and pull-out are critical."
+            desc="Forged hex head with a full body for tension and pull-out loads. The default anchor for column bases and equipment skids."
             metaBold="F1554 Gr 36 / 55 / 105"
             metaRest=" · A449 · A193 B7"
           />
@@ -130,7 +130,7 @@ export default function AnchorBoltsPage() {
             img="/assets/anchor-rods-flat.webp"
             imgAlt="F1554 anchor rod assembly with hex nuts and square plate washer"
             title="Anchor rods & assemblies"
-            desc="Customizable rods and full assemblies to meet the specific needs of diverse structural projects — strength and versatility with every part shipped together."
+            desc="Anchor rod assemblies with the heavy hex nut, plate washer, and matched coatings shipped together — banded per location so the crew grabs one bag, not five."
             metaBold="F1554 Gr 55 / 105"
             metaRest=" · A193 B7 · Double-end & swedged"
           />
@@ -139,7 +139,7 @@ export default function AnchorBoltsPage() {
             img="/assets/anchor-bent-hires.png"
             imgAlt="L-bent anchor bolt with hex nut"
             title="Bent anchors"
-            desc="Ideal for foundational stability, our J-bolts and L-bolts are crafted for securing structural columns and equipment bases. Custom bend radius to your drawing."
+            desc="J-bolts and L-bolts for column anchorage and equipment bases. Standard 4D bend radius or custom to your drawing."
             metaBold="F1554 Gr 36"
             metaRest=" · L-bend · J-bend · Custom"
           />
@@ -150,8 +150,8 @@ export default function AnchorBoltsPage() {
             title="Post-install anchors"
             descNode={
               <>
-                Suitable for retrofitting applications, post-install anchors are effective for use in
-                hardened concrete or modern construction demands.
+                Wedge, sleeve, and epoxy anchors for hardened concrete — retrofits, base-plate
+                repairs, equipment additions to existing pads.
               </>
             }
             metaNode={
@@ -173,8 +173,8 @@ export default function AnchorBoltsPage() {
               one <i>catalog.</i>
             </h2>
             <p>
-              A comprehensive selection designed to meet rigorous industry standards — ASTM F1554,
-              A193, and F593 in every grade and configuration.
+              ASTM F1554, A193, and F593 in every grade and configuration — carbon, alloy, and
+              stainless covered.
             </p>
           </div>
           <div className="ab-grades-cards">
@@ -217,9 +217,8 @@ export default function AnchorBoltsPage() {
               <i>Complete</i> assemblies.
             </h2>
             <p>
-              A secure anchoring system requires more than just bolts. We supply every component as
-              part of a complete assembly so your project is streamlined, efficient, and built to
-              last.
+              Nuts, washers, and template plates supplied with the bolts. Show up to the pour with
+              one banded kit per location, not a parts puzzle.
             </p>
             <ul className="ab-bend-checks">
               <li>Nuts &amp; washers — standard or heavy-duty</li>
@@ -248,8 +247,8 @@ export default function AnchorBoltsPage() {
           <div className="ab-apps-header">
             <h2>Applications of anchor bolts.</h2>
             <p>
-              Trusted across industries where the foundation matters — structural steel, industrial
-              equipment, critical infrastructure, and utility-scale renewables.
+              Where the foundation has to hold — structural steel, industrial equipment, civil
+              infrastructure, and utility-scale renewables.
             </p>
           </div>
           <div className="ab-apps-grid">
@@ -298,13 +297,12 @@ export default function AnchorBoltsPage() {
               Template <i>plates.</i>
             </h2>
             <p>
-              Anchor bolt template plates ensure accurate bolt placement and easy installation. These
-              plates maintain proper spacing and alignment, preventing installation errors and
-              reducing setup time.
+              Template plates hold the bolt pattern in position during the pour — spacing, alignment,
+              and elevation locked in before concrete goes down.
             </p>
             <p style={{ maxWidth: "440px" }}>
-              Made from high-strength steel, built for durability and reliability on construction,
-              industrial, and infrastructure projects.
+              Hot-rolled or laser-cut to your bolt pattern. Reusable on repeat-pattern jobs, one-off
+              for custom layouts.
             </p>
             <div style={{ display: "flex", gap: "18px", marginTop: "12px", flexWrap: "wrap" }}>
               <Link href="/quote" className="cf-pill cf-pill--blue-light">
@@ -330,8 +328,8 @@ export default function AnchorBoltsPage() {
           <div>
             <h2>Visit our specification library.</h2>
             <p>
-              A comprehensive resource for fastener specifications across the industries we service —
-              access standards, material guides, and technical resources.
+              Plain-English reference for the ASTM, SAE, and ISO standards the trade actually calls
+              out — material chemistry, mechanical properties, finish callouts.
             </p>
             <Link href="/spec-library" className="cf-pill cf-pill--blue">
               Learn more
@@ -382,13 +380,13 @@ export default function AnchorBoltsPage() {
         <div className="ab-cta-inner">
           <div className="ab-cta-eyebrow">Request a quote</div>
           <h2>
-            More than hardware.
-            <br />A <i>building partner.</i>
+            Send the bolt schedule.
+            <br />
+            We&apos;ll send the <i>kit.</i>
           </h2>
           <p>
-            You&apos;re not just purchasing hardware — you&apos;re gaining a partner dedicated to your
-            project&apos;s success. Submit your quote request and secure the strength and reliability
-            only California Fastener can deliver.
+            From one F1554 Gr 36 to a thousand-piece HDG assembly run with template plates —
+            we&apos;ve shipped the package before.
           </p>
           <div className="ab-cta-ctas">
             <Link href="/quote" className="cf-pill cf-pill--blue-light">

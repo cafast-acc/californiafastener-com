@@ -24,8 +24,9 @@ export default function SpecLibraryPage() {
               <div className="lib-quote-kicker">§ Next step</div>
               <h2 className="lib-quote-head">Have a spec in hand? Send it.</h2>
               <p className="lib-quote-sub">
-                PDF, drawing, BOM, or a sketch on a napkin — we&apos;ll quote it. California Fastener
-                stocks every spec in this library with mill certificates traceable to heat number.
+                PDF, drawing, BOM, or a sketch on a napkin — we&apos;ll quote it. Most of the specs
+                in this library are part of what we stock or source on short lead times, with mill
+                certificates traceable to heat number.
               </p>
             </div>
             <div className="lib-quote-actions">

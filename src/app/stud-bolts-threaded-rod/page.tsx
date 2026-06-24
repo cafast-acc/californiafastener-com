@@ -192,7 +192,7 @@ export default function StudBoltsThreadedRodPage() {
             imgAlt="Custom CNC machined stud with reduced shank"
             title="Custom CNC machined"
             desc="Specials cut to print on our in-house CNC — shoulder studs, stepped studs, drilled or cross-bored rod, custom thread reliefs, reduced shanks. Prototype runs to scheduled production."
-            metaBold="To print · DFARS · AS9102"
+            metaBold="To print · DFARS · Full certs"
             metaRest=" · carbon, alloy, SS, exotics"
           />
         </div>
@@ -416,7 +416,7 @@ export default function StudBoltsThreadedRodPage() {
               desc={
                 <>
                   Thicker zinc layer for severe outdoor exposure. Available on B7, A36, A307, F1554.
-                  Nuts overtapped to fit. <strong>Not for B8 / B8M stainless or A490-class.</strong>
+                  Nuts overtapped to fit. <strong>Not for B8 / B8M stainless or threaded rod above 150 ksi.</strong>
                 </>
               }
             />
@@ -530,7 +530,7 @@ export default function StudBoltsThreadedRodPage() {
               href="/cnc-machining"
               question="Custom geometry — bent, machined, drilled rod?"
               title="CNC Machining"
-              spec="In-house · DFARS · AS9102"
+              spec="In-house · DFARS · CMM inspection"
             />
           </div>
         </div>
