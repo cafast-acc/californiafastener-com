@@ -287,7 +287,7 @@ export function RfqForm() {
                 <input
                   id="rfq-first"
                   type="text"
-                  placeholder="Jane"
+                  placeholder="John"
                   value={first}
                   onChange={(e) => setFirst(e.target.value)}
                   className={showErrors && !first.trim() ? "invalid" : ""}
@@ -298,7 +298,7 @@ export function RfqForm() {
                 <input
                   id="rfq-last"
                   type="text"
-                  placeholder="Ramirez"
+                  placeholder="Smith"
                   value={last}
                   onChange={(e) => setLast(e.target.value)}
                   className={showErrors && !last.trim() ? "invalid" : ""}
@@ -309,7 +309,7 @@ export function RfqForm() {
                 <input
                   id="rfq-email"
                   type="email"
-                  placeholder="jane@company.com"
+                  placeholder="john@company.com"
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
                   className={emailInvalid ? "invalid" : ""}
@@ -340,7 +340,7 @@ export function RfqForm() {
                 <input
                   id="rfq-phone"
                   type="tel"
-                  placeholder="(415) 555-0199"
+                  placeholder="(707) 555-0199"
                   value={phone}
                   onChange={(e) => setPhone(e.target.value)}
                 />
