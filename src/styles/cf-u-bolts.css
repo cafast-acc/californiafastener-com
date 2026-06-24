@@ -8,11 +8,11 @@
 
    Class prefix: .ub-* */
 
-/* ── PRODUCT-CARD SVG SHAPE ──────────────────────────── */
-.ub-shape { background: #E7E5E0; aspect-ratio: 4 / 3; position: relative; overflow: hidden; display: flex; align-items: center; justify-content: center; }
-.ub-shape svg { width: 70%; height: 70%; }
-.ub-shape svg path, .ub-shape svg line, .ub-shape svg circle, .ub-shape svg rect { stroke: var(--ink); fill: none; stroke-width: 6; stroke-linecap: round; stroke-linejoin: round; }
-.ub-shape svg .thread { stroke-width: 1.5; stroke: var(--ink); opacity: 0.6; }
+/* ── PRODUCT-CARD RENDER SLOT ────────────────────────── */
+/* Background matches the render's top-edge color so render bg blends in
+   even if it doesn't cover the whole slot. */
+.ub-shape { background: #E8E6E1; aspect-ratio: 4 / 3; position: relative; overflow: hidden; display: flex; align-items: center; justify-content: center; }
+.ub-shape img { width: 100%; height: 100%; object-fit: contain; display: block; }
 .ub-shape .pnum { position: absolute; top: 18px; left: 18px; font-family: var(--cf-font-mono); font-size: 11px; color: var(--mid); letter-spacing: 0.04em; z-index: 2; }
 
 /* Hero SVG — full-bleed inside the pp-hero-image bed */

@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
 import "@/styles/cf-product-page.css";
 import "@/styles/cf-u-bolts.css";
@@ -109,7 +110,16 @@ export default function UBoltsPage() {
         <div className="pp-products-grid">
           <ShapeCard
             pnum="01 / Round bend"
-            shape={<RoundBend />}
+            shape={
+              <Image
+                src="/assets/products/ub-round-bend.png"
+                alt="Round-bend U-bolt render with hex nuts"
+                width={1200}
+                height={900}
+                quality={95}
+                sizes="(max-width: 900px) 100vw, 380px"
+              />
+            }
             title="Round-bend U-bolt"
             desc="The default profile — semicircular bend that wraps a round pipe with no point loads. Pipe support, conduit, automotive exhaust, suspension."
             metaBold="Pipe NPS · OD-spec"
@@ -117,7 +127,16 @@ export default function UBoltsPage() {
           />
           <ShapeCard
             pnum="02 / Square bend"
-            shape={<SquareBend />}
+            shape={
+              <Image
+                src="/assets/products/ub-square-bend.png"
+                alt="Square-bend U-bolt render with hex nuts and washers"
+                width={1200}
+                height={900}
+                quality={95}
+                sizes="(max-width: 900px) 100vw, 380px"
+              />
+            }
             title="Square-bend U-bolt"
             desc="Two 90° bends — for clamping square tube, channel, structural sections, and U-channel framing. Spec by inside dimensions, not pipe size."
             metaBold="ID-spec"
@@ -125,7 +144,16 @@ export default function UBoltsPage() {
           />
           <ShapeCard
             pnum="03 / Long tangent"
-            shape={<LongTangent />}
+            shape={
+              <Image
+                src="/assets/products/ub-long-tangent.png"
+                alt="Long-tangent U-bolt render with double hex nuts"
+                width={1200}
+                height={900}
+                quality={95}
+                sizes="(max-width: 900px) 100vw, 380px"
+              />
+            }
             title="Long-tangent U-bolt"
             desc="Round bend with extended thread length on the legs — for stacked saddles, multiple plates, insulated pipe, or where a longer reach is needed."
             metaBold="Custom leg length"
@@ -588,56 +616,6 @@ function UBoltHeroSvg() {
       <g fill="#FFFFFF" stroke="#0B0B0D" strokeWidth="3">
         <polygon points="92,386 128,386 134,392 128,398 92,398 86,392" />
         <polygon points="272,386 308,386 314,392 308,398 272,398 266,392" />
-      </g>
-    </svg>
-  );
-}
-
-function ThreadHash({ side }: { side: "left" | "right" }) {
-  const x1 = side === "left" ? 32 : 152;
-  const x2 = side === "left" ? 48 : 168;
-  return (
-    <g className="thread">
-      <line x1={x1} y1="120" x2={x2} y2="120" />
-      <line x1={x1} y1="130" x2={x2} y2="130" />
-      <line x1={x1} y1="140" x2={x2} y2="140" />
-    </g>
-  );
-}
-
-function RoundBend() {
-  return (
-    <svg viewBox="0 0 200 160" aria-hidden="true">
-      <path d="M 40 150 L 40 80 A 60 60 0 0 1 160 80 L 160 150" />
-      <ThreadHash side="left" />
-      <ThreadHash side="right" />
-    </svg>
-  );
-}
-
-function SquareBend() {
-  return (
-    <svg viewBox="0 0 200 160" aria-hidden="true">
-      <path d="M 40 150 L 40 65 L 50 50 L 150 50 L 160 65 L 160 150" />
-      <ThreadHash side="left" />
-      <ThreadHash side="right" />
-    </svg>
-  );
-}
-
-function LongTangent() {
-  return (
-    <svg viewBox="0 0 200 160" aria-hidden="true">
-      <path d="M 40 150 L 40 70 A 50 50 0 0 1 160 70 L 160 150" />
-      <g className="thread">
-        <line x1="32" y1="115" x2="48" y2="115" />
-        <line x1="32" y1="125" x2="48" y2="125" />
-        <line x1="32" y1="135" x2="48" y2="135" />
-        <line x1="32" y1="145" x2="48" y2="145" />
-        <line x1="152" y1="115" x2="168" y2="115" />
-        <line x1="152" y1="125" x2="168" y2="125" />
-        <line x1="152" y1="135" x2="168" y2="135" />
-        <line x1="152" y1="145" x2="168" y2="145" />
       </g>
     </svg>
   );
