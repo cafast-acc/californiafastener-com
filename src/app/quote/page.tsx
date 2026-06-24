@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import "@/styles/cf-quote.css";
 import { CfNav } from "@/components/CfNav";
 import { CfFooter } from "@/components/CfFooter";
-import { RfqJotformEmbed } from "@/components/RfqJotformEmbed";
+import { RfqForm } from "@/components/RfqForm";
 
 export const metadata: Metadata = {
   title: "Request a Quote",
@@ -14,7 +14,7 @@ export default function QuotePage() {
   return (
     <div className="qf-page">
       <CfNav />
-      <RfqJotformEmbed />
+      <RfqForm />
       <CfFooter />
     </div>
   );
