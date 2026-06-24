@@ -32,35 +32,35 @@ export function CfNav({
             <div className="cf-nav-menu-label">Fasteners</div>
             <Link href="/anchor-bolts" role="menuitem">
               Anchor Bolts
-              <span className="cf-nav-menu-sub">F1554, A193, F593 · headed, bent, rod assemblies</span>
+              <span className="cf-nav-menu-sub">F1554, A193, A36...</span>
             </Link>
             <Link href="/stud-bolts-threaded-rod" role="menuitem">
               Stud Bolts &amp; Threaded Rod
-              <span className="cf-nav-menu-sub">B7, B8, B16 · cut to length</span>
+              <span className="cf-nav-menu-sub">A193 B7, B8, B16, A320 L7...</span>
             </Link>
             <Link href="/structural-fasteners" role="menuitem">
               Structural Fasteners
-              <span className="cf-nav-menu-sub">A325, A490, TC bolts</span>
+              <span className="cf-nav-menu-sub">F3125 A325, A490, TC bolts...</span>
             </Link>
             <Link href="/industrial-fasteners" role="menuitem">
               Industrial Fasteners
-              <span className="cf-nav-menu-sub">Hex, socket, flange, grade 5 / 8</span>
+              <span className="cf-nav-menu-sub">A193 B7, A574, A194, F436...</span>
             </Link>
             <Link href="/u-bolts" role="menuitem">
               U-Bolts
-              <span className="cf-nav-menu-sub">Standard &amp; custom profiles</span>
+              <span className="cf-nav-menu-sub">A36, A193, 304, 316...</span>
             </Link>
             <Link href="/stainless-steel-fasteners" role="menuitem">
               Stainless Steel Fasteners
-              <span className="cf-nav-menu-sub">304, 316, duplex</span>
+              <span className="cf-nav-menu-sub">304, 316, duplex, 17-4 PH...</span>
             </Link>
             <Link href="/silicon-bronze" role="menuitem">
               Silicon Bronze Hardware
-              <span className="cf-nav-menu-sub">Marine &amp; architectural</span>
+              <span className="cf-nav-menu-sub">C651 bolts, nuts, washers...</span>
             </Link>
             <Link href="/hollo-bolt" role="menuitem">
               Specialty &amp; Lindapter
-              <span className="cf-nav-menu-sub">Hollo-Bolt, Girder clamps, blind bolts</span>
+              <span className="cf-nav-menu-sub">Hollo-Bolt, girder clamps...</span>
             </Link>
             <div className="cf-nav-menu-footer">
               <Link href="/products">View all products →</Link>

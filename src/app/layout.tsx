@@ -20,7 +20,7 @@ export const metadata: Metadata = {
     template: "%s · California Fastener",
   },
   description:
-    "Bay Area industrial-fastener distributor and CNC machining shop since 1970. Heavy hex, A325, F1554 anchor bolts, A193 stud bolts, stainless and Lindapter Hollo-Bolt. 24-hour quotes, full traceability.",
+    "California-based industrial fastener distributor and CNC machining shop. Heavy hex, A325, F1554 anchor bolts, A193 stud bolts, stainless, and Lindapter Hollo-Bolt — 24-hour quotes, full traceability.",
   metadataBase: new URL("https://californiafastener.com"),
 };
 

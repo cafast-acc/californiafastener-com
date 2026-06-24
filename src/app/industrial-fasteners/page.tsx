@@ -93,7 +93,7 @@ export default function IndustrialFastenersPage() {
           <Property
             num="04"
             title="MTRs every shipment"
-            desc="Heat and lot traceability with every order. DFARS, AS9102 FAI, and PMI documentation when your QA program requires it."
+            desc="Heat and lot traceability with every order. DFARS and PMI documentation when your QA program requires it."
           />
         </div>
       </section>
@@ -183,7 +183,7 @@ export default function IndustrialFastenersPage() {
             img="/assets/products/industrial-flat-washer-2.png"
             imgAlt="F436 hardened flat washer"
             title="Hardened flat washers"
-            desc="Through-hardened flat washers for high-strength bolted joints. Matched to A325, A490, and A193 B7 assemblies."
+            desc="Through-hardened flat washers for high-strength bolted joints. Type 1 plain, Type 3 weathering — sized for A193 stud and A574 SHCS assemblies."
             metaBold="ASTM F436"
             metaRest=" · Type 1 standard · Type 3 weathering"
           />
@@ -280,8 +280,7 @@ export default function IndustrialFastenersPage() {
             <div className="pp-family-cards">
               <div className="pp-spec-card pp-spec-card--hero">
                 <div className="pp-spec-photo">
-                  <Img src="/assets/if-stamp-316.webp" alt="CA 316 head stamp — A193 B8M" />
-                  <Img src="/assets/if-stamp-b8-rod.webp" alt="CA B8 rod stamp — A193 B8" />
+                  <Img src="/assets/stainless-placard.png" alt="A193 B8M stainless hex bolt next to A193 B8 stainless stud bolt — staged silver-tone product shot" />
                 </div>
               </div>
               <SpecCard
@@ -312,20 +311,21 @@ export default function IndustrialFastenersPage() {
               make the <i>joint.</i>
             </h2>
             <p>
-              Match the nut and washer to the bolt grade, or the joint won&apos;t hold the way the
-              spec promises. Here&apos;s what we stock to pair with the families above.
+              Match the nut and washer to the bolt grade — pressure-piping and high-strength joints
+              don&apos;t tolerate mismatched companion hardware. Here&apos;s what we stock to pair with
+              the families above.
             </p>
             <ul className="if-companion-checks">
               <li data-tag="A194">
                 Heavy hex nuts — grades 2H, 2HM, 4, 7, 7M, 8, 8M. 2H pairs with B7; 8M with B8M.
               </li>
               <li data-tag="F436">
-                Through-hardened flat washers — Type 1 plain, Type 3 weathering steel. Matched to
-                A325, A490, A193 B7.
+                Through-hardened flat washers — Type 1 plain, Type 3 weathering steel. Stocked for
+                A193 B7 stud assemblies and high-strength SHCS.
               </li>
               <li data-tag="A563">
-                Carbon &amp; alloy hex nuts — Grades A, B, C, DH. Grade DH heavy hex matched to A325 /
-                A490 structural bolts.
+                Carbon &amp; alloy hex nuts — Grades A, B, C. The general-purpose nut for A307, A449,
+                and SAE Grade 5 / 8 bolts.
               </li>
               <li data-tag="Kits">
                 Bolt / nut / washer kits shipped together, tagged by heat and lot.
@@ -342,8 +342,8 @@ export default function IndustrialFastenersPage() {
               <span className="tag">F436 · Hardened washer</span>
             </div>
             <div>
-              <Img src="/assets/products/industrial-heavy-hex-nut-1.png" alt="A563 DH heavy hex nut" />
-              <span className="tag">A563 DH · Heavy hex nut</span>
+              <Img src="/assets/products/industrial-heavy-hex-nut-1.png" alt="A194 2H heavy hex nut" />
+              <span className="tag">A194 2H · Heavy hex nut</span>
             </div>
           </div>
         </div>
@@ -430,8 +430,8 @@ export default function IndustrialFastenersPage() {
             />
             <TraceCard
               num="04"
-              title="AS9102 FAI"
-              desc="First Article Inspection reports for aerospace programs — we've run these packages before."
+              title="FAI on request"
+              desc="First Article Inspection for new programs — dimensional verification and material certs in one package."
             />
             <TraceCard
               num="05"
@@ -491,7 +491,7 @@ export default function IndustrialFastenersPage() {
               href="/cnc-machining"
               question="Custom machined or non-standard geometry?"
               title="CNC Machining"
-              spec="In-house · DFARS · AS9102"
+              spec="In-house · DFARS · CMM inspection"
             />
           </div>
         </div>

@@ -423,7 +423,7 @@ export default function StainlessSteelFastenersPage() {
             <IndTile href="/industries/oil-gas" tag="B8 / B8M · A193" eyebrow="03 — Chemical process" title={<>Flanged piping<br/>& pressure vessels.</>} desc="Pulp & paper, petrochem, refinery. B8M Cl. 2 for chloride service; B8 for non-chloride acid and neutral process." />
             <IndTile href="/industries/infrastructure" tag="304 · 316" eyebrow="04 — Wastewater" title={<>Municipal<br/>treatment plants.</>} desc="Clarifiers, headworks, UV systems. 316 for anything chlorinated; 304 acceptable in non-contact structural." />
             <IndTile href="/industries/construction" tag="316 · 17-4 H1025" eyebrow="05 — Architectural" title={<>Exposed<br/>facade hardware.</>} desc="Handrails, cladding, curtain-wall anchors. Electropolished or #4 brushed finish; 316 mandatory near coastlines." />
-            <IndTile href="/industries/aerospace" tag="17-4 PH · A286" eyebrow="06 — Aerospace & defense" title={<>High-strength<br/>corrosion-resistant.</>} desc="PH grades for landing gear, engine brackets, airframe hardware. AS9102 FAI reports standard on program work." />
+            <IndTile href="/industries/aerospace" tag="17-4 PH · A286" eyebrow="06 — Aerospace & defense" title={<>High-strength<br/>corrosion-resistant.</>} desc="PH grades for landing gear, engine brackets, airframe hardware. Full inspection and material certs on program work." />
             <IndTile href="/industries/power-generation" tag="316 · Duplex" eyebrow="07 — Renewables" title={<>Solar & offshore<br/>wind hardware.</>} desc="Module clamps, rail hardware, foundation kits. Duplex becoming standard on offshore monopile grout connections." />
             <IndTile href="/silicon-bronze" tag="Silicon bronze · 316" eyebrow="08 — Shipbuilding" title={<>Hull & deck<br/>fittings.</>} desc="Mixed-metal marine service. Silicon bronze sometimes the right answer — see the bronze page for hull-side work." />
           </div>
@@ -448,7 +448,7 @@ export default function StainlessSteelFastenersPage() {
             <TraceCard num="01" title="Material Test Reports" desc="MTRs / Mill Test Certificates tied to the heat and lot on every shipment, with chemistry and mechanical properties." />
             <TraceCard num="02" title="Certificate of Conformance" desc="Signed C of C confirming the parts were manufactured and tested to the called-out ASTM / ISO standards." />
             <TraceCard num="03" title="PMI on request" desc="Positive Material Identification by XRF or OES — per-lot verification that what's in the bag matches the MTR." />
-            <TraceCard num="04" title="AS9102 FAI" desc="First Article Inspection for aerospace programs. We've run PH and A286 packages before — full dimensional + material traceability." />
+            <TraceCard num="04" title="FAI on request" desc="First Article Inspection on new programs — dimensional and material verification in one package, sample retention available." />
             <TraceCard num="05" title="NACE MR0175 / ISO 15156" desc="Sour-service bolting for oil & gas. Callable on B8 / B8M, 2205, and 2507 — specify on the RFQ." />
             <TraceCard num="06" title="DFARS compliant" desc="Domestic-melt / domestic-pour options for defense work. Longer lead on PH grades — plan accordingly." />
             <TraceCard num="07" title="Passivation certs" desc="A967 or AMS 2700 passivation certification on request, with batch copper-sulfate or salt-spray verification." />
@@ -477,7 +477,7 @@ export default function StainlessSteelFastenersPage() {
             <CrossLink href="/anchor-bolts" question="Foundation anchorage?" title="Anchor Bolts" spec="F1554 · A193 B7 / B8 / B8M · F593" />
             <CrossLink href="/silicon-bronze" question="Marine hull & deck in mixed metals?" title="Silicon Bronze Hardware" spec="C651 · C655 — tinned & plain" />
             <CrossLink href="/stud-bolts-threaded-rod" question="Long threaded studs or rod stock?" title="Stud Bolts & Threaded Rod" spec="B7 · B8 · B8M · B16 · cut to length" />
-            <CrossLink href="/cnc-machining" question="Custom machined or non-standard geometry?" title="CNC Machining" spec="In-house · DFARS · AS9102 · 17-4 PH" />
+            <CrossLink href="/cnc-machining" question="Custom machined or non-standard geometry?" title="CNC Machining" spec="In-house · DFARS · CMM · 17-4 PH" />
           </div>
         </div>
       </section>

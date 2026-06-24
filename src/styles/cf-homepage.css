@@ -348,10 +348,13 @@
   border-top: 1px solid var(--rule-soft);
 }
 .specialty-inner {
-  max-width: 1240px; margin: 0 auto;
+  /* Wider container + image col takes ~65% of the row, so the placard
+     reads as a hero shot (comparable to .feat-image on this page) rather
+     than a sidebar thumbnail. */
+  max-width: 1640px; margin: 0 auto;
   display: grid;
-  grid-template-columns: 1.05fr 0.95fr;
-  gap: 56px;
+  grid-template-columns: 0.7fr 1.3fr;
+  gap: 64px;
   align-items: stretch;
 }
 .specialty-text {

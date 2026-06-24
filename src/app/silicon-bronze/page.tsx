@@ -59,6 +59,10 @@ export default function SiliconBronzePage() {
           </div>
           <div className="pp-hero-image">
             <div className="pp-hero-image-tag">C651 · Hex Head · Plain Finish</div>
+            <Img
+              src="/assets/products/bronze-hex-bolt-1.png"
+              alt="Silicon bronze hex head bolt — C651"
+            />
           </div>
         </div>
       </section>
@@ -184,11 +188,11 @@ export default function SiliconBronzePage() {
         <div className="sb-marine-inner">
           <div className="sb-marine-visual">
             <div className="sb-marine-visual-box">
-              <div className="sb-marine-ph">
-                [ Bronze hardware on
-                <br />
-                weathered hull timbers ]
-              </div>
+              <Img
+                className="sb-marine-img"
+                src="https://images.unsplash.com/photo-1494412574643-ff11b0a5c1c3?auto=format&fit=crop&w=1600&q=80"
+                alt="Wharf and harbor scene — marine environment where silicon bronze is specified"
+              />
               <div className="sb-marine-tag">Marine &amp; shipbuilding</div>
             </div>
           </div>
@@ -230,7 +234,12 @@ export default function SiliconBronzePage() {
           </div>
           <div className="sb-apps-grid">
             <Link href="/industries/marine" className="sb-app-tile sb-app-tile--marine">
-              <div className="sb-app-tile-bg" />
+              <div className="sb-app-tile-bg">
+                <Img
+                  src="https://images.unsplash.com/photo-1494412574643-ff11b0a5c1c3?auto=format&fit=crop&w=1600&q=80"
+                  alt=""
+                />
+              </div>
               <div className="sb-app-tile-body">
                 <div className="sb-app-tile-eyebrow">01 — Marine</div>
                 <div className="sb-app-tile-title">Shipbuilding &amp; dock hardware.</div>
@@ -240,7 +249,12 @@ export default function SiliconBronzePage() {
               </div>
             </Link>
             <Link href="/industries/power-transmission" className="sb-app-tile sb-app-tile--electrical">
-              <div className="sb-app-tile-bg" />
+              <div className="sb-app-tile-bg">
+                <Img
+                  src="https://images.squarespace-cdn.com/content/v1/5efbb68d03da3677c3455ba6/79392af3-9542-4258-987d-76124ceec2f3/AdobeStock_182646517.jpeg"
+                  alt=""
+                />
+              </div>
               <div className="sb-app-tile-body">
                 <div className="sb-app-tile-eyebrow">02 — Electrical</div>
                 <div className="sb-app-tile-title">Buswork, grounding &amp; terminations.</div>
@@ -251,7 +265,12 @@ export default function SiliconBronzePage() {
               </div>
             </Link>
             <Link href="/industries/construction" className="sb-app-tile sb-app-tile--arch">
-              <div className="sb-app-tile-bg" />
+              <div className="sb-app-tile-bg">
+                <Img
+                  src="https://images.squarespace-cdn.com/content/v1/5efbb68d03da3677c3455ba6/1e76177d-d96a-4d9d-8931-3f7d049e12d7/construction.jpg"
+                  alt=""
+                />
+              </div>
               <div className="sb-app-tile-body">
                 <div className="sb-app-tile-eyebrow">03 — Architectural</div>
                 <div className="sb-app-tile-title">Exposed architectural hardware.</div>

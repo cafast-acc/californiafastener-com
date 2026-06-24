@@ -61,7 +61,7 @@ export default function StructuralFastenersPage() {
           <div className="pp-hero-image">
             <div className="pp-hero-image-tag">F3125 Gr A325 · Type 1 · Hot-dip galvanized</div>
             <Image
-              src="/assets/products/structural-heavy-hex-bolt-1.png"
+              src="/assets/products/structural-heavy-hex-a325-1.png"
               alt="F3125 Grade A325 structural heavy hex bolt"
               width={3840}
               height={2399}
@@ -486,7 +486,7 @@ export default function StructuralFastenersPage() {
               href="/cnc-machining"
               question="Custom geometry or non-standard part?"
               title="CNC Machining"
-              spec="In-house · DFARS · AS9102"
+              spec="In-house · DFARS · CMM inspection"
             />
           </div>
         </div>

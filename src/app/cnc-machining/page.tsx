@@ -56,7 +56,7 @@ export default function CncMachiningPage() {
               </BulletRow>
               <BulletRow>
                 <strong>USA-made.</strong> Full traceability from raw material to finished part;
-                ITAR-aware workflows.
+                secure drawings handling.
               </BulletRow>
               <BulletRow>
                 Alloy &amp; stainless steel, aluminum, titanium, Inconel, Delrin, PEEK,
@@ -102,8 +102,8 @@ export default function CncMachiningPage() {
             Precision parts. <i>Built to your print.</i>
           </h2>
           <p className="cnc-section-sub">
-            We specialize in precision CNC machined fasteners and components — built to your print,
-            with in-house inspection and supply chain transparency.
+            Precision CNC machined fasteners and components, built to your print — with in-house
+            inspection and full supply-chain traceability.
           </p>
         </div>
         <div className="cnc-values">
@@ -125,7 +125,7 @@ export default function CncMachiningPage() {
           <Value
             num="USA"
             title="Made & traceable"
-            desc="Full material traceability from mill to finished part. ITAR-aware workflows, MTRs on request."
+            desc="Full material traceability from mill to finished part. Secure drawings handling, MTRs on request."
           />
           <Value
             num={
@@ -237,7 +237,7 @@ export default function CncMachiningPage() {
                 <li>Target quantity</li>
                 <li>Needed-by date / rush flag</li>
                 <li>Finishing (plating, anodize, passivation)</li>
-                <li>Required certs (MTRs, PPAP, ITAR)</li>
+                <li>Required certs (MTRs, PPAP, secure drawings)</li>
                 <li>Packaging or kitting requirements</li>
               </ul>
             </div>

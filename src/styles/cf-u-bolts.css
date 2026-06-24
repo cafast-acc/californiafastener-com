@@ -8,16 +8,18 @@
 
    Class prefix: .ub-* */
 
-/* ── PRODUCT-CARD SVG SHAPE ──────────────────────────── */
-.ub-shape { background: #E7E5E0; aspect-ratio: 4 / 3; position: relative; overflow: hidden; display: flex; align-items: center; justify-content: center; }
-.ub-shape svg { width: 70%; height: 70%; }
-.ub-shape svg path, .ub-shape svg line, .ub-shape svg circle, .ub-shape svg rect { stroke: var(--ink); fill: none; stroke-width: 6; stroke-linecap: round; stroke-linejoin: round; }
-.ub-shape svg .thread { stroke-width: 1.5; stroke: var(--ink); opacity: 0.6; }
+/* ── PRODUCT-CARD RENDER SLOT ────────────────────────── */
+/* Renders are 16:10. Slot is 4:3. Use cover so the render fills the slot
+   completely (only the bg margin around the bolt gets trimmed — the bolt
+   itself sits comfortably within frame). */
+.ub-shape { background: #E8E6E1; aspect-ratio: 4 / 3; position: relative; overflow: hidden; display: flex; align-items: center; justify-content: center; }
+.ub-shape img { width: 100%; height: 100%; object-fit: cover; object-position: center; display: block; }
 .ub-shape .pnum { position: absolute; top: 18px; left: 18px; font-family: var(--cf-font-mono); font-size: 11px; color: var(--mid); letter-spacing: 0.04em; z-index: 2; }
 
-/* Hero SVG — full-bleed inside the pp-hero-image bed */
-.ub-hero-svg { width: 80%; height: auto; max-height: 88%; }
-.pp-hero-image .ub-hero-svg { transform: none; object-fit: contain; }
+/* Hero render — clean centered product shot. Override the default
+   .pp-hero-image scale/crop. Use cover (no padding) so the render fills
+   the placard with no visible bg border around it. */
+.pp-hero-image img { transform: none; object-fit: cover; object-position: center; padding: 0; }
 
 /* ── SIZING / GEOMETRY EXPLAINER ─────────────────────── */
 .ub-sizing { padding: 120px 40px; }

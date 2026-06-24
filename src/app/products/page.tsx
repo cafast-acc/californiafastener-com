@@ -108,6 +108,8 @@ const FAMILIES: Family[] = [
     description: "Standard & custom profiles, bent to your radius.",
     grades: ["Round", "Square", "Custom"],
     href: "/u-bolts",
+    image: "/assets/products/ub-round-bend.png",
+    imageAlt: "Round-bend U-bolt with hex nuts",
     placeholder: "A1 · U-bolt",
   },
   {
@@ -190,7 +192,7 @@ export default function ProductsPage() {
           </h1>
           <div>
             <p className="pe-head-sub">
-              Nine fastener families and in-house CNC machining — anchor bolts to silicon
+              Eight fastener families and in-house CNC machining — anchor bolts to silicon
               bronze, in stock and built to print.
             </p>
             <div className="pe-head-meta">
@@ -198,7 +200,7 @@ export default function ProductsPage() {
                 <b>9</b>Product families
               </div>
               <div>
-                <b>28+</b>Stock SKUs
+                <b>28K+</b>Stock SKUs
               </div>
               <div>
                 <b>24hr</b>Quote turnaround
