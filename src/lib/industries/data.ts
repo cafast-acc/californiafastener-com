@@ -88,7 +88,7 @@ export const PRODUCT_CARDS: Record<ProductCardKey, ProductCard> = {
   studbolt: { title: "Stud Bolts & Threaded Rod", sub: "B7, B8, B16 · cut to length", placeholder: "Stud Bolt", img: "/assets/products/stud-threaded-rod-1.png" },
   anchor: { title: "Anchor Bolts", sub: "F1554 · headed, bent, rod", placeholder: "Anchor Bolt", img: "/assets/products/structural-f1554-anchor-rod-5.png" },
   custom: { title: "Custom Products", sub: "Built to your print", placeholder: "Custom Part", img: "/assets/custom-stud.png" },
-  structural: { title: "Structural Bolts", sub: "A325, A490, TC bolts", placeholder: "Structural Bolt", img: "/assets/products/structural-heavy-hex-bolt-1.png" },
+  structural: { title: "Structural Bolts", sub: "A325, A490, TC bolts", placeholder: "Structural Bolt", img: "/assets/products/structural-heavy-hex-a325-1.png" },
   precision: { title: "Precision Screws", sub: "Electronics & fine mech.", placeholder: "Precision Screw", img: "/assets/products/ss-socket-head-1.png" },
   inserts: { title: "Threaded Inserts", sub: "For plastics and soft material", placeholder: "Threaded Insert" },
   stainless: { title: "Stainless Steel Fasteners", sub: "304, 316, duplex", placeholder: "Stainless Bolt", img: "/assets/products/ss-hex-cap-1.png" },

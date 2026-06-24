@@ -60,7 +60,7 @@ export default function SiliconBronzePage() {
           <div className="pp-hero-image">
             <div className="pp-hero-image-tag">C651 · Hex Head · Plain Finish</div>
             <Img
-              src="/assets/products/bronze-hex-bolt-1-cutout.png"
+              src="/assets/products/bronze-hex-bolt-1.png"
               alt="Silicon bronze hex head bolt — C651"
             />
           </div>

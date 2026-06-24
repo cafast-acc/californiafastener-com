@@ -145,7 +145,7 @@ export default function HomePage() {
         </div>
         <div className="feat-image">
           <Image
-            src="/assets/products/structural-heavy-hex-bolt-1.png"
+            src="/assets/products/structural-heavy-hex-a325-1.png"
             alt="A325 heavy hex structural bolt render"
             width={3840}
             height={2399}
