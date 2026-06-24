@@ -188,7 +188,7 @@ export default function AnchorBoltsPage() {
             />
             <GradeCard
               spec="ASTM A193"
-              img="/assets/threaded-rod-render-2.png"
+              img="/assets/threaded-rod-render.png"
               imgAlt="A193 B8 stainless anchor rod render"
               title="High-temp alloy & SS"
               desc="Chrome-moly and stainless bar for pressure equipment, turbine skids, and corrosion-critical anchorage."
