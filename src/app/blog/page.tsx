@@ -9,7 +9,10 @@ import { homeQuery } from "@/sanity/lib/queries";
 import { sanityFetch } from "@/sanity/lib/fetch";
 import type { HomePayload } from "@/sanity/types";
 
-export const revalidate = 3600;
+// Fallback cache window. The Sanity webhook at /api/revalidate clears the
+// blog:index / post / category tags on every content change for near-instant
+// updates; this 60s ceiling just bounds staleness if the webhook isn't firing.
+export const revalidate = 60;
 
 export const metadata: Metadata = {
   title: "Field Notes — Technical articles from the shop floor",
@@ -23,6 +26,7 @@ export default async function BlogIndexPage() {
     (await sanityFetch<HomePayload>({
       query: homeQuery,
       tags: ["blog:index", "post", "category"],
+      revalidate: 60,
     })) ?? { posts: [], categories: [] };
 
   const { posts, categories } = data;

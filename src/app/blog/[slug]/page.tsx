@@ -14,7 +14,8 @@ import { sanityFetch } from "@/sanity/lib/fetch";
 import { postBySlugQuery, postSlugsQuery } from "@/sanity/lib/queries";
 import type { PostFull } from "@/sanity/types";
 
-export const revalidate = 3600;
+// Fallback cache window; the /api/revalidate webhook handles instant updates.
+export const revalidate = 60;
 export const dynamicParams = true;
 
 type Params = Promise<{ slug: string }>;
