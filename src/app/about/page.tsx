@@ -165,28 +165,25 @@ export default function AboutPage() {
               <div className="number-num">
                 24<span>hr</span>
               </div>
-              <div className="number-label">Average quote turnaround on a standard request.</div>
+              <div className="number-label">Quote turnaround, every order.</div>
             </div>
             <div className="number-cell">
               <div className="number-num">
-                <i>±.0005</i>
-                <span>″</span>
+                <i>28K+</i>
               </div>
-              <div className="number-label">CNC tolerance capability — production, not best-case.</div>
+              <div className="number-label">Stock SKUs, ready to ship.</div>
             </div>
             <div className="number-cell">
               <div className="number-num">
                 100<span>%</span>
               </div>
-              <div className="number-label">
-                Orders shipped with mill test reports and traceability.
-              </div>
+              <div className="number-label">Heat-and-lot traceable. MTRs on request.</div>
             </div>
             <div className="number-cell">
               <div className="number-num">
-                3<span>pm</span>
+                <i>USA</i>
               </div>
-              <div className="number-label">Order cutoff for same-day shipping, Monday–Friday.</div>
+              <div className="number-label">Same-day domestic shipping.</div>
             </div>
           </div>
         </div>

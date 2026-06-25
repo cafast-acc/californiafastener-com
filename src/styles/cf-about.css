@@ -532,12 +532,15 @@
 .certs-grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  gap: 48px;
+  gap: 0;
+  border-top: 1px solid var(--rule);
 }
 .cert-col {
-  padding-top: 22px;
-  border-top: 1px solid var(--rule-soft);
+  padding: 36px 32px;
+  border-right: 1px solid var(--rule-soft);
 }
+.cert-col:first-child { padding-left: 0; }
+.cert-col:last-child { border-right: none; padding-right: 0; }
 .cert-col h3 {
   font-size: 12px;
   font-weight: 600;
@@ -562,7 +565,8 @@
   background: var(--blue-dark);
 }
 @media (max-width: 1024px) {
-  .certs-grid { grid-template-columns: 1fr 1fr; gap: 40px; }
+  .certs-grid { grid-template-columns: 1fr 1fr; }
+  .cert-col { border-right: none; border-bottom: 1px solid var(--rule-soft); padding: 28px 0; }
 }
 @media (max-width: 560px) {
   .certs-grid { grid-template-columns: 1fr; }
