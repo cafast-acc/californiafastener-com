@@ -549,12 +549,12 @@
   color: var(--ink);
   margin: 0 0 18px;
 }
-.cert-col ul { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 14px; }
+.cert-col ul { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 11px; }
 .cert-col li {
   font-size: 14px;
   color: var(--ink-soft);
   letter-spacing: -0.005em;
-  line-height: 1.4;
+  line-height: 1.35;
   padding-left: 16px;
   position: relative;
 }
