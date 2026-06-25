@@ -26,10 +26,13 @@ export function CfFooter() {
         <div className="cf-footer-col">
           <h4>Industries</h4>
           <Link href="/industries/construction">Construction</Link>
-          <Link href="/industries/power-generation">Power Generation</Link>
+          <Link href="/industries/manufacturing">Industrial Machinery</Link>
           <Link href="/industries/infrastructure">Infrastructure</Link>
-          <Link href="/industries/manufacturing">Manufacturing</Link>
-          <Link href="/industries/oil-gas">Oil, Gas &amp; Chemical</Link>
+          <Link href="/industries/power-generation">Renewable Energy</Link>
+          <Link href="/industries/power-transmission">Power &amp; Utilities</Link>
+          <Link href="/industries/oil-gas">Oil, Gas &amp; Petrochemical</Link>
+          <Link href="/industries/marine">Marine &amp; Shipbuilding</Link>
+          <Link href="/industries/aerospace">Aerospace &amp; Defense</Link>
         </div>
         <div className="cf-footer-col">
           <h4>Resources</h4>
