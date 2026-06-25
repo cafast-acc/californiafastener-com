@@ -175,11 +175,6 @@
   letter-spacing: -0.005em;
   margin: 0;
 }
-.bl-sort {
-  font-size: 13px;
-  color: var(--cf-ink-soft);
-  letter-spacing: -0.005em;
-}
 .bl-empty {
   font-size: 15px;
   color: var(--cf-mid);
