@@ -423,26 +423,26 @@ export default function HomePage() {
 
       {/* FINAL QUOTE CTA */}
       <section className="quote-cta">
-        <div className="quote-cta-eyebrow">Get Started</div>
+        <div className="quote-cta-eyebrow">Get in touch</div>
         <h2>
-          Let&apos;s get you
+          Send us a print.
           <br />
-          a quote.
+          We&rsquo;ll send you a quote.
         </h2>
         <p>
-          Every quote goes to a real person — not a routing queue. Upload your drawings and we&apos;ll
-          respond within 24 hours.
+          Every quote gets a real person. Drawings, specs, even a back-of-napkin sketch — we&rsquo;ll
+          work with what you have.
         </p>
         <div className="quote-cta-ctas">
           <Link href="/quote" className="cf-pill cf-pill--blue">
             Request a Quote
           </Link>
-          <a href="tel:7077413277" className="cf-link">
-            Call 707.741.3277
+          <a href="tel:18337073278" className="cf-link">
+            Call 833.707.FAST
           </a>
         </div>
         <div className="quote-cta-meta">
-          No account required · 24-hour response · Full traceability
+          <strong>24-hour response</strong> · No account required · USA-manufactured
         </div>
       </section>
 
