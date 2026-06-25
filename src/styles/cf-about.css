@@ -536,7 +536,7 @@
   border-top: 1px solid var(--rule);
 }
 .cert-col {
-  padding: 36px 32px;
+  padding: 48px 40px;
   border-right: 1px solid var(--rule-soft);
 }
 .cert-col:first-child { padding-left: 0; }
@@ -547,14 +547,14 @@
   letter-spacing: 0.08em;
   text-transform: uppercase;
   color: var(--ink);
-  margin: 0 0 18px;
+  margin: 0 0 26px;
 }
-.cert-col ul { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 11px; }
+.cert-col ul { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 18px; }
 .cert-col li {
   font-size: 14px;
   color: var(--ink-soft);
   letter-spacing: -0.005em;
-  line-height: 1.35;
+  line-height: 1.45;
   padding-left: 16px;
   position: relative;
 }
