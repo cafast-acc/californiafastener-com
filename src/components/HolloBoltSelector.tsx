@@ -117,15 +117,17 @@ export function HolloBoltSelector() {
     const form = e.currentTarget;
     const get = (id: string) =>
       form.querySelector<HTMLInputElement>(`#${id}`)?.value.trim() ?? "";
-    const name = get("hbs-f-name");
+    const firstName = get("hbs-f-first");
+    const lastName = get("hbs-f-last");
     const company = get("hbs-f-company");
     const email = get("hbs-f-email");
     const phone = get("hbs-f-phone");
     const notes = get("hbs-f-notes");
 
-    // The shared form splits name into first/last; fold any extra words into last.
-    const [firstName, ...rest] = name.split(/\s+/).filter(Boolean);
-    const lastName = rest.join(" ");
+    // First name, last name, company, and email are all required by the Jotform
+    // (server-side). Bail if any is empty rather than firing a POST Jotform will
+    // silently reject — the no-cors response is opaque so we'd never see the error.
+    if (!firstName || !lastName || !company || !email) return;
 
     const itemLines = cart
       .map(
@@ -146,7 +148,7 @@ export function HolloBoltSelector() {
     fd.append("submitSource", "californiafastener-com/hollo-bolt");
     fd.append("submitDate", new Date().toISOString());
     fd.append("eventObserver", "1");
-    fd.append("q3_q3_textbox1", firstName || name);
+    fd.append("q3_q3_textbox1", firstName);
     fd.append("q4_q4_textbox2", lastName);
     fd.append("q5_q5_email3", email);
     fd.append("q6_q6_textbox4", company);
@@ -478,12 +480,16 @@ export function HolloBoltSelector() {
               </div>
               <form className="hbs-quote-form" onSubmit={submitQuote}>
                 <div className="hbs-field">
-                  <label htmlFor="hbs-f-name">Name</label>
-                  <input id="hbs-f-name" type="text" className="hbs-input" required />
+                  <label htmlFor="hbs-f-first">First name</label>
+                  <input id="hbs-f-first" type="text" className="hbs-input" required />
+                </div>
+                <div className="hbs-field">
+                  <label htmlFor="hbs-f-last">Last name</label>
+                  <input id="hbs-f-last" type="text" className="hbs-input" required />
                 </div>
                 <div className="hbs-field">
                   <label htmlFor="hbs-f-company">Company</label>
-                  <input id="hbs-f-company" type="text" className="hbs-input" />
+                  <input id="hbs-f-company" type="text" className="hbs-input" required />
                 </div>
                 <div className="hbs-field">
                   <label htmlFor="hbs-f-email">Email</label>
