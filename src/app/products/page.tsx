@@ -119,7 +119,7 @@ const FAMILIES: Family[] = [
     description: "Marine & architectural hardware, C651.",
     grades: ["C651", "Marine"],
     href: "/silicon-bronze",
-    image: "/assets/products/bronze-hex-bolt-1.png",
+    image: "/assets/products/bronze-hex-bolt-v2.png",
     imageAlt: "Silicon bronze hex head bolt",
     placeholder: "A1 · Silicon bronze",
   },

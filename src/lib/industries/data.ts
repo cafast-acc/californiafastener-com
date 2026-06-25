@@ -88,7 +88,7 @@ export const PRODUCT_CARDS: Record<ProductCardKey, ProductCard> = {
   structural: { title: "Structural Bolts", sub: "A325, A490, TC bolts", placeholder: "Structural Bolt", img: "/assets/products/structural-heavy-hex-a325-1.png" },
   precision: { title: "Precision Screws", sub: "Electronics & fine mech.", placeholder: "Precision Screw", img: "/assets/products/ss-socket-head-1.png" },
   stainless: { title: "Stainless Steel Fasteners", sub: "304, 316, duplex", placeholder: "Stainless Bolt", img: "/assets/products/ss-hex-cap-1.png" },
-  bronze: { title: "Silicon Bronze Hardware", sub: "Marine & architectural", placeholder: "Bronze Bolt", img: "/assets/products/bronze-hex-bolt-1.png" },
+  bronze: { title: "Silicon Bronze Hardware", sub: "Marine & architectural", placeholder: "Bronze Bolt", img: "/assets/products/bronze-hex-bolt-v2.png" },
 };
 
 export const INDUSTRIES: Record<IndustrySlug, Industry> = {

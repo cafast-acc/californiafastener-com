@@ -60,7 +60,7 @@ export default function SiliconBronzePage() {
           <div className="pp-hero-image">
             <div className="pp-hero-image-tag">C651 · Hex Head · Plain Finish</div>
             <Img
-              src="/assets/products/bronze-hex-bolt-1.png"
+              src="/assets/products/bronze-hex-bolt-v2.png"
               alt="Silicon bronze hex head bolt — C651"
             />
           </div>
@@ -113,7 +113,7 @@ export default function SiliconBronzePage() {
             title="Hex head bolts"
             desc="Forged hex head, full or partial thread, plain or tinned finish. The standard bronze bolt for marine and electrical use."
             spec="ASTM F468 · C651"
-            img="/assets/products/bronze-hex-bolt-1.png"
+            img="/assets/products/bronze-hex-bolt-v2.png"
             imgAlt="Silicon bronze hex head bolt"
           />
           <RangeCard
@@ -121,7 +121,7 @@ export default function SiliconBronzePage() {
             title="Hex nuts"
             desc="Finished and heavy hex nuts machined from bronze bar. Sized to pair with our bolt inventory."
             spec="ASTM F467 · C651"
-            img="/assets/products/bronze-hex-nut-1.png"
+            img="/assets/products/bronze-hex-nut-v2.png"
             imgAlt="Silicon bronze hex nut"
           />
           <RangeCard
@@ -129,7 +129,7 @@ export default function SiliconBronzePage() {
             title="Flat washers"
             desc="Flat washers in standard and fender patterns to distribute load and protect mating surfaces."
             spec="ASME B18.22.1 · C651"
-            img="/assets/products/bronze-washer-1.png"
+            img="/assets/products/bronze-washer-v2.png"
             imgAlt="Silicon bronze flat washer"
           />
           <RangeCard
@@ -137,7 +137,7 @@ export default function SiliconBronzePage() {
             title="Lock washers"
             desc="Split-ring lock washers for connections subject to vibration — electrical buswork, marine fittings, terminal lugs."
             spec="ASME B18.21.1 · C651"
-            img="/assets/products/bronze-lock-washer-1.png"
+            img="/assets/products/bronze-lock-washer-v2.png"
             imgAlt="Silicon bronze split-ring lock washer"
           />
         </div>
