@@ -17,11 +17,11 @@ import {
 
 type CartItem = Product & { sku: string; finish: Finish; qty: number };
 
-// Hollo-Bolt quote requests post to the shared "Request a Quote" Jotform
-// (same form /quote uses). Cart contents are packed into the RFQ description
-// field (q9) so estimators see the exact SKUs and quantities. Field names come
-// from the form's Source Code embed — keep them in sync with RfqForm.tsx.
-const QUOTE_JOTFORM_ID = "261747488304061";
+// Hollo-Bolt quote requests post to their own dedicated "Hollo-Bolt Quote
+// Request" Jotform (separate from the general /quote form) so the team gets
+// these in their own inbox. HTML field names follow Jotform's q{qid}_{name}
+// convention; keep them in sync if the form's fields are rebuilt.
+const QUOTE_JOTFORM_ID = "261756818395068";
 const QUOTE_SUBMIT_URL = `https://submit.jotform.com/submit/${QUOTE_JOTFORM_ID}`;
 
 const HEAD_OPTIONS: { value: HeadType; label: string }[] = [
@@ -136,11 +136,6 @@ export function HolloBoltSelector() {
           `${i.hcf ? " · HCF" : ""} · grip ${i.gripDisp}`
       )
       .join("\n");
-    const descParts = ["Hollo-Bolt Selector quote request", ""];
-    if (project) descParts.push(`Project reference: ${project}`, "");
-    descParts.push("Items:", itemLines);
-    if (notes) descParts.push("", `Application notes: ${notes}`);
-    const description = descParts.join("\n");
 
     const fd = new FormData();
     fd.append("formID", QUOTE_JOTFORM_ID);
@@ -148,12 +143,14 @@ export function HolloBoltSelector() {
     fd.append("submitSource", "californiafastener-com/hollo-bolt");
     fd.append("submitDate", new Date().toISOString());
     fd.append("eventObserver", "1");
-    fd.append("q3_q3_textbox1", firstName);
-    fd.append("q4_q4_textbox2", lastName);
-    fd.append("q5_q5_email3", email);
-    fd.append("q6_q6_textbox4", company);
-    if (phone) fd.append("q7_q7_phone5[full]", phone);
-    fd.append("q9_q9_textarea7", description);
+    fd.append("q2_q2_textbox0", firstName); // First Name
+    fd.append("q3_q3_textbox1", lastName); // Last Name
+    fd.append("q4_q4_email2", email); // Email
+    fd.append("q5_q5_textbox3", company); // Company
+    if (phone) fd.append("q6_q6_phone4[full]", phone); // Phone
+    if (project) fd.append("q7_q7_textbox5", project); // Project Reference
+    fd.append("q8_q8_textarea6", itemLines); // Hollo-Bolt Items
+    if (notes) fd.append("q9_q9_textarea7", notes); // Application Notes
     // Honeypot — leave blank.
     fd.append("website", "");
 
