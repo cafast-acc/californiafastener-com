@@ -3,7 +3,6 @@ import Image from "next/image";
 import "@/styles/cf-homepage.css";
 import { CfNav } from "@/components/CfNav";
 import { CfFooter } from "@/components/CfFooter";
-import { SpecBuilderTrigger } from "@/components/SpecBuilderTrigger";
 import { Img } from "@/components/Img";
 
 export default function HomePage() {
@@ -387,9 +386,9 @@ export default function HomePage() {
               Answer a few questions about your application, environment, and strength requirement.
               We&apos;ll narrow thousands of grades down to the handful that actually fit your project.
             </p>
-            <SpecBuilderTrigger className="cf-pill cf-pill--purple">
+            <Link href="/spec-builder" className="cf-pill cf-pill--purple">
               Open Spec Builder
-            </SpecBuilderTrigger>
+            </Link>
           </div>
           <div className="spec-feat-viz">
             <div className="spec-feat-viz-head">

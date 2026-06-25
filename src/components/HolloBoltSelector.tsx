@@ -17,6 +17,13 @@ import {
 
 type CartItem = Product & { sku: string; finish: Finish; qty: number };
 
+// Hollo-Bolt quote requests post to the shared "Request a Quote" Jotform
+// (same form /quote uses). Cart contents are packed into the RFQ description
+// field (q9) so estimators see the exact SKUs and quantities. Field names come
+// from the form's Source Code embed — keep them in sync with RfqForm.tsx.
+const QUOTE_JOTFORM_ID = "261747488304061";
+const QUOTE_SUBMIT_URL = `https://submit.jotform.com/submit/${QUOTE_JOTFORM_ID}`;
+
 const HEAD_OPTIONS: { value: HeadType; label: string }[] = [
   { value: "HEX", label: "Hex" },
   { value: "CSK", label: "Countersunk" },
@@ -34,6 +41,7 @@ export function HolloBoltSelector() {
   const [cart, setCart] = useState<CartItem[]>([]);
   const [cartOpen, setCartOpen] = useState(false);
   const [toast, setToast] = useState<string | null>(null);
+  const [submitting, setSubmitting] = useState(false);
   const [submitted, setSubmitted] = useState(false);
   const [recentlyAdded, setRecentlyAdded] = useState<string | null>(null);
 
@@ -101,6 +109,65 @@ export function HolloBoltSelector() {
   }
 
   const cartCount = cart.reduce((s, i) => s + i.qty, 0);
+
+  async function submitQuote(e: React.FormEvent<HTMLFormElement>) {
+    e.preventDefault();
+    if (submitting || submitted || cart.length === 0) return;
+
+    const form = e.currentTarget;
+    const get = (id: string) =>
+      form.querySelector<HTMLInputElement>(`#${id}`)?.value.trim() ?? "";
+    const name = get("hbs-f-name");
+    const company = get("hbs-f-company");
+    const email = get("hbs-f-email");
+    const phone = get("hbs-f-phone");
+    const notes = get("hbs-f-notes");
+
+    // The shared form splits name into first/last; fold any extra words into last.
+    const [firstName, ...rest] = name.split(/\s+/).filter(Boolean);
+    const lastName = rest.join(" ");
+
+    const itemLines = cart
+      .map(
+        (i) =>
+          `• ${i.sku}  ×${i.qty} — ${i.size}" ${HEAD_LABELS[i.head]} · ${FINISH_LABELS[i.finish]}` +
+          `${i.hcf ? " · HCF" : ""} · grip ${i.gripDisp}`
+      )
+      .join("\n");
+    const descParts = ["Hollo-Bolt Selector quote request", ""];
+    if (project) descParts.push(`Project reference: ${project}`, "");
+    descParts.push("Items:", itemLines);
+    if (notes) descParts.push("", `Application notes: ${notes}`);
+    const description = descParts.join("\n");
+
+    const fd = new FormData();
+    fd.append("formID", QUOTE_JOTFORM_ID);
+    fd.append("simple_spc", `${QUOTE_JOTFORM_ID}-${QUOTE_JOTFORM_ID}`);
+    fd.append("submitSource", "californiafastener-com/hollo-bolt");
+    fd.append("submitDate", new Date().toISOString());
+    fd.append("eventObserver", "1");
+    fd.append("q3_q3_textbox1", firstName || name);
+    fd.append("q4_q4_textbox2", lastName);
+    fd.append("q5_q5_email3", email);
+    fd.append("q6_q6_textbox4", company);
+    if (phone) fd.append("q7_q7_phone5[full]", phone);
+    fd.append("q9_q9_textarea7", description);
+    // Honeypot — leave blank.
+    fd.append("website", "");
+
+    setSubmitting(true);
+    try {
+      // no-cors: the response is opaque (Jotform's submit endpoint sends no CORS
+      // headers) but the POST is accepted. Same trade-off RfqForm.tsx makes — we
+      // confirm optimistically.
+      await fetch(QUOTE_SUBMIT_URL, { method: "POST", body: fd, mode: "no-cors" });
+    } catch (err) {
+      console.error("Hollo-Bolt quote submission to Jotform failed:", err);
+    }
+    setSubmitting(false);
+    setSubmitted(true);
+    flashToast("Quote request received — we'll be in touch.");
+  }
 
   return (
     <div className="hbs-root">
@@ -409,14 +476,7 @@ export function HolloBoltSelector() {
                   </div>
                 ))}
               </div>
-              <form
-                className="hbs-quote-form"
-                onSubmit={(e) => {
-                  e.preventDefault();
-                  setSubmitted(true);
-                  flashToast("Quote request received — we'll be in touch.");
-                }}
-              >
+              <form className="hbs-quote-form" onSubmit={submitQuote}>
                 <div className="hbs-field">
                   <label htmlFor="hbs-f-name">Name</label>
                   <input id="hbs-f-name" type="text" className="hbs-input" required />
@@ -444,8 +504,12 @@ export function HolloBoltSelector() {
                     placeholder="HSS size, loading, timeline, delivery…"
                   />
                 </div>
-                <button type="submit" className="hbs-submit" disabled={submitted}>
-                  {submitted ? "Sent ✓ — we'll be in touch" : "Request Quote"}
+                <button type="submit" className="hbs-submit" disabled={submitting || submitted}>
+                  {submitted
+                    ? "Sent ✓ — we'll be in touch"
+                    : submitting
+                      ? "Sending…"
+                      : "Request Quote"}
                 </button>
               </form>
             </>
