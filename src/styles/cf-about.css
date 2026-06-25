@@ -87,7 +87,7 @@
 
 /* ─── SECTION SCAFFOLD ─────────────────────────── */
 .about-section {
-  padding: 120px 40px;
+  padding: 84px 40px;
 }
 .about-section--alt { background: var(--bg-alt); }
 .about-section--dark { background: var(--dark-1); color: var(--dark-text); }
@@ -153,12 +153,12 @@
 .pillars-head {
   display: grid;
   grid-template-columns: 1fr 1.4fr;
-  gap: 80px;
-  align-items: end;
-  margin-bottom: 64px;
+  gap: 64px;
+  align-items: start;
+  margin-bottom: 44px;
 }
 .pillars-head h2 {
-  font-size: clamp(36px, 4vw, 56px);
+  font-size: clamp(32px, 3.4vw, 48px);
   font-weight: 600;
   line-height: 1.05;
   letter-spacing: -0.03em;
@@ -220,7 +220,7 @@
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   gap: 0;
-  margin-top: 48px;
+  margin-top: 40px;
   border-top: 1px solid rgba(255,255,255,0.22);
 }
 .number-cell {
@@ -247,7 +247,7 @@
   max-width: 240px;
 }
 .numbers-head h2 {
-  font-size: clamp(36px, 4vw, 56px);
+  font-size: clamp(32px, 3.4vw, 48px);
   font-weight: 600;
   line-height: 1.05;
   letter-spacing: -0.03em;
@@ -311,12 +311,12 @@
 .cap-head {
   display: grid;
   grid-template-columns: 1fr 1.2fr;
-  gap: 80px;
-  align-items: end;
-  margin-bottom: 56px;
+  gap: 64px;
+  align-items: start;
+  margin-bottom: 40px;
 }
 .cap-head h2 {
-  font-size: clamp(36px, 4vw, 56px);
+  font-size: clamp(32px, 3.4vw, 48px);
   font-weight: 600;
   line-height: 1.05;
   letter-spacing: -0.03em;

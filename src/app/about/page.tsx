@@ -197,11 +197,7 @@ export default function AboutPage() {
         <div className="about-section-inner">
           <div className="about-section-eyebrow">Standards &amp; Compliance</div>
           <div className="cap-head">
-            <h2>
-              We supply to the spec —
-              <br />
-              and prove it on paper.
-            </h2>
+            <h2>We supply to the spec — and prove it on paper.</h2>
             <p>
               Across every industry we serve, hardware ships to a recognized standard with the
               documentation to match. A working list of the specifications and provenance
