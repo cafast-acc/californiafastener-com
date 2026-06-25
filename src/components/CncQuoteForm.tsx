@@ -3,14 +3,78 @@
 import { useState } from "react";
 
 /**
- * Inline RFQ form for /cnc-machining. Visual placeholder that mirrors the
- * design's demo behavior — clicking submit reveals the thank-you panel.
+ * Inline RFQ form for /cnc-machining. Posts to the dedicated "CNC Machining
+ * Quote Request" Jotform (separate from /quote and the Hollo-Bolt form) so the
+ * team gets these in their own inbox. Drawings/STEP files ride along in the
+ * multipart body. Uses mode: "no-cors" — the response is opaque (Jotform's
+ * submit endpoint sends no CORS headers) but the POST is accepted, so we
+ * confirm optimistically (same pattern as RfqForm.tsx).
  *
- * Real submission deferred to Jotform per the project plan; when wired,
- * swap to the same hidden-iframe pattern used by spec-builder's QuoteModal.
+ * HTML field names follow Jotform's q{qid}_{name} convention; keep them in
+ * sync if the form's fields are rebuilt.
  */
+const CNC_JOTFORM_ID = "261757857130059";
+const CNC_SUBMIT_URL = `https://submit.jotform.com/submit/${CNC_JOTFORM_ID}`;
+
 export function CncQuoteForm() {
   const [sent, setSent] = useState(false);
+  const [submitting, setSubmitting] = useState(false);
+
+  async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
+    e.preventDefault();
+    if (submitting || sent) return;
+
+    const form = e.currentTarget;
+    const get = (id: string) => {
+      const el = form.querySelector(`#${id}`) as
+        | HTMLInputElement
+        | HTMLTextAreaElement
+        | HTMLSelectElement
+        | null;
+      return el?.value.trim() ?? "";
+    };
+
+    const first = get("cnc-fn");
+    const last = get("cnc-ln");
+    const company = get("cnc-co");
+    const email = get("cnc-em");
+    const phone = get("cnc-ph");
+    const qty = get("cnc-qty");
+    const need = get("cnc-need");
+    const notes = get("cnc-notes");
+    const files = form.querySelector<HTMLInputElement>("#cnc-file")?.files;
+
+    const fd = new FormData();
+    fd.append("formID", CNC_JOTFORM_ID);
+    fd.append("simple_spc", `${CNC_JOTFORM_ID}-${CNC_JOTFORM_ID}`);
+    fd.append("submitSource", "californiafastener-com/cnc-machining");
+    fd.append("submitDate", new Date().toISOString());
+    fd.append("eventObserver", "1");
+    fd.append("q2_q2_textbox0", first); // First Name
+    fd.append("q3_q3_textbox1", last); // Last Name
+    fd.append("q4_q4_textbox2", company); // Company
+    fd.append("q5_q5_email3", email); // Email
+    fd.append("q6_q6_phone4[full]", phone); // Phone
+    if (qty) fd.append("q7_q7_dropdown5", qty); // Estimated Quantity
+    if (need) fd.append("q8_q8_dropdown6", need); // Needed By
+    if (notes) fd.append("q9_q9_textarea7", notes); // Project Notes & Materials
+    if (files) {
+      for (const f of Array.from(files)) {
+        fd.append("q10_q10_fileupload8[]", f, f.name); // Drawings & Files
+      }
+    }
+    // Honeypot — leave blank.
+    fd.append("website", "");
+
+    setSubmitting(true);
+    try {
+      await fetch(CNC_SUBMIT_URL, { method: "POST", body: fd, mode: "no-cors" });
+    } catch (err) {
+      console.error("CNC quote submission to Jotform failed:", err);
+    }
+    setSubmitting(false);
+    setSent(true);
+  }
 
   return (
     <aside className="cnc-form" id="quote" aria-labelledby="cncFormH">
@@ -19,12 +83,7 @@ export function CncQuoteForm() {
       </h2>
       <div className="cnc-form-lede">Engineer-reviewed · Free · No obligation</div>
 
-      <form
-        onSubmit={(e) => {
-          e.preventDefault();
-          setSent(true);
-        }}
-      >
+      <form onSubmit={handleSubmit}>
         <div className="cnc-form-row2">
           <div>
             <label htmlFor="cnc-fn">First name</label>
@@ -57,10 +116,10 @@ export function CncQuoteForm() {
               <option value="" disabled>
                 Select…
               </option>
-              <option>Prototype (1–10)</option>
-              <option>Low volume (11–100)</option>
-              <option>Mid volume (101–1,000)</option>
-              <option>High volume (1,000+)</option>
+              <option value="Prototype (1-10)">Prototype (1–10)</option>
+              <option value="Low volume (11-100)">Low volume (11–100)</option>
+              <option value="Mid volume (101-1,000)">Mid volume (101–1,000)</option>
+              <option value="High volume (1,000+)">High volume (1,000+)</option>
             </select>
           </div>
           <div>
@@ -69,10 +128,10 @@ export function CncQuoteForm() {
               <option value="" disabled>
                 Select…
               </option>
-              <option>ASAP (rush)</option>
-              <option>1–2 weeks</option>
-              <option>3–4 weeks</option>
-              <option>1 month+</option>
+              <option value="ASAP (rush)">ASAP (rush)</option>
+              <option value="1-2 weeks">1–2 weeks</option>
+              <option value="3-4 weeks">3–4 weeks</option>
+              <option value="1 month+">1 month+</option>
             </select>
           </div>
         </div>
@@ -90,8 +149,8 @@ export function CncQuoteForm() {
           <div style={{ marginTop: 4 }}>STEP, IGES, DWG, DXF, PDF — up to 25 MB each</div>
         </div>
 
-        <button type="submit" className="cnc-form-submit" disabled={sent}>
-          {sent ? "Sent ✓ — we'll be in touch" : "Send RFQ ›"}
+        <button type="submit" className="cnc-form-submit" disabled={submitting || sent}>
+          {sent ? "Sent ✓ — we'll be in touch" : submitting ? "Sending…" : "Send RFQ ›"}
         </button>
 
         <div className="cnc-form-trust">
