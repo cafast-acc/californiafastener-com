@@ -180,10 +180,11 @@
   border-top: 1px solid var(--rule);
 }
 .pillar {
-  padding: 36px 28px 36px 0;
+  padding: 36px 32px;
   border-right: 1px solid var(--rule-soft);
 }
-.pillar:last-child { border-right: none; }
+.pillar:first-child { padding-left: 0; }
+.pillar:last-child { border-right: none; padding-right: 0; }
 .pillar-num {
   font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
   font-size: 12px;
@@ -220,29 +221,30 @@
   grid-template-columns: repeat(4, 1fr);
   gap: 0;
   margin-top: 48px;
+  border-top: 1px solid rgba(255,255,255,0.22);
 }
 .number-cell {
-  padding: 32px 24px 32px 0;
-  border-right: 1px solid rgba(255,255,255,0.08);
-  border-top: 1px solid rgba(255,255,255,0.08);
+  padding: 36px 32px;
+  border-right: 1px solid rgba(255,255,255,0.22);
 }
-.number-cell:last-child { border-right: none; }
+.number-cell:first-child { padding-left: 0; }
+.number-cell:last-child { border-right: none; padding-right: 0; }
 .number-num {
-  font-size: clamp(56px, 5.5vw, 88px);
+  font-size: clamp(56px, 6vw, 88px);
   font-weight: 600;
   line-height: 0.95;
   letter-spacing: -0.045em;
   color: var(--dark-text);
   margin-bottom: 14px;
 }
-.number-num span { font-size: 0.5em; font-weight: 500; color: var(--dark-mid); margin-left: 4px; letter-spacing: -0.02em;}
+.number-num span { font-size: 0.55em; font-weight: 500; color: var(--dark-mid); margin-left: 4px; letter-spacing: -0.02em;}
 .number-num i { font-style: normal; color: var(--purple); }
 .number-label {
-  font-size: 14px;
+  font-size: 15px;
   color: var(--dark-mid);
-  line-height: 1.45;
-  letter-spacing: -0.005em;
-  max-width: 220px;
+  line-height: 1.4;
+  letter-spacing: -0.01em;
+  max-width: 240px;
 }
 .numbers-head h2 {
   font-size: clamp(36px, 4vw, 56px);
@@ -263,6 +265,8 @@
 }
 @media (max-width: 1024px) {
   .numbers-grid { grid-template-columns: 1fr 1fr; }
+  .number-cell { border-right: none; border-bottom: 1px solid rgba(255,255,255,0.22); padding: 28px 0; }
+  .number-cell:first-child, .number-cell:last-child { padding-left: 0; padding-right: 0; }
 }
 
 /* ─── CAPABILITIES (split list, dense) ───────── */
@@ -532,10 +536,11 @@
   border-top: 1px solid var(--rule);
 }
 .cert-col {
-  padding: 32px 28px 36px 0;
+  padding: 36px 32px;
   border-right: 1px solid var(--rule-soft);
 }
-.cert-col:last-child { border-right: none; }
+.cert-col:first-child { padding-left: 0; }
+.cert-col:last-child { border-right: none; padding-right: 0; }
 .cert-col h3 {
   font-size: 12px;
   font-weight: 600;
