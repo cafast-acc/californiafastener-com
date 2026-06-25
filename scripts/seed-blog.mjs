@@ -3,8 +3,12 @@
  * Seed the Sanity dataset with sample Field Notes content.
  *
  * Usage:
- *   node --env-file=.env.local scripts/seed-blog.mjs           # idempotent upsert
- *   node --env-file=.env.local scripts/seed-blog.mjs --clear  # remove samples
+ *   node --env-file=.env.local scripts/seed-blog.mjs                       # idempotent upsert
+ *   node --env-file=.env.local scripts/seed-blog.mjs --clear               # remove ALL samples (posts + categories + author + assets)
+ *   node --env-file=.env.local scripts/seed-blog.mjs --clear --posts-only  # remove sample POSTS only; keep categories/author/assets
+ *
+ * Use --posts-only when you want to thin out the article list but keep the
+ * category pills on /blog intact (the filter bar is built from category docs).
  *
  * Requires SANITY_API_WRITE_TOKEN with Editor (or Developer) scope.
  * Viewer fails with "permission required". Contributor writes only drafts.
@@ -36,6 +40,7 @@ if (!token) {
 
 const client = createClient({ projectId, dataset, apiVersion, token, useCdn: false });
 const CLEAR = process.argv.includes("--clear");
+const POSTS_ONLY = process.argv.includes("--posts-only");
 
 const CATEGORIES = [
   { id: "cat-materials.sample", title: "Materials & Grades", slug: "materials-grades", accent: "blue", order: 10 },
@@ -233,7 +238,21 @@ async function uploadCover(slug, filename) {
   return asset._id;
 }
 
-async function clear() {
+async function clear({ postsOnly = false } = {}) {
+  if (postsOnly) {
+    // Delete only sample POSTS. Categories, the author, and image assets are
+    // left in place so the /blog filter bar (built from category docs) keeps
+    // all its pills and any real posts referencing a sample category stay valid.
+    console.log("Removing sample POSTS only (categories, author, and assets preserved)…");
+    const postIds = await client.fetch(`*[_type == "post" && _id match "*.sample"]._id`);
+    if (postIds.length > 0) {
+      await client.delete({ query: `*[_type == "post" && _id match "*.sample"]` });
+      console.log(`  Deleted ${postIds.length} sample posts`);
+    } else {
+      console.log("  No sample posts found");
+    }
+    return;
+  }
   console.log("Removing sample docs and image assets…");
   // Documents
   const docs = await client.fetch(`*[_id match "*.sample"]._id`);
@@ -319,7 +338,7 @@ async function seed() {
 (async () => {
   try {
     if (CLEAR) {
-      await clear();
+      await clear({ postsOnly: POSTS_ONLY });
     } else {
       await seed();
     }
