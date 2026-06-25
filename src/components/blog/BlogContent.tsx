@@ -43,7 +43,6 @@ export function BlogContent({ posts, categories, featured }: Props) {
       <section className="bl-articles">
         <div className="bl-articles-head">
           <h3>{active === "all" ? "Latest articles" : labelFor(active, categories)}</h3>
-          <div className="bl-sort">Sort: Most recent ›</div>
         </div>
         {visible.length === 0 ? (
           <div className="bl-empty">No articles in this category yet.</div>
