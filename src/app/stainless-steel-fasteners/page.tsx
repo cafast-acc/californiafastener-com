@@ -218,7 +218,7 @@ export default function StainlessSteelFastenersPage() {
           />
           <ProductCard
             pnum="04 / Flat head"
-            img="/assets/products/ss-flat-head-2.png"
+            img="/assets/products/ss-flat-head-3.png"
             imgAlt="Stainless flat head socket screw"
             title="Flat & button head"
             desc="Flush-mount and low-profile architectural and equipment screws. 82° (inch) and 90° (metric) countersinks."
