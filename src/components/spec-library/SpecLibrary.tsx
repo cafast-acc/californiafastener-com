@@ -291,7 +291,7 @@ export function SpecLibrary() {
               </p>
               <div className="lib-start-chips">
                 <span>High temp</span>
-                <span>Sour / NACE</span>
+                <span>B7M / L7M</span>
                 <span>Low temp</span>
                 <span>Corrosive</span>
               </div>
@@ -334,7 +334,7 @@ export function SpecLibrary() {
                 <input
                   ref={searchRef}
                   type="search"
-                  placeholder="Search — &ldquo;A325&rdquo;, &ldquo;sour service&rdquo;, &ldquo;316&rdquo;, &ldquo;low temperature&rdquo;…"
+                  placeholder="Search — &ldquo;A325&rdquo;, &ldquo;B7M&rdquo;, &ldquo;316&rdquo;, &ldquo;low temperature&rdquo;…"
                   autoComplete="off"
                   value={q}
                   onChange={(e) => setQ(e.target.value)}

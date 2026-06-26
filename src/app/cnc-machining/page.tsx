@@ -190,7 +190,7 @@ export default function CncMachiningPage() {
             title="5-axis milling for complex geometries."
             items={[
               "Micron-level accuracy, complex 3D contours",
-              "Single-setup parts reduce stack-up error",
+              "Single-setup parts hold tolerance — no accumulated error from multiple ops.",
               "Prototype through high-volume production",
             ]}
           />
@@ -237,7 +237,7 @@ export default function CncMachiningPage() {
                 <li>Target quantity</li>
                 <li>Needed-by date / rush flag</li>
                 <li>Finishing (plating, anodize, passivation)</li>
-                <li>Required certs (MTRs, PPAP, secure drawings)</li>
+                <li>Required certs (MTRs, FAI, secure drawings)</li>
                 <li>Packaging or kitting requirements</li>
               </ul>
             </div>

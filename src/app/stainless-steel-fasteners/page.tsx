@@ -449,7 +449,7 @@ export default function StainlessSteelFastenersPage() {
             <TraceCard num="02" title="Certificate of Conformance" desc="Signed C of C confirming the parts were manufactured and tested to the called-out ASTM / ISO standards." />
             <TraceCard num="03" title="PMI on request" desc="Positive Material Identification by XRF or OES — per-lot verification that what's in the bag matches the MTR." />
             <TraceCard num="04" title="FAI on request" desc="First Article Inspection on new programs — dimensional and material verification in one package, sample retention available." />
-            <TraceCard num="05" title="NACE MR0175 / ISO 15156" desc="Sour-service bolting for oil & gas. Callable on B8 / B8M, 2205, and 2507 — specify on the RFQ." />
+            <TraceCard num="05" title="Hardness-controlled stainless" desc="Hardness-controlled bolting for oil & gas service. Available in B8 / B8M, 2205, and 2507 — specify on the RFQ." />
             <TraceCard num="06" title="DFARS compliant" desc="Domestic-melt / domestic-pour options for defense work. Longer lead on PH grades — plan accordingly." />
             <TraceCard num="07" title="Passivation certs" desc="A967 or AMS 2700 passivation certification on request, with batch copper-sulfate or salt-spray verification." />
             <TraceCard num="08" title="Lot-tagged kits" desc="Bolt / nut / washer kits shipped together and tagged by heat and lot so your installer never mixes classes." />
@@ -493,7 +493,7 @@ export default function StainlessSteelFastenersPage() {
               We&apos;ll match the grade.
             </h2>
             <p>
-              Stainless callouts can get long — pickled, passivated, electropolished, or NACE.
+              Stainless callouts can get long — pickled, passivated, electropolished, or hardness-controlled.
               Paste the line item, attach the drawing, or just describe the service environment.
             </p>
             <div className="pp-quote-contact">
@@ -519,7 +519,7 @@ export default function StainlessSteelFastenersPage() {
             Spec the <i>right grade.</i>
           </h2>
           <p>
-            From a single 316 heavy hex to a full duplex flange kit with NACE certs — send the
+            From a single 316 heavy hex to a full duplex flange package with matched certs — send the
             drawing and we&apos;ll come back with a quote, usually inside 24 hours.
           </p>
           <div className="pp-cta-ctas">

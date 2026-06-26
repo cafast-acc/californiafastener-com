@@ -299,7 +299,7 @@ export default function StudBoltsThreadedRodPage() {
                 <div className="st-app-tile-eyebrow">01 — Oil, Gas &amp; Chemical</div>
                 <div className="st-app-tile-title">Refineries, pipelines &amp; petrochemical.</div>
                 <div className="st-app-tile-desc">
-                  B7 and B16 flange studs for ANSI piping, B8M for sour service, A320 L7 for LNG.
+                  B7 and B16 flange studs for ANSI piping, B8M for hardness-controlled service, A320 L7 for LNG.
                 </div>
               </div>
             </Link>
@@ -471,7 +471,7 @@ export default function StudBoltsThreadedRodPage() {
             <TraceCard
               num="04"
               title="NACE / sour service"
-              desc="Hardness-controlled studs to NACE MR0175 / ISO 15156 for sour-service oil & gas — flag it on the RFQ."
+              desc="Hardness-controlled studs (B7M, L7M) when the project spec calls for them — flag it on the RFQ."
             />
             <TraceCard
               num="05"

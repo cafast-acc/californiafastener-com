@@ -226,7 +226,7 @@ export default function AboutPage() {
                 <li>NAS · MS · AN standards</li>
                 <li>AMS material specifications</li>
                 <li>A286 · Titanium · Inconel 718</li>
-                <li>Hi-Lok / lockbolt systems</li>
+                <li>Aerospace pin-and-collar fasteners</li>
               </ul>
             </div>
             <div className="cert-col">
@@ -234,7 +234,7 @@ export default function AboutPage() {
               <ul>
                 <li>DFARS 252.225 domestic melt</li>
                 <li>Buy America (23 CFR 635.410)</li>
-                <li>NACE MR0175 sour service</li>
+                <li>Hardness-controlled material (B7M / L7M)</li>
                 <li>Full MTRs · heat &amp; lot trace</li>
               </ul>
             </div>
@@ -324,7 +324,7 @@ export default function AboutPage() {
                 </li>
                 <li>
                   <strong>Documentation</strong>
-                  <span>MTRs, heat numbers, PPAP on request</span>
+                  <span>MTRs, heat numbers, FAI on request</span>
                 </li>
                 <li>
                   <strong>Lead time</strong>

@@ -199,7 +199,7 @@ export default function UBoltsPage() {
               </li>
               <li>
                 <b>T</b>
-                <span>Thread length on each leg — usually 2× nut height plus saddle stack-up.</span>
+                <span>Thread length on each leg — usually 2× nut height plus saddle thickness.</span>
               </li>
               <li>
                 <b>R</b>

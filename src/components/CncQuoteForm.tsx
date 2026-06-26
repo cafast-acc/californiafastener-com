@@ -140,7 +140,7 @@ export function CncQuoteForm() {
         <textarea
           id="cnc-notes"
           name="notes"
-          placeholder="Part name, material (e.g., A193 B7, Ti-6Al-4V, 316 SS), key tolerances, certs required (PPAP, MTRs), finish…"
+          placeholder="Part name, material (e.g., A193 B7, Ti-6Al-4V, 316 SS), key tolerances, certs required (FAI, MTRs), finish…"
         />
 
         <div className="cnc-form-file">

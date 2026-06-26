@@ -118,7 +118,7 @@ export default async function IndustryPage({
         <h3>Fastener lines most used in {ind.navLabel}.</h3>
         <div className="ind-product-grid">
           {ind.products.map((key) => {
-            const card = PRODUCT_CARDS[key];
+            const card = { ...PRODUCT_CARDS[key], ...(ind.cardOverrides?.[key] ?? {}) };
             const href = PRODUCT_CARD_HREFS[key];
             return (
               <Link key={key} href={href} className="ind-product-card">
