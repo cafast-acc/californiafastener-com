@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import Image from "next/image";
+import { Img } from "@/components/Img";
 import "@/styles/cf-hollo-bolt.css";
 import "@/styles/cf-product-page.css";
 import { CfNav } from "@/components/CfNav";
@@ -62,14 +63,10 @@ export default function HolloBoltPage() {
             <div className="hb-hero-grid" />
             <div className="hb-hero-tag">Hex · Countersunk · Flush-fit</div>
             <div className="hb-hero-photo">
-              <Image
-                src="/assets/products/hollo-bolt-trio-hero-2.png"
-                alt="Lindapter Hollo-Bolt hex, countersunk, and flush-fit expansion bolts"
-                width={3671}
-                height={2622}
-                priority
-                quality={95}
-                sizes="(max-width: 1100px) 100vw, 50vw"
+              <Img
+                className="hb-hero-station"
+                src="https://www.lindapter.com/assets/media/case-study-thumbnail-st-pancras-station-refurbishment_case_study_thumbnail.jpg"
+                alt="St Pancras International station, restored with Lindapter Hollo-Bolt structural connections"
               />
             </div>
             <div className="hb-hero-spec">
