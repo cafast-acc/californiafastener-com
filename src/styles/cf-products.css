@@ -283,6 +283,22 @@
   }
 }
 
+/* Phones: stack tiles in a single full-width column so the product
+   image and copy are fully visible instead of squeezed two-up. */
+@media (max-width: 600px) {
+  .pe-grid {
+    grid-template-columns: 1fr;
+    padding: 0 20px 32px;
+    gap: 14px;
+  }
+  .pe-tile,
+  .pe-tile--wide,
+  .pe-tile--tall {
+    grid-column: 1 / -1;
+    min-height: 360px;
+  }
+}
+
 /* ── SHOP-BY band ───────────────────────────────── */
 .pe-shopby {
   background: var(--bg-alt);
