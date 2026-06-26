@@ -31,7 +31,6 @@ export default async function BlogIndexPage() {
 
   const { posts, categories } = data;
   const featured = posts.find((p) => p.featured) ?? posts[0] ?? null;
-  const rest = featured ? posts.filter((p) => p._id !== featured._id) : posts;
 
   return (
     <>
@@ -58,7 +57,7 @@ export default async function BlogIndexPage() {
           </div>
         </div>
         <Suspense fallback={null}>
-          <BlogContent posts={rest} categories={categories} featured={featured} />
+          <BlogContent posts={posts} categories={categories} featured={featured} />
         </Suspense>
       </section>
 

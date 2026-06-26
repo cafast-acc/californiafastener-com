@@ -20,9 +20,14 @@ export function BlogContent({ posts, categories, featured }: Props) {
   const active = params.get("category") ?? "all";
 
   const visible = useMemo(() => {
-    if (active === "all") return posts;
+    // On "All" the featured post is shown as the hero block below, so keep it
+    // out of the grid to avoid duplicating it. Within a category, show every
+    // matching post — featured included — so nothing is hidden by feature status.
+    if (active === "all") {
+      return featured ? posts.filter((p) => p._id !== featured._id) : posts;
+    }
     return posts.filter((p) => p.category?.slug === active);
-  }, [posts, active]);
+  }, [posts, active, featured]);
 
   return (
     <>
