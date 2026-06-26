@@ -460,7 +460,7 @@ export default function HolloBoltPage() {
 
       {/* QUOTE FORM */}
       <section className="hb-quote-section" id="quote" style={{ padding: "120px 40px" }}>
-        <div style={{ maxWidth: 1100, margin: "0 auto", display: "grid", gridTemplateColumns: "1fr 1.1fr", gap: 80, alignItems: "start" }}>
+        <div className="pp-quote-inner">
           <div>
             <div className="eyebrow" style={{ fontSize: 13, color: "var(--hb-accent-deep)", fontWeight: 500, marginBottom: 14, letterSpacing: "0.04em", textTransform: "uppercase" }}>
               Request a quote

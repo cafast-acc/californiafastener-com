@@ -44,8 +44,11 @@
 .ss-compare-header h2 { font-size: clamp(36px, 4vw, 56px); font-weight: 600; letter-spacing: -0.03em; line-height: 1.05; }
 .ss-compare-header h2 i { color: var(--blue-dark); }
 .ss-compare-header p { font-size: 17px; color: var(--ink-soft); line-height: 1.5; max-width: 460px; }
-.ss-table-wrap { background: var(--bg); border-radius: 20px; overflow: hidden; border: 1px solid var(--rule-soft); }
+.ss-table-wrap { background: var(--bg); border-radius: 20px; overflow-x: auto; -webkit-overflow-scrolling: touch; border: 1px solid var(--rule-soft); }
 .ss-table { width: 100%; border-collapse: collapse; }
+/* On phones the 5-column comparison table can't shrink to fit; let it
+   scroll horizontally inside its rounded card instead of stretching the page. */
+.ss-table { min-width: 540px; }
 .ss-table th, .ss-table td { padding: 16px 20px; text-align: left; font-size: 14px; letter-spacing: -0.005em; border-bottom: 1px solid var(--rule-soft); vertical-align: top; }
 .ss-table thead th { background: var(--bg-alt); font-weight: 500; color: var(--mid); font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; }
 .ss-table tbody tr:last-child td { border-bottom: none; }
@@ -112,6 +115,11 @@
 
 /* ── pp-trace--eight extension (8-card variant) ──────── */
 .pp-trace-grid--eight { grid-template-columns: repeat(4, 1fr); }
+/* The shared pp-trace responsive rules only cover the 4/5-card variants, so
+   the 8-card grid must collapse on its own or it stays 4-wide and overflows
+   the phone. */
+@media (max-width: 1200px) { .pp-trace-grid--eight { grid-template-columns: repeat(3, 1fr); } }
+@media (max-width: 900px)  { .pp-trace-grid--eight { grid-template-columns: repeat(2, 1fr); } }
 
 /* ── RESPONSIVE ──────────────────────────────────────── */
 @media (max-width: 1200px) {

@@ -32,7 +32,11 @@
 .ind-hero-ctas { display: flex; gap: 24px; align-items: center; flex-wrap: wrap; }
 
 .ind-hero-image { aspect-ratio: 4 / 5; background: var(--bg-cream); border-radius: 20px;
-  overflow: hidden; position: relative; min-height: 480px; }
+  overflow: hidden; position: relative; min-height: 480px; min-width: 0; }
+/* On narrow phones the 480px min-height + 4/5 aspect-ratio forces the image
+   wider than its column and pushes the page sideways. Declared after the base
+   rule so it wins on source order; the column width then drives the size. */
+@media (max-width: 560px) { .ind-hero-image { min-height: 0; } }
 .ind-hero-image img { width: 100%; height: 100%; object-fit: cover;
   filter: contrast(1.02) saturate(0.9); }
 .ind-hero-image::after { content: ''; position: absolute; inset: 0;
@@ -67,6 +71,9 @@
   letter-spacing: -0.025em; color: var(--ink); margin: 0; max-width: 18ch; }
 .ind-bullets-head-side { font-size: 12px; color: var(--mid); letter-spacing: 0.06em;
   text-transform: uppercase; font-weight: 500; flex-shrink: 0; }
+/* On phones the heading + non-shrinking side label can't sit side by side;
+   stack them so the label doesn't push the page sideways. */
+@media (max-width: 560px) { .ind-bullets-head { flex-direction: column; align-items: flex-start; gap: 10px; margin-bottom: 36px; } }
 .ind-bullet-grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 0;
   border-top: 1px solid var(--rule-soft); }
 @media (max-width: 960px) { .ind-bullet-grid { grid-template-columns: repeat(2, 1fr); } }
