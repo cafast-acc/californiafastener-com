@@ -483,6 +483,16 @@
   .visit-map { min-height: 360px; }
   .visit-map-card { left: 16px; right: 16px; bottom: 16px; max-width: none; }
 }
+/* Phones: the 40px column padding clipped the heading, address and email
+   (the card uses overflow:hidden), and a 360px map ate ~half the screen.
+   Tighten padding, scale the heading down, let long strings wrap, and shrink
+   the map to a more proportionate height. */
+@media (max-width: 560px) {
+  .visit-text { padding: 28px 22px; }
+  .visit-text h2 { font-size: 26px; }
+  .visit-info-val { overflow-wrap: anywhere; }
+  .visit-map { min-height: 280px; }
+}
 
 /* ─── CONTACT CTA ─────────────────────────── */
 .about-cta {

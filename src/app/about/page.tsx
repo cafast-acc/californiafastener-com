@@ -52,7 +52,6 @@ export default function AboutPage() {
           <div>
             <strong>Benicia, California</strong> — manufacturing &amp; distribution
           </div>
-          <div>38°02′N · 122°08′W</div>
         </div>
       </section>
 
@@ -418,7 +417,6 @@ export default function AboutPage() {
                 Get Directions
                 <span aria-hidden="true">→</span>
               </a>
-              <div className="visit-map-coords">38°02′N · 122°08′W</div>
             </div>
           </div>
         </div>
