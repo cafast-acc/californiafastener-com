@@ -7,6 +7,7 @@ import "@/styles/cf-stainless.css";
 import { CfNav } from "@/components/CfNav";
 import { CfFooter } from "@/components/CfFooter";
 import { QuoteFormPlaceholder } from "@/components/QuoteFormPlaceholder";
+import { INDUSTRIES } from "@/lib/industries/data";
 
 export const metadata: Metadata = {
   title: "Stainless Steel Fasteners — 304, 316, Duplex, 17-4 PH",
@@ -418,14 +419,14 @@ export default function StainlessSteelFastenersPage() {
             </p>
           </div>
           <div className="ss-industries-grid">
-            <IndTile href="/industries/marine" tag="316 · 2205" eyebrow="01 — Marine & coastal" title={<>Chloride-heavy<br/>structural hardware.</>} desc="Docks, piers, offshore platforms, desalination skids. 316 minimum, duplex for submerged or seawater service." />
-            <IndTile href="/industries/manufacturing" tag="304L · 316L · E-polish" eyebrow="02 — Food & pharma" title={<>Clean-in-place<br/>process equipment.</>} desc="Dairy, brewing, pharma, biotech. L-grades for welded skids; electropolished finish where residue and surface roughness matter." />
-            <IndTile href="/industries/oil-gas" tag="B8 / B8M · A193" eyebrow="03 — Chemical process" title={<>Flanged piping<br/>& pressure vessels.</>} desc="Pulp & paper, petrochem, refinery. B8M Cl. 2 for chloride service; B8 for non-chloride acid and neutral process." />
-            <IndTile href="/industries/infrastructure" tag="304 · 316" eyebrow="04 — Wastewater" title={<>Municipal<br/>treatment plants.</>} desc="Clarifiers, headworks, UV systems. 316 for anything chlorinated; 304 acceptable in non-contact structural." />
-            <IndTile href="/industries/construction" tag="316 · 17-4 H1025" eyebrow="05 — Architectural" title={<>Exposed<br/>facade hardware.</>} desc="Handrails, cladding, curtain-wall anchors. Electropolished or #4 brushed finish; 316 mandatory near coastlines." />
-            <IndTile href="/industries/aerospace" tag="17-4 PH · A286" eyebrow="06 — Aerospace & defense" title={<>High-strength<br/>corrosion-resistant.</>} desc="PH grades for landing gear, engine brackets, airframe hardware. Full inspection and material certs on program work." />
-            <IndTile href="/industries/power-generation" tag="316 · Duplex" eyebrow="07 — Renewables" title={<>Solar & offshore<br/>wind hardware.</>} desc="Module clamps, rail hardware, foundation kits. Duplex becoming standard on offshore monopile grout connections." />
-            <IndTile href="/silicon-bronze" tag="Silicon bronze · 316" eyebrow="08 — Shipbuilding" title={<>Hull & deck<br/>fittings.</>} desc="Mixed-metal marine service. Silicon bronze sometimes the right answer — see the bronze page for hull-side work." />
+            <IndTile href="/industries/marine" img={INDUSTRIES["marine"].heroImg} tag="316 · 2205" eyebrow="01 — Marine & coastal" title={<>Chloride-heavy<br/>structural hardware.</>} desc="Docks, piers, offshore platforms, desalination skids. 316 minimum, duplex for submerged or seawater service." />
+            <IndTile href="/industries/manufacturing" img={INDUSTRIES["manufacturing"].heroImg} tag="304L · 316L · E-polish" eyebrow="02 — Food & pharma" title={<>Clean-in-place<br/>process equipment.</>} desc="Dairy, brewing, pharma, biotech. L-grades for welded skids; electropolished finish where residue and surface roughness matter." />
+            <IndTile href="/industries/oil-gas" img={INDUSTRIES["oil-gas"].heroImg} tag="B8 / B8M · A193" eyebrow="03 — Chemical process" title={<>Flanged piping<br/>& pressure vessels.</>} desc="Pulp & paper, petrochem, refinery. B8M Cl. 2 for chloride service; B8 for non-chloride acid and neutral process." />
+            <IndTile href="/industries/infrastructure" img={INDUSTRIES["infrastructure"].heroImg} tag="304 · 316" eyebrow="04 — Wastewater" title={<>Municipal<br/>treatment plants.</>} desc="Clarifiers, headworks, UV systems. 316 for anything chlorinated; 304 acceptable in non-contact structural." />
+            <IndTile href="/industries/construction" img={INDUSTRIES["construction"].heroImg} tag="316 · 17-4 H1025" eyebrow="05 — Architectural" title={<>Exposed<br/>facade hardware.</>} desc="Handrails, cladding, curtain-wall anchors. Electropolished or #4 brushed finish; 316 mandatory near coastlines." />
+            <IndTile href="/industries/aerospace" img={INDUSTRIES["aerospace"].heroImg} tag="17-4 PH · A286" eyebrow="06 — Aerospace & defense" title={<>High-strength<br/>corrosion-resistant.</>} desc="PH grades for landing gear, engine brackets, airframe hardware. Full inspection and material certs on program work." />
+            <IndTile href="/industries/power-generation" img={INDUSTRIES["power-generation"].heroImg} tag="316 · Duplex" eyebrow="07 — Renewables" title={<>Solar & offshore<br/>wind hardware.</>} desc="Module clamps, rail hardware, foundation kits. Duplex becoming standard on offshore monopile grout connections." />
+            <IndTile href="/silicon-bronze" img={INDUSTRIES["marine"].heroImg} tag="Silicon bronze · 316" eyebrow="08 — Shipbuilding" title={<>Hull & deck<br/>fittings.</>} desc="Mixed-metal marine service. Silicon bronze sometimes the right answer — see the bronze page for hull-side work." />
           </div>
         </div>
       </section>
@@ -705,12 +706,14 @@ function Gotcha({
 
 function IndTile({
   href,
+  img,
   tag,
   eyebrow,
   title,
   desc,
 }: {
   href: string;
+  img: string;
   tag: string;
   eyebrow: string;
   title: React.ReactNode;
@@ -719,6 +722,7 @@ function IndTile({
   return (
     <Link href={href} className="ss-ind-tile">
       <div className="ss-ind-ph" />
+      <Img className="ss-ind-img" src={img} alt="" loading="lazy" />
       <div className="ss-ind-tag">{tag}</div>
       <div className="ss-ind-body">
         <div className="ss-ind-eyebrow">{eyebrow}</div>
