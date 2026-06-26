@@ -10,7 +10,6 @@ export const homeQuery = defineQuery(`{
     publishedAt,
     readingMinutes,
     coverImage,
-    featured,
     "category": category->{ _id, title, "slug": slug.current, accent },
     "author": author->{ _id, name, role, image }
   },
