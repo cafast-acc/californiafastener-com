@@ -51,7 +51,7 @@ export default async function IndustryPage({
       <div className="ind-crumbs">
         <Link href="/">Home</Link>
         <span>›</span>
-        <Link href="/industries/construction">Industries</Link>
+        <Link href="/industries">Industries</Link>
         <span>›</span>
         {ind.navLabel}
       </div>

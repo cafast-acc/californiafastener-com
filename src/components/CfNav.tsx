@@ -79,6 +79,10 @@ export function CfNav({
             <Link href="/industries/oil-gas" role="menuitem">Oil, Gas &amp; Chemical</Link>
             <Link href="/industries/marine" role="menuitem">Marine &amp; Shipbuilding</Link>
             <Link href="/industries/aerospace" role="menuitem">Aerospace &amp; Defense</Link>
+            <div className="cf-nav-menu-footer">
+              <Link href="/industries">View all industries →</Link>
+              <Link href="/quote">Request a quote →</Link>
+            </div>
           </div>
         </li>
         <li className={activeCls("cnc-machining").trim()}>
