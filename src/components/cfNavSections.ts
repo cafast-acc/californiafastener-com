@@ -74,11 +74,11 @@ export const CF_NAV_SECTIONS: CfNavSection[] = [
       {
         items: [
           { href: "/industries/construction", label: "Construction" },
-          { href: "/industries/manufacturing", label: "Industrial Machinery" },
+          { href: "/industries/manufacturing", label: "Manufacturing" },
           { href: "/industries/infrastructure", label: "Infrastructure" },
-          { href: "/industries/power-generation", label: "Renewable Energy" },
-          { href: "/industries/power-transmission", label: "Power & Utilities" },
-          { href: "/industries/oil-gas", label: "Oil, Gas & Petrochemical" },
+          { href: "/industries/power-generation", label: "Power Generation" },
+          { href: "/industries/power-transmission", label: "Power Transmission" },
+          { href: "/industries/oil-gas", label: "Oil, Gas & Chemical" },
           { href: "/industries/marine", label: "Marine & Shipbuilding" },
           { href: "/industries/aerospace", label: "Aerospace & Defense" },
         ],

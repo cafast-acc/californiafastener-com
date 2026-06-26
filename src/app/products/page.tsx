@@ -141,7 +141,7 @@ const FAMILIES: Family[] = [
     description:
       "Heavy hex nuts, F436 hardened washers, and DTIs — the nuts and washers that complete every assembly.",
     grades: ["2H", "8M", "F436", "DTI F959"],
-    href: "#",
+    href: "/industrial-fasteners",
     cta: "Explore nuts & washers",
     variant: "light",
   },
@@ -162,14 +162,14 @@ const FAMILIES: Family[] = [
 ];
 
 const MATERIALS: { label: string; sub: string; href: string }[] = [
-  { label: "Carbon & alloy steel", sub: "A307, Gr 5/8, B7, B16", href: "#" },
+  { label: "Carbon & alloy steel", sub: "A307, Gr 5/8, B7, B16", href: "/industrial-fasteners" },
   {
     label: "Stainless steel",
     sub: "304, 316, duplex 2205",
     href: "/stainless-steel-fasteners",
   },
   { label: "Silicon bronze", sub: "C651 · marine grade", href: "/silicon-bronze" },
-  { label: "Exotic alloys", sub: "Inconel, Monel, titanium", href: "#" },
+  { label: "Exotic alloys", sub: "Inconel, Monel, titanium", href: "/cnc-machining" },
 ];
 
 export default function ProductsPage() {
