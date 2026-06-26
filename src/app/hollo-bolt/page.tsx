@@ -287,7 +287,7 @@ export default function HolloBoltPage() {
         <div className="hb-case-inner">
           <div className="hb-case-photo">
             <img
-              src="https://images.squarespace-cdn.com/content/v1/5efbb68d03da3677c3455ba6/1df61635-d95e-47b3-ba2b-633da74f8021/AdobeStock_170240857.jpeg"
+              src="https://images.squarespace-cdn.com/content/v1/5efbb68d03da3677c3455ba6/1df61635-d95e-47b3-ba2b-633da74f8021/AdobeStock_170240857.jpeg?format=2500w"
               alt="Large-span structural steel hall, representative of the Barlow Shed train shed at St Pancras"
             />
             <div className="ov" />
@@ -343,7 +343,7 @@ export default function HolloBoltPage() {
             <Link href="/structural-fasteners" className="hb-app-tile hb-app-tile--steel">
               <div className="hb-app-tile-bg">
                 <img
-                  src="https://images.squarespace-cdn.com/content/v1/5efbb68d03da3677c3455ba6/1e76177d-d96a-4d9d-8931-3f7d049e12d7/construction.jpg"
+                  src="https://images.squarespace-cdn.com/content/v1/5efbb68d03da3677c3455ba6/1e76177d-d96a-4d9d-8931-3f7d049e12d7/construction.jpg?format=2500w"
                   alt=""
                 />
               </div>
@@ -359,7 +359,7 @@ export default function HolloBoltPage() {
             <Link href="/industries/infrastructure" className="hb-app-tile hb-app-tile--offshore">
               <div className="hb-app-tile-bg">
                 <img
-                  src="https://images.squarespace-cdn.com/content/v1/5efbb68d03da3677c3455ba6/261f100b-3496-48f2-b1ee-245eca151e58/AdobeStock_753784784.jpeg"
+                  src="https://images.squarespace-cdn.com/content/v1/5efbb68d03da3677c3455ba6/261f100b-3496-48f2-b1ee-245eca151e58/AdobeStock_753784784.jpeg?format=2500w"
                   alt=""
                 />
               </div>
@@ -375,7 +375,7 @@ export default function HolloBoltPage() {
             <Link href="/industries/manufacturing" className="hb-app-tile hb-app-tile--mod">
               <div className="hb-app-tile-bg">
                 <img
-                  src="https://images.squarespace-cdn.com/content/v1/5efbb68d03da3677c3455ba6/606418c4-1057-49ac-821b-ce572774f5b9/AdobeStock_731342733.jpeg"
+                  src="https://images.squarespace-cdn.com/content/v1/5efbb68d03da3677c3455ba6/606418c4-1057-49ac-821b-ce572774f5b9/AdobeStock_731342733.jpeg?format=2500w"
                   alt=""
                 />
               </div>

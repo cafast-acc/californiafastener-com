@@ -190,7 +190,7 @@ export default function SiliconBronzePage() {
             <div className="sb-marine-visual-box">
               <Img
                 className="sb-marine-img"
-                src="https://images.unsplash.com/photo-1494412574643-ff11b0a5c1c3?auto=format&fit=crop&w=1600&q=80"
+                src="https://images.unsplash.com/photo-1494412574643-ff11b0a5c1c3?auto=format&fit=crop&w=2400&q=85"
                 alt="Wharf and harbor scene — marine environment where silicon bronze is specified"
               />
               <div className="sb-marine-tag">Marine &amp; shipbuilding</div>
@@ -236,7 +236,7 @@ export default function SiliconBronzePage() {
             <Link href="/industries/marine" className="sb-app-tile sb-app-tile--marine">
               <div className="sb-app-tile-bg">
                 <Img
-                  src="https://images.unsplash.com/photo-1494412574643-ff11b0a5c1c3?auto=format&fit=crop&w=1600&q=80"
+                  src="https://images.unsplash.com/photo-1494412574643-ff11b0a5c1c3?auto=format&fit=crop&w=2400&q=85"
                   alt=""
                 />
               </div>
@@ -251,7 +251,7 @@ export default function SiliconBronzePage() {
             <Link href="/industries/power-transmission" className="sb-app-tile sb-app-tile--electrical">
               <div className="sb-app-tile-bg">
                 <Img
-                  src="https://images.squarespace-cdn.com/content/v1/5efbb68d03da3677c3455ba6/79392af3-9542-4258-987d-76124ceec2f3/AdobeStock_182646517.jpeg"
+                  src="https://images.squarespace-cdn.com/content/v1/5efbb68d03da3677c3455ba6/79392af3-9542-4258-987d-76124ceec2f3/AdobeStock_182646517.jpeg?format=2500w"
                   alt=""
                 />
               </div>
@@ -267,7 +267,7 @@ export default function SiliconBronzePage() {
             <Link href="/industries/construction" className="sb-app-tile sb-app-tile--arch">
               <div className="sb-app-tile-bg">
                 <Img
-                  src="https://images.squarespace-cdn.com/content/v1/5efbb68d03da3677c3455ba6/1e76177d-d96a-4d9d-8931-3f7d049e12d7/construction.jpg"
+                  src="https://images.squarespace-cdn.com/content/v1/5efbb68d03da3677c3455ba6/1e76177d-d96a-4d9d-8931-3f7d049e12d7/construction.jpg?format=2500w"
                   alt=""
                 />
               </div>
