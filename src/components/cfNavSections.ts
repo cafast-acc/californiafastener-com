@@ -111,11 +111,6 @@ export const CF_NAV_SECTIONS: CfNavSection[] = [
             sub: "Estimate weight for shipping & quoting",
           },
           { href: "/catalog", label: "Product Catalog (PDF)" },
-        ],
-      },
-      {
-        heading: "Tools",
-        items: [
           { href: "/quote", label: "Request a Quote" },
         ],
       },

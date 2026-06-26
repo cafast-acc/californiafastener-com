@@ -104,8 +104,6 @@ export function CfNav({
               <span className="cf-nav-menu-sub">Estimate weight for shipping &amp; quoting</span>
             </Link>
             <Link href="/catalog" role="menuitem">Product Catalog (PDF)</Link>
-            <div className="cf-nav-menu-divider" />
-            <div className="cf-nav-menu-label">Tools</div>
             <Link href="/quote" role="menuitem">Request a Quote</Link>
           </div>
         </li>
