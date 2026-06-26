@@ -86,7 +86,6 @@ export const CF_NAV_SECTIONS: CfNavSection[] = [
     ],
     footer: [
       { href: "/industries", label: "View all industries →" },
-      { href: "/quote", label: "Request a quote →" },
     ],
   },
   {

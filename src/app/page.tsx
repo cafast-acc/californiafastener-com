@@ -368,6 +368,11 @@ export default function HomePage() {
             img="https://images.squarespace-cdn.com/content/v1/5efbb68d03da3677c3455ba6/dcbe43bd-d8ab-4d13-afff-b45c323f0ade/AdobeStock_71932049.jpeg?format=2500w"
           />
         </div>
+        <div className="industries-cta">
+          <Link href="/industries" className="cf-pill cf-pill--blue">
+            View all industries →
+          </Link>
+        </div>
       </section>
 
       {/* SPEC BUILDER */}

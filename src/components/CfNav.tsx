@@ -81,7 +81,6 @@ export function CfNav({
             <Link href="/industries/aerospace" role="menuitem">Aerospace &amp; Defense</Link>
             <div className="cf-nav-menu-footer">
               <Link href="/industries">View all industries →</Link>
-              <Link href="/quote">Request a quote →</Link>
             </div>
           </div>
         </li>
