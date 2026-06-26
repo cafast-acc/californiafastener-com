@@ -287,8 +287,8 @@ export default function HolloBoltPage() {
         <div className="hb-case-inner">
           <div className="hb-case-photo">
             <img
-              src="https://www.lindapter.com/assets/media/case-study-thumbnail-st-pancras-station-refurbishment_case_study_thumbnail.jpg"
-              alt="St Pancras International station Barlow Shed, refurbished using Lindapter Hollo-Bolt connections"
+              src="https://stpancras-highspeed.com/wp-content/uploads/2025/01/eurostar-high-speed-trains-at-st-pancras-2-1169x700.jpg"
+              alt="Eurostar high-speed trains under the Barlow Shed at St Pancras International station"
             />
             <div className="ov" />
             <span className="hb-case-photo-tag">Case study</span>
