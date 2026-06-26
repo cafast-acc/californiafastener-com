@@ -7,6 +7,12 @@ type WebhookBody = {
   slug?: { current?: string } | string;
 };
 
+// Immediate, blocking invalidation (read-your-writes). `{ expire: 0 }` marks the
+// tag expired right now, so the next visit fetches fresh data. The "max" profile
+// instead serves the stale copy on the next visit (stale-while-revalidate), which
+// makes deletes/new posts look like they "didn't come down" until a second load.
+const IMMEDIATE = { expire: 0 };
+
 export async function POST(req: NextRequest) {
   const secret = process.env.SANITY_WEBHOOK_SECRET;
   if (!secret) {
@@ -24,33 +30,32 @@ export async function POST(req: NextRequest) {
     return NextResponse.json({ ok: false, error: "Invalid signature" }, { status: 401 });
   }
 
-  const body = parsed.body;
-  if (!body?._type) {
-    return NextResponse.json({ ok: false, error: "Missing _type" }, { status: 400 });
-  }
+  const body = parsed.body ?? {};
+  const slug = typeof body.slug === "string" ? body.slug : body.slug?.current;
 
-  const tags = new Set<string>(["sanity", body._type, "blog:index"]);
+  // Refresh the blog list slices on every valid hit. A create, update, OR delete
+  // all change what /blog shows, and delete payloads can arrive without a _type
+  // or slug — so don't gate the list refresh on those being present.
+  const tags = new Set<string>(["sanity", "post", "category", "blog:index", "post:slugs"]);
+  if (body._type) tags.add(body._type);
+
+  // Page-level invalidation. The /blog index plus the whole post route pattern,
+  // so a deleted post's own URL re-renders to a 404 even when the webhook payload
+  // doesn't include its slug. The exact path is added too when we do have it.
   const paths = new Set<string>(["/blog"]);
-  if (body._type === "post") {
-    const slug = typeof body.slug === "string" ? body.slug : body.slug?.current;
-    if (slug) {
-      tags.add(`post:${slug}`);
-      paths.add(`/blog/${slug}`);
-    }
-    tags.add("post");
-    tags.add("post:slugs");
+  const layoutPaths: Array<[string, "page" | "layout"]> = [["/blog/[slug]", "page"]];
+  if (slug) {
+    tags.add(`post:${slug}`);
+    paths.add(`/blog/${slug}`);
   }
 
-  for (const tag of tags) {
-    revalidateTag(tag, "max");
-  }
-  for (const path of paths) {
-    revalidatePath(path, "page");
-  }
+  for (const tag of tags) revalidateTag(tag, IMMEDIATE);
+  for (const path of paths) revalidatePath(path, "page");
+  for (const [path, type] of layoutPaths) revalidatePath(path, type);
 
   return NextResponse.json({
     ok: true,
     revalidated: Array.from(tags),
-    paths: Array.from(paths),
+    paths: [...paths, ...layoutPaths.map(([p]) => p)],
   });
 }
