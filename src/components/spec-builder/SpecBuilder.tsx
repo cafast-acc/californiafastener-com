@@ -414,7 +414,7 @@ function Results({
   if (ranked.length === 0) {
     return (
       <>
-        <ResultsHead summaryPills={summaryPills} onReset={onReset} />
+        <ResultsHead summaryPills={summaryPills} onReset={onReset} onQuote={onQuote} />
         <div className="sb-noresults">
           <h3>No exact match found</h3>
           <p>
@@ -436,7 +436,7 @@ function Results({
 
   return (
     <>
-      <ResultsHead summaryPills={summaryPills} onReset={onReset} />
+      <ResultsHead summaryPills={summaryPills} onReset={onReset} onQuote={onQuote} />
       <div id="sb-results-output">
         <div className="sb-results-section">
           <div className="sb-results-label">Top recommendation</div>
@@ -474,9 +474,11 @@ function Results({
 function ResultsHead({
   summaryPills,
   onReset,
+  onQuote,
 }: {
   summaryPills: Array<{ l: string; v: string }>;
   onReset: () => void;
+  onQuote: (data: QuoteData | null) => void;
 }) {
   return (
     <div className="sb-results-head">
@@ -493,9 +495,13 @@ function ResultsHead({
         <button type="button" className="sb-btn sb-btn-ghost" onClick={onReset}>
           Start over
         </button>
-        <a href="/quote" className="sb-btn sb-btn-primary">
+        <button
+          type="button"
+          className="sb-btn sb-btn-primary"
+          onClick={() => onQuote(null)}
+        >
           Request a full quote
-        </a>
+        </button>
       </div>
     </div>
   );
