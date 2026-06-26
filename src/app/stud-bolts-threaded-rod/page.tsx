@@ -9,7 +9,7 @@ import { Img } from "@/components/Img";
 import { QuoteFormPlaceholder } from "@/components/QuoteFormPlaceholder";
 
 export const metadata: Metadata = {
-  title: "Stud Bolts & Threaded Rod",
+  title: "Stud Bolts & Threaded Rod — A193 B7",
   description:
     "Stud bolts and threaded rod cut to length — A193 B7 / B8 / B8M / B16, A320 L7, A36, F1554, B7 acme. Plain, PTFE / Xylan, hot-dip galvanized, cad. Same-day shipping; full MTRs and PMI on request.",
 };

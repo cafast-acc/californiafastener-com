@@ -6,7 +6,7 @@ import { CfFooter } from "@/components/CfFooter";
 import { Img } from "@/components/Img";
 
 export const metadata: Metadata = {
-  title: "Products — Industrial Fasteners & CNC Machining",
+  title: "Industrial Fasteners & CNC Machining",
   description:
     "Browse every fastener family California Fastener stocks and makes — anchor bolts, structural, stud bolts, stainless, silicon bronze, Lindapter Hollo-Bolt, U-bolts, and in-house CNC machining. Nine families, 24-hour quotes.",
 };

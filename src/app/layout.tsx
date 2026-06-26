@@ -16,7 +16,7 @@ const jetbrainsMono = JetBrains_Mono({
 
 export const metadata: Metadata = {
   title: {
-    default: "California Fastener — Industrial fasteners & precision CNC machining",
+    default: "California Fastener — Structural & Industrial Fasteners — CNC Machining",
     template: "%s · California Fastener",
   },
   description:

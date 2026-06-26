@@ -8,7 +8,7 @@ import { QuoteFormPlaceholder } from "@/components/QuoteFormPlaceholder";
 import { Img } from "@/components/Img";
 
 export const metadata: Metadata = {
-  title: "Silicon Bronze Hardware — Marine & Electrical Fasteners",
+  title: "Silicon Bronze — Marine & Electrical",
   description:
     "Silicon Bronze (C651) fasteners for marine, electrical, and architectural applications. Exceptional conductivity, saltwater corrosion resistance, plain or tinned finish. Stocked and shipped nationwide.",
 };

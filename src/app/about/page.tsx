@@ -6,7 +6,7 @@ import { CfNav } from "@/components/CfNav";
 import { CfFooter } from "@/components/CfFooter";
 
 export const metadata: Metadata = {
-  title: "About — California Fastener",
+  title: "About",
   description:
     "California Fastener is a family-owned California fastener and industrial supply company — anchor bolts, structural and industrial fasteners, CNC machined parts, and the everyday hardware your projects run on.",
 };

@@ -15,7 +15,7 @@ import type { HomePayload } from "@/sanity/types";
 export const revalidate = 60;
 
 export const metadata: Metadata = {
-  title: "Field Notes — Technical articles from the shop floor",
+  title: "Field Notes — Technical Articles",
   description:
     "Technical articles, industry insights, and hard-won knowledge from California Fastener — written for engineers and buyers.",
   alternates: { canonical: "/blog" },

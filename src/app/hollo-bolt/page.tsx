@@ -9,7 +9,7 @@ import { QuoteFormPlaceholder } from "@/components/QuoteFormPlaceholder";
 import { HolloBoltSelectorTrigger } from "@/components/HolloBoltSelectorModal";
 
 export const metadata: Metadata = {
-  title: "Lindapter Hollo-Bolt — Expansion Bolt for Structural Steel",
+  title: "Lindapter Hollo-Bolt — Original Blind Bolt",
   description:
     "The Lindapter Hollo-Bolt is a high-strength expansion bolt for fixing to structural steel sections and hollow sections from one side. Hex, countersunk, and flush-fit heads. Stocked and shipped nationwide.",
 };

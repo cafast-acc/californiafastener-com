@@ -9,7 +9,7 @@ import { Img } from "@/components/Img";
 import { QuoteFormPlaceholder } from "@/components/QuoteFormPlaceholder";
 
 export const metadata: Metadata = {
-  title: "Industrial Fasteners",
+  title: "Industrial Fasteners — A193 / SHCS",
   description:
     "ASTM A193 (B7 / B16 / B8 / B8M), A194 (2H / 4 / 7 / 8 / 8M), A574 socket head, A307, F436 hardened washers. Carbon, alloy, and stainless — stocked deep with full MTRs.",
 };

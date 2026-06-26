@@ -9,9 +9,9 @@ import { Img } from "@/components/Img";
 import { QuoteFormPlaceholder } from "@/components/QuoteFormPlaceholder";
 
 export const metadata: Metadata = {
-  title: "Structural Fasteners",
+  title: "Structural Fasteners — A325, A490 TC",
   description:
-    "F3125 (A325 / A490 / F1852 / F2280), F1554 anchor rod, A563 heavy hex nuts, F436 hardened washers, F959 DTIs. RCSC-tested kits, full traceability, Buy America documentation.",
+    "F3125 (A325 / A490 / F1852 / F2280), F1554 anchor rod, A563 heavy hex nuts, F436 hardened washers, F959 DTIs. RCSC-tested assemblies, full traceability, Buy America documentation.",
 };
 
 export default function StructuralFastenersPage() {

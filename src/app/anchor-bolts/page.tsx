@@ -6,7 +6,7 @@ import { CfFooter } from "@/components/CfFooter";
 import { Img } from "@/components/Img";
 
 export const metadata: Metadata = {
-  title: "Anchor Bolts",
+  title: "Anchor Bolts — F1554, A193, F593",
   description:
     "F1554 Gr 36/55/105, A193 B7/B8/B8M, F593. Headed, bent, rod assemblies, post-install. Custom cut, bent, and assembled with template plates — stocked and shipped.",
 };

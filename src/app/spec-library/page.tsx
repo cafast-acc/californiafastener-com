@@ -5,7 +5,7 @@ import { CfFooter } from "@/components/CfFooter";
 import { SpecLibrary } from "@/components/spec-library/SpecLibrary";
 
 export const metadata: Metadata = {
-  title: "Spec Library",
+  title: "Spec Library — ASTM, SAE, DIN",
   description:
     "Thirty-five ASTM, SAE, ASME, ISO, and DIN fastener standards in plain English. Bolts, nuts, washers, threads, coatings, and metric reference — every spec opens with an at-a-glance for non-specialists.",
 };

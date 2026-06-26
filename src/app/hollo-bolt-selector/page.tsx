@@ -6,7 +6,7 @@ import { CfFooter } from "@/components/CfFooter";
 import { HolloBoltSelector } from "@/components/HolloBoltSelector";
 
 export const metadata: Metadata = {
-  title: "Hollo-Bolt Selector — Specify Your Connection",
+  title: "Hollo-Bolt Selector — Find Your Fit",
   description:
     "Specify the correct Lindapter Hollo-Bolt for your connection. Filter by head type, diameter, finish, and fixing thickness — request a quote from California Fastener.",
 };

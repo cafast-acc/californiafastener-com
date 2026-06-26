@@ -10,7 +10,7 @@ import { QuoteFormPlaceholder } from "@/components/QuoteFormPlaceholder";
 import { INDUSTRIES } from "@/lib/industries/data";
 
 export const metadata: Metadata = {
-  title: "Stainless Steel Fasteners — 304, 316, Duplex, 17-4 PH",
+  title: "Stainless Steel — 304, 316, 17-4 PH",
   description:
     "Stainless steel bolts, nuts, studs, and washers — A2 / A4, 304, 316, duplex 2205 / 2507, 17-4 PH. A193 B8 / B8M, F593, F594. Passivated, pickled, or electropolished. Full MTRs.",
 };

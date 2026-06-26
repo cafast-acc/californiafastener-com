@@ -8,7 +8,7 @@ import { CfFooter } from "@/components/CfFooter";
 import { QuoteFormPlaceholder } from "@/components/QuoteFormPlaceholder";
 
 export const metadata: Metadata = {
-  title: "U-Bolts — Round, Square, Long Tangent & Custom Profiles",
+  title: "U-Bolts — Round, Square & Custom",
   description:
     "U-bolts for pipe, conduit, and structural support. Round-bend, square-bend, and long-tangent profiles in carbon, alloy, 304, 316, and hot-dip galvanized.",
 };

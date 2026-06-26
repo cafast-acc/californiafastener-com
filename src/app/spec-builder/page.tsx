@@ -5,7 +5,7 @@ import { CfFooter } from "@/components/CfFooter";
 import { SpecBuilder } from "@/components/spec-builder/SpecBuilder";
 
 export const metadata: Metadata = {
-  title: "Spec Builder",
+  title: "Spec Builder — Pick the Right Bolt",
   description:
     "Find the right fastener spec, grade, and finish for your application. Walks through use, environment, criticality, and special requirements — recommends matching ASTM/AMS specs in seconds.",
 };

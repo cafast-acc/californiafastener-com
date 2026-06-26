@@ -97,7 +97,7 @@ export const PRODUCT_CARDS: Record<ProductCardKey, ProductCard> = {
 export const INDUSTRIES: Record<IndustrySlug, Industry> = {
   "oil-gas": {
     seoSlug: "fasteners-for-oil-gas",
-    metaTitle: "High-Quality Fasteners for the Oil and Gas Industry — California Fastener",
+    metaTitle: "Oil & Gas Fasteners — B7, B8M, F1554",
     navLabel: "Oil, Gas & Chemical",
     eyebrow: "Industries · Oil and Gas",
     h1: "Bolting for the pressure envelope.",
@@ -148,7 +148,7 @@ export const INDUSTRIES: Record<IndustrySlug, Industry> = {
 
   "power-generation": {
     seoSlug: "fasteners-for-power-generation",
-    metaTitle: "High-Quality Fasteners for Power Generation — California Fastener",
+    metaTitle: "Power Generation Bolting — B16, B7",
     navLabel: "Power Generation",
     eyebrow: "Industries · Power Generation",
     h1: "Bolting that holds when the turbine spins up.",
@@ -199,7 +199,7 @@ export const INDUSTRIES: Record<IndustrySlug, Industry> = {
 
   construction: {
     seoSlug: "fasteners-for-construction",
-    metaTitle: "High-Quality Fasteners for Construction Projects — California Fastener",
+    metaTitle: "Construction Fasteners — A325, F1554",
     navLabel: "Construction",
     eyebrow: "Industries · Construction",
     h1: "Structural steel, fastened to the drawing.",
@@ -250,7 +250,7 @@ export const INDUSTRIES: Record<IndustrySlug, Industry> = {
 
   "power-transmission": {
     seoSlug: "fasteners-for-power-transmission",
-    metaTitle: "High-Quality Fasteners for Power Transmission — California Fastener",
+    metaTitle: "Power Transmission Bolting — A394",
     navLabel: "Power Transmission",
     eyebrow: "Industries · Power Transmission",
     h1: "The grid, bolted together.",
@@ -301,7 +301,7 @@ export const INDUSTRIES: Record<IndustrySlug, Industry> = {
 
   manufacturing: {
     seoSlug: "fasteners-for-manufacturing",
-    metaTitle: "High-Quality Fasteners for the Manufacturing Industry — California Fastener",
+    metaTitle: "Manufacturing Fasteners — OEM & VMI",
     navLabel: "Manufacturing",
     eyebrow: "Industries · Manufacturing",
     h1: "Production-line fasteners that keep the line moving.",
@@ -353,7 +353,7 @@ export const INDUSTRIES: Record<IndustrySlug, Industry> = {
 
   infrastructure: {
     seoSlug: "fasteners-for-infrastructure",
-    metaTitle: "High-Quality Fasteners for the Infrastructure Industry — California Fastener",
+    metaTitle: "Infrastructure Bolting — Buy America",
     navLabel: "Infrastructure",
     eyebrow: "Industries · Infrastructure",
     h1: "Built for 75-year service lives.",
@@ -404,7 +404,7 @@ export const INDUSTRIES: Record<IndustrySlug, Industry> = {
 
   marine: {
     seoSlug: "fasteners-for-marine-shipbuilding",
-    metaTitle: "Marine & Shipbuilding Fasteners — California Fastener",
+    metaTitle: "Marine & Shipbuilding Fasteners",
     navLabel: "Marine & Shipbuilding",
     eyebrow: "Industries · Marine & Shipbuilding",
     h1: "Where the dock meets the deep.",
@@ -455,7 +455,7 @@ export const INDUSTRIES: Record<IndustrySlug, Industry> = {
 
   aerospace: {
     seoSlug: "fasteners-for-aerospace-defense",
-    metaTitle: "Aerospace & Defense Fasteners — California Fastener",
+    metaTitle: "Aerospace Fasteners — NAS, MS, A286",
     navLabel: "Aerospace & Defense",
     eyebrow: "Industries · Aerospace & Defense",
     h1: "Traceable to the heat, every time.",
