@@ -72,11 +72,11 @@ export function CfNav({
           <button aria-haspopup="true">Industries</button>
           <div className="cf-nav-menu" role="menu">
             <Link href="/industries/construction" role="menuitem">Construction</Link>
-            <Link href="/industries/manufacturing" role="menuitem">Industrial Machinery</Link>
+            <Link href="/industries/manufacturing" role="menuitem">Manufacturing</Link>
             <Link href="/industries/infrastructure" role="menuitem">Infrastructure</Link>
-            <Link href="/industries/power-generation" role="menuitem">Renewable Energy</Link>
-            <Link href="/industries/power-transmission" role="menuitem">Power &amp; Utilities</Link>
-            <Link href="/industries/oil-gas" role="menuitem">Oil, Gas &amp; Petrochemical</Link>
+            <Link href="/industries/power-generation" role="menuitem">Power Generation</Link>
+            <Link href="/industries/power-transmission" role="menuitem">Power Transmission</Link>
+            <Link href="/industries/oil-gas" role="menuitem">Oil, Gas &amp; Chemical</Link>
             <Link href="/industries/marine" role="menuitem">Marine &amp; Shipbuilding</Link>
             <Link href="/industries/aerospace" role="menuitem">Aerospace &amp; Defense</Link>
           </div>
