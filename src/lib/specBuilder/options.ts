@@ -75,10 +75,13 @@ export const CONSTRAINTS: Option<Constraint>[] = [
 
 export type Stage = 1 | 2 | 3 | 4 | "r";
 
+// Drives the progress stepper. The four input stages only — "Results" (the
+// "r" stage) is the destination, not a step the user performs, so it is
+// intentionally omitted. This keeps the bar consistent with the "Step X of 4"
+// wording on each screen; on the results view all four read as complete.
 export const STAGE_META: Array<{ n: Stage; label: string }> = [
   { n: 1, label: "Application" },
   { n: 2, label: "Environment" },
   { n: 3, label: "Strength" },
   { n: 4, label: "Requirements" },
-  { n: "r", label: "Results" },
 ];
