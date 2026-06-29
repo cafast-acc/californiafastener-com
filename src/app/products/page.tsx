@@ -143,7 +143,9 @@ const FAMILIES: Family[] = [
     grades: ["2H", "8M", "F436", "DTI F959"],
     href: "/industrial-fasteners",
     cta: "Explore nuts & washers",
-    variant: "light",
+    image: "/assets/products/structural-heavy-hex-nut-1.png",
+    imageAlt: "Heavy hex nut with F436 hardened washer",
+    placeholder: "A1 · Nuts & washers",
   },
   {
     order: "10",
