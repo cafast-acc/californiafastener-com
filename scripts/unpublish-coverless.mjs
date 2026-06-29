@@ -19,11 +19,18 @@
  *   (or recreating the published doc) brings the post back unchanged.
  *
  * Safety:
- *   - Selects ONLY posts where coverImage.asset is undefined.
+ *   - Selects ONLY posts whose cover is missing OR is the shared placeholder
+ *     asset (PLACEHOLDER_ASSET below) — i.e. posts with no real thumbnail.
  *   - Skips any post that already has a draft (won't clobber in-progress edits).
  *   - Dry run by default; prints the exact list it would affect.
  */
 import { createClient } from "@sanity/client";
+
+// The single 1200x630 navy "BLOGS" placeholder shared by every post that never
+// got a real cover image. Posts pointing at this (or at no asset at all) are
+// the ones with no genuine thumbnail.
+const PLACEHOLDER_ASSET =
+  "image-a43d725b5c37ac63e59ce53fbe0607caa0e2f074-1200x630-png";
 
 const projectId = process.env.NEXT_PUBLIC_SANITY_PROJECT_ID;
 const dataset = process.env.NEXT_PUBLIC_SANITY_DATASET ?? "production";
@@ -57,14 +64,17 @@ function toDraft(doc) {
 }
 
 async function main() {
-  // Published posts (not already drafts) with no cover image asset.
+  // Published posts (not already drafts) with no real cover: either no asset at
+  // all, or pointing at the shared placeholder.
   const coverless = await client.fetch(
-    `*[_type == "post" && !(_id in path('drafts.**')) && !defined(coverImage.asset)]
+    `*[_type == "post" && !(_id in path('drafts.**'))
+        && (!defined(coverImage.asset) || coverImage.asset._ref == $placeholder)]
        | order(publishedAt desc){ _id, title, "slug": slug.current, publishedAt }`,
+    { placeholder: PLACEHOLDER_ASSET },
   );
 
   if (coverless.length === 0) {
-    console.log("No published posts without a cover image — nothing to do.");
+    console.log("No published posts without a real cover image — nothing to do.");
     return;
   }
 
