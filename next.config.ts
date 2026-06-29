@@ -13,6 +13,23 @@ const nextConfig: NextConfig = {
     // for any future placeholder / thumbnail use.
     qualities: [75, 95],
   },
+  async redirects() {
+    // 301s for blog posts migrated off Squarespace whose slug changed in the
+    // move to Sanity. `permanent: true` emits a 308 so search engines drop the
+    // retired URL and carry link equity to the new slug.
+    return [
+      {
+        source: "/blog/guide-to-astm-a193-fasteners",
+        destination: "/blog/the-comprehensive-guide-to-astm-a193-fasteners",
+        permanent: true,
+      },
+      {
+        source: "/blog/the-essential-guide-to-astm-a194-nuts-l6hkp",
+        destination: "/blog/the-essential-guide-to-astm-a194-nuts",
+        permanent: true,
+      },
+    ];
+  },
   async headers() {
     // /public/assets/* gets a long browser cache. Vercel's defaults send
     // `Cache-Control: public, max-age=0, must-revalidate` for everything in

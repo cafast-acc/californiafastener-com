@@ -7,7 +7,7 @@ they publish to `/blog` on the live site.
 
 | Batch | Posts | State |
 |-------|-------|-------|
-| 1     | 5 (the `.docx` in this folder) | Converted → `posts.ndjson`. **Not yet imported** (needs a session with network access to Sanity). |
+| 1     | 5 (the `.docx` in this folder) | Converted → `posts.ndjson` → **imported to Sanity (published, live on `/blog`)** on 2026-06-29. |
 
 The two posts already live on the new site (per the migration spreadsheet) are
 untouched — the importer only writes docs it owns (`post.import.*`).
@@ -54,10 +54,10 @@ SANITY_API_WRITE_TOKEN=<editor token>
 - Category mapping: B5/B8 → Materials & Grades; A193 guide / A194 → Spec &
   Compliance; Anchor Bolts → Anchor Bolts.
 
-## 301 redirects still to add (after import is confirmed live)
+## 301 redirects (done — in `next.config.ts` `redirects()`)
 
-The retired Squarespace URLs that map to a new post need 301s in
-`next.config.ts` `redirects()`:
+The retired Squarespace URLs that map to a renamed post now 301 (308 permanent)
+to their new slugs:
 
 | Old | New |
 |-----|-----|
