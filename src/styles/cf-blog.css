@@ -187,6 +187,37 @@
   gap: 32px 24px;
 }
 
+/* ── Load more ────────────────────────────────────────── */
+.bl-loadmore {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  margin-top: 48px;
+}
+.bl-loadmore-btn {
+  font: inherit;
+  font-weight: 600;
+  font-size: 15px;
+  color: var(--cf-ink);
+  background: transparent;
+  border: 1px solid var(--cf-ink);
+  border-radius: 999px;
+  padding: 12px 28px;
+  cursor: pointer;
+  transition:
+    background 0.15s ease,
+    color 0.15s ease;
+}
+.bl-loadmore-btn:hover {
+  background: var(--cf-ink);
+  color: #fff;
+}
+.bl-loadmore-count {
+  font-size: 13px;
+  color: var(--cf-mid);
+}
+
 /* ── Card ─────────────────────────────────────────────── */
 .bl-card {
   text-decoration: none;

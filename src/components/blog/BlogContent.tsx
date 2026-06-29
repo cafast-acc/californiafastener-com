@@ -2,7 +2,7 @@
 
 import { useSearchParams } from "next/navigation";
 import Link from "next/link";
-import { useMemo } from "react";
+import { useEffect, useMemo, useState } from "react";
 
 import { urlForImage } from "@/sanity/lib/image";
 import type { CategoryRef, PostCard } from "@/sanity/types";
@@ -29,6 +29,15 @@ export function BlogContent({ posts, categories, featured }: Props) {
     return posts.filter((p) => p.category?.slug === active);
   }, [posts, active, featured]);
 
+  // Page the grid so a large catalog doesn't render (and load images for) every
+  // post at once. Reset the window whenever the category filter changes.
+  const PAGE_SIZE = 12;
+  const [count, setCount] = useState(PAGE_SIZE);
+  useEffect(() => {
+    setCount(PAGE_SIZE);
+  }, [active]);
+  const shown = visible.slice(0, count);
+
   return (
     <>
       <div className="bl-cat-bar" role="tablist" aria-label="Article categories">
@@ -52,11 +61,27 @@ export function BlogContent({ posts, categories, featured }: Props) {
         {visible.length === 0 ? (
           <div className="bl-empty">No articles in this category yet.</div>
         ) : (
-          <div className="bl-grid">
-            {visible.map((post) => (
-              <ArticleCard key={post._id} post={post} />
-            ))}
-          </div>
+          <>
+            <div className="bl-grid">
+              {shown.map((post) => (
+                <ArticleCard key={post._id} post={post} />
+              ))}
+            </div>
+            {visible.length > count ? (
+              <div className="bl-loadmore">
+                <button
+                  type="button"
+                  className="bl-loadmore-btn"
+                  onClick={() => setCount((c) => c + PAGE_SIZE)}
+                >
+                  Load more articles
+                </button>
+                <span className="bl-loadmore-count">
+                  Showing {shown.length} of {visible.length}
+                </span>
+              </div>
+            ) : null}
+          </>
         )}
       </section>
     </>

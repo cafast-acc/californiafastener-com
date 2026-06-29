@@ -1,9 +1,33 @@
 # Blog migration — source docs & import pipeline
 
-Bulk-imports the old Squarespace blog posts (supplied as `.docx`) into Sanity so
-they publish to `/blog` on the live site.
+Bulk-imports the old Squarespace blog posts into Sanity so they publish to
+`/blog` on the live site.
 
-## Status
+## Authoritative source: the full Squarespace export (`Blogs.xml`)
+
+The complete, canonical migration runs from the WordPress/Squarespace WXR export
+(`content/blog-source/Blogs.xml`) — it carries every post's title, slug, body,
+author, real publish date, category, and **featured-image URL** in one file. This
+supersedes the per-`.docx` pipeline below (kept for history).
+
+```bash
+python3 scripts/wxr_to_ndjson.py content/blog-source/Blogs.xml > content/blog-source/wxr-posts.ndjson
+node --env-file=.env.local scripts/import-wxr.mjs --dry-run content/blog-source/wxr-posts.ndjson   # preview + delete list
+node --env-file=.env.local scripts/import-wxr.mjs           content/blog-source/wxr-posts.ndjson   # write (no deletes)
+node --env-file=.env.local scripts/import-wxr.mjs --delete-orphans content/blog-source/wxr-posts.ndjson  # write + prune superseded
+```
+
+- **Body**: WXR HTML → Portable Text (p→normal, h2/h3, h4→h3, ul→bullet, ol→number,
+  strong/em, `<a>`→link). `wxr_to_ndjson.py` is pure stdlib.
+- **Covers**: `import-wxr.mjs` downloads each post's featured image from the
+  Squarespace CDN and uploads it to Sanity; posts with none use the branded
+  placeholder. Categories map Squarespace→Sanity; author = California Fastener.
+- **Result (2026-06-29)**: 56 export posts imported with real covers + 6 docx-only
+  posts kept = **62 live**. 10 superseded duplicates (2 seed posts + 8 interim
+  docx posts) deleted. `/blog` index now paginates ("Load more", 12/page) on top
+  of the existing category filter.
+
+## Status (legacy per-`.docx` batches — superseded by the XML migration)
 
 | Batch | Posts | State |
 |-------|-------|-------|
