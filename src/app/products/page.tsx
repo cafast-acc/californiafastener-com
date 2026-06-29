@@ -8,7 +8,7 @@ import { Img } from "@/components/Img";
 export const metadata: Metadata = {
   title: "Industrial Fasteners & CNC Machining",
   description:
-    "Browse every fastener family California Fastener stocks and makes — anchor bolts, structural, stud bolts, stainless, silicon bronze, Lindapter Hollo-Bolt, U-bolts, and in-house CNC machining. Nine families, 24-hour quotes.",
+    "Browse every fastener family California Fastener stocks and makes — anchor bolts, structural, stud bolts, stainless, silicon bronze, Lindapter Hollo-Bolt, U-bolts, and in-house CNC machining. Eight families, 24-hour quotes.",
 };
 
 type Variant = "default" | "wide" | "tall" | "light";
@@ -32,7 +32,7 @@ type Family = {
   variant?: Variant;
 };
 
-/* The nine fastener families + in-house CNC machining, in DOM order.
+/* The eight fastener families + in-house CNC machining, in DOM order.
    Drives the editorial grid below; swap in `image`/`imageAlt` to replace a
    placeholder. Hrefs point at existing routes; families without a page yet
    stay on "#" until their page ships. */
@@ -135,19 +135,6 @@ const FAMILIES: Family[] = [
     placeholder: "A2 · Hollo-Bolt",
   },
   {
-    order: "09",
-    eyebrow: "09 — Nuts & Washers",
-    title: "Nuts & washers",
-    description:
-      "Heavy hex nuts, F436 hardened washers, and DTIs — the nuts and washers that complete every assembly.",
-    grades: ["2H", "8M", "F436", "DTI F959"],
-    href: "/industrial-fasteners",
-    cta: "Explore nuts & washers",
-    image: "/assets/products/structural-heavy-hex-nut-1.png",
-    imageAlt: "Heavy hex nut with F436 hardened washer",
-    placeholder: "A1 · Nuts & washers",
-  },
-  {
     order: "10",
     eyebrow: "10 — CNC Machining",
     title: "Custom CNC machined parts",
@@ -199,7 +186,7 @@ export default function ProductsPage() {
             </p>
             <div className="pe-head-meta">
               <div>
-                <b>9</b>Product families
+                <b>8</b>Product families
               </div>
               <div>
                 <b>28K+</b>Stock SKUs
