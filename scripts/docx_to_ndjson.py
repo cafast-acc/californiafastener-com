@@ -38,13 +38,21 @@ OVERRIDES = {
     "a193-b8": {"category": "materials"},
     "a193-guide": {"category": "spec", "oldSlug": "guide-to-astm-a193-fasteners"},
     "a194-nuts": {"category": "spec", "oldSlug": "the-essential-guide-to-astm-a194-nuts-l6hkp"},
+    # Batch 2 — title set here because the doc carries its title as plain body
+    # text (no Heading style) for the importer to pick up.
+    "prologis": {
+        "title": "Anchoring Growth: How Fasteners Power Prologis-Scale Warehouse Expansion",
+        "category": "industry",
+    },
+    "custom-fasteners": {"category": "cnc"},
+    "corrosion": {"category": "materials"},
 }
 DEFAULT_CATEGORY = "spec"
 
 SEO_PREFIXES = (
     "primary keyword", "secondary keywords", "secondary keyword", "seo intent",
-    "seo phrases", "seo phrase", "meta description", "url slug", "keyword:",
-    "target keyword",
+    "seo phrases", "seo phrase", "meta description", "meta title", "url slug",
+    "keyword:", "target keyword", "(alt for", "alt for a/b",
 )
 
 _key_counter = 0
@@ -76,7 +84,7 @@ def run_to_span(run_xml, link_mark=None):
         marks.append("em")
     if link_mark:
         marks.append(link_mark)
-    text = unesc("".join(re.findall(r"<w:t[^>]*>(.*?)</w:t>", run_xml, re.S)))
+    text = unesc("".join(re.findall(r"<w:t(?:\s[^>]*)?>(.*?)</w:t>", run_xml, re.S)))
     if not text:
         return None
     return {"_type": "span", "_key": key(), "text": text, "marks": marks}
@@ -141,7 +149,7 @@ def table_to_blocks(tbl_xml):
         cells = re.findall(r"<w:tc\b.*?</w:tc>", r, re.S)
         vals = []
         for c in cells:
-            txt = unesc("".join(re.findall(r"<w:t[^>]*>(.*?)</w:t>", c, re.S))).strip()
+            txt = unesc("".join(re.findall(r"<w:t(?:\s[^>]*)?>(.*?)</w:t>", c, re.S))).strip()
             vals.append(txt)
         if any(vals):
             parsed.append(vals)
@@ -225,6 +233,12 @@ def convert(path):
             spans[0]["text"] = ROMAN.sub("", spans[0]["text"])
         blocks.append(block(kind_style, spans, markdefs, list_item))
         prev_colon = text.rstrip().endswith(":")
+
+    # If the title was supplied via OVERRIDES but the doc also repeats it
+    # verbatim as the first body block, drop the duplicate so the rendered post
+    # doesn't show the title twice.
+    if title and blocks and plain(blocks[0]["children"]).strip().lower() == title.strip().lower():
+        blocks.pop(0)
 
     if not title:
         # Last resort: derive from filename.

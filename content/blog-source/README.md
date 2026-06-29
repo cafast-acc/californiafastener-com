@@ -7,10 +7,22 @@ they publish to `/blog` on the live site.
 
 | Batch | Posts | State |
 |-------|-------|-------|
-| 1     | 5 (the `.docx` in this folder) | Converted → `posts.ndjson` → **imported to Sanity (published, live on `/blog`)** on 2026-06-29. |
+| 1     | 5 | Converted → `posts.ndjson` → **imported to Sanity (published, live on `/blog`)** on 2026-06-29. |
+| 2     | 3 (Prologis, Custom Fasteners, Corrosion/Aerospace) | **Imported (published, live)** on 2026-06-29. All 8 posts re-dated one-per-week ending today. |
 
 The two posts already live on the new site (per the migration spreadsheet) are
 untouched — the importer only writes docs it owns (`post.import.*`).
+
+**Batch 2 notes:**
+- `ASTM_A194_Blog.docx` was a byte-for-byte duplicate of batch 1's A194 post →
+  not re-added.
+- `Exploring_ASTM_A325_Structural_Bolts...docx` was **deferred**: its body is a
+  complete guide to ASTM **A307**, not A325 (likely the wrong draft). Re-upload
+  the correct A325 content to import it.
+- The `Corrosion in Flight` doc bundled two articles (corrosion + fatigue);
+  imported as one combined post per request.
+- Fixed a converter bug where Word table tags (`<w:tcPr>` etc.) leaked into body
+  text — this also cleaned up the A193 guide post from batch 1.
 
 ## How it works (two steps)
 
