@@ -101,6 +101,12 @@ export function SpecBuilder() {
               stage === "r"
                 ? s.n !== "r"
                 : typeof stage === "number" && typeof s.n === "number" && s.n < stage;
+            // A node is navigable when it's already done or current. The Results
+            // node also becomes navigable once all four questions are answered,
+            // so the bar can genuinely reach the fifth step (not just light up
+            // passively when you happen to land there).
+            const isReachable =
+              s.n === "r" ? isActive || canAdvance("r") : isComplete || isActive;
             return (
               <span key={String(s.n)} style={{ display: "contents" }}>
                 <button
@@ -111,10 +117,10 @@ export function SpecBuilder() {
                     (isComplete ? " is-complete" : "")
                   }
                   onClick={() => {
-                    if (isComplete || isActive) goToStage(s.n);
+                    if (isReachable) goToStage(s.n);
                   }}
                   // Visually a div, but a button for keyboard nav
-                  style={{ background: "none", border: "none", font: "inherit", cursor: isComplete || isActive ? "pointer" : "default", padding: 0 }}
+                  style={{ background: "none", border: "none", font: "inherit", cursor: isReachable ? "pointer" : "default", padding: 0 }}
                 >
                   <span className="sb-step-num">{isComplete ? "✓" : i + 1}</span>
                   <span className="sb-step-label">{s.label}</span>
