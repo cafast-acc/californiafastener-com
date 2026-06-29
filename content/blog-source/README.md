@@ -9,7 +9,8 @@ they publish to `/blog` on the live site.
 |-------|-------|-------|
 | 1     | 5 | Converted → `posts.ndjson` → **imported to Sanity (published, live on `/blog`)** on 2026-06-29. |
 | 2     | 3 (Prologis, Custom Fasteners, Corrosion/Aerospace) | **Imported (published, live)** on 2026-06-29. |
-| 3     | 5 (CNC Capabilities, Hastelloy, Monel, Nickel Alloy, Coating outline) | **Imported (published, live)** on 2026-06-29. All 13 posts re-dated one-per-week ending today. |
+| 3     | 5 (CNC Capabilities, Hastelloy, Monel, Nickel Alloy, Coating outline) | **Imported (published, live)** on 2026-06-29. |
+| 4     | 4 (A490/F3125, A307, "Why distributors…", "Why we built a spec library…") | **Imported (published, live)** on 2026-06-29. All 17 posts re-dated one-per-week ending today. |
 
 The two posts already live on the new site (per the migration spreadsheet) are
 untouched — the importer only writes docs it owns (`post.import.*`).
@@ -32,6 +33,19 @@ untouched — the importer only writes docs it owns (`post.import.*`).
   `OVERRIDES`. It and the "Outline:" coating doc were **published as-is at the
   owner's request** — both are still in outline/brief form (writing directives,
   `Meta Description`/`SEO Title` scaffolding) rather than finished prose.
+
+**Batch 4 notes:**
+- A490 (F3125) and A307 → Spec & Compliance. The A307 doc is the finished
+  version of the content mis-uploaded as "A325" in batch 2; the earlier file
+  stays deferred.
+- The two "Why…" posts are finished prose that matched pre-existing *unpublished*
+  draft stubs in Sanity (`why-spec-library`, `why-distributors-…`). Published as
+  new live posts (`post.import.*`); the redundant draft stubs were **left in
+  place** — delete them in Sanity Studio when convenient.
+- Converter: now strips `Category:`/`SEO Title:` scaffolding lines and trailing
+  scraped-citation breadcrumbs ("…anchorage.Monster BoltsWikipedia…+1"); drops
+  apostrophes and truncates over-long slugs at a word boundary. Per-post `slug`
+  override supported (used to shorten the very long "Why distributors…" slug).
 
 ## How it works (two steps)
 

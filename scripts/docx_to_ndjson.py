@@ -60,13 +60,35 @@ OVERRIDES = {
         "title": "A Guide to Nickel Alloy Fasteners",
         "category": "materials",
     },
+    # Batch 4
+    "a490": {"category": "spec"},
+    "a307": {
+        "title": "Understanding ASTM A307 Bolts: Grades and Applications",
+        "category": "spec",
+    },
+    "distributors": {
+        # Title is very long; give it a clean, concise slug.
+        "slug": "why-distributors-cant-make-what-they-cant-source",
+        "category": "cnc",
+    },
+    "spec-library": {"category": "spec"},
 }
 DEFAULT_CATEGORY = "spec"
 
 SEO_PREFIXES = (
     "primary keyword", "secondary keywords", "secondary keyword", "seo intent",
     "seo phrases", "seo phrase", "meta description", "meta title", "url slug",
-    "keyword:", "target keyword", "(alt for", "alt for a/b",
+    "keyword:", "target keyword", "(alt for", "alt for a/b", "category:",
+    "seo title:",
+)
+
+# Some source docs were drafted by pasting from search results and carry trailing
+# "citation breadcrumb" cruft glued to the end of a sentence, e.g.
+#   "...structural anchorage.Monster BoltsWikipediaASTM A307 Bolts+1Portland Bolt+1"
+# The "+N" badges never appear in real prose, so we only strip when one is present.
+CITATION_CRUFT = re.compile(
+    r"(?:Monster Bolts|Wikipedia|Portland Bolt|Wilson-Garner|ASTM A307 Bolts|"
+    r"ASTM International|\s*\|\s*ASTM|\s*\+\d+)+\s*$"
 )
 
 _key_counter = 0
@@ -136,6 +158,30 @@ def block(style, spans, markdefs=None, list_item=None):
 
 def plain(spans):
     return "".join(s["text"] for s in spans)
+
+def strip_citation_cruft(spans):
+    """Trim trailing scraped-citation breadcrumbs that span one or more runs.
+
+    Operates on the concatenated paragraph text (cruft is often split across
+    runs, e.g. a hyperlink run) and only acts when a "+N" badge is present.
+    """
+    full = plain(spans)
+    if not re.search(r"\+\d", full):
+        return spans
+    cleaned = CITATION_CRUFT.sub("", full).rstrip()
+    if cleaned == full:
+        return spans
+    target, acc, out = len(cleaned), 0, []
+    for s in spans:
+        if acc >= target:
+            break
+        t = s["text"]
+        if acc + len(t) <= target:
+            out.append(s); acc += len(t)
+        else:
+            ns = dict(s); ns["text"] = t[: target - acc]
+            out.append(ns); acc = target
+    return [s for s in out if s["text"]]
 
 ROMAN = re.compile(r"^[IVXLC]+\.\s+")
 
@@ -218,6 +264,7 @@ def convert(path):
         style = para_style(xml)
         lst = is_list_para(xml)
         spans, markdefs = paragraph_spans(xml, rels)
+        spans = strip_citation_cruft(spans)
         text = plain(spans).strip()
         if not text:
             continue
@@ -283,7 +330,7 @@ def convert(path):
     words = sum(len(plain(b["children"]).split()) for b in blocks)
     reading = max(1, round(words / 200))
 
-    slug = slugify(title)
+    slug = ov.get("slug") or slugify(title)
     rec = {
         "title": title,
         "slug": slug,
@@ -299,9 +346,12 @@ def convert(path):
 
 def slugify(s):
     s = s.lower()
+    s = s.replace("'", "").replace("’", "")  # drop apostrophes: "can't" -> "cant"
     s = re.sub(r"[^a-z0-9]+", "-", s)
     s = re.sub(r"-+", "-", s).strip("-")
-    return s[:96].rstrip("-")
+    if len(s) > 96:  # truncate at a word boundary, not mid-word
+        s = s[:96].rsplit("-", 1)[0]
+    return s.strip("-")
 
 def main(argv):
     if not argv:
