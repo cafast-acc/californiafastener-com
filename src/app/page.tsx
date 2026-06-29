@@ -296,7 +296,7 @@ export default function HomePage() {
           </Link>
           <div className="cnc-hero-image">
             <Img
-              src="https://images.squarespace-cdn.com/content/v1/5efbb68d03da3677c3455ba6/ebb260c4-0354-4eba-85bf-9f171517486a/CNC-LIVETOOLING-LATHE-001.jpg?format=2500w"
+              src="/assets/site/cnc-lathe.jpg"
               alt="CNC lathe"
             />
           </div>
