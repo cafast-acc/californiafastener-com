@@ -164,6 +164,19 @@ async function main() {
     return;
   }
 
+  // Preserve a cover image already set on these docs (placeholder or the real
+  // per-post design, added out-of-band). createOrReplace would otherwise drop
+  // it, since the NDJSON carries no coverImage.
+  const ids = planned.map((p) => p.doc._id);
+  const existing = await client.fetch(`*[_id in $ids]{_id, coverImage}`, { ids });
+  const coverById = new Map(
+    existing.filter((e) => e.coverImage).map((e) => [e._id, e.coverImage]),
+  );
+  for (const p of planned) {
+    const cover = coverById.get(p.doc._id);
+    if (cover) p.doc.coverImage = cover;
+  }
+
   for (const p of planned) {
     await client.createOrReplace(p.doc);
     process.stdout.write(".");

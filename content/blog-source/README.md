@@ -71,6 +71,11 @@ untouched — the importer only writes docs it owns (`post.import.*`).
    - **Dates**: spread one per week, newest last = today.
    - **IDs**: deterministic `post.import.<slug>` → re-running updates in place,
      never duplicates. Written published (visible on `/blog` immediately).
+   - **Cover image**: the NDJSON carries none, but the importer **preserves** any
+     `coverImage` already on the doc (set in Studio or by patch), so re-running
+     won't wipe it. The imported posts currently use a shared placeholder
+     (`California Fastener Blog Images (1200 x 630 px).png`) pending the real
+     per-post designs.
 
 ### `.env.local` (not committed — git-ignored)
 
