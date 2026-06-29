@@ -2,6 +2,8 @@ import type { Metadata, Viewport } from "next";
 import { Inter, JetBrains_Mono } from "next/font/google";
 import "./globals.css";
 
+import { RouteTracker } from "@/components/RouteTracker";
+
 const inter = Inter({
   variable: "--font-inter",
   subsets: ["latin"],
@@ -38,7 +40,10 @@ export default function RootLayout({
       lang="en"
       className={`${inter.variable} ${jetbrainsMono.variable}`}
     >
-      <body>{children}</body>
+      <body>
+        <RouteTracker />
+        {children}
+      </body>
     </html>
   );
 }

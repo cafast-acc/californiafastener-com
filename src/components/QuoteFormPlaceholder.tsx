@@ -2,12 +2,14 @@
 
 import { useState } from "react";
 
+import { labelForSourcePath } from "@/lib/sourcePage";
+
 /**
  * Inline product-page quote form. Posts to the shared "Request a Quote"
  * Jotform (261747488304061) — the same form behind /quote — via the no-cors
  * fire-and-forget pattern used by RfqForm. Every submission stamps the hidden
- * "Source Page" field (q24_sourcePage), auto-derived from the page URL, so the
- * team can tell which product page a request came from.
+ * "Source Page" field (q24_sourcePage) with this page's label, so the team can
+ * tell which product page a request came from.
  *
  * The Jotform form requires First Name, Last Name, Company, and Email (and a
  * description); it rejects server-side if any are missing — and because the
@@ -20,22 +22,9 @@ import { useState } from "react";
 const JOTFORM_ID = "261747488304061";
 const JOTFORM_SUBMIT_URL = `https://submit.jotform.com/submit/${JOTFORM_ID}`;
 
-// Human-readable label per product page, keyed by pathname. Falls back to the
-// raw path so a page that isn't listed is still tagged, never blank.
-const SOURCE_LABELS: Record<string, string> = {
-  "/silicon-bronze": "Silicon Bronze",
-  "/u-bolts": "U-Bolts",
-  "/structural-fasteners": "Structural Fasteners",
-  "/stud-bolts-threaded-rod": "Stud Bolts & Threaded Rod",
-  "/stainless-steel-fasteners": "Stainless Steel Fasteners",
-  "/industrial-fasteners": "Industrial Fasteners",
-  "/hollo-bolt": "Hollo-Bolt",
-};
-
 function sourcePageLabel(): string {
   if (typeof window === "undefined") return "";
-  const path = window.location.pathname.replace(/\/+$/, "") || "/";
-  return SOURCE_LABELS[path] ?? path;
+  return labelForSourcePath(window.location.pathname);
 }
 
 const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;

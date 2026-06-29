@@ -3,6 +3,8 @@
 import Link from "next/link";
 import { useMemo, useState, type ChangeEvent, type DragEvent } from "react";
 
+import { LAST_PAGE_KEY, labelForSourcePath } from "@/lib/sourcePage";
+
 /**
  * Single-page RFQ intake (Foundry v3.2). Contact + free-text RFQ + optional
  * uploads + progressive disclosure for spec details. Mirrors input into a
@@ -180,6 +182,20 @@ export function RfqForm() {
     fd.append("submitSource", "californiafastener-com/quote");
     fd.append("submitDate", new Date().toISOString());
     fd.append("eventObserver", "1");
+
+    // Source Page: tag the page the visitor came from before landing on /quote
+    // (recorded by RouteTracker). Never blank — falls back to a direct-visit
+    // label so every submission in this shared inbox is attributable.
+    let originPath = "";
+    try {
+      originPath = sessionStorage.getItem(LAST_PAGE_KEY) ?? "";
+    } catch {
+      originPath = "";
+    }
+    fd.append(
+      "q24_sourcePage",
+      originPath ? labelForSourcePath(originPath) : "Quote Page (direct)",
+    );
 
     fd.append("q3_q3_textbox1", first.trim());
     fd.append("q4_q4_textbox2", last.trim());
