@@ -46,6 +46,20 @@ OVERRIDES = {
     },
     "custom-fasteners": {"category": "cnc"},
     "corrosion": {"category": "materials"},
+    # Batch 3
+    "cnc-capabilities": {
+        # Doc styles its title as body text prefixed "H1:", so set it here.
+        "title": "Fast Turnarounds, Tight Tolerances: CNC Capabilities at California Fastener",
+        "category": "cnc",
+    },
+    "hastelloy": {"category": "materials"},
+    "monel": {"category": "materials"},
+    "nickel-alloy": {
+        # Auto-detection grabs the first H2 ("Key Properties..."), a section
+        # heading, so give the article a proper title.
+        "title": "A Guide to Nickel Alloy Fasteners",
+        "category": "materials",
+    },
 }
 DEFAULT_CATEGORY = "spec"
 

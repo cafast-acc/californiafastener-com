@@ -8,7 +8,8 @@ they publish to `/blog` on the live site.
 | Batch | Posts | State |
 |-------|-------|-------|
 | 1     | 5 | Converted → `posts.ndjson` → **imported to Sanity (published, live on `/blog`)** on 2026-06-29. |
-| 2     | 3 (Prologis, Custom Fasteners, Corrosion/Aerospace) | **Imported (published, live)** on 2026-06-29. All 8 posts re-dated one-per-week ending today. |
+| 2     | 3 (Prologis, Custom Fasteners, Corrosion/Aerospace) | **Imported (published, live)** on 2026-06-29. |
+| 3     | 5 (CNC Capabilities, Hastelloy, Monel, Nickel Alloy, Coating outline) | **Imported (published, live)** on 2026-06-29. All 13 posts re-dated one-per-week ending today. |
 
 The two posts already live on the new site (per the migration spreadsheet) are
 untouched — the importer only writes docs it owns (`post.import.*`).
@@ -23,6 +24,14 @@ untouched — the importer only writes docs it owns (`post.import.*`).
   imported as one combined post per request.
 - Fixed a converter bug where Word table tags (`<w:tcPr>` etc.) leaked into body
   text — this also cleaned up the A193 guide post from batch 1.
+
+**Batch 3 notes:**
+- Material Selection docs (Hastelloy, Monel, Nickel Alloy) → Materials & Grades.
+  Nickel got a title override (auto-detection picked a section heading).
+- The CNC doc styles its title as `H1: …` body text, so its title is set via
+  `OVERRIDES`. It and the "Outline:" coating doc were **published as-is at the
+  owner's request** — both are still in outline/brief form (writing directives,
+  `Meta Description`/`SEO Title` scaffolding) rather than finished prose.
 
 ## How it works (two steps)
 
