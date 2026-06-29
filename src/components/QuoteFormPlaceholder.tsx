@@ -3,17 +3,44 @@
 import { useState } from "react";
 
 /**
- * Visual placeholder for inline product-page quote forms. Mirrors the
- * design's demo behavior — clicking submit just changes the button text.
+ * Inline product-page quote form. Posts to the shared "Request a Quote"
+ * Jotform (261747488304061) — the same form behind /quote — via the no-cors
+ * fire-and-forget pattern used by RfqForm. Every submission stamps the hidden
+ * "Source Page" field (q24_sourcePage), auto-derived from the page URL, so the
+ * team can tell which product page a request came from.
  *
- * Real submission is deferred to Jotform per the project plan; when that's
- * wired up, replace this with a restyled Jotform embed (hidden fields,
- * Jotform's CSS hooks pointed at `.pp-form-*`).
+ * The Jotform form requires First Name, Last Name, Company, and Email (and a
+ * description); it rejects server-side if any are missing — and because the
+ * POST is no-cors we can't read that failure. So we collect and require those
+ * fields here, mirroring RfqForm, to guarantee submissions actually land.
  *
- * Layout classes (`pp-form-*`, `pp-quote-form`) live in cf-product-page.css
- * and adapt automatically to the section's `.pp-quote--alt` modifier when
- * the parent section uses an inverted background.
+ * Layout classes (`pp-form-*`, `pp-quote-form`) live in cf-product-page.css.
  */
+
+const JOTFORM_ID = "261747488304061";
+const JOTFORM_SUBMIT_URL = `https://submit.jotform.com/submit/${JOTFORM_ID}`;
+
+// Human-readable label per product page, keyed by pathname. Falls back to the
+// raw path so a page that isn't listed is still tagged, never blank.
+const SOURCE_LABELS: Record<string, string> = {
+  "/silicon-bronze": "Silicon Bronze",
+  "/u-bolts": "U-Bolts",
+  "/structural-fasteners": "Structural Fasteners",
+  "/stud-bolts-threaded-rod": "Stud Bolts & Threaded Rod",
+  "/stainless-steel-fasteners": "Stainless Steel Fasteners",
+  "/industrial-fasteners": "Industrial Fasteners",
+  "/hollo-bolt": "Hollo-Bolt",
+};
+
+function sourcePageLabel(): string {
+  if (typeof window === "undefined") return "";
+  const path = window.location.pathname.replace(/\/+$/, "") || "/";
+  return SOURCE_LABELS[path] ?? path;
+}
+
+const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+const errBorder = { borderColor: "#c0392b" } as const;
+
 type Props = {
   textareaLabel: string;
   textareaPlaceholder: string;
@@ -21,44 +48,161 @@ type Props = {
 
 export function QuoteFormPlaceholder({ textareaLabel, textareaPlaceholder }: Props) {
   const [sent, setSent] = useState(false);
+  const [submitting, setSubmitting] = useState(false);
+  const [showErrors, setShowErrors] = useState(false);
+
+  const [first, setFirst] = useState("");
+  const [last, setLast] = useState("");
+  const [email, setEmail] = useState("");
+  const [company, setCompany] = useState("");
+  const [phone, setPhone] = useState("");
+  const [message, setMessage] = useState("");
+
+  const emailValid = EMAIL_RE.test(email.trim());
+  const ready =
+    !!first.trim() && !!last.trim() && !!company.trim() && emailValid && !!message.trim();
+
+  async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
+    e.preventDefault();
+    if (!ready) {
+      setShowErrors(true);
+      return;
+    }
+    setSubmitting(true);
+
+    const fd = new FormData();
+    fd.append("formID", JOTFORM_ID);
+    fd.append("simple_spc", `${JOTFORM_ID}-${JOTFORM_ID}`);
+    fd.append("submitSource", "californiafastener-com/product-page");
+    fd.append("submitDate", new Date().toISOString());
+    fd.append("eventObserver", "1");
+
+    fd.append("q3_q3_textbox1", first.trim());
+    fd.append("q4_q4_textbox2", last.trim());
+    fd.append("q5_q5_email3", email.trim());
+    fd.append("q6_q6_textbox4", company.trim());
+    if (phone.trim()) fd.append("q7_q7_phone5[full]", phone.trim());
+    fd.append("q9_q9_textarea7", message.trim());
+
+    // Hidden "Source Page" field — which product page this came from.
+    fd.append("q24_sourcePage", sourcePageLabel());
+
+    // Honeypot — leave blank.
+    fd.append("website", "");
+
+    try {
+      // no-cors: Jotform's submit endpoint doesn't return CORS headers, so the
+      // response is opaque. The POST is still accepted; we confirm optimistically.
+      await fetch(JOTFORM_SUBMIT_URL, { method: "POST", body: fd, mode: "no-cors" });
+    } catch (err) {
+      // Network failure (offline, blocked). Surface for debugging; still confirm
+      // so the customer isn't left stuck — they can also call the number shown.
+      console.error("Product-page quote submission to Jotform failed:", err);
+    }
+    setSubmitting(false);
+    setSent(true);
+  }
+
+  if (sent) {
+    return (
+      <div className="pp-quote-form">
+        <h3 style={{ fontSize: 22, fontWeight: 600, letterSpacing: "-0.02em", margin: "8px 0 10px" }}>
+          Request sent ✓
+        </h3>
+        <p style={{ color: "var(--mid)", lineHeight: 1.5, margin: 0 }}>
+          Thanks — we&apos;ve got your request and a team member will follow up within one business
+          day with pricing and lead time. Need it sooner? Call 707.741.3277.
+        </p>
+      </div>
+    );
+  }
 
   return (
-    <form
-      className="pp-quote-form"
-      onSubmit={(e) => {
-        e.preventDefault();
-        setSent(true);
-      }}
-    >
+    <form className="pp-quote-form" onSubmit={handleSubmit} noValidate>
       <div className="pp-form-row">
         <div className="pp-form-field">
-          <label>Name</label>
-          <input type="text" name="name" required />
+          <label>First name</label>
+          <input
+            type="text"
+            name="first"
+            value={first}
+            onChange={(e) => setFirst(e.target.value)}
+            style={showErrors && !first.trim() ? errBorder : undefined}
+            aria-invalid={showErrors && !first.trim() ? true : undefined}
+            required
+          />
         </div>
         <div className="pp-form-field">
-          <label>Company</label>
-          <input type="text" name="company" />
+          <label>Last name</label>
+          <input
+            type="text"
+            name="last"
+            value={last}
+            onChange={(e) => setLast(e.target.value)}
+            style={showErrors && !last.trim() ? errBorder : undefined}
+            aria-invalid={showErrors && !last.trim() ? true : undefined}
+            required
+          />
         </div>
       </div>
       <div className="pp-form-row">
         <div className="pp-form-field">
           <label>Email</label>
-          <input type="email" name="email" required />
+          <input
+            type="email"
+            name="email"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+            style={showErrors && !emailValid ? errBorder : undefined}
+            aria-invalid={showErrors && !emailValid ? true : undefined}
+            required
+          />
         </div>
         <div className="pp-form-field">
+          <label>Company</label>
+          <input
+            type="text"
+            name="company"
+            value={company}
+            onChange={(e) => setCompany(e.target.value)}
+            style={showErrors && !company.trim() ? errBorder : undefined}
+            aria-invalid={showErrors && !company.trim() ? true : undefined}
+            required
+          />
+        </div>
+      </div>
+      <div className="pp-form-row">
+        <div className="pp-form-field pp-form-field--full">
           <label>Phone</label>
-          <input type="tel" name="phone" />
+          <input
+            type="tel"
+            name="phone"
+            value={phone}
+            onChange={(e) => setPhone(e.target.value)}
+          />
         </div>
       </div>
       <div className="pp-form-row">
         <div className="pp-form-field pp-form-field--full">
           <label>{textareaLabel}</label>
-          <textarea name="message" placeholder={textareaPlaceholder} />
+          <textarea
+            name="message"
+            placeholder={textareaPlaceholder}
+            value={message}
+            onChange={(e) => setMessage(e.target.value)}
+            style={showErrors && !message.trim() ? errBorder : undefined}
+            aria-invalid={showErrors && !message.trim() ? true : undefined}
+          />
         </div>
       </div>
-      <button type="submit" className="cf-pill cf-pill--blue pp-form-submit" disabled={sent}>
-        {sent ? "Sent ✓" : "Send quote request"}
+      <button type="submit" className="cf-pill cf-pill--blue pp-form-submit" disabled={submitting}>
+        {submitting ? "Sending…" : "Send quote request"}
       </button>
+      {showErrors && !ready && (
+        <p style={{ color: "#c0392b", fontSize: 13, marginTop: 12 }}>
+          Please add your first and last name, company, a valid email, and a short description.
+        </p>
+      )}
     </form>
   );
 }
