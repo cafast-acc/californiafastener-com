@@ -124,7 +124,7 @@ function fmtDate(iso: string) {
 
 function Featured({ post }: { post: PostCard }) {
   const img = post.coverImage;
-  const imgUrl = img?.asset ? urlForImage(img).width(1200).height(960).url() : null;
+  const imgUrl = img?.asset ? urlForImage(img).width(1100).height(1100).url() : null;
   return (
     <section className="bl-featured">
       <div className="bl-featured-grid">

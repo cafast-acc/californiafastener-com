@@ -11,7 +11,7 @@ function fmtDate(iso: string) {
 export function ArticleCard({ post }: { post: PostCard }) {
   const accent = post.category?.accent ?? "blue";
   const imgUrl = post.coverImage?.asset
-    ? urlForImage(post.coverImage).width(720).height(540).url()
+    ? urlForImage(post.coverImage).width(800).height(800).url()
     : null;
   const placeholderLabel = post.category?.title?.toLowerCase() ?? "field notes";
 
