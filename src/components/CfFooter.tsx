@@ -49,6 +49,7 @@ export function CfFooter() {
           <Link href="/about">About</Link>
           <Link href="/cnc-machining">CNC Machining</Link>
           <Link href="/quote">Request a Quote</Link>
+          <Link href="/privacy">Privacy Policy</Link>
         </div>
       </div>
       <div className="cf-footer-bottom">
