@@ -1,5 +1,6 @@
 import type { Metadata, Viewport } from "next";
 import { Inter, JetBrains_Mono } from "next/font/google";
+import { GoogleTagManager } from "@next/third-parties/google";
 import "./globals.css";
 
 import { RouteTracker } from "@/components/RouteTracker";
@@ -40,7 +41,17 @@ export default function RootLayout({
       lang="en"
       className={`${inter.variable} ${jetbrainsMono.variable}`}
     >
+      <GoogleTagManager gtmId="GTM-NDRT3DJ5" />
       <body>
+        {/* Google Tag Manager (noscript) fallback for visitors without JS */}
+        <noscript>
+          <iframe
+            src="https://www.googletagmanager.com/ns.html?id=GTM-NDRT3DJ5"
+            height="0"
+            width="0"
+            style={{ display: "none", visibility: "hidden" }}
+          />
+        </noscript>
         <RouteTracker />
         {children}
       </body>
