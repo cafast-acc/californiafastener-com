@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import { sendGTMEvent } from "@next/third-parties/google";
 
 /**
  * Inline RFQ form for /cnc-machining. Posts to the dedicated "CNC Machining
@@ -74,6 +75,7 @@ export function CncQuoteForm() {
     }
     setSubmitting(false);
     setSent(true);
+    sendGTMEvent({ event: "form_submit", form_name: "cnc_quote" });
   }
 
   return (

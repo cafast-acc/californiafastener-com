@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
+import { sendGTMEvent } from "@next/third-parties/google";
 import type { SelectionState } from "@/lib/specBuilder/scoring";
 import { titleCase } from "@/lib/specBuilder/scoring";
 
@@ -387,6 +388,7 @@ export function QuoteModal({
             if (submitting) {
               setSubmitting(false);
               setSent(true);
+              sendGTMEvent({ event: "form_submit", form_name: "spec_builder_quote" });
             }
           }}
         />

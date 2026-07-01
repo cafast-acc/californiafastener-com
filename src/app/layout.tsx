@@ -6,6 +6,7 @@ import { SpeedInsights } from "@vercel/speed-insights/next";
 import "./globals.css";
 
 import { RouteTracker } from "@/components/RouteTracker";
+import { ClickTracker } from "@/components/ClickTracker";
 
 const inter = Inter({
   variable: "--font-inter",
@@ -55,6 +56,7 @@ export default function RootLayout({
           />
         </noscript>
         <RouteTracker />
+        <ClickTracker />
         {children}
         <Analytics />
         <SpeedInsights />

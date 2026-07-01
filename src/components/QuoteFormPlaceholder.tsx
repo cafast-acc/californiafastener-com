@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import { sendGTMEvent } from "@next/third-parties/google";
 
 import { labelForSourcePath } from "@/lib/sourcePage";
 
@@ -90,6 +91,7 @@ export function QuoteFormPlaceholder({ textareaLabel, textareaPlaceholder }: Pro
     }
     setSubmitting(false);
     setSent(true);
+    sendGTMEvent({ event: "form_submit", form_name: "product_quote" });
   }
 
   if (sent) {

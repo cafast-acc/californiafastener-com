@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { useMemo, useState, type ChangeEvent, type DragEvent } from "react";
+import { sendGTMEvent } from "@next/third-parties/google";
 
 import { LAST_PAGE_KEY, labelForSourcePath } from "@/lib/sourcePage";
 
@@ -250,6 +251,7 @@ export function RfqForm() {
 
     setSubmitted({ ref: refCode() });
     setSubmitting(false);
+    sendGTMEvent({ event: "form_submit", form_name: "rfq" });
     if (typeof window !== "undefined") {
       window.scrollTo({ top: 0, behavior: "smooth" });
     }

@@ -1,6 +1,7 @@
 "use client";
 
 import { useMemo, useState } from "react";
+import { sendGTMEvent } from "@next/third-parties/google";
 import {
   buildSku,
   FINISH_AVAIL,
@@ -165,6 +166,7 @@ export function HolloBoltSelector() {
     }
     setSubmitting(false);
     setSubmitted(true);
+    sendGTMEvent({ event: "form_submit", form_name: "hollo_bolt_quote" });
     flashToast("Quote request received — we'll be in touch.");
   }
 
