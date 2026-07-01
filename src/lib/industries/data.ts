@@ -206,8 +206,8 @@ export const INDUSTRIES: Record<IndustrySlug, Industry> = {
     h1Accent: "drawing",
     h2: "A325, A490, and TC bolts — on the shelf, on the truck, on the crane.",
     lead: "Data-center framing, hospital seismic bracing, tilt-up anchor templates, high-rise moment connections. When the crew shows up at 6am, the fasteners need to already be there — in the right grade, the right finish, and the right quantity.",
-    heroImg: "https://images.squarespace-cdn.com/content/v1/5efbb68d03da3677c3455ba6/1e76177d-d96a-4d9d-8931-3f7d049e12d7/construction.jpg?format=2500w",
-    heroImgAlt: "Steel structural erection on a commercial project",
+    heroImg: "/assets/ind-construction-facade.jpg",
+    heroImgAlt: "Weathering-steel perforated facade panels on a commercial building against a blue sky",
     heroTag: "High-rise · Data center · Commercial · Seismic",
     contextH2: "Structural fasteners staged to the erection sequence.",
     contextBody: [
@@ -245,7 +245,7 @@ export const INDUSTRIES: Record<IndustrySlug, Industry> = {
     whyH2: "Why California Fastener for construction.",
     whyBody: "Structural work rewards companies who understand sequencing. We hold tag-based inventory against your erection drawings, release to the dock by lift or pour, and back every shipment with the F3125 mill paperwork your engineer and inspector will ask to see. Decades of shop-drawing staging and we've never been why a crew waited.",
     quoteBody: "Send us your shop drawings and we'll stage to your sequence — A325, A490, TC, or F1554 anchor assemblies, released to match your erection or pour schedule. Zero bolt shortages. Zero schedule surprises.",
-    quoteBg: "https://images.squarespace-cdn.com/content/v1/5efbb68d03da3677c3455ba6/1e76177d-d96a-4d9d-8931-3f7d049e12d7/construction.jpg?format=2500w",
+    quoteBg: "/assets/ind-construction-facade.jpg",
   },
 
   "power-transmission": {
