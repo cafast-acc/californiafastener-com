@@ -485,7 +485,10 @@ export function SpecLibrary() {
             </span>
             <span className="lib-stats-ctx">{statsContext}</span>
             <span className="lib-stats-ver">
-              ASTM · SAE · ASME · ISO · DIN &nbsp;·&nbsp; <a href="#">Request a revision</a>
+              ASTM · SAE · ASME · ISO · DIN &nbsp;·&nbsp;{" "}
+              <a href="mailto:info@californiafastener.com?subject=Spec%20Library%20revision%20request">
+                Request a revision
+              </a>
             </span>
           </div>
 
@@ -493,6 +496,7 @@ export function SpecLibrary() {
           <div>
             {LIB_SECTIONS.map((s) => {
               const visible = visibleBySection.get(s.id) ?? [];
+              const startFile = LIB_SPECS.find((sp) => sp.code === s.starthere.code)?.file;
               return (
                 <section
                   key={s.id}
@@ -510,7 +514,9 @@ export function SpecLibrary() {
                     </div>
                     <aside className="lib-sec-starthere">
                       <b>Start here</b>
-                      <a href="#">{s.starthere.code}</a>
+                      <Link href={startFile ? `/spec-library/${startFile}` : "/spec-library"}>
+                        {s.starthere.code}
+                      </Link>
                       {s.starthere.why}
                     </aside>
                   </header>
