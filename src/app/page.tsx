@@ -259,7 +259,7 @@ export default function HomePage() {
               </div>
             </div>
             <div className="specialty-ctas">
-              <Link href="/quote" className="cf-pill cf-pill--blue">Request Hollo-Bolt quote</Link>
+              <Link href="/hollo-bolt-selector" className="cf-pill cf-pill--blue">Request Hollo-Bolt quote</Link>
               <Link href="/hollo-bolt" className="cf-link">View Lindapter catalog</Link>
             </div>
           </div>
