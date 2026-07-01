@@ -185,8 +185,6 @@ export function SpecLibrary() {
           <div className="lib-crumbs">
             <Link href="/">California Fastener</Link>
             <span className="sep">/</span>
-            <Link href="/resources">Resources</Link>
-            <span className="sep">/</span>
             <span className="here">Spec Library</span>
           </div>
 
