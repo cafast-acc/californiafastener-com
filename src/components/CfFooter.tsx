@@ -18,10 +18,12 @@ export function CfFooter() {
           <h4>Products</h4>
           <Link href="/anchor-bolts">Anchor Bolts</Link>
           <Link href="/structural-fasteners">Structural</Link>
+          <Link href="/industrial-fasteners">Industrial Fasteners</Link>
           <Link href="/stud-bolts-threaded-rod">Stud Bolts &amp; Rod</Link>
           <Link href="/stainless-steel-fasteners">Stainless Steel</Link>
           <Link href="/u-bolts">U-Bolts</Link>
           <Link href="/silicon-bronze">Silicon Bronze</Link>
+          <Link href="/hollo-bolt">Hollo-Bolt</Link>
         </div>
         <div className="cf-footer-col">
           <h4>Industries</h4>
