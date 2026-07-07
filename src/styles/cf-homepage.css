@@ -479,7 +479,7 @@
 .cnc-hero-eyebrow {
   font-size: 21px;
   font-weight: 500;
-  color: var(--purple);
+  color: var(--purple-dark);
   margin-bottom: 14px;
   letter-spacing: -0.01em;
 }
@@ -490,7 +490,7 @@
   letter-spacing: -0.04em;
   margin-bottom: 20px;
 }
-.cnc-hero h2 i { font-style: normal; color: var(--purple); }
+.cnc-hero h2 i { font-style: normal; color: var(--purple-dark); }
 .cnc-hero p {
   font-size: 23px;
   color: var(--dark-mid);
@@ -696,7 +696,7 @@
   gap: 14px;
 }
 .spec-feat-step--active {
-  border-color: var(--purple);
+  border-color: var(--purple-dark);
   background: rgba(140, 82, 255, 0.04);
 }
 .spec-feat-step--done {

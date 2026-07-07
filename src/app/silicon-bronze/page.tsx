@@ -459,7 +459,7 @@ function Property({ num, title, desc }: { num: string; title: string; desc: stri
   return (
     <div className="pp-prop">
       <div className="pn">{num}</div>
-      <h3>{title}</h3>
+      <h2>{title}</h2>
       <p>{desc}</p>
     </div>
   );
@@ -548,7 +548,7 @@ function CrossLink({
   return (
     <Link href={href} className="pp-cross-card">
       <div className="question">{question}</div>
-      <h4>{title}</h4>
+      <h3>{title}</h3>
       <div className="spec">{spec}</div>
     </Link>
   );
