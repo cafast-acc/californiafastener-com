@@ -343,7 +343,7 @@ export default function HolloBoltPage() {
             <Link href="/structural-fasteners" className="hb-app-tile hb-app-tile--steel">
               <div className="hb-app-tile-bg">
                 <img
-                  src="https://images.squarespace-cdn.com/content/v1/5efbb68d03da3677c3455ba6/1e76177d-d96a-4d9d-8931-3f7d049e12d7/construction.jpg?format=2500w"
+                  src="/assets/ind-construction-facade.jpg"
                   alt=""
                 />
               </div>

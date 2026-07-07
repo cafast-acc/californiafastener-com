@@ -326,7 +326,7 @@ export default function HomePage() {
             name="Construction"
             title="High-rise steel and data-center framing."
             desc="Structural fasteners for commercial, industrial, and institutional steel erection — from moment connections to large-scale facilities."
-            img="https://images.squarespace-cdn.com/content/v1/5efbb68d03da3677c3455ba6/1e76177d-d96a-4d9d-8931-3f7d049e12d7/construction.jpg?format=2500w"
+            img="/assets/ind-construction-facade.jpg"
           />
           <IndustryTile
             href="/industries/power-generation"

@@ -54,7 +54,7 @@
 .st-app-tile-bg { position: absolute; inset: 0; z-index: 0; }
 .st-app-tile--oil .st-app-tile-bg { background: url('/assets/ind-oil-gas-chem.webp') center/cover no-repeat; }
 .st-app-tile--power .st-app-tile-bg { background: url('/assets/ind-pwr-gen.webp') center/cover no-repeat; }
-.st-app-tile--const .st-app-tile-bg { background: url('https://images.squarespace-cdn.com/content/v1/5efbb68d03da3677c3455ba6/1e76177d-d96a-4d9d-8931-3f7d049e12d7/construction.jpg?format=2500w') center/cover no-repeat; }
+.st-app-tile--const .st-app-tile-bg { background: url('/assets/ind-construction-facade.jpg') center/cover no-repeat; }
 .st-app-tile-bg::after { content: ''; position: absolute; inset: 0; background: linear-gradient(180deg, rgba(0,0,0,0.15) 0%, rgba(0,0,0,0.35) 50%, rgba(0,0,0,0.85) 100%); }
 .st-app-tile::after { content: ''; position: absolute; inset: 0; background: linear-gradient(180deg, rgba(0,0,0,0) 30%, rgba(0,0,0,0.4) 100%); z-index: 1; pointer-events: none; }
 .st-app-tile-body { position: absolute; inset: 0; z-index: 2; padding: 26px; display: flex; flex-direction: column; justify-content: flex-end; color: white; }

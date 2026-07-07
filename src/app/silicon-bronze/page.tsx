@@ -267,7 +267,7 @@ export default function SiliconBronzePage() {
             <Link href="/industries/construction" className="sb-app-tile sb-app-tile--arch">
               <div className="sb-app-tile-bg">
                 <Img
-                  src="https://images.squarespace-cdn.com/content/v1/5efbb68d03da3677c3455ba6/1e76177d-d96a-4d9d-8931-3f7d049e12d7/construction.jpg?format=2500w"
+                  src="/assets/ind-construction-facade.jpg"
                   alt=""
                 />
               </div>
