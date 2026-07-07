@@ -258,7 +258,7 @@ export default function AnchorBoltsPage() {
               eyebrow="Construction"
               title="Structural steel columns, beams & framing."
               desc="Base plate anchorage for moment frames, braced frames, and gravity columns."
-              img="https://images.squarespace-cdn.com/content/v1/5efbb68d03da3677c3455ba6/1e76177d-d96a-4d9d-8931-3f7d049e12d7/construction.jpg?format=2500w"
+              img="/assets/ind-construction-facade.jpg"
             />
             <AppTile
               href="/industries/manufacturing"
