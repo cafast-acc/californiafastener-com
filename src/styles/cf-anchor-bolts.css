@@ -107,12 +107,12 @@
 
 /* TEMPLATE PLATES — full-bleed dark band */
 .ab-plates { padding: 0; background: var(--ink); color: var(--dark-text); overflow: hidden; }
-.ab-plates-inner { display: grid; grid-template-columns: 1fr 1.3fr; min-height: 560px; }
-.ab-plates-text { padding: 96px 80px; display: flex; flex-direction: column; justify-content: center; }
-.ab-plates-text .eyebrow { font-size: 13px; color: var(--blue); font-weight: 500; margin-bottom: 14px; letter-spacing: 0.04em; text-transform: uppercase; }
-.ab-plates-text h2 { font-size: clamp(40px, 4.2vw, 64px); font-weight: 600; letter-spacing: -0.03em; line-height: 1.02; margin-bottom: 20px; }
+.ab-plates-inner { display: grid; grid-template-columns: 1fr 1.4fr; min-height: 560px; }
+.ab-plates-text { padding: 88px 48px 88px 80px; display: flex; flex-direction: column; justify-content: center; }
+.ab-plates-text .eyebrow { font-size: 14px; color: var(--blue); font-weight: 500; margin-bottom: 14px; letter-spacing: 0.04em; text-transform: uppercase; }
+.ab-plates-text h2 { font-size: clamp(44px, 4.6vw, 70px); font-weight: 600; letter-spacing: -0.03em; line-height: 1.02; margin-bottom: 20px; }
 .ab-plates-text h2 i { font-style: normal; color: var(--blue); }
-.ab-plates-text p { font-size: 17px; color: var(--dark-mid); line-height: 1.5; margin-bottom: 28px; max-width: 440px; }
+.ab-plates-text p { font-size: 19px; color: var(--dark-mid); line-height: 1.55; margin-bottom: 28px; max-width: 480px; }
 .ab-plates-image { background: #E7E5E0; display: flex; align-items: center; justify-content: center; overflow: hidden; }
 .ab-plates-image img { width: 100%; height: 100%; object-fit: cover; }
 

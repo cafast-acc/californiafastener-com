@@ -300,7 +300,7 @@ export default function AnchorBoltsPage() {
               Template plates hold the bolt pattern in position during the pour — spacing, alignment,
               and elevation locked in before concrete goes down.
             </p>
-            <p style={{ maxWidth: "440px" }}>
+            <p style={{ maxWidth: "480px" }}>
               Hot-rolled or laser-cut to your bolt pattern. Reusable on repeat-pattern jobs, one-off
               for custom layouts.
             </p>
