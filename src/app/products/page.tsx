@@ -239,8 +239,8 @@ export default function ProductsPage() {
           <Link href="/quote" className="cf-pill cf-pill--blue">
             Request a Quote
           </Link>
-          <a href="tel:+18337073278" className="cf-pill pe-cta-call">
-            Call 833.707.FAST
+          <a href="tel:+17077413277" className="cf-pill pe-cta-call">
+            Call 707.741.3277
           </a>
         </div>
       </section>
