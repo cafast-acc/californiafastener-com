@@ -4,6 +4,7 @@ import "@/styles/cf-homepage.css";
 import { CfNav } from "@/components/CfNav";
 import { CfFooter } from "@/components/CfFooter";
 import { Img } from "@/components/Img";
+import { HolloBoltSelectorTrigger } from "@/components/HolloBoltSelectorModal";
 
 export default function HomePage() {
   return (
@@ -259,7 +260,7 @@ export default function HomePage() {
               </div>
             </div>
             <div className="specialty-ctas">
-              <Link href="/quote" className="cf-pill cf-pill--blue">Request Hollo-Bolt quote</Link>
+              <HolloBoltSelectorTrigger className="cf-pill cf-pill--blue">Request Hollo-Bolt quote</HolloBoltSelectorTrigger>
               <Link href="/hollo-bolt" className="cf-link">View Lindapter catalog</Link>
             </div>
           </div>
