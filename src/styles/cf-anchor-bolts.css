@@ -86,7 +86,7 @@
 .ab-bend-checks li { padding: 10px 0; font-size: 15px; color: var(--ink); display: flex; align-items: center; gap: 12px; }
 .ab-bend-checks li::before { content: ''; width: 16px; height: 16px; background: var(--purple-dark); border-radius: 50%; flex-shrink: 0; background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='none'><path d='M4 8l3 3 5-6' stroke='white' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/></svg>"); background-repeat: no-repeat; background-position: center; }
 .ab-bend-visual { aspect-ratio: 1/1; background: #E7E5E0; border-radius: 24px; display: flex; align-items: center; justify-content: center; overflow: hidden; position: relative; }
-.ab-bend-visual img { width: 100%; height: 100%; object-fit: cover; }
+.ab-bend-visual img { width: 100%; height: 100%; object-fit: contain; }
 .ab-bend-visual-tag { position: absolute; bottom: 24px; left: 24px; background: rgba(255,255,255,0.92); backdrop-filter: blur(8px); padding: 8px 14px; border-radius: 100px; font-size: 11px; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; color: var(--ink); }
 
 /* APPLICATIONS */
@@ -107,12 +107,12 @@
 
 /* TEMPLATE PLATES — full-bleed dark band */
 .ab-plates { padding: 0; background: var(--ink); color: var(--dark-text); overflow: hidden; }
-.ab-plates-inner { display: grid; grid-template-columns: 1fr 1.3fr; min-height: 560px; }
-.ab-plates-text { padding: 96px 80px; display: flex; flex-direction: column; justify-content: center; }
-.ab-plates-text .eyebrow { font-size: 13px; color: var(--blue); font-weight: 500; margin-bottom: 14px; letter-spacing: 0.04em; text-transform: uppercase; }
-.ab-plates-text h2 { font-size: clamp(40px, 4.2vw, 64px); font-weight: 600; letter-spacing: -0.03em; line-height: 1.02; margin-bottom: 20px; }
+.ab-plates-inner { display: grid; grid-template-columns: 1fr 1.4fr; min-height: 560px; }
+.ab-plates-text { padding: 88px 48px 88px 80px; display: flex; flex-direction: column; justify-content: center; }
+.ab-plates-text .eyebrow { font-size: 14px; color: var(--blue); font-weight: 500; margin-bottom: 14px; letter-spacing: 0.04em; text-transform: uppercase; }
+.ab-plates-text h2 { font-size: clamp(44px, 4.6vw, 70px); font-weight: 600; letter-spacing: -0.03em; line-height: 1.02; margin-bottom: 20px; }
 .ab-plates-text h2 i { font-style: normal; color: var(--blue); }
-.ab-plates-text p { font-size: 17px; color: var(--dark-mid); line-height: 1.5; margin-bottom: 28px; max-width: 440px; }
+.ab-plates-text p { font-size: 19px; color: var(--dark-mid); line-height: 1.55; margin-bottom: 28px; max-width: 480px; }
 .ab-plates-image { background: #E7E5E0; display: flex; align-items: center; justify-content: center; overflow: hidden; }
 .ab-plates-image img { width: 100%; height: 100%; object-fit: cover; }
 
@@ -133,7 +133,7 @@
 .ab-partner--hilti { background: #D2231F; color: white; padding: 6px 14px; border-radius: 2px; font-size: 16px; font-weight: 700; letter-spacing: 0.02em; }
 .ab-partner--simpson { display: inline-flex; flex-direction: column; font-size: 13px; font-weight: 700; line-height: 1; letter-spacing: 0.02em; }
 .ab-partner--simpson span:first-child { background: #000; color: white; padding: 4px 10px; }
-.ab-partner--simpson span:last-child { background: #F08020; color: white; padding: 4px 10px; }
+.ab-partner--simpson span:last-child { background: #B35600; color: white; padding: 4px 10px; }
 
 /* CTA BAND */
 .ab-cta { padding: 120px 40px; background: var(--dark-1); color: var(--dark-text); position: relative; overflow: hidden; }

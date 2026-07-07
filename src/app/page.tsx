@@ -297,7 +297,7 @@ export default function HomePage() {
           </Link>
           <div className="cnc-hero-image">
             <Img
-              src="https://images.squarespace-cdn.com/content/v1/5efbb68d03da3677c3455ba6/ebb260c4-0354-4eba-85bf-9f171517486a/CNC-LIVETOOLING-LATHE-001.jpg?format=2500w"
+              src="/assets/home-cnc-livetool.webp"
               alt="CNC lathe"
             />
           </div>
@@ -334,7 +334,7 @@ export default function HomePage() {
             name="Power Generation"
             title="Gas, steam, and renewable generation."
             desc="High-temperature and high-pressure fasteners for gas turbines, steam systems, and renewable installations."
-            img="https://images.squarespace-cdn.com/content/v1/5efbb68d03da3677c3455ba6/1df61635-d95e-47b3-ba2b-633da74f8021/AdobeStock_170240857.jpeg?format=2500w"
+            img="/assets/ind-power-generation.webp"
           />
           <IndustryTile
             href="/industries/infrastructure"
@@ -342,7 +342,7 @@ export default function HomePage() {
             name="Infrastructure"
             title="Bridges, rail, and long-service civil work."
             desc="Long-service-life fasteners for bridges, highways, rail systems, and other civil projects."
-            img="https://images.squarespace-cdn.com/content/v1/5efbb68d03da3677c3455ba6/261f100b-3496-48f2-b1ee-245eca151e58/AdobeStock_753784784.jpeg?format=2500w"
+            img="/assets/ind-infrastructure.webp"
           />
           <IndustryTile
             href="/industries/manufacturing"
@@ -350,7 +350,7 @@ export default function HomePage() {
             name="Manufacturing"
             title="Heavy machinery and production lines."
             desc="Fasteners for heavy machinery, production lines, and fabricated steel assemblies — the parts that keep production running."
-            img="https://images.squarespace-cdn.com/content/v1/5efbb68d03da3677c3455ba6/606418c4-1057-49ac-821b-ce572774f5b9/AdobeStock_731342733.jpeg?format=2500w"
+            img="/assets/ind-manufacturing.jpg"
           />
           <IndustryTile
             href="/industries/power-transmission"
@@ -358,7 +358,7 @@ export default function HomePage() {
             name="Power Transmission"
             title="Substations, transmission, and distribution."
             desc="Fasteners for substations, transmission towers, and distribution networks."
-            img="https://images.squarespace-cdn.com/content/v1/5efbb68d03da3677c3455ba6/79392af3-9542-4258-987d-76124ceec2f3/AdobeStock_182646517.jpeg?format=2500w"
+            img="/assets/ind-power-transmission.webp"
           />
           <IndustryTile
             href="/industries/oil-gas"
@@ -366,7 +366,7 @@ export default function HomePage() {
             name="Oil, Gas & Chemical"
             title="Corrosion-resistant, high-pressure service."
             desc="Upstream, midstream, downstream, and chemical processing — sized for extreme temperatures, pressures, and harsh service environments."
-            img="https://images.squarespace-cdn.com/content/v1/5efbb68d03da3677c3455ba6/dcbe43bd-d8ab-4d13-afff-b45c323f0ade/AdobeStock_71932049.jpeg?format=2500w"
+            img="/assets/ind-oil-gas.webp"
           />
         </div>
         <div className="industries-cta">
@@ -443,7 +443,7 @@ export default function HomePage() {
           <Link href="/quote" className="cf-pill cf-pill--blue">
             Request a Quote
           </Link>
-          <a href="tel:7077413277" className="cf-link">
+          <a href="tel:+17077413277" className="cf-link">
             Call 707.741.3277
           </a>
         </div>

@@ -136,8 +136,8 @@ export default function AnchorBoltsPage() {
           />
           <TypeCard
             pnum="03 / Bent"
-            img="/assets/anchor-bent-hires.png"
-            imgAlt="L-bent anchor bolt with hex nut"
+            img="/assets/products/anchor-bent-render.png"
+            imgAlt="L-bent anchor rod with heavy hex nut and washer"
             title="Bent anchors"
             desc="J-bolts and L-bolts for column anchorage and equipment bases. Standard 4D bend radius or custom to your drawing."
             metaBold="F1554 Gr 36"
@@ -233,8 +233,8 @@ export default function AnchorBoltsPage() {
           </div>
           <div className="ab-bend-visual">
             <Img
-              src="/assets/products/anchor-rod-render.png"
-              alt="Full anchor bolt assembly with rod, heavy hex nuts, and square plate washers"
+              src="/assets/products/anchor-f1554-render.png"
+              alt="F1554 anchor rod with heavy hex nut and square plate washer, head end"
             />
             <div className="ab-bend-visual-tag">Full assembly · Rod + hex nuts + plate washer</div>
           </div>
@@ -266,7 +266,7 @@ export default function AnchorBoltsPage() {
               eyebrow="Industrial machinery"
               title="Heavy equipment & machine bases."
               desc="Holding-down bolts for presses, mills, compressors, and production lines."
-              img="https://images.squarespace-cdn.com/content/v1/5efbb68d03da3677c3455ba6/606418c4-1057-49ac-821b-ce572774f5b9/AdobeStock_731342733.jpeg?format=2500w"
+              img="/assets/ind-manufacturing.jpg"
             />
             <AppTile
               href="/industries/infrastructure"
@@ -274,7 +274,7 @@ export default function AnchorBoltsPage() {
               eyebrow="Infrastructure"
               title="Bridges, highways, tunnels."
               desc="Long-service-life HDG and stainless anchors for seismic and wind loading."
-              img="https://images.squarespace-cdn.com/content/v1/5efbb68d03da3677c3455ba6/261f100b-3496-48f2-b1ee-245eca151e58/AdobeStock_753784784.jpeg?format=2500w"
+              img="/assets/ind-infrastructure.webp"
             />
             <AppTile
               href="/industries/power-generation"
@@ -282,7 +282,7 @@ export default function AnchorBoltsPage() {
               eyebrow="Renewable energy"
               title="Wind turbines & solar foundations."
               desc="Large-diameter anchor assemblies engineered for utility-scale generation."
-              img="https://images.squarespace-cdn.com/content/v1/5efbb68d03da3677c3455ba6/1df61635-d95e-47b3-ba2b-633da74f8021/AdobeStock_170240857.jpeg?format=2500w"
+              img="/assets/ind-power-generation.webp"
             />
           </div>
         </div>
@@ -300,7 +300,7 @@ export default function AnchorBoltsPage() {
               Template plates hold the bolt pattern in position during the pour — spacing, alignment,
               and elevation locked in before concrete goes down.
             </p>
-            <p style={{ maxWidth: "440px" }}>
+            <p style={{ maxWidth: "480px" }}>
               Hot-rolled or laser-cut to your bolt pattern. Reusable on repeat-pattern jobs, one-off
               for custom layouts.
             </p>
@@ -308,7 +308,7 @@ export default function AnchorBoltsPage() {
               <Link href="/quote" className="cf-pill cf-pill--blue-light">
                 Talk to a person
               </Link>
-              <a href="tel:7077413277" className="cf-pill cf-pill--ghost-dark">
+              <a href="tel:+17077413277" className="cf-pill cf-pill--ghost-dark">
                 707.741.3277
               </a>
             </div>
@@ -392,7 +392,7 @@ export default function AnchorBoltsPage() {
             <Link href="/quote" className="cf-pill cf-pill--blue-light">
               Request a Quote
             </Link>
-            <a href="tel:7077413277" className="cf-pill cf-pill--ghost-dark">
+            <a href="tel:+17077413277" className="cf-pill cf-pill--ghost-dark">
               Call 707.741.3277
             </a>
           </div>

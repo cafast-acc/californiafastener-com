@@ -190,7 +190,7 @@ export default function SiliconBronzePage() {
             <div className="sb-marine-visual-box">
               <Img
                 className="sb-marine-img"
-                src="https://images.unsplash.com/photo-1494412574643-ff11b0a5c1c3?auto=format&fit=crop&w=2400&q=85"
+                src="/assets/ind-marine.jpg"
                 alt="Wharf and harbor scene — marine environment where silicon bronze is specified"
               />
               <div className="sb-marine-tag">Marine &amp; shipbuilding</div>
@@ -236,7 +236,7 @@ export default function SiliconBronzePage() {
             <Link href="/industries/marine" className="sb-app-tile sb-app-tile--marine">
               <div className="sb-app-tile-bg">
                 <Img
-                  src="https://images.unsplash.com/photo-1494412574643-ff11b0a5c1c3?auto=format&fit=crop&w=2400&q=85"
+                  src="/assets/ind-marine.jpg"
                   alt=""
                 />
               </div>
@@ -251,7 +251,7 @@ export default function SiliconBronzePage() {
             <Link href="/industries/power-transmission" className="sb-app-tile sb-app-tile--electrical">
               <div className="sb-app-tile-bg">
                 <Img
-                  src="https://images.squarespace-cdn.com/content/v1/5efbb68d03da3677c3455ba6/79392af3-9542-4258-987d-76124ceec2f3/AdobeStock_182646517.jpeg?format=2500w"
+                  src="/assets/ind-power-transmission.webp"
                   alt=""
                 />
               </div>
@@ -303,7 +303,7 @@ export default function SiliconBronzePage() {
               <Link href="/quote" className="cf-pill cf-pill--bronze-light">
                 Check availability
               </Link>
-              <a href="tel:7077413277" className="cf-pill cf-pill--ghost-dark">
+              <a href="tel:+17077413277" className="cf-pill cf-pill--ghost-dark">
                 707.741.3277
               </a>
             </div>
@@ -434,7 +434,7 @@ export default function SiliconBronzePage() {
             <Link href="/quote" className="cf-pill cf-pill--bronze-light">
               Request a Quote
             </Link>
-            <a href="tel:7077413277" className="cf-pill cf-pill--ghost-dark">
+            <a href="tel:+17077413277" className="cf-pill cf-pill--ghost-dark">
               Call 707.741.3277
             </a>
           </div>
