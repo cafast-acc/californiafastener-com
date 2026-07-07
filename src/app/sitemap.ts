@@ -3,6 +3,7 @@ import type { MetadataRoute } from "next";
 import { sanityFetch } from "@/sanity/lib/fetch";
 import { allPostsForSitemapQuery } from "@/sanity/lib/queries";
 import { INDUSTRIES } from "@/lib/industries/data";
+import { LIB_SPECS } from "@/lib/specLibrary/data";
 
 const BASE_URL =
   process.env.NEXT_PUBLIC_SITE_URL?.replace(/\/$/, "") ?? "https://californiafastener.com";
@@ -61,5 +62,12 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     priority: 0.7,
   }));
 
-  return [...staticEntries, ...industryEntries, ...postEntries];
+  const specEntries: MetadataRoute.Sitemap = LIB_SPECS.map((sp) => ({
+    url: `${BASE_URL}/spec-library/${sp.file}`,
+    lastModified: new Date(),
+    changeFrequency: "yearly",
+    priority: 0.6,
+  }));
+
+  return [...staticEntries, ...industryEntries, ...specEntries, ...postEntries];
 }
