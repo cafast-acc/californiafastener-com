@@ -180,16 +180,15 @@ export default function AnchorBoltsPage() {
           <div className="ab-grades-cards">
             <GradeCard
               spec="ASTM F1554"
-              img="/assets/products/structural-carbon-heavy-hex-1.png"
-              imgAlt="F1554 structural carbon heavy hex anchor bolt render"
+              img="/assets/products/anchor-f1554-carbon-render.png"
+              imgAlt="F1554 structural carbon anchor rod with heavy hex nut and square plate washer"
               title="Structural carbon"
               desc="Weldable low-carbon and heat-treated alloy anchor bar. The go-to spec for cast-in-place structural anchorage."
               grades={["Grade 36", "Grade 55", "Grade 105"]}
-              flip
             />
             <GradeCard
               spec="ASTM A193"
-              img="/assets/threaded-rod-render.png"
+              img="/assets/products/anchor-a193-b8-render.png"
               imgAlt="A193 B8 stainless anchor rod render"
               title="High-temp alloy & SS"
               desc="Chrome-moly and stainless bar for pressure equipment, turbine skids, and corrosion-critical anchorage."
@@ -197,7 +196,7 @@ export default function AnchorBoltsPage() {
             />
             <GradeCard
               spec="ASTM F593"
-              img="/assets/products/structural-carbon-heavy-hex-1.png"
+              img="/assets/products/anchor-f593-render.png"
               imgAlt="F593 stainless steel anchor bolt render"
               title="Stainless anchors"
               desc="304 and 316 stainless anchor bolts for food-grade, marine, wastewater, and architectural applications."
@@ -473,7 +472,6 @@ function GradeCard({
   title,
   desc,
   grades,
-  flip = false,
 }: {
   spec: string;
   img: string;
@@ -481,12 +479,10 @@ function GradeCard({
   title: string;
   desc: string;
   grades: string[];
-  /** Mirror the render horizontally so the head reads from the left. */
-  flip?: boolean;
 }) {
   return (
     <div className="ab-grade-card">
-      <div className={`ab-grade-card-img${flip ? " ab-grade-card-img--flip" : ""}`}>
+      <div className="ab-grade-card-img">
         <Img src={img} alt={imgAlt} />
       </div>
       <div className="ab-grade-card-body">
