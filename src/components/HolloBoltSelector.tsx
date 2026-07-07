@@ -258,6 +258,7 @@ export function HolloBoltSelector() {
                   type="number"
                   className="hbs-input"
                   value={outer}
+                  aria-label="Outer ply thickness, inches"
                   step={0.0625}
                   min={0}
                   max={4}
@@ -270,6 +271,7 @@ export function HolloBoltSelector() {
                   type="number"
                   className="hbs-input"
                   value={inner}
+                  aria-label="Inner ply thickness, inches"
                   step={0.0625}
                   min={0}
                   max={2}
@@ -290,6 +292,7 @@ export function HolloBoltSelector() {
               type="text"
               className="hbs-input"
               value={project}
+              aria-label="Project reference"
               onChange={(e) => setProject(e.target.value)}
               placeholder="e.g. Oakland Warehouse Retrofit"
             />

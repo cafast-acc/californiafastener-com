@@ -405,6 +405,7 @@ export function RfqForm() {
               </div>
               <input
                 type="file"
+                aria-label="Upload drawings, BOMs, or past quotes"
                 multiple
                 accept=".pdf,.doc,.docx,.xls,.xlsx,.csv,.txt,.rtf,.html,.zip,.png,.jpg,.jpeg,.gif,.tiff,.bmp,.step,.stp,.iges,.igs,.dwg,.dxf,.sldprt,.sldasm,.x_t,.x_b,.sat,.ipt,.iam,.prt,.asm,.stl"
                 onChange={onFilePick}

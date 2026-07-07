@@ -335,6 +335,7 @@ export function SpecLibrary() {
                 <input
                   ref={searchRef}
                   type="search"
+                  aria-label="Search specifications"
                   placeholder="Search — &ldquo;A325&rdquo;, &ldquo;B7M&rdquo;, &ldquo;316&rdquo;, &ldquo;low temperature&rdquo;…"
                   autoComplete="off"
                   value={q}
