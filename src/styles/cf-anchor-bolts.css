@@ -133,7 +133,7 @@
 .ab-partner--hilti { background: #D2231F; color: white; padding: 6px 14px; border-radius: 2px; font-size: 16px; font-weight: 700; letter-spacing: 0.02em; }
 .ab-partner--simpson { display: inline-flex; flex-direction: column; font-size: 13px; font-weight: 700; line-height: 1; letter-spacing: 0.02em; }
 .ab-partner--simpson span:first-child { background: #000; color: white; padding: 4px 10px; }
-.ab-partner--simpson span:last-child { background: #F08020; color: white; padding: 4px 10px; }
+.ab-partner--simpson span:last-child { background: #B35600; color: white; padding: 4px 10px; }
 
 /* CTA BAND */
 .ab-cta { padding: 120px 40px; background: var(--dark-1); color: var(--dark-text); position: relative; overflow: hidden; }
