@@ -99,7 +99,7 @@ export default function IndustriesPage() {
           <Link href="/quote" className="cf-pill cf-pill--blue">
             Request a Quote
           </Link>
-          <a href="tel:18337073278" className="cf-pill pe-cta-call">
+          <a href="tel:+18337073278" className="cf-pill pe-cta-call">
             Call 833.707.FAST
           </a>
         </div>

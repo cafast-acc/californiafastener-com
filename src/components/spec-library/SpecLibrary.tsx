@@ -18,6 +18,9 @@ import {
 
 type Layout = "editorial" | "grid" | "table";
 
+// Map each "Start here" spec code (e.g. "ASTM F3125") to its detail-page slug.
+const SPEC_FILE_BY_CODE = new Map(LIB_SPECS.map((sp) => [sp.code, sp.file]));
+
 /** Hero quick-index — one entry per section, with a count. */
 const heroIndexEntries = LIB_SECTIONS.map((s) => ({
   id: s.id,
@@ -184,8 +187,6 @@ export function SpecLibrary() {
         <div className="lib-wrap">
           <div className="lib-crumbs">
             <Link href="/">California Fastener</Link>
-            <span className="sep">/</span>
-            <Link href="/resources">Resources</Link>
             <span className="sep">/</span>
             <span className="here">Spec Library</span>
           </div>
@@ -487,7 +488,10 @@ export function SpecLibrary() {
             </span>
             <span className="lib-stats-ctx">{statsContext}</span>
             <span className="lib-stats-ver">
-              ASTM · SAE · ASME · ISO · DIN &nbsp;·&nbsp; <a href="#">Request a revision</a>
+              ASTM · SAE · ASME · ISO · DIN &nbsp;·&nbsp;{" "}
+              <a href="mailto:info@californiafastener.com?subject=Spec%20Library%20revision%20request">
+                Request a revision
+              </a>
             </span>
           </div>
 
@@ -512,7 +516,9 @@ export function SpecLibrary() {
                     </div>
                     <aside className="lib-sec-starthere">
                       <b>Start here</b>
-                      <a href="#">{s.starthere.code}</a>
+                      <Link href={`/spec-library/${SPEC_FILE_BY_CODE.get(s.starthere.code) ?? ""}`}>
+                        {s.starthere.code}
+                      </Link>
                       {s.starthere.why}
                     </aside>
                   </header>

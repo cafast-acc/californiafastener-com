@@ -440,7 +440,7 @@ export default function HolloBoltPage() {
               <a href="#quote" className="cf-pill cf-pill--hb-soft">
                 Check availability
               </a>
-              <a href="tel:7077413277" className="cf-pill cf-pill--ghost-dark">
+              <a href="tel:+17077413277" className="cf-pill cf-pill--ghost-dark">
                 707.741.3277
               </a>
             </div>
@@ -507,7 +507,7 @@ export default function HolloBoltPage() {
             <a href="#quote" className="cf-pill cf-pill--blue">
               Request a Quote
             </a>
-            <a href="tel:7077413277" className="cf-pill cf-pill--ghost-dark">
+            <a href="tel:+17077413277" className="cf-pill cf-pill--ghost-dark">
               Call 707.741.3277
             </a>
           </div>
