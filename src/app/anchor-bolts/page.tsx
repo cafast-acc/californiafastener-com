@@ -233,10 +233,10 @@ export default function AnchorBoltsPage() {
           </div>
           <div className="ab-bend-visual">
             <Img
-              src="/assets/products/anchor-bent-render.png"
-              alt="L-bent (hooked) anchor rod with heavy hex nut and washer"
+              src="/assets/products/anchor-f1554-render.png"
+              alt="F1554 anchor rod with heavy hex nut and square plate washer, head end"
             />
-            <div className="ab-bend-visual-tag">L-bent anchor rod · Hex nut + washer</div>
+            <div className="ab-bend-visual-tag">Full assembly · Rod + hex nuts + plate washer</div>
           </div>
         </div>
       </section>
