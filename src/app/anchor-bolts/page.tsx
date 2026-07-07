@@ -185,6 +185,7 @@ export default function AnchorBoltsPage() {
               title="Structural carbon"
               desc="Weldable low-carbon and heat-treated alloy anchor bar. The go-to spec for cast-in-place structural anchorage."
               grades={["Grade 36", "Grade 55", "Grade 105"]}
+              flip
             />
             <GradeCard
               spec="ASTM A193"
@@ -472,6 +473,7 @@ function GradeCard({
   title,
   desc,
   grades,
+  flip = false,
 }: {
   spec: string;
   img: string;
@@ -479,10 +481,12 @@ function GradeCard({
   title: string;
   desc: string;
   grades: string[];
+  /** Mirror the render horizontally so the head reads from the left. */
+  flip?: boolean;
 }) {
   return (
     <div className="ab-grade-card">
-      <div className="ab-grade-card-img">
+      <div className={`ab-grade-card-img${flip ? " ab-grade-card-img--flip" : ""}`}>
         <Img src={img} alt={imgAlt} />
       </div>
       <div className="ab-grade-card-body">
