@@ -405,6 +405,7 @@ export function RfqForm() {
               </div>
               <input
                 type="file"
+                aria-label="Upload drawings, BOMs, or past quotes"
                 multiple
                 accept=".pdf,.doc,.docx,.xls,.xlsx,.csv,.txt,.rtf,.html,.zip,.png,.jpg,.jpeg,.gif,.tiff,.bmp,.step,.stp,.iges,.igs,.dwg,.dxf,.sldprt,.sldasm,.x_t,.x_b,.sat,.ipt,.iam,.prt,.asm,.stl"
                 onChange={onFilePick}
@@ -834,7 +835,7 @@ function ConfirmCard({
             24 business hours — usually faster.
           </p>
           <div className="qf-urgent">
-            <strong>Need it sooner?</strong> Call us at 707.741.3277 (or 833.707.FAST).
+            <strong>Need it sooner?</strong> Call us at 707.741.3277.
             For emergency same-day, lead with <strong>&ldquo;URGENT&rdquo;</strong> on
             the call and we&apos;ll get someone on it. We&apos;ve gotten more than a few
             crews out of a same-day jam.

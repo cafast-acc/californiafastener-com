@@ -112,10 +112,10 @@ export function QuoteFormPlaceholder({ textareaLabel, textareaPlaceholder }: Pro
     <form className="pp-quote-form" onSubmit={handleSubmit} noValidate>
       <div className="pp-form-row">
         <div className="pp-form-field">
-          <label>First name</label>
+          <label htmlFor="qfp-first">First name</label>
           <input
             type="text"
-            name="first"
+            id="qfp-first" name="first"
             value={first}
             onChange={(e) => setFirst(e.target.value)}
             style={showErrors && !first.trim() ? errBorder : undefined}
@@ -124,10 +124,10 @@ export function QuoteFormPlaceholder({ textareaLabel, textareaPlaceholder }: Pro
           />
         </div>
         <div className="pp-form-field">
-          <label>Last name</label>
+          <label htmlFor="qfp-last">Last name</label>
           <input
             type="text"
-            name="last"
+            id="qfp-last" name="last"
             value={last}
             onChange={(e) => setLast(e.target.value)}
             style={showErrors && !last.trim() ? errBorder : undefined}
@@ -138,10 +138,10 @@ export function QuoteFormPlaceholder({ textareaLabel, textareaPlaceholder }: Pro
       </div>
       <div className="pp-form-row">
         <div className="pp-form-field">
-          <label>Email</label>
+          <label htmlFor="qfp-email">Email</label>
           <input
             type="email"
-            name="email"
+            id="qfp-email" name="email"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
             style={showErrors && !emailValid ? errBorder : undefined}
@@ -150,10 +150,10 @@ export function QuoteFormPlaceholder({ textareaLabel, textareaPlaceholder }: Pro
           />
         </div>
         <div className="pp-form-field">
-          <label>Company</label>
+          <label htmlFor="qfp-company">Company</label>
           <input
             type="text"
-            name="company"
+            id="qfp-company" name="company"
             value={company}
             onChange={(e) => setCompany(e.target.value)}
             style={showErrors && !company.trim() ? errBorder : undefined}
@@ -164,10 +164,10 @@ export function QuoteFormPlaceholder({ textareaLabel, textareaPlaceholder }: Pro
       </div>
       <div className="pp-form-row">
         <div className="pp-form-field pp-form-field--full">
-          <label>Phone</label>
+          <label htmlFor="qfp-phone">Phone</label>
           <input
             type="tel"
-            name="phone"
+            id="qfp-phone" name="phone"
             value={phone}
             onChange={(e) => setPhone(e.target.value)}
           />

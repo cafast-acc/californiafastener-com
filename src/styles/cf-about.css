@@ -531,6 +531,12 @@
   color: var(--ink);
   border: 1px solid var(--rule);
 }
+/* Own hover so it doesn't inherit the base .cf-pill black fill (which hid the
+   dark text). Subtle light fill + darker border — dark text stays readable. */
+.about-cta .about-cta-ghost:hover {
+  background: var(--bg-alt);
+  border-color: var(--mid);
+}
 .about-cta-meta {
   font-size: 13px;
   color: var(--mid);
