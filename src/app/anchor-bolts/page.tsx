@@ -136,8 +136,8 @@ export default function AnchorBoltsPage() {
           />
           <TypeCard
             pnum="03 / Bent"
-            img="/assets/anchor-bent-hires.png"
-            imgAlt="L-bent anchor bolt with hex nut"
+            img="/assets/products/anchor-bent-render.png"
+            imgAlt="L-bent anchor rod with heavy hex nut and washer"
             title="Bent anchors"
             desc="J-bolts and L-bolts for column anchorage and equipment bases. Standard 4D bend radius or custom to your drawing."
             metaBold="F1554 Gr 36"
@@ -233,10 +233,10 @@ export default function AnchorBoltsPage() {
           </div>
           <div className="ab-bend-visual">
             <Img
-              src="/assets/products/anchor-rod-render.png"
-              alt="Full anchor bolt assembly with rod, heavy hex nuts, and square plate washers"
+              src="/assets/products/anchor-bent-render.png"
+              alt="L-bent (hooked) anchor rod with heavy hex nut and washer"
             />
-            <div className="ab-bend-visual-tag">Full assembly · Rod + hex nuts + plate washer</div>
+            <div className="ab-bend-visual-tag">L-bent anchor rod · Hex nut + washer</div>
           </div>
         </div>
       </section>

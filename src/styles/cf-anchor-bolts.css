@@ -86,7 +86,7 @@
 .ab-bend-checks li { padding: 10px 0; font-size: 15px; color: var(--ink); display: flex; align-items: center; gap: 12px; }
 .ab-bend-checks li::before { content: ''; width: 16px; height: 16px; background: var(--purple-dark); border-radius: 50%; flex-shrink: 0; background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='none'><path d='M4 8l3 3 5-6' stroke='white' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/></svg>"); background-repeat: no-repeat; background-position: center; }
 .ab-bend-visual { aspect-ratio: 1/1; background: #E7E5E0; border-radius: 24px; display: flex; align-items: center; justify-content: center; overflow: hidden; position: relative; }
-.ab-bend-visual img { width: 100%; height: 100%; object-fit: cover; }
+.ab-bend-visual img { width: 100%; height: 100%; object-fit: contain; }
 .ab-bend-visual-tag { position: absolute; bottom: 24px; left: 24px; background: rgba(255,255,255,0.92); backdrop-filter: blur(8px); padding: 8px 14px; border-radius: 100px; font-size: 11px; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; color: var(--ink); }
 
 /* APPLICATIONS */
