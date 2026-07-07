@@ -104,7 +104,7 @@ export const INDUSTRIES: Record<IndustrySlug, Industry> = {
     h1Accent: "pressure envelope",
     h2: "Certified A193 and A320 bolting for upstream, midstream, and downstream service.",
     lead: "From refinery flange bolting to high-pressure process piping, oil and gas demands traceable metallurgy and tight torque discipline. We stock the grades, cut the studs, and ship the paperwork — so your turnaround stays on the clock.",
-    heroImg: "https://images.squarespace-cdn.com/content/v1/5efbb68d03da3677c3455ba6/dcbe43bd-d8ab-4d13-afff-b45c323f0ade/AdobeStock_71932049.jpeg?format=2500w",
+    heroImg: "/assets/ind-oil-gas.webp",
     heroImgAlt: "Offshore drilling platform at sea",
     heroTag: "Offshore · Upstream · Midstream · Downstream",
     contextH2: "Refinery and process bolting, stocked for turnaround schedules.",
@@ -143,7 +143,7 @@ export const INDUSTRIES: Record<IndustrySlug, Industry> = {
     whyH2: "Why California Fastener for oil and gas.",
     whyBody: "Bay Area refineries have been our bread and butter for decades — Richmond, Martinez, Rodeo, Benicia, all within an hour of our dock. That experience shows up in the small stuff: MTRs that match the heat stamps, B7M on the shelf when the spec calls for sour service, bagging by flange tag, and a phone that's answered by someone who's bolted up a refinery before.",
     quoteBody: "Send us your BOM and we'll do the rest.",
-    quoteBg: "https://images.squarespace-cdn.com/content/v1/5efbb68d03da3677c3455ba6/dcbe43bd-d8ab-4d13-afff-b45c323f0ade/AdobeStock_71932049.jpeg?format=2500w",
+    quoteBg: "/assets/ind-oil-gas.webp",
   },
 
   "power-generation": {
@@ -155,7 +155,7 @@ export const INDUSTRIES: Record<IndustrySlug, Industry> = {
     h1Accent: "turbine",
     h2: "High-temperature, creep-resistant fasteners for combined-cycle, nuclear, and renewable plants.",
     lead: "Generator foundation bolts, turbine casing studs, boiler manhole bolting, and blade-root fasteners — power plants live and die by the integrity of a few thousand threaded connections operating at temperature and under cyclic load.",
-    heroImg: "https://images.squarespace-cdn.com/content/v1/5efbb68d03da3677c3455ba6/1df61635-d95e-47b3-ba2b-633da74f8021/AdobeStock_170240857.jpeg?format=2500w",
+    heroImg: "/assets/ind-power-generation.webp",
     heroImgAlt: "Steam turbine and power plant generator hall",
     heroTag: "Combined-cycle · Nuclear · Hydro · Wind · Solar",
     contextH2: "From casing studs to foundation anchors.",
@@ -194,7 +194,7 @@ export const INDUSTRIES: Record<IndustrySlug, Industry> = {
     whyH2: "Why California Fastener for power generation.",
     whyBody: "Power plants don’t tolerate a bolt that’s almost right. We keep the alloy families most power work actually needs — B16, Nimonic, Inconel, A354 — on the shelf, with the mill-test reports, hardness traces, and ASME III documentation ready before you ask. When the outage window closes, we’re already in the truck.",
     quoteBody: "Outage planning? Send us the work-scope list. We’ll price the alloys, cut lengths, and prove the documentation package — so the bolting never becomes the long-lead item on the schedule.",
-    quoteBg: "https://images.squarespace-cdn.com/content/v1/5efbb68d03da3677c3455ba6/1df61635-d95e-47b3-ba2b-633da74f8021/AdobeStock_170240857.jpeg?format=2500w",
+    quoteBg: "/assets/ind-power-generation.webp",
   },
 
   construction: {
@@ -257,7 +257,7 @@ export const INDUSTRIES: Record<IndustrySlug, Industry> = {
     h1Accent: "bolted together",
     h2: "Tower steel, substation hardware, and transmission pole bolting — galvanized and ready to string.",
     lead: "Every mile of 500kV line sits on thousands of galvanized bolts, shackles, and insulator hardware. Every substation A-frame is bolted, not welded. We supply the hardware that carries the load — plus the pole-line accessories you’re tired of sourcing from three different vendors.",
-    heroImg: "https://images.squarespace-cdn.com/content/v1/5efbb68d03da3677c3455ba6/79392af3-9542-4258-987d-76124ceec2f3/AdobeStock_182646517.jpeg?format=2500w",
+    heroImg: "/assets/ind-power-transmission.webp",
     heroImgAlt: "High-voltage transmission tower against dusk sky",
     heroTag: "Transmission towers · Substations · Distribution",
     contextH2: "Hot-dip galvanized, from foundation to conductor.",
@@ -296,7 +296,7 @@ export const INDUSTRIES: Record<IndustrySlug, Industry> = {
     whyH2: "Why California Fastener for power transmission.",
     whyBody: "Utility work is a paperwork business as much as a hardware business. We stock to the major utility MALs, test-document every HDG lot, and know the difference between a Type 1 and Type 3 A394 bolt without having to look it up. Transmission and distribution crews have been calling us for obsolete cross-arm hardware for decades — and we still find it.",
     quoteBody: "Line rebuild, substation expansion, or just a cross-arm hardware replenishment? Send the BOM and the utility spec. We’ll match the MAL, stage to your yards, and ship with the test docs your compliance team needs.",
-    quoteBg: "https://images.squarespace-cdn.com/content/v1/5efbb68d03da3677c3455ba6/79392af3-9542-4258-987d-76124ceec2f3/AdobeStock_182646517.jpeg?format=2500w",
+    quoteBg: "/assets/ind-power-transmission.webp",
   },
 
   manufacturing: {
@@ -308,7 +308,7 @@ export const INDUSTRIES: Record<IndustrySlug, Industry> = {
     h1Accent: "takt time",
     h2: "Released to your schedule, binned to your line, torqued to your spec.",
     lead: "OEM assembly lines don’t stop for a bolt shortage. We run blanket orders, min/max bin programs, and VMI stocking for manufacturers of industrial machinery, agricultural equipment, and heavy-duty consumer product. Your kanban card — our problem.",
-    heroImg: "https://images.squarespace-cdn.com/content/v1/5efbb68d03da3677c3455ba6/606418c4-1057-49ac-821b-ce572774f5b9/AdobeStock_731342733.jpeg?format=2500w",
+    heroImg: "/assets/ind-manufacturing.jpg",
     heroImgAlt: "Industrial manufacturing assembly line",
     heroTag: "OEM · Ag equipment · Industrial machinery · Food & pharma",
     contextH2: "Blanket orders, bin stock, and custom prints.",
@@ -348,7 +348,7 @@ export const INDUSTRIES: Record<IndustrySlug, Industry> = {
     whyH2: "Why California Fastener for manufacturing.",
     whyBody: "We’re a fastener distributor with an in-house CNC department. That combination matters more than it sounds: when your BOM has one oddball part nobody stocks, we don’t kick it back — we machine it, document it, and release it against the same blanket order as the commodity bolts. One supplier, one purchase order, every part on the print.",
     quoteBody: "Send us your BOM — commodity fasteners and the custom stuff both. We’ll consolidate the release schedule, machine the oddballs in-house, and run the whole program off one purchase order against your production plan.",
-    quoteBg: "https://images.squarespace-cdn.com/content/v1/5efbb68d03da3677c3455ba6/606418c4-1057-49ac-821b-ce572774f5b9/AdobeStock_731342733.jpeg?format=2500w",
+    quoteBg: "/assets/ind-manufacturing.jpg",
   },
 
   infrastructure: {
@@ -360,7 +360,7 @@ export const INDUSTRIES: Record<IndustrySlug, Industry> = {
     h1Accent: "75-year",
     h2: "Bridge bolts, highway anchors, and Buy America-compliant hardware for public civil works.",
     lead: "DOT bridge decks, light-rail overpasses, tunnel segment liners, seismic retrofits. Infrastructure bolting has to survive 75 winters, meet Buy America provenance, and clear a federal inspection trail — and still show up when the contractor’s bar schedule says it should.",
-    heroImg: "https://images.squarespace-cdn.com/content/v1/5efbb68d03da3677c3455ba6/261f100b-3496-48f2-b1ee-245eca151e58/AdobeStock_753784784.jpeg?format=2500w",
+    heroImg: "/assets/ind-infrastructure.webp",
     heroImgAlt: "Highway overpass and bridge infrastructure",
     heroTag: "Bridges · Highways · Transit · Civil",
     contextH2: "Buy America bolting with the paperwork to prove it.",
@@ -399,7 +399,7 @@ export const INDUSTRIES: Record<IndustrySlug, Industry> = {
     whyH2: "Why California Fastener for infrastructure.",
     whyBody: "Public civil work has two masters: the engineer of record, and the federal compliance trail. We supply to both. US-melted steel on the shelf, CMTRs indexed by heat and lot, domestic-content certifications on letterhead, and a team that’s been reading DOT spec books since before Buy America was a political fight. The bolts are the easy part — the paperwork is the product.",
     quoteBody: "Federal-aid project, state DOT bridge, or transit retrofit? Send us the spec section and bar schedule. We'll match the Buy America requirements, cut to length, and ship with compliance documentation that clears first-round inspection.",
-    quoteBg: "https://images.squarespace-cdn.com/content/v1/5efbb68d03da3677c3455ba6/261f100b-3496-48f2-b1ee-245eca151e58/AdobeStock_753784784.jpeg?format=2500w",
+    quoteBg: "/assets/ind-infrastructure.webp",
   },
 
   marine: {
@@ -411,7 +411,7 @@ export const INDUSTRIES: Record<IndustrySlug, Industry> = {
     h1Accent: "the deep",
     h2: "Hot-dip galvanized and duplex hardware for piers, moorings, and offshore structures.",
     lead: "Container terminals, ferry berths, fuel piers, mooring dolphins, and offshore platforms. Marine infrastructure stands in the splash zone for fifty years — where coating thickness, duplex steel, and corrosion allowance decide whether the structure makes its service life.",
-    heroImg: "https://images.unsplash.com/photo-1494412574643-ff11b0a5c1c3?auto=format&fit=crop&w=2400&q=85",
+    heroImg: "/assets/ind-marine.jpg",
     heroImgAlt: "Port cranes and pier infrastructure at the waterline",
     heroTag: "Ports · Piers · Moorings · Offshore",
     contextH2: "Splash-zone hardware, specified to survive the tide line.",
@@ -450,7 +450,7 @@ export const INDUSTRIES: Record<IndustrySlug, Industry> = {
     whyH2: "Why California Fastener for marine infrastructure.",
     whyBody: "Marine civil work answers to the engineer of record and a fifty-year corrosion clock. We hot-dip to F2329, stock duplex for the splash zone, document every coating lot, and cut anchor rods to length in-house when the field never matches the drawing. Decades of pier, port, and offshore anchorage work means the bolting clears inspection and the pour schedule keeps moving.",
     quoteBody: "Port, pier, mooring, or offshore structure? Send us the anchorage schedule and corrosion spec. We’ll match the coating, stage to your pile and pour sequence, and cut to length in-house when the field moves — with the test docs your inspector needs.",
-    quoteBg: "https://images.unsplash.com/photo-1494412574643-ff11b0a5c1c3?auto=format&fit=crop&w=2400&q=85",
+    quoteBg: "/assets/ind-marine.jpg",
   },
 
   aerospace: {
@@ -462,7 +462,7 @@ export const INDUSTRIES: Record<IndustrySlug, Industry> = {
     h1Accent: "every time",
     h2: "Heat-traceable fasteners with full chain-of-custody documentation.",
     lead: "Airframe assembly, engine build-up, satellite structures, and defense platforms run on hardware that can be traced from the flight line back to the melt. We stock the grades, hold the certs, and ship the paperwork that clears receiving inspection on the first pass.",
-    heroImg: "https://images.unsplash.com/photo-1518364538800-6bae3c2ea0f2?auto=format&fit=crop&w=2400&q=85",
+    heroImg: "/assets/ind-aerospace.jpg",
     heroImgAlt: "Rocket launch for defense and space programs",
     heroTag: "Airframe · Engine · Space · Defense",
     contextH2: "The paperwork flies with the part.",
@@ -502,7 +502,7 @@ export const INDUSTRIES: Record<IndustrySlug, Industry> = {
     whyH2: "Why California Fastener for aerospace and defense.",
     whyBody: "Aerospace is a documentation discipline wearing a fastener disguise. We run aerospace-grade traceability: lots controlled and segregated by heat, DFARS-compliant domestic melt, and certs indexed back to the mill so the trace never breaks between the foundry and the flight line. Decades of West Coast quality work means the paperwork is as airworthy as the part.",
     quoteBody: "Airframe, engine, space, or defense program? Send us the spec list and quality requirements. We'll match the grades, keep the heats segregated, and ship the certs, test reports, and DFARS documentation that clears receiving on the first pass.",
-    quoteBg: "https://images.unsplash.com/photo-1518364538800-6bae3c2ea0f2?auto=format&fit=crop&w=2400&q=85",
+    quoteBg: "/assets/ind-aerospace.jpg",
   },
 };
 

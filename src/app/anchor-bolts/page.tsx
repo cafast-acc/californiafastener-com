@@ -266,7 +266,7 @@ export default function AnchorBoltsPage() {
               eyebrow="Industrial machinery"
               title="Heavy equipment & machine bases."
               desc="Holding-down bolts for presses, mills, compressors, and production lines."
-              img="https://images.squarespace-cdn.com/content/v1/5efbb68d03da3677c3455ba6/606418c4-1057-49ac-821b-ce572774f5b9/AdobeStock_731342733.jpeg?format=2500w"
+              img="/assets/ind-manufacturing.jpg"
             />
             <AppTile
               href="/industries/infrastructure"
@@ -274,7 +274,7 @@ export default function AnchorBoltsPage() {
               eyebrow="Infrastructure"
               title="Bridges, highways, tunnels."
               desc="Long-service-life HDG and stainless anchors for seismic and wind loading."
-              img="https://images.squarespace-cdn.com/content/v1/5efbb68d03da3677c3455ba6/261f100b-3496-48f2-b1ee-245eca151e58/AdobeStock_753784784.jpeg?format=2500w"
+              img="/assets/ind-infrastructure.webp"
             />
             <AppTile
               href="/industries/power-generation"
@@ -282,7 +282,7 @@ export default function AnchorBoltsPage() {
               eyebrow="Renewable energy"
               title="Wind turbines & solar foundations."
               desc="Large-diameter anchor assemblies engineered for utility-scale generation."
-              img="https://images.squarespace-cdn.com/content/v1/5efbb68d03da3677c3455ba6/1df61635-d95e-47b3-ba2b-633da74f8021/AdobeStock_170240857.jpeg?format=2500w"
+              img="/assets/ind-power-generation.webp"
             />
           </div>
         </div>
