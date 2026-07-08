@@ -343,7 +343,7 @@ export default function StudBoltsThreadedRodPage() {
             <h2>
               Send the BOM.
               <br />
-              We&apos;ll <i>cut the kit.</i>
+              We&apos;ll handle the <i>rest.</i>
             </h2>
             <p>
               Most of what ships out of this category is cut to length on our saws. Cut, deburred,
@@ -544,7 +544,7 @@ export default function StudBoltsThreadedRodPage() {
             <h2>
               Send the <i>BOM.</i>
               <br />
-              We&apos;ll cut the kit.
+              We&apos;ll handle the rest.
             </h2>
             <p>
               Send the line list, the flange schedule, or just diameters and lengths. A bolt

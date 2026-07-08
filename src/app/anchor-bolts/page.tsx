@@ -382,7 +382,7 @@ export default function AnchorBoltsPage() {
           <h2>
             Send the bolt schedule.
             <br />
-            We&apos;ll send the <i>kit.</i>
+            We&apos;ll handle the <i>rest.</i>
           </h2>
           <p>
             From one F1554 Gr 36 to a thousand-piece HDG assembly run with template plates —

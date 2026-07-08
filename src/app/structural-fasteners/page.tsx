@@ -500,7 +500,7 @@ export default function StructuralFastenersPage() {
             <h2>
               Send the <i>BOM.</i>
               <br />
-              We&apos;ll size the kit.
+              We&apos;ll handle the rest.
             </h2>
             <p>
               Send the structural drawing, the bolt schedule, or the shop&apos;s BOM. A bolt
