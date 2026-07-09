@@ -34,7 +34,9 @@ export function ArticleHeader({ post }: { post: PostFull }) {
       {coverUrl ? (
         <div className="bl-article-cover">
           {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img src={coverUrl} alt={cover?.alt ?? post.title} />
+          <img src={coverUrl} alt="" aria-hidden="true" className="bl-cover-bg" />
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img src={coverUrl} alt={cover?.alt ?? post.title} className="bl-cover-fg" />
         </div>
       ) : null}
     </header>
