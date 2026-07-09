@@ -180,7 +180,7 @@ export default function AnchorBoltsPage() {
           <div className="ab-grades-cards">
             <GradeCard
               spec="ASTM F1554"
-              img="/assets/products/anchor-rod-render.png"
+              img="/assets/products/anchor-f1554-carbon-render.png"
               imgAlt="F1554 structural carbon anchor rod with heavy hex nut and square plate washer"
               title="Structural carbon"
               desc="Weldable low-carbon and heat-treated alloy anchor bar. The go-to spec for cast-in-place structural anchorage."

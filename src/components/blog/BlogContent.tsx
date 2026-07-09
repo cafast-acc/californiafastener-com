@@ -106,9 +106,7 @@ function Featured({ post }: { post: PostCard }) {
         {imgUrl ? (
           <div className="bl-featured-img">
             {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img src={imgUrl} alt="" aria-hidden="true" className="bl-cover-bg" />
-            {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img src={imgUrl} alt={img?.alt ?? post.title} className="bl-cover-fg" />
+            <img src={imgUrl} alt={img?.alt ?? post.title} />
           </div>
         ) : (
           <div className="bl-featured-img bl-featured-img--placeholder">

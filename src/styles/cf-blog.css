@@ -103,9 +103,13 @@
   background: var(--cf-bg-cream);
   border-radius: 20px;
   overflow: hidden;
-  position: relative;
 }
-/* Same mixed-aspect covers as the grid cards — see .bl-cover-bg/.bl-cover-fg. */
+.bl-featured-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
 .bl-featured-img--placeholder {
   background: repeating-linear-gradient(
     45deg,
@@ -200,37 +204,15 @@
   border-radius: 16px;
   overflow: hidden;
   margin-bottom: 18px;
-  position: relative;
   display: flex;
   align-items: center;
   justify-content: center;
 }
-
-/* ── Mixed-aspect cover fill ───────────────────────────
-   Cover images are a mixed-aspect library: square placards (2500×2500) sit
-   next to wide social cards (1200×630) that bake the article title into the
-   artwork. object-fit: cover zoomed the wide ones to fill the fixed-aspect
-   bed and sliced the title text off both edges; plain object-fit: contain
-   left them matted with empty bars. Instead, a blurred, scaled copy of the
-   cover fills the bed edge-to-edge while the full cover sits contained and
-   crisp on top — every cover fills the frame with no cropping and no empty
-   matting. Square placards fully cover the bed, so the backdrop never shows. */
-.bl-cover-bg {
-  position: absolute;
-  inset: 0;
+.bl-card-img img {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  filter: blur(22px) saturate(1.2);
-  transform: scale(1.2);
-}
-.bl-cover-fg {
-  position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: contain;
-  z-index: 1;
+  display: block;
 }
 .bl-card-img--placeholder {
   background: repeating-linear-gradient(
@@ -407,9 +389,13 @@
   border-radius: 20px;
   overflow: hidden;
   background: var(--cf-bg-cream);
-  position: relative;
 }
-/* Same mixed-aspect covers as the grid cards — see .bl-cover-bg/.bl-cover-fg. */
+.bl-article-cover img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
 
 .bl-article-body {
   margin: 0 auto;
