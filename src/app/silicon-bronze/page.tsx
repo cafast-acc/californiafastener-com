@@ -5,7 +5,6 @@ import "@/styles/cf-silicon-bronze.css";
 import { CfNav } from "@/components/CfNav";
 import { CfFooter } from "@/components/CfFooter";
 import { QuoteFormPlaceholder } from "@/components/QuoteFormPlaceholder";
-import { Img } from "@/components/Img";
 import Image from "next/image";
 
 export const metadata: Metadata = {
@@ -194,10 +193,13 @@ export default function SiliconBronzePage() {
         <div className="sb-marine-inner">
           <div className="sb-marine-visual">
             <div className="sb-marine-visual-box">
-              <Img
+              <Image
                 className="sb-marine-img"
                 src="/assets/ind-marine.jpg"
                 alt="Wharf and harbor scene — marine environment where silicon bronze is specified"
+                fill
+                sizes="(max-width: 1024px) 100vw, 50vw"
+                quality={90}
               />
               <div className="sb-marine-tag">Marine &amp; shipbuilding</div>
             </div>
@@ -241,9 +243,12 @@ export default function SiliconBronzePage() {
           <div className="sb-apps-grid">
             <Link href="/industries/marine" className="sb-app-tile sb-app-tile--marine">
               <div className="sb-app-tile-bg">
-                <Img
+                <Image
                   src="/assets/ind-marine.jpg"
                   alt=""
+                  fill
+                  sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                  quality={90}
                 />
               </div>
               <div className="sb-app-tile-body">
@@ -256,9 +261,12 @@ export default function SiliconBronzePage() {
             </Link>
             <Link href="/industries/power-transmission" className="sb-app-tile sb-app-tile--electrical">
               <div className="sb-app-tile-bg">
-                <Img
+                <Image
                   src="/assets/ind-power-transmission.webp"
                   alt=""
+                  fill
+                  sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                  quality={90}
                 />
               </div>
               <div className="sb-app-tile-body">
@@ -272,9 +280,12 @@ export default function SiliconBronzePage() {
             </Link>
             <Link href="/industries/construction" className="sb-app-tile sb-app-tile--arch">
               <div className="sb-app-tile-bg">
-                <Img
+                <Image
                   src="/assets/ind-construction-facade.jpg"
                   alt=""
+                  fill
+                  sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                  quality={90}
                 />
               </div>
               <div className="sb-app-tile-body">
@@ -491,7 +502,13 @@ function RangeCard({
       <div className="pp-product-photo">
         <span className="pnum">{pnum}</span>
         {img ? (
-          <Img src={img} alt={imgAlt ?? title} />
+          <Image
+            src={img}
+            alt={imgAlt ?? title}
+            fill
+            sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 400px"
+            quality={90}
+          />
         ) : (
           <div className="pp-ph-placeholder">{title}</div>
         )}

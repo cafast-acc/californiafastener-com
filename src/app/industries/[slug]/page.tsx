@@ -4,7 +4,7 @@ import { notFound } from "next/navigation";
 import "@/styles/cf-industry.css";
 import { CfNav } from "@/components/CfNav";
 import { CfFooter } from "@/components/CfFooter";
-import { Img } from "@/components/Img";
+import Image from "next/image";
 import {
   INDUSTRIES,
   INDUSTRY_ORDER,
@@ -74,7 +74,13 @@ export default async function IndustryPage({
         </div>
         <div className="ind-hero-image">
           <div className="ind-hero-tag">{ind.heroTag}</div>
-          <Img src={ind.heroImg} alt={ind.heroImgAlt} />
+          <Image
+            src={ind.heroImg}
+            alt={ind.heroImgAlt}
+            fill
+            sizes="(max-width: 1024px) 100vw, 40vw"
+            quality={90}
+          />
         </div>
       </section>
 
@@ -124,7 +130,13 @@ export default async function IndustryPage({
               <Link key={key} href={href} className="ind-product-card">
                 <div className="ind-product-card-img">
                   {card.img ? (
-                    <Img src={card.img} alt={card.title} />
+                    <Image
+                      src={card.img}
+                      alt={card.title}
+                      fill
+                      sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 300px"
+                      quality={90}
+                    />
                   ) : (
                     <div className="ind-product-card-placeholder">{card.placeholder}</div>
                   )}
@@ -220,7 +232,13 @@ export default async function IndustryPage({
       {/* REQUEST QUOTE */}
       <section className="ind-quote">
         <div className="ind-quote-bg">
-          <Img src={ind.quoteBg} alt="" />
+          <Image
+            src={ind.quoteBg}
+            alt=""
+            fill
+            sizes="100vw"
+            quality={90}
+          />
         </div>
         <div className="ind-quote-inner">
           <div className="ind-quote-kicker">Request A Quote</div>

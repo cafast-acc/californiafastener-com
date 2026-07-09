@@ -3,7 +3,6 @@ import Image from "next/image";
 import "@/styles/cf-homepage.css";
 import { CfNav } from "@/components/CfNav";
 import { CfFooter } from "@/components/CfFooter";
-import { Img } from "@/components/Img";
 import { HolloBoltSelectorTrigger } from "@/components/HolloBoltSelectorModal";
 
 export default function HomePage() {
@@ -296,9 +295,12 @@ export default function HomePage() {
             Explore CNC Machining
           </Link>
           <div className="cnc-hero-image">
-            <Img
+            <Image
               src="/assets/home-cnc-livetool.webp"
               alt="CNC lathe"
+              fill
+              sizes="(max-width: 1024px) 100vw, 1100px"
+              quality={90}
             />
           </div>
           <div className="cnc-hero-spec-grid">
@@ -478,6 +480,8 @@ function Logos({ ariaHidden }: { ariaHidden: boolean }) {
           src={`/assets/logos/${logo.src}.${logo.ext}`}
           alt={ariaHidden ? "" : logo.alt}
           aria-hidden={ariaHidden || undefined}
+          loading="lazy"
+          decoding="async"
         />
       ))}
     </>
@@ -511,7 +515,13 @@ function IndustryTile({
   return (
     <Link href={href} className="industry-tile">
       <div className="industry-tile-img">
-        <Img src={img} alt="" />
+        <Image
+          src={img}
+          alt=""
+          fill
+          sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+          quality={90}
+        />
       </div>
       <div className="industry-tile-body">
         <div className="industry-tile-eyebrow">

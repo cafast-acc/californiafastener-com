@@ -3,7 +3,7 @@ import Link from "next/link";
 import "@/styles/cf-products.css";
 import { CfNav } from "@/components/CfNav";
 import { CfFooter } from "@/components/CfFooter";
-import { Img } from "@/components/Img";
+import Image from "next/image";
 import { INDUSTRIES, INDUSTRY_ORDER } from "@/lib/industries/data";
 
 export const metadata: Metadata = {
@@ -65,7 +65,13 @@ export default function IndustriesPage() {
           return (
             <Link key={slug} href={`/industries/${slug}`} className="pe-tile">
               <div className="pe-tile-art">
-                <Img src={ind.heroImg} alt={ind.heroImgAlt} />
+                <Image
+                  src={ind.heroImg}
+                  alt={ind.heroImgAlt}
+                  fill
+                  sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                  quality={90}
+                />
               </div>
               <div className="pe-tile-scrim" />
               <div className="pe-tile-body">
