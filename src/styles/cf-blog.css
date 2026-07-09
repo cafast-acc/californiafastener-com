@@ -107,7 +107,9 @@
 .bl-featured-img img {
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  /* Same mixed-aspect covers as the grid cards — contain so a wide featured
+     cover shows its full baked-in title instead of being center-cropped. */
+  object-fit: contain;
   display: block;
 }
 .bl-featured-img--placeholder {
@@ -211,7 +213,13 @@
 .bl-card-img img {
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  /* Cover images are a mixed-aspect library: square placards (2500×2500) sit
+     next to wide social cards (1200×630) that carry the article title baked
+     into the artwork. object-fit: cover zoomed the wide ones to fill the
+     square and sliced the title text off both edges. contain shows every
+     cover in full, matted on the cream bed — which the light placards blend
+     into — so nothing is ever cropped. */
+  object-fit: contain;
   display: block;
 }
 .bl-card-img--placeholder {
@@ -393,7 +401,10 @@
 .bl-article-cover img {
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  /* Same mixed-aspect covers: contain keeps square placards and wide social
+     cards both fully visible in the 16/10 bed rather than cropping their
+     baked-in titles. */
+  object-fit: contain;
   display: block;
 }
 
