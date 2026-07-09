@@ -9,9 +9,12 @@ const nextConfig: NextConfig = {
   },
   images: {
     // Next 15+ requires non-default quality values to be allowlisted here.
-    // 95 = visually lossless for the product CAD renders; 75 stays available
-    // for any future placeholder / thumbnail use.
-    qualities: [75, 95],
+    // 95 = visually lossless for the product CAD renders; 90 = the homepage
+    // hero and the About storefront/CNC photography; 75 stays available for
+    // any future placeholder / thumbnail use. A quality used by a <Image>
+    // but missing from this list makes the optimizer 400 in production —
+    // dev only warns, so it slips through until the deployed image breaks.
+    qualities: [75, 90, 95],
   },
   async headers() {
     // /public/assets/* gets a long browser cache. Vercel's defaults send
