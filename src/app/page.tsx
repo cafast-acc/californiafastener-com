@@ -78,7 +78,7 @@ export default function HomePage() {
           <div className="stat-label">Heat-and-lot traceable. MTRs on request.</div>
         </div>
         <div className="stat-cell">
-          <div className="stat-num stat-num-purple">USA</div>
+          <div className="stat-num stat-num-blue">USA</div>
           <div className="stat-label">Same-day domestic shipping.</div>
         </div>
       </section>
