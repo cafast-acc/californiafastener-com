@@ -175,8 +175,9 @@ export function QuoteFormPlaceholder({ textareaLabel, textareaPlaceholder }: Pro
       </div>
       <div className="pp-form-row">
         <div className="pp-form-field pp-form-field--full">
-          <label>{textareaLabel}</label>
+          <label htmlFor="qfp-message">{textareaLabel}</label>
           <textarea
+            id="qfp-message"
             name="message"
             placeholder={textareaPlaceholder}
             value={message}

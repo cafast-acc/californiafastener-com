@@ -6,6 +6,7 @@ import { CfNav } from "@/components/CfNav";
 import { CfFooter } from "@/components/CfFooter";
 import { QuoteFormPlaceholder } from "@/components/QuoteFormPlaceholder";
 import { Img } from "@/components/Img";
+import Image from "next/image";
 
 export const metadata: Metadata = {
   title: "Silicon Bronze — Marine & Electrical",
@@ -59,9 +60,14 @@ export default function SiliconBronzePage() {
           </div>
           <div className="pp-hero-image">
             <div className="pp-hero-image-tag">C651 · Hex Head · Plain Finish</div>
-            <Img
+            <Image
               src="/assets/products/bronze-hex-bolt-v2.png"
               alt="Silicon bronze hex head bolt — C651"
+              width={2000}
+              height={1149}
+              priority
+              quality={95}
+              sizes="(max-width: 1000px) 100vw, 60vw"
             />
           </div>
         </div>

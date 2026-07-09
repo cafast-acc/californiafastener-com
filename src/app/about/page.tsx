@@ -40,7 +40,7 @@ export default function AboutPage() {
       {/* FACILITY MARQUEE */}
       <section className="facility-marquee">
         <Image
-          src="/assets/facility-storefront.png"
+          src="/assets/facility-storefront.webp"
           alt="California Fastener storefront and facility in Benicia, California"
           fill
           priority

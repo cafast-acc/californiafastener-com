@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import Image from "next/image";
 import "@/styles/cf-anchor-bolts.css";
 import { CfNav } from "@/components/CfNav";
 import { CfFooter } from "@/components/CfFooter";
@@ -54,9 +55,14 @@ export default function AnchorBoltsPage() {
           </div>
           <div className="ab-hero-image">
             <div className="ab-hero-image-tag">F1554 · Anchor Rod Assembly</div>
-            <Img
+            <Image
               src="/assets/products/anchor-rod-render.png"
               alt="F1554 anchor rod assembly with heavy hex nuts and square plate washers"
+              width={2000}
+              height={1149}
+              priority
+              quality={95}
+              sizes="(max-width: 1000px) 100vw, 55vw"
             />
           </div>
         </div>

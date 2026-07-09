@@ -234,8 +234,9 @@ export function HolloBoltSelector({ titleAs = "h2" }: { titleAs?: "h1" | "h2" } 
           </div>
 
           <div className="hbs-field">
-            <label className="hbs-label">Finish / corrosion protection</label>
+            <label className="hbs-label" htmlFor="hbs-finish">Finish / corrosion protection</label>
             <select
+              id="hbs-finish"
               className="hbs-select"
               value={finish}
               onChange={(e) => setFinish(e.target.value as Finish)}
