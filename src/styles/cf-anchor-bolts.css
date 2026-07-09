@@ -66,7 +66,7 @@
 .ab-grades-header p { font-size: 17px; color: var(--ink-soft); line-height: 1.5; max-width: 460px; }
 .ab-grades-cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
 .ab-grade-card { background: var(--bg-alt); border-radius: 20px; overflow: hidden; display: flex; flex-direction: column; }
-.ab-grade-card-img { aspect-ratio: 5 / 4; background: #E7E5E0; display: flex; align-items: center; justify-content: center; overflow: hidden; }
+.ab-grade-card-img { aspect-ratio: 5 / 4; background: #E7E5E0; display: flex; align-items: center; justify-content: center; overflow: hidden; position: relative; }
 .ab-grade-card-img img { width: 100%; height: 100%; object-fit: cover; filter: contrast(1.08) saturate(1.04); }
 .ab-grade-card-body { padding: 28px 28px 32px; }
 .ab-grade-card-spec { font-family: var(--cf-font-mono); font-size: 11px; color: var(--blue-dark); letter-spacing: 0.06em; text-transform: uppercase; margin-bottom: 8px; }
@@ -113,7 +113,7 @@
 .ab-plates-text h2 { font-size: clamp(44px, 4.6vw, 70px); font-weight: 600; letter-spacing: -0.03em; line-height: 1.02; margin-bottom: 20px; }
 .ab-plates-text h2 i { font-style: normal; color: var(--blue); }
 .ab-plates-text p { font-size: 19px; color: var(--dark-mid); line-height: 1.55; margin-bottom: 28px; max-width: 480px; }
-.ab-plates-image { background: #E7E5E0; display: flex; align-items: center; justify-content: center; overflow: hidden; }
+.ab-plates-image { background: #E7E5E0; display: flex; align-items: center; justify-content: center; overflow: hidden; position: relative; }
 .ab-plates-image img { width: 100%; height: 100%; object-fit: cover; }
 
 /* SPEC LIBRARY CTA */

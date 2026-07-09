@@ -1,9 +1,9 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import Image from "next/image";
 import "@/styles/cf-products.css";
 import { CfNav } from "@/components/CfNav";
 import { CfFooter } from "@/components/CfFooter";
-import { Img } from "@/components/Img";
 
 export const metadata: Metadata = {
   title: "Industrial Fasteners & CNC Machining",
@@ -277,7 +277,13 @@ function ProductTile({
         <>
           <div className="pe-tile-art">
             {image ? (
-              <Img src={image} alt={imageAlt ?? title} />
+              <Image
+                src={image}
+                alt={imageAlt ?? title}
+                fill
+                sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                quality={90}
+              />
             ) : (
               <div className="pe-tile-ph" data-ph={placeholder} />
             )}
