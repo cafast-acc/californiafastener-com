@@ -140,7 +140,7 @@ export default function AnchorBoltsPage() {
             imgAlt="L-bent anchor rod with heavy hex nut and washer"
             title="Bent anchors"
             desc="J-bolts and L-bolts for column anchorage and equipment bases. Standard 4D bend radius or custom to your drawing."
-            metaBold="F1554 Gr 36"
+            metaBold="F1554 Gr 36 / 55"
             metaRest=" · L-bend · J-bend · Custom"
           />
           <TypeCard
