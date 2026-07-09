@@ -543,7 +543,7 @@ export default function IndustrialFastenersPage() {
             <div className="pp-quote-contact">
               Prefer to talk it through?
               <b>707.741.3277</b>
-              <b>sales@californiafastener.com</b>
+              <b>info@californiafastener.com</b>
             </div>
           </div>
           <QuoteFormPlaceholder

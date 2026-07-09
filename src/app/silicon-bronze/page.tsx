@@ -390,7 +390,7 @@ export default function SiliconBronzePage() {
             <div className="pp-quote-contact">
               Talk to a person
               <b>707.741.3277</b>
-              <b>sales@californiafastener.com</b>
+              <b>info@californiafastener.com</b>
             </div>
           </div>
           <QuoteFormPlaceholder
