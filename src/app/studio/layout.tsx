@@ -5,6 +5,10 @@ import { metadata as studioMetadata, viewport as studioViewport } from "next-san
 export const metadata: Metadata = {
   ...studioMetadata,
   title: "Studio · California Fastener",
+  // Keep the CMS admin out of search-engine results. This only removes it
+  // from the public index — the Studio is still reachable at /studio and is
+  // protected by the Sanity login regardless.
+  robots: { index: false, follow: false },
 };
 
 export const viewport: Viewport = {
