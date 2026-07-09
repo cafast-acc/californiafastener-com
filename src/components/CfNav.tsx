@@ -68,9 +68,6 @@ export function CfNav({
             </div>
           </div>
         </li>
-        <li className={activeCls("cnc-machining").trim()}>
-          <Link href="/cnc-machining">CNC Machining</Link>
-        </li>
         <li className={`has-menu${activeCls("industries")}`}>
           <button aria-haspopup="true">Industries</button>
           <div className="cf-nav-menu">
@@ -86,6 +83,9 @@ export function CfNav({
               <Link href="/industries">View all industries →</Link>
             </div>
           </div>
+        </li>
+        <li className={activeCls("cnc-machining").trim()}>
+          <Link href="/cnc-machining">CNC Machining</Link>
         </li>
         <li className={`has-menu${activeCls("resources")}`}>
           <button aria-haspopup="true">Resources</button>

@@ -78,7 +78,7 @@ export default function HomePage() {
           <div className="stat-label">Heat-and-lot traceable. MTRs on request.</div>
         </div>
         <div className="stat-cell">
-          <div className="stat-num stat-num-blue">USA</div>
+          <div className="stat-num stat-num-purple">USA</div>
           <div className="stat-label">Same-day domestic shipping.</div>
         </div>
       </section>
@@ -289,8 +289,8 @@ export default function HomePage() {
             Built to your <i>print.</i>
           </h2>
           <p>
-            In-house five-axis milling and live-tooling lathes. From one prototype to thousands of
-            parts — you&apos;re working directly with the manufacturer, not a middleman.
+            In-house five-axis milling, live-tooling lathes, and full CMM inspection. From one
+            prototype to thousands of parts — you&apos;re working directly with the manufacturer.
           </p>
           <Link href="/cnc-machining" className="cf-pill cf-pill--purple">
             Explore CNC Machining
