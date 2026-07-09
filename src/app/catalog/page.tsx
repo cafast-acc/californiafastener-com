@@ -55,7 +55,7 @@ function ProductPage({ s }: { s: Section }) {
         </div>
         <div className="sect-head">
           <div className="sect-l">
-            <h1 className="sect-h" {...html(s.title)} />
+            <h2 className="sect-h" {...html(s.title)} />
             <p className="sect-lede" {...html(s.lede)} />
           </div>
         </div>
@@ -148,9 +148,9 @@ export default function CatalogPage() {
               </span>
               <span>02 / 14</span>
             </div>
-            <h1 className="toc-h">
+            <h2 className="toc-h">
               The full line, <em>by section.</em>
-            </h1>
+            </h2>
             <p className="op-lede" style={{ marginTop: 14, maxWidth: "88%" }}>
               Every fastener we stock and machine — bolts through anchors, plus in-house threading,
               cutting, and bending. Send a drawing, a BOM, or a part number; we quote, source, and
@@ -194,9 +194,9 @@ export default function CatalogPage() {
             </div>
             <div className="sect-head">
               <div className="sect-l">
-                <h1 className="sect-h">
+                <h2 className="sect-h">
                   Materials, <em>spec&rsquo;d to standard.</em>
-                </h1>
+                </h2>
                 <p className="sect-lede">
                   ASTM grades we stock by the rack, plus specialty alloys on request.
                 </p>
@@ -261,9 +261,9 @@ export default function CatalogPage() {
             </div>
             <div className="sect-head">
               <div className="sect-l">
-                <h1 className="sect-h">
+                <h2 className="sect-h">
                   Threading, cutting, <em>bending, drilling.</em>
-                </h1>
+                </h2>
                 <p className="sect-lede">
                   Special per print, in-house. A working summary of what we make and what we stock —
                   for the long form, ask the order desk.
@@ -281,7 +281,7 @@ export default function CatalogPage() {
             </div>
             <div className="cap-cols">
               <div className="cap-col">
-                <h4>Fasteners</h4>
+                <h3>Fasteners</h3>
                 {CATALOG.capabilities.fasteners.map((r, i) => (
                   <div className="cap-row" key={i}>
                     <span className="l" {...html(r[0])} />
@@ -290,7 +290,7 @@ export default function CatalogPage() {
                 ))}
               </div>
               <div className="cap-col">
-                <h4>In-house manufacturing</h4>
+                <h3>In-house manufacturing</h3>
                 {CATALOG.capabilities.cnc.map((r, i) => (
                   <div className="cap-row" key={i}>
                     <span className="l" {...html(r[0])} />
@@ -314,9 +314,9 @@ export default function CatalogPage() {
             </div>
             <div className="sect-head">
               <div className="sect-l">
-                <h1 className="sect-h">
+                <h2 className="sect-h">
                   Steelwork connections, <em>without the welder.</em>
-                </h1>
+                </h2>
                 <p className="sect-lede">
                   California Fastener is a stocking distributor of Lindapter® — no-weld, no-drill
                   structural steel fixings.
@@ -385,9 +385,9 @@ export default function CatalogPage() {
             </div>
             <div className="sect-head">
               <div className="sect-l">
-                <h1 className="sect-h">
+                <h2 className="sect-h">
                   The parts, <em>at a glance.</em>
-                </h1>
+                </h2>
                 <p className="sect-lede">
                   A working sample of what ships from Benicia — grades, finishes, and assemblies cut
                   to print.
@@ -422,11 +422,11 @@ export default function CatalogPage() {
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <img className="back-logo" src="/assets/catalog/logo-white.png" alt="California Fastener" />
             </div>
-            <h1 className="back-h">
+            <h2 className="back-h">
               Send the BOM.
               <br />
               We&rsquo;ll <em>handle procurement.</em>
-            </h1>
+            </h2>
             <div className="back-plate">
               <div className="back-c">
                 <div className="back-ck">Order desk</div>

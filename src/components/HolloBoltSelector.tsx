@@ -32,7 +32,7 @@ const HEAD_OPTIONS: { value: HeadType; label: string }[] = [
 ];
 const SIZE_OPTIONS: Size[] = ["5/16", "3/8", "1/2", "5/8", "3/4"];
 
-export function HolloBoltSelector() {
+export function HolloBoltSelector({ titleAs = "h2" }: { titleAs?: "h1" | "h2" } = {}) {
   const [head, setHead] = useState<HeadType>("HEX");
   const [size, setSize] = useState<Size>("5/16");
   const [finish, setFinish] = useState<Finish>("ZN");
@@ -173,7 +173,7 @@ export function HolloBoltSelector() {
   return (
     <div className="hbs-root">
       <header className="hbs-header">
-        <h2>Hollo-Bolt Selector</h2>
+        {titleAs === "h1" ? <h1>Hollo-Bolt Selector</h1> : <h2>Hollo-Bolt Selector</h2>}
         <p>
           Specify the correct Lindapter Hollo-Bolt for your steel-to-HSS connection. Filter by head
           type, diameter, finish, and fixing thickness — then request a quote directly from
@@ -188,7 +188,7 @@ export function HolloBoltSelector() {
 
       <div className="hbs-grid">
         <aside className="hbs-filters" aria-label="Hollo-Bolt filter controls">
-          <h3>Specify your connection</h3>
+          <h2>Specify your connection</h2>
 
           <div className="hbs-field">
             <label className="hbs-label">Head type</label>
@@ -317,7 +317,7 @@ export function HolloBoltSelector() {
         </aside>
 
         <section className="hbs-results" aria-live="polite">
-          <h3>Matching products</h3>
+          <h2>Matching products</h2>
           <div className="hbs-result-meta">
             {!sizeOk ? (
               <>

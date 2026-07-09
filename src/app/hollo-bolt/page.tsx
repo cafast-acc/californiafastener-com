@@ -532,7 +532,7 @@ function Property({ num, title, desc }: { num: string; title: string; desc: stri
   return (
     <div className="hb-prop">
       <div className="pn">{num}</div>
-      <h3>{title}</h3>
+      <h2>{title}</h2>
       <p>{desc}</p>
     </div>
   );
@@ -644,7 +644,7 @@ function FinishItem({
     <div className="hb-finish-item">
       <div className={`hb-finish-sw ${swatch}`} />
       <div>
-        <h4>{title}</h4>
+        <h3>{title}</h3>
         <p>{desc}</p>
       </div>
       <em>{code}</em>

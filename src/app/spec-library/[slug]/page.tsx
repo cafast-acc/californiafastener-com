@@ -125,7 +125,7 @@ export default async function SpecDetailPage({
         <header className="sp-hero">
           <div>
             <span className="sp-tag">{SECTION_TITLES[spec.section]}</span>
-            <div className="sp-code">{spec.code}</div>
+            <h1 className="sp-code">{spec.code}</h1>
             <div className="sp-name">{h1Name}</div>
           </div>
           {visibleMeta.length > 0 && (

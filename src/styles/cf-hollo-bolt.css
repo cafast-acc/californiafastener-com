@@ -59,7 +59,7 @@
 .hb-props-inner { max-width: 1240px; margin: 0 auto; display: grid; grid-template-columns: repeat(4, 1fr); gap: 40px; }
 .hb-prop { padding-top: 24px; border-top: 2px solid var(--hb-accent); }
 .hb-prop .pn { font-family: var(--cf-font-mono); font-size: 11px; color: var(--hb-accent-deep); letter-spacing: 0.06em; margin-bottom: 10px; }
-.hb-prop h3 { font-size: 18px; font-weight: 600; letter-spacing: -0.015em; margin: 0 0 8px; }
+.hb-prop h2 { font-size: 18px; font-weight: 600; letter-spacing: -0.015em; margin: 0 0 8px; }
 .hb-prop p { font-size: 14px; color: var(--mid); line-height: 1.5; margin: 0; }
 
 /* ── HOW IT WORKS ────────────────────────────────────── */
@@ -229,7 +229,7 @@
 .hb-finish-sw--sherardized { background: linear-gradient(135deg, #8A9199 0%, #5A636B 100%); }
 .hb-finish-sw--ss { background: linear-gradient(135deg, #D4D9DE 0%, #9EA6AE 100%); }
 .hb-finish-sw--zinc { background: linear-gradient(135deg, #E4E7EA 0%, #B8BEC4 100%); }
-.hb-finish-item h4 { font-size: 15px; font-weight: 500; margin: 0 0 2px; letter-spacing: -0.01em; }
+.hb-finish-item h3 { font-size: 15px; font-weight: 500; margin: 0 0 2px; letter-spacing: -0.01em; }
 .hb-finish-item p { font-size: 12px; color: var(--mid); margin: 0; line-height: 1.4; }
 .hb-finish-item em { font-style: normal; font-family: var(--cf-font-mono); font-size: 11px; color: var(--hb-accent-deep); letter-spacing: 0.04em; }
 

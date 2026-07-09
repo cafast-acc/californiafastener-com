@@ -29,7 +29,7 @@
 /* Selector container */
 .hbs-root { max-width: 1240px; margin: 0 auto; padding: 36px 40px 200px; }
 .hbs-header { border-bottom: 1px solid var(--rule-soft); padding-bottom: 28px; margin-bottom: 36px; }
-.hbs-header h2 { font-size: clamp(36px, 3.8vw, 52px); font-weight: 600; letter-spacing: -0.03em; line-height: 1.05; color: var(--ink); margin: 0 0 12px; }
+.hbs-header h1, .hbs-header h2 { font-size: clamp(36px, 3.8vw, 52px); font-weight: 600; letter-spacing: -0.03em; line-height: 1.05; color: var(--ink); margin: 0 0 12px; }
 .hbs-header > p { font-size: 17px; line-height: 1.5; color: var(--ink-soft); max-width: 720px; margin: 0; }
 .hbs-badges { margin-top: 14px; display: flex; flex-wrap: wrap; gap: 6px; }
 .hbs-badge { display: inline-block; background: var(--ink); color: var(--white); font-size: 11px; font-weight: 600; padding: 4px 10px; border-radius: 100px; letter-spacing: 0.03em; text-transform: uppercase; }
@@ -41,7 +41,7 @@
 /* Filter panel */
 .hbs-filters { background: var(--bg-alt); border: 1px solid var(--rule-soft); border-radius: var(--hbs-radius-lg); padding: 24px; position: sticky; top: 80px; }
 @media (max-width: 900px) { .hbs-filters { position: static; } }
-.hbs-filters h3 { color: var(--ink); font-size: 13px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.08em; margin: 0 0 20px; }
+.hbs-filters h2 { color: var(--ink); font-size: 13px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.08em; margin: 0 0 20px; }
 .hbs-field { margin-bottom: 22px; }
 .hbs-field:last-child { margin-bottom: 0; }
 .hbs-label { display: block; font-size: 11px; font-weight: 600; color: var(--ink); text-transform: uppercase; letter-spacing: 0.04em; margin-bottom: 8px; }
@@ -69,7 +69,7 @@
 .hbs-btn.ghost:hover { color: var(--ink); border-color: var(--ink); }
 
 /* Results */
-.hbs-results h3 { color: var(--ink); font-size: 18px; font-weight: 600; margin: 0 0 10px; }
+.hbs-results h2 { color: var(--ink); font-size: 18px; font-weight: 600; margin: 0 0 10px; }
 .hbs-result-meta { font-size: 13px; color: var(--mid); margin-bottom: 22px; line-height: 1.5; }
 .hbs-result-meta strong { color: var(--ink); }
 .hbs-result-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 18px; }

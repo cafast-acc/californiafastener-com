@@ -29,7 +29,7 @@ export default function HolloBoltSelectorPage() {
         </div>
       </section>
 
-      <HolloBoltSelector />
+      <HolloBoltSelector titleAs="h1" />
 
       <CfFooter />
     </>
