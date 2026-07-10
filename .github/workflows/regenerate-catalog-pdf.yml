@@ -1,0 +1,73 @@
+name: Regenerate catalog PDF
+
+# Keeps public/california-fastener-catalog-2026.pdf in sync with the catalog
+# automatically. Runs whenever the catalog page, its data, its styles, or the
+# generator change on master (or on manual dispatch): it builds the site,
+# renders /catalog to a full-bleed PDF with headless Chromium, and commits the
+# refreshed PDF back — which triggers a normal Vercel deploy with the new file.
+#
+# The catalog is fully static (no Sanity), so this needs no secrets.
+
+on:
+  push:
+    branches: [master]
+    paths:
+      - "src/lib/catalog/**"
+      - "src/app/catalog/**"
+      - "src/components/catalog/**"
+      - "src/styles/cf-catalog.css"
+      - "scripts/generate-catalog-pdf.mjs"
+      - ".github/workflows/regenerate-catalog-pdf.yml"
+  workflow_dispatch: {}
+
+permissions:
+  contents: write
+
+concurrency:
+  group: regenerate-catalog-pdf
+  cancel-in-progress: true
+
+jobs:
+  regenerate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Install Playwright + Chromium
+        run: |
+          npm i -D playwright
+          npx playwright install --with-deps chromium
+
+      - name: Build and start the site (production, so no dev overlay in the PDF)
+        run: |
+          npm run build
+          npm run start &
+          for i in $(seq 1 90); do
+            curl -sf http://localhost:3000/catalog > /dev/null && break
+            sleep 2
+          done
+          curl -sf http://localhost:3000/catalog > /dev/null || { echo "site did not come up"; exit 1; }
+
+      - name: Regenerate the catalog PDF
+        run: node scripts/generate-catalog-pdf.mjs
+
+      - name: Commit the refreshed PDF if it changed
+        run: |
+          if [ -n "$(git status --porcelain public/california-fastener-catalog-2026.pdf)" ]; then
+            git config user.name "github-actions[bot]"
+            git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+            git add public/california-fastener-catalog-2026.pdf
+            git commit -m "chore: regenerate catalog PDF [skip ci]"
+            git push
+            echo "Catalog PDF updated and pushed."
+          else
+            echo "Catalog PDF already up to date — nothing to commit."
+          fi
