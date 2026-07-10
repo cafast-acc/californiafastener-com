@@ -296,6 +296,7 @@
 }
 .bl-newsletter-form {
   display: flex;
+  flex-wrap: wrap;
   gap: 8px;
 }
 .bl-newsletter-form input {
@@ -327,6 +328,20 @@
 }
 .bl-newsletter-form button:hover {
   background: var(--cf-dark-1);
+}
+.bl-newsletter-form button:disabled {
+  opacity: 0.6;
+  cursor: default;
+}
+.bl-newsletter-msg {
+  flex-basis: 100%;
+  margin: 8px 2px 0;
+  font-size: 13px;
+  letter-spacing: -0.005em;
+  color: var(--cf-ink-soft);
+}
+.bl-newsletter-msg[data-status="error"] {
+  color: #c02b2b;
 }
 
 /* ─────────────────────────────────────────────────────── */
