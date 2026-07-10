@@ -46,7 +46,7 @@ const FAMILIES: Family[] = [
     grades: ["F1554 Gr 36", "Gr 55", "Gr 105", "A193 B7", "B8M"],
     href: "/anchor-bolts",
     cta: "Explore anchor bolts",
-    image: "/assets/anchor-headed.webp",
+    image: "/assets/products/anchor-headed-render-1.png",
     imageAlt: "F1554 headed anchor bolt with hex nut and washer",
     placeholder: "A1 · Anchor bolt hero render",
     variant: "wide",
