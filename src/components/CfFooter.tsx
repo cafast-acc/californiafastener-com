@@ -17,11 +17,13 @@ export function CfFooter() {
         <div className="cf-footer-col">
           <h2>Products</h2>
           <Link href="/anchor-bolts">Anchor Bolts</Link>
-          <Link href="/structural-fasteners">Structural</Link>
-          <Link href="/stud-bolts-threaded-rod">Stud Bolts &amp; Rod</Link>
-          <Link href="/stainless-steel-fasteners">Stainless Steel</Link>
+          <Link href="/stud-bolts-threaded-rod">Stud Bolts &amp; Threaded Rod</Link>
+          <Link href="/structural-fasteners">Structural Fasteners</Link>
+          <Link href="/industrial-fasteners">Industrial Fasteners</Link>
           <Link href="/u-bolts">U-Bolts</Link>
-          <Link href="/silicon-bronze">Silicon Bronze</Link>
+          <Link href="/stainless-steel-fasteners">Stainless Steel Fasteners</Link>
+          <Link href="/silicon-bronze">Silicon Bronze Hardware</Link>
+          <Link href="/hollo-bolt">Specialty &amp; Lindapter</Link>
         </div>
         <div className="cf-footer-col">
           <h2>Industries</h2>
