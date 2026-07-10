@@ -737,9 +737,14 @@ body.cf-no-scroll { overflow: hidden; }
 
 /* Coarse pointers (touch): kill hover-driven menus.
    The CfNav desktop dropdowns also gain click-to-open via the
-   `.open` class, so this only neutralizes the hover trigger. */
+   `.open` class, so this only neutralizes the hover trigger.
+   The `:not(.open)` guard is essential: tapping a menu button leaves a
+   sticky `:hover` on it, and without the guard this rule (equal specificity,
+   but later in the source) would override the `.open` show-rule and leave the
+   opened menu at visibility:hidden / pointer-events:none — so its links can't
+   be tapped. Excluding `.open` lets the clicked-open menu stay interactive. */
 @media (hover: none) {
-  .cf-nav-center .has-menu:hover .cf-nav-menu {
+  .cf-nav-center .has-menu:hover:not(.open) .cf-nav-menu {
     opacity: 0;
     visibility: hidden;
     pointer-events: none;

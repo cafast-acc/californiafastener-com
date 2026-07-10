@@ -5,7 +5,6 @@ import "@/styles/cf-product-page.css";
 import "@/styles/cf-structural-fasteners.css";
 import { CfNav } from "@/components/CfNav";
 import { CfFooter } from "@/components/CfFooter";
-import { Img } from "@/components/Img";
 import { QuoteFormPlaceholder } from "@/components/QuoteFormPlaceholder";
 
 export const metadata: Metadata = {
@@ -510,7 +509,7 @@ export default function StructuralFastenersPage() {
             <div className="pp-quote-contact">
               Prefer to talk it through?
               <b>707.741.3277</b>
-              <b>sales@californiafastener.com</b>
+              <b>info@californiafastener.com</b>
             </div>
           </div>
           <QuoteFormPlaceholder
@@ -592,7 +591,13 @@ function ProductCard({
       <div className="pp-product-photo">
         <span className="pnum">{pnum}</span>
         {img ? (
-          <Img src={img} alt={imgAlt ?? ""} />
+          <Image
+            src={img}
+            alt={imgAlt ?? ""}
+            fill
+            sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 400px"
+            quality={90}
+          />
         ) : placeholder ? (
           <div className="pp-ph-placeholder">
             {placeholder[0]}

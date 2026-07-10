@@ -5,7 +5,6 @@ import "@/styles/cf-product-page.css";
 import "@/styles/cf-industrial-fasteners.css";
 import { CfNav } from "@/components/CfNav";
 import { CfFooter } from "@/components/CfFooter";
-import { Img } from "@/components/Img";
 import { QuoteFormPlaceholder } from "@/components/QuoteFormPlaceholder";
 
 export const metadata: Metadata = {
@@ -280,7 +279,13 @@ export default function IndustrialFastenersPage() {
             <div className="pp-family-cards">
               <div className="pp-spec-card pp-spec-card--hero">
                 <div className="pp-spec-photo">
-                  <Img src="/assets/stainless-placard-v3.png" alt="F593 stainless hex bolt beside an A193 B8 stainless stud bolt — staged silver-tone product shot" />
+                  <Image
+                    src="/assets/stainless-placard-v3.png"
+                    alt="F593 stainless hex bolt beside an A193 B8 stainless stud bolt — staged silver-tone product shot"
+                    fill
+                    sizes="(max-width: 1024px) 100vw, 60vw"
+                    quality={90}
+                  />
                 </div>
               </div>
               <SpecCard
@@ -334,15 +339,33 @@ export default function IndustrialFastenersPage() {
           </div>
           <div className="if-companion-visual">
             <div className="big">
-              <Img src="/assets/products/industrial-heavy-hex-bolt-b7-4.png" alt="A193 B7 heavy hex bolt" />
+              <Image
+                src="/assets/products/industrial-heavy-hex-bolt-b7-4.png"
+                alt="A193 B7 heavy hex bolt"
+                fill
+                sizes="(max-width: 1024px) 100vw, 50vw"
+                quality={90}
+              />
               <span className="tag">A193 B7 · Heavy hex</span>
             </div>
             <div>
-              <Img src="/assets/products/structural-f436-washer-1.png" alt="F436 hardened flat washer" />
+              <Image
+                src="/assets/products/structural-f436-washer-1.png"
+                alt="F436 hardened flat washer"
+                fill
+                sizes="(max-width: 1024px) 50vw, 25vw"
+                quality={90}
+              />
               <span className="tag">F436 · Hardened washer</span>
             </div>
             <div>
-              <Img src="/assets/products/industrial-heavy-hex-nut-1.png" alt="A194 2H heavy hex nut" />
+              <Image
+                src="/assets/products/industrial-heavy-hex-nut-1.png"
+                alt="A194 2H heavy hex nut"
+                fill
+                sizes="(max-width: 1024px) 50vw, 25vw"
+                quality={90}
+              />
               <span className="tag">A194 2H · Heavy hex nut</span>
             </div>
           </div>
@@ -353,7 +376,13 @@ export default function IndustrialFastenersPage() {
       <section className="if-exotic">
         <div className="if-exotic-inner">
           <div className="if-exotic-image">
-            <Img src="/assets/if-factory.webp" alt="Industrial process plant with piping and valves" />
+            <Image
+              src="/assets/if-factory.webp"
+              alt="Industrial process plant with piping and valves"
+              fill
+              sizes="(max-width: 1024px) 100vw, 50vw"
+              quality={90}
+            />
           </div>
           <div className="if-exotic-text">
             <div className="eyebrow">Specialty &amp; exotic · quote basis</div>
@@ -514,7 +543,7 @@ export default function IndustrialFastenersPage() {
             <div className="pp-quote-contact">
               Prefer to talk it through?
               <b>707.741.3277</b>
-              <b>sales@californiafastener.com</b>
+              <b>info@californiafastener.com</b>
             </div>
           </div>
           <QuoteFormPlaceholder
@@ -598,9 +627,12 @@ function ProductCard({
       <div className="pp-product-photo">
         <span className="pnum">{pnum}</span>
         {img ? (
-          <Img
+          <Image
             src={img}
             alt={imgAlt ?? ""}
+            fill
+            sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 400px"
+            quality={90}
             style={imgPosition ? { objectPosition: imgPosition } : undefined}
           />
         ) : placeholder ? (

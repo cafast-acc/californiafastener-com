@@ -5,7 +5,7 @@ import "@/styles/cf-silicon-bronze.css";
 import { CfNav } from "@/components/CfNav";
 import { CfFooter } from "@/components/CfFooter";
 import { QuoteFormPlaceholder } from "@/components/QuoteFormPlaceholder";
-import { Img } from "@/components/Img";
+import Image from "next/image";
 
 export const metadata: Metadata = {
   title: "Silicon Bronze — Marine & Electrical",
@@ -59,9 +59,14 @@ export default function SiliconBronzePage() {
           </div>
           <div className="pp-hero-image">
             <div className="pp-hero-image-tag">C651 · Hex Head · Plain Finish</div>
-            <Img
+            <Image
               src="/assets/products/bronze-hex-bolt-v2.png"
               alt="Silicon bronze hex head bolt — C651"
+              width={2000}
+              height={1149}
+              priority
+              quality={95}
+              sizes="(max-width: 1000px) 100vw, 60vw"
             />
           </div>
         </div>
@@ -188,10 +193,13 @@ export default function SiliconBronzePage() {
         <div className="sb-marine-inner">
           <div className="sb-marine-visual">
             <div className="sb-marine-visual-box">
-              <Img
+              <Image
                 className="sb-marine-img"
                 src="/assets/ind-marine.jpg"
                 alt="Wharf and harbor scene — marine environment where silicon bronze is specified"
+                fill
+                sizes="(max-width: 1024px) 100vw, 50vw"
+                quality={90}
               />
               <div className="sb-marine-tag">Marine &amp; shipbuilding</div>
             </div>
@@ -235,9 +243,12 @@ export default function SiliconBronzePage() {
           <div className="sb-apps-grid">
             <Link href="/industries/marine" className="sb-app-tile sb-app-tile--marine">
               <div className="sb-app-tile-bg">
-                <Img
+                <Image
                   src="/assets/ind-marine.jpg"
                   alt=""
+                  fill
+                  sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                  quality={90}
                 />
               </div>
               <div className="sb-app-tile-body">
@@ -250,9 +261,12 @@ export default function SiliconBronzePage() {
             </Link>
             <Link href="/industries/power-transmission" className="sb-app-tile sb-app-tile--electrical">
               <div className="sb-app-tile-bg">
-                <Img
+                <Image
                   src="/assets/ind-power-transmission.webp"
                   alt=""
+                  fill
+                  sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                  quality={90}
                 />
               </div>
               <div className="sb-app-tile-body">
@@ -266,9 +280,12 @@ export default function SiliconBronzePage() {
             </Link>
             <Link href="/industries/construction" className="sb-app-tile sb-app-tile--arch">
               <div className="sb-app-tile-bg">
-                <Img
+                <Image
                   src="/assets/ind-construction-facade.jpg"
                   alt=""
+                  fill
+                  sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                  quality={90}
                 />
               </div>
               <div className="sb-app-tile-body">
@@ -373,7 +390,7 @@ export default function SiliconBronzePage() {
             <div className="pp-quote-contact">
               Talk to a person
               <b>707.741.3277</b>
-              <b>sales@californiafastener.com</b>
+              <b>info@californiafastener.com</b>
             </div>
           </div>
           <QuoteFormPlaceholder
@@ -485,7 +502,13 @@ function RangeCard({
       <div className="pp-product-photo">
         <span className="pnum">{pnum}</span>
         {img ? (
-          <Img src={img} alt={imgAlt ?? title} />
+          <Image
+            src={img}
+            alt={imgAlt ?? title}
+            fill
+            sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 400px"
+            quality={90}
+          />
         ) : (
           <div className="pp-ph-placeholder">{title}</div>
         )}

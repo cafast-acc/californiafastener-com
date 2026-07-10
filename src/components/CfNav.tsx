@@ -1,4 +1,8 @@
+"use client";
+
 import Link from "next/link";
+import { usePathname } from "next/navigation";
+import { useEffect, useRef, useState } from "react";
 import { CfNavMobile } from "./CfNavMobile";
 
 type NavVariant = "light" | "dark";
@@ -19,15 +23,59 @@ export function CfNav({
 }) {
   const navClass = variant === "dark" ? "cf-nav cf-nav--dark" : "cf-nav";
   const activeCls = (s: NavSection) => (active === s ? " is-active" : "");
+
+  // Which mega-menu is open via click/tap. Mouse users still get hover-open
+  // from CSS (:hover); this state drives the `.open` class so touch and
+  // keyboard users — where :hover never fires — can open the menus too, and
+  // exposes an honest aria-expanded on the trigger buttons.
+  const [openMenu, setOpenMenu] = useState<NavSection | null>(null);
+  const navRef = useRef<HTMLElement>(null);
+  const pathname = usePathname();
+
+  // Close on navigation.
+  useEffect(() => {
+    setOpenMenu(null);
+  }, [pathname]);
+
+  // Close on outside click or Escape while a menu is open.
+  useEffect(() => {
+    if (!openMenu) return;
+    const onPointerDown = (e: MouseEvent) => {
+      if (navRef.current && !navRef.current.contains(e.target as Node)) {
+        setOpenMenu(null);
+      }
+    };
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === "Escape") setOpenMenu(null);
+    };
+    document.addEventListener("mousedown", onPointerDown);
+    document.addEventListener("keydown", onKey);
+    return () => {
+      document.removeEventListener("mousedown", onPointerDown);
+      document.removeEventListener("keydown", onKey);
+    };
+  }, [openMenu]);
+
+  const toggle = (s: NavSection) =>
+    setOpenMenu((cur) => (cur === s ? null : s));
+  const menuCls = (s: NavSection) =>
+    `has-menu${activeCls(s)}${openMenu === s ? " open" : ""}`;
+
   return (
-    <nav className={navClass}>
+    <nav className={navClass} ref={navRef}>
       <Link href="/" className="cf-nav-logo">
         <span className="cf-nav-logo-mark" />
         California Fastener
       </Link>
       <ul className="cf-nav-center">
-        <li className={`has-menu${activeCls("products")}`}>
-          <button aria-haspopup="true">Products</button>
+        <li className={menuCls("products")}>
+          <button
+            aria-haspopup="true"
+            aria-expanded={openMenu === "products"}
+            onClick={() => toggle("products")}
+          >
+            Products
+          </button>
           <div className="cf-nav-menu cf-nav-menu--mega">
             <div className="cf-nav-menu-label">Fasteners</div>
             <Link href="/anchor-bolts">
@@ -68,8 +116,14 @@ export function CfNav({
             </div>
           </div>
         </li>
-        <li className={`has-menu${activeCls("industries")}`}>
-          <button aria-haspopup="true">Industries</button>
+        <li className={menuCls("industries")}>
+          <button
+            aria-haspopup="true"
+            aria-expanded={openMenu === "industries"}
+            onClick={() => toggle("industries")}
+          >
+            Industries
+          </button>
           <div className="cf-nav-menu">
             <Link href="/industries/construction">Construction</Link>
             <Link href="/industries/manufacturing">Manufacturing</Link>
@@ -87,8 +141,14 @@ export function CfNav({
         <li className={activeCls("cnc-machining").trim()}>
           <Link href="/cnc-machining">CNC Machining</Link>
         </li>
-        <li className={`has-menu${activeCls("resources")}`}>
-          <button aria-haspopup="true">Resources</button>
+        <li className={menuCls("resources")}>
+          <button
+            aria-haspopup="true"
+            aria-expanded={openMenu === "resources"}
+            onClick={() => toggle("resources")}
+          >
+            Resources
+          </button>
           <div className="cf-nav-menu">
             <div className="cf-nav-menu-label">Technical</div>
             <Link href="/spec-library">

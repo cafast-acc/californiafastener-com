@@ -234,8 +234,9 @@ export function HolloBoltSelector({ titleAs = "h2" }: { titleAs?: "h1" | "h2" } 
           </div>
 
           <div className="hbs-field">
-            <label className="hbs-label">Finish / corrosion protection</label>
+            <label className="hbs-label" htmlFor="hbs-finish">Finish / corrosion protection</label>
             <select
+              id="hbs-finish"
               className="hbs-select"
               value={finish}
               onChange={(e) => setFinish(e.target.value as Finish)}
@@ -399,7 +400,7 @@ export function HolloBoltSelector({ titleAs = "h2" }: { titleAs?: "h1" | "h2" } 
       <footer className="hbs-footer">
         Load values shown are Safe Working Loads per the Lindapter April 2026 US catalog (FOS 5:1).
         For ICC-ES ESR-3330 design strengths (LRFD/ASD) or seismic applications, contact us at{" "}
-        <a href="mailto:sales@californiafastener.com">sales@californiafastener.com</a> or call (707)
+        <a href="mailto:info@californiafastener.com">info@californiafastener.com</a> or call (707)
         741-3277. California Fastener is an authorized Lindapter distributor.
       </footer>
 

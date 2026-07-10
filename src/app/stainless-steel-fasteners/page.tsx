@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import Image from "next/image";
-import { Img } from "@/components/Img";
 import "@/styles/cf-product-page.css";
 import "@/styles/cf-stainless.css";
 import { CfNav } from "@/components/CfNav";
@@ -500,7 +499,7 @@ export default function StainlessSteelFastenersPage() {
             <div className="pp-quote-contact">
               Prefer to talk it through?
               <b>707.741.3277</b>
-              <b>sales@californiafastener.com</b>
+              <b>info@californiafastener.com</b>
             </div>
           </div>
           <QuoteFormPlaceholder
@@ -610,7 +609,13 @@ function ProductCard({
       <div className="pp-product-photo">
         <span className="pnum">{pnum}</span>
         {img ? (
-          <Img src={img} alt={imgAlt ?? title} />
+          <Image
+            src={img}
+            alt={imgAlt ?? title}
+            fill
+            sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 400px"
+            quality={90}
+          />
         ) : (
           <div className="pp-ph-placeholder">{title}</div>
         )}
@@ -722,7 +727,14 @@ function IndTile({
   return (
     <Link href={href} className="ss-ind-tile">
       <div className="ss-ind-ph" />
-      <Img className="ss-ind-img" src={img} alt="" loading="lazy" />
+      <Image
+        className="ss-ind-img"
+        src={img}
+        alt=""
+        fill
+        sizes="(max-width: 640px) 50vw, (max-width: 1024px) 33vw, 300px"
+        quality={90}
+      />
       <div className="ss-ind-tag">{tag}</div>
       <div className="ss-ind-body">
         <div className="ss-ind-eyebrow">{eyebrow}</div>

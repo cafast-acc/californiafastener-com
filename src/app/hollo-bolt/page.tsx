@@ -169,6 +169,8 @@ export default function HolloBoltPage() {
             <img
               src="/assets/products/hollo-bolt-trio.png"
               alt="Lindapter Hollo-Bolt range across all five diameters, 5/16 inch to 3/4 inch"
+              loading="lazy"
+              decoding="async"
             />
           </div>
         </div>
@@ -190,16 +192,16 @@ export default function HolloBoltPage() {
           </div>
           <div className="hb-how-steps">
             <HowStep num="01 / DRILL" title="Drill a clearance hole." desc="One clean hole through both walls of the section, sized per the published fixture hole chart.">
-              <img className="hb-how-photo" src="/assets/hollo-bolt/install-drill.png" alt="Clearance hole drilled through both faces of a steel section" />
+              <img className="hb-how-photo" src="/assets/hollo-bolt/install-drill.png" alt="Clearance hole drilled through both faces of a steel section" loading="lazy" decoding="async" />
             </HowStep>
             <HowStep num="02 / INSERT" title="Insert the Hollo-Bolt." desc="The assembly — bolt, sleeve, cone, and head — drops in as one piece. No back-side access required.">
-              <img className="hb-how-photo" src="/assets/hollo-bolt/install-insert.png" alt="Hollo-Bolt assembly: hex head, expansion sleeve, and cone" />
+              <img className="hb-how-photo" src="/assets/hollo-bolt/install-insert.png" alt="Hollo-Bolt assembly: hex head, expansion sleeve, and cone" loading="lazy" decoding="async" />
             </HowStep>
             <HowStep num="03 / TORQUE" title="Tighten to spec." desc="Apply the specified torque. The cone draws up inside the sleeve, splaying its four segments against the blind face.">
-              <img className="hb-how-photo" src="/assets/hollo-bolt/install-tighten.png" alt="Tightening the Hollo-Bolt to torque with a spanner" />
+              <img className="hb-how-photo" src="/assets/hollo-bolt/install-tighten.png" alt="Tightening the Hollo-Bolt to torque with a spanner" loading="lazy" decoding="async" />
             </HowStep>
             <HowStep num="04 / CLAMPED" title="Secured both sides." desc="The fixture is clamped against the exposed face; the expanded sleeve holds it from behind. Removable, re-usable.">
-              <img className="hb-how-photo" src="/assets/hollo-bolt/install-done.png" alt="Cutaway of the installed Hollo-Bolt with the expansion sleeve gripping inside the section" />
+              <img className="hb-how-photo" src="/assets/hollo-bolt/install-done.png" alt="Cutaway of the installed Hollo-Bolt with the expansion sleeve gripping inside the section" loading="lazy" decoding="async" />
             </HowStep>
           </div>
         </div>
@@ -286,9 +288,12 @@ export default function HolloBoltPage() {
       <section className="hb-case">
         <div className="hb-case-inner">
           <div className="hb-case-photo">
-            <img
+            <Image
               src="/assets/hollo-bolt-rail.jpg"
               alt="Eurostar high-speed trains under the Barlow Shed at St Pancras International station"
+              fill
+              sizes="(max-width: 1024px) 100vw, 1100px"
+              quality={90}
             />
             <div className="ov" />
             <span className="hb-case-photo-tag">Case study</span>
@@ -342,9 +347,12 @@ export default function HolloBoltPage() {
           <div className="hb-apps-grid">
             <Link href="/structural-fasteners" className="hb-app-tile hb-app-tile--steel">
               <div className="hb-app-tile-bg">
-                <img
+                <Image
                   src="/assets/ind-construction-facade.jpg"
                   alt=""
+                  fill
+                  sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                  quality={90}
                 />
               </div>
               <div className="hb-app-tile-body">
@@ -358,9 +366,12 @@ export default function HolloBoltPage() {
             </Link>
             <Link href="/industries/infrastructure" className="hb-app-tile hb-app-tile--offshore">
               <div className="hb-app-tile-bg">
-                <img
+                <Image
                   src="/assets/ind-infrastructure.webp"
                   alt=""
+                  fill
+                  sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                  quality={90}
                 />
               </div>
               <div className="hb-app-tile-body">
@@ -374,9 +385,12 @@ export default function HolloBoltPage() {
             </Link>
             <Link href="/industries/manufacturing" className="hb-app-tile hb-app-tile--mod">
               <div className="hb-app-tile-bg">
-                <img
+                <Image
                   src="/assets/ind-manufacturing.jpg"
                   alt=""
+                  fill
+                  sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                  quality={90}
                 />
               </div>
               <div className="hb-app-tile-body">
@@ -413,9 +427,12 @@ export default function HolloBoltPage() {
             </div>
           </div>
           <div className="hb-finish-visual">
-            <img
+            <Image
               src="/assets/products/hollo-bolt-trio-hero-2.png"
               alt="Lindapter Hollo-Bolt expansion bolts in hex, countersunk, and flush-fit heads"
+              fill
+              sizes="(max-width: 1024px) 100vw, 50vw"
+              quality={90}
             />
           </div>
         </div>
@@ -479,7 +496,7 @@ export default function HolloBoltPage() {
             <div style={{ paddingTop: 20, borderTop: "1px solid var(--rule-soft)", fontSize: 13, color: "var(--mid)", lineHeight: 1.8 }}>
               Talk to a person
               <b style={{ display: "block", color: "var(--ink)", fontWeight: 500, fontSize: 14, marginTop: 4 }}>707.741.3277</b>
-              <b style={{ display: "block", color: "var(--ink)", fontWeight: 500, fontSize: 14 }}>sales@californiafastener.com</b>
+              <b style={{ display: "block", color: "var(--ink)", fontWeight: 500, fontSize: 14 }}>info@californiafastener.com</b>
             </div>
           </div>
           <QuoteFormPlaceholder

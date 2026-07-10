@@ -1,9 +1,9 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import Image from "next/image";
 import "@/styles/cf-anchor-bolts.css";
 import { CfNav } from "@/components/CfNav";
 import { CfFooter } from "@/components/CfFooter";
-import { Img } from "@/components/Img";
 
 export const metadata: Metadata = {
   title: "Anchor Bolts — F1554, A193, F593",
@@ -54,9 +54,14 @@ export default function AnchorBoltsPage() {
           </div>
           <div className="ab-hero-image">
             <div className="ab-hero-image-tag">F1554 · Anchor Rod Assembly</div>
-            <Img
+            <Image
               src="/assets/products/anchor-rod-render.png"
               alt="F1554 anchor rod assembly with heavy hex nuts and square plate washers"
+              width={2000}
+              height={1149}
+              priority
+              quality={95}
+              sizes="(max-width: 1000px) 100vw, 55vw"
             />
           </div>
         </div>
@@ -180,7 +185,7 @@ export default function AnchorBoltsPage() {
           <div className="ab-grades-cards">
             <GradeCard
               spec="ASTM F1554"
-              img="/assets/products/anchor-f1554-render.png"
+              img="/assets/products/anchor-f1554-carbon-card.png"
               imgAlt="F1554 structural carbon anchor rod with heavy hex nut and square plate washer"
               title="Structural carbon"
               desc="Weldable low-carbon and heat-treated alloy anchor bar. The go-to spec for cast-in-place structural anchorage."
@@ -232,9 +237,12 @@ export default function AnchorBoltsPage() {
             </Link>
           </div>
           <div className="ab-bend-visual">
-            <Img
+            <Image
               src="/assets/products/anchor-f1554-render.png"
               alt="F1554 anchor rod with heavy hex nut and square plate washer, head end"
+              fill
+              sizes="(max-width: 1024px) 100vw, 50vw"
+              quality={90}
             />
             <div className="ab-bend-visual-tag">Full assembly · Rod + hex nuts + plate washer</div>
           </div>
@@ -314,9 +322,12 @@ export default function AnchorBoltsPage() {
             </div>
           </div>
           <div className="ab-plates-image">
-            <Img
+            <Image
               src="/assets/template-plate.webp"
               alt="Steel anchor bolt template plate with pre-drilled pattern"
+              fill
+              sizes="(max-width: 1024px) 100vw, 50vw"
+              quality={90}
             />
           </div>
         </div>
@@ -447,7 +458,13 @@ function TypeCard({
     <div className="ab-type-card">
       <div className="ab-type-card-photo">
         <span className="pnum">{pnum}</span>
-        <Img src={img} alt={imgAlt} />
+        <Image
+          src={img}
+          alt={imgAlt}
+          fill
+          sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 400px"
+          quality={90}
+        />
       </div>
       <div className="ab-type-card-body">
         <h3>{title}</h3>
@@ -483,7 +500,13 @@ function GradeCard({
   return (
     <div className="ab-grade-card">
       <div className="ab-grade-card-img">
-        <Img src={img} alt={imgAlt} />
+        <Image
+          src={img}
+          alt={imgAlt}
+          fill
+          sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 400px"
+          quality={90}
+        />
       </div>
       <div className="ab-grade-card-body">
         <div className="ab-grade-card-spec">{spec}</div>
@@ -516,7 +539,13 @@ function AppTile({
 }) {
   return (
     <Link href={href} className="ab-app-tile">
-      <Img src={img} alt="" />
+      <Image
+        src={img}
+        alt=""
+        fill
+        sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+        quality={90}
+      />
       <div className="ab-app-tile-body">
         <div className="ab-app-tile-eyebrow">
           {num} — {eyebrow}
