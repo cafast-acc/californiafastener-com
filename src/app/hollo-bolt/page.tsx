@@ -495,8 +495,8 @@ export default function HolloBoltPage() {
             </p>
             <div style={{ paddingTop: 20, borderTop: "1px solid var(--rule-soft)", fontSize: 13, color: "var(--mid)", lineHeight: 1.8 }}>
               Talk to a person
-              <b style={{ display: "block", color: "var(--ink)", fontWeight: 500, fontSize: 14, marginTop: 4 }}>707.741.3277</b>
-              <b style={{ display: "block", color: "var(--ink)", fontWeight: 500, fontSize: 14 }}>info@californiafastener.com</b>
+              <b style={{ display: "block", color: "var(--ink)", fontWeight: 500, fontSize: 14, marginTop: 4 }}><a className="cf-contact-link" href="tel:+17077413277">707.741.3277</a></b>
+              <b style={{ display: "block", color: "var(--ink)", fontWeight: 500, fontSize: 14 }}><a className="cf-contact-link" href="mailto:info@californiafastener.com">info@californiafastener.com</a></b>
             </div>
           </div>
           <QuoteFormPlaceholder

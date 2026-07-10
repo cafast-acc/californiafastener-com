@@ -508,8 +508,8 @@ export default function StructuralFastenersPage() {
             </p>
             <div className="pp-quote-contact">
               Prefer to talk it through?
-              <b>707.741.3277</b>
-              <b>info@californiafastener.com</b>
+              <b><a className="cf-contact-link" href="tel:+17077413277">707.741.3277</a></b>
+              <b><a className="cf-contact-link" href="mailto:info@californiafastener.com">info@californiafastener.com</a></b>
             </div>
           </div>
           <QuoteFormPlaceholder

@@ -439,6 +439,13 @@ h1 i, h2 i, h3 i,
   transition: color 0.15s;
 }
 .cf-footer-contact a:hover { color: var(--ink); text-decoration: underline; }
+/* Inline tel:/mailto: links that should read as text until hovered/tapped. */
+.cf-contact-link {
+  color: inherit;
+  text-decoration: none;
+  transition: color 0.15s;
+}
+.cf-contact-link:hover { text-decoration: underline; }
 .cf-footer-brand {
   font-size: 14px;
   font-weight: 600;
