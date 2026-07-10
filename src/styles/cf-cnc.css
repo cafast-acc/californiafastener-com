@@ -149,9 +149,9 @@
               radial-gradient(ellipse 50% 40% at 30% 100%, rgba(140, 82, 255, 0.14), transparent 65%);
   pointer-events: none; }
 .cnc-cta-inner { position: relative; z-index: 2; max-width: 900px; margin: 0 auto; }
-.cnc-cta-eyebrow { font-size: 17px; font-weight: 500; color: var(--purple); letter-spacing: -0.01em; margin-bottom: 14px; }
+.cnc-cta-eyebrow { font-size: 17px; font-weight: 500; color: var(--blue); letter-spacing: -0.01em; margin-bottom: 14px; }
 .cnc-cta h2 { font-size: clamp(48px, 6.5vw, 88px); font-weight: 600; line-height: 0.98; letter-spacing: -0.04em; margin-bottom: 20px; color: var(--dark-text); }
-.cnc-cta h2 i { color: var(--purple); }
+.cnc-cta h2 i { color: var(--blue); }
 .cnc-cta p { font-size: 21px; color: var(--dark-mid); line-height: 1.35; letter-spacing: -0.015em; max-width: 580px; margin: 0 auto 36px; }
 .cnc-cta-ctas { display: flex; gap: 22px; justify-content: center; flex-wrap: wrap; }
 .cnc-cta-meta { font-size: 13px; color: var(--dark-mid); margin-top: 28px; letter-spacing: -0.005em; }

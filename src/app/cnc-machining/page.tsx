@@ -266,7 +266,7 @@ export default function CncMachiningPage() {
           </h2>
           <p>Upload your drawing now, or call and talk to an engineer in under five minutes.</p>
           <div className="cnc-cta-ctas">
-            <a href="#quote" className="cf-pill cf-pill--purple-light">
+            <a href="#quote" className="cf-pill cf-pill--blue-light">
               Get my quote
             </a>
             <a href="tel:+17077413277" className="cf-pill cf-pill--ghost-dark">
