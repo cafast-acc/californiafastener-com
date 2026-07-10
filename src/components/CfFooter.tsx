@@ -12,7 +12,10 @@ export function CfFooter() {
           <div className="cf-footer-tagline">
             Precision industrial fasteners and CNC machined components for critical applications.
           </div>
-          <div>707.741.3277 · info@californiafastener.com</div>
+          <div className="cf-footer-contact">
+            <a href="tel:+17077413277">707.741.3277</a> ·{" "}
+            <a href="mailto:info@californiafastener.com">info@californiafastener.com</a>
+          </div>
         </div>
         <div className="cf-footer-col">
           <h2>Products</h2>
