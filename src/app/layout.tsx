@@ -28,6 +28,17 @@ export const metadata: Metadata = {
   description:
     "California-based industrial fastener distributor and CNC machining shop. Heavy hex, A325, F1554 anchor bolts, A193 stud bolts, stainless, and Lindapter Hollo-Bolt — 24-hour quotes, full traceability.",
   metadataBase: new URL("https://californiafastener.com"),
+  // Social share defaults. Per-page `title`/`description` flow into og:/twitter:
+  // titles automatically; the shared card image comes from the
+  // src/app/opengraph-image.png file convention. Blog posts set their own.
+  openGraph: {
+    type: "website",
+    siteName: "California Fastener",
+    locale: "en_US",
+  },
+  twitter: {
+    card: "summary_large_image",
+  },
 };
 
 export const viewport: Viewport = {
