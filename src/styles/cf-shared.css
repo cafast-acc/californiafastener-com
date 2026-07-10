@@ -330,6 +330,9 @@ img { display: block; max-width: 100%; }
 .cf-pill--blue-light:hover { background: #5EC4FF; }
 .cf-pill--purple { background: var(--purple-dark); color: var(--white); }
 .cf-pill--purple:hover { background: #5A2DB8; }
+/* Dark-bg variant: use light accent */
+.cf-pill--purple-light { background: var(--purple); color: var(--white); }
+.cf-pill--purple-light:hover { background: #9D6BFF; }
 .cf-pill--ghost {
   background: transparent;
   color: var(--ink);
