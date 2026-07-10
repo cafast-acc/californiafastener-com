@@ -893,8 +893,12 @@
   }
 }
 
-/* ===== small screens: let the fixed-width book scroll ===== */
-@media (max-width: 900px) {
+/* ===== small screens: let the fixed-width book scroll =====
+   Scoped to `screen` so it never applies to print/PDF — otherwise, because
+   a Letter page is 8.5in (816px < 900px), this rule's side padding would
+   fire during rendering and shift every page ~16px right, leaving a white
+   strip on the left and clipping the right edge. */
+@media screen and (max-width: 900px) {
   .cat-book {
     align-items: flex-start;
     overflow-x: auto;
