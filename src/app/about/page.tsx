@@ -378,13 +378,13 @@ export default function AboutPage() {
                 <div className="visit-info-row">
                   <div className="visit-info-label">Toll-free</div>
                   <div className="visit-info-val">
-                    <a href="tel:+18337073278">833.707.FAST</a>
+                    <a href="tel:+18885817077">833.707.FAST</a>
                   </div>
                 </div>
                 <div className="visit-info-row">
                   <div className="visit-info-label">Local</div>
                   <div className="visit-info-val">
-                    <a href="tel:+17077413277">707.741.3277</a>
+                    <a href="tel:+18885817077">707.741.3277</a>
                   </div>
                 </div>
                 <div className="visit-info-row">
@@ -440,7 +440,7 @@ export default function AboutPage() {
           <Link href="/quote" className="cf-pill cf-pill--blue">
             Request a Quote
           </Link>
-          <a href="tel:+18337073278" className="cf-pill about-cta-ghost">
+          <a href="tel:+18885817077" className="cf-pill about-cta-ghost">
             Call 833.707.FAST
           </a>
         </div>

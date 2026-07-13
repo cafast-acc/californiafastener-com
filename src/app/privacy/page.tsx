@@ -122,7 +122,7 @@ export default function PrivacyPage() {
             <strong>California Fastener &middot; CA Fast LLC</strong>
             <br />
             <a href="mailto:info@californiafastener.com">info@californiafastener.com</a> &middot;{" "}
-            <a href="tel:+17077413277">707.741.3277</a> &middot; Benicia, California
+            <a href="tel:+18885817077">707.741.3277</a> &middot; Benicia, California
           </p>
         </article>
       </main>

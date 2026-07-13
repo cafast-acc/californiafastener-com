@@ -20,7 +20,7 @@ export default function CncMachiningPage() {
           <div className="cnc-util-left">
             USA-made · <i>24-hour quotes</i> · Prototype in 3–5 days · ISO-ready documentation
           </div>
-          <a className="cnc-util-phone" href="tel:+17077413277">
+          <a className="cnc-util-phone" href="tel:+18885817077">
             (707) 741-3277
           </a>
         </div>
@@ -68,7 +68,7 @@ export default function CncMachiningPage() {
               <a href="#quote" className="cf-pill cf-pill--purple-deep">
                 Upload drawing &amp; get quote
               </a>
-              <a href="tel:+17077413277" className="cf-link">
+              <a href="tel:+18885817077" className="cf-link">
                 Or call (707) 741-3277
               </a>
             </div>
@@ -269,7 +269,7 @@ export default function CncMachiningPage() {
             <a href="#quote" className="cf-pill cf-pill--blue-light">
               Get my quote
             </a>
-            <a href="tel:+17077413277" className="cf-pill cf-pill--ghost-dark">
+            <a href="tel:+18885817077" className="cf-pill cf-pill--ghost-dark">
               Call (707) 741-3277
             </a>
           </div>

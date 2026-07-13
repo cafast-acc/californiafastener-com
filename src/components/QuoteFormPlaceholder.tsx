@@ -102,14 +102,14 @@ export function QuoteFormPlaceholder({ textareaLabel, textareaPlaceholder }: Pro
         </h3>
         <p style={{ color: "var(--mid)", lineHeight: 1.5, margin: 0 }}>
           Thanks — we&apos;ve got your request and a team member will follow up within one business
-          day with pricing and lead time. Need it sooner? Call <a className="cf-contact-link" href="tel:+17077413277">707.741.3277</a>.
+          day with pricing and lead time. Need it sooner? Call <a className="cf-contact-link" href="tel:+18885817077">707.741.3277</a>.
         </p>
       </div>
     );
   }
 
   return (
-    <form className="pp-quote-form" onSubmit={handleSubmit} noValidate>
+    <form id="cf-product-quote-form" className="pp-quote-form" onSubmit={handleSubmit} noValidate>
       <div className="pp-form-row">
         <div className="pp-form-field">
           <label htmlFor="qfp-first">First name</label>

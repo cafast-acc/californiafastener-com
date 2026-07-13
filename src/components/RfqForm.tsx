@@ -719,7 +719,7 @@ export function RfqForm() {
                 <div>
                   <div className="qf-reassure-t">Emergency same-day available</div>
                   <div className="qf-reassure-s">
-                    Call <a className="cf-contact-link" href="tel:+17077413277">707.741.3277</a>, lead with &ldquo;URGENT&rdquo;
+                    Call <a className="cf-contact-link" href="tel:+18885817077">707.741.3277</a>, lead with &ldquo;URGENT&rdquo;
                   </div>
                 </div>
               </div>
@@ -835,7 +835,7 @@ function ConfirmCard({
             24 business hours — usually faster.
           </p>
           <div className="qf-urgent">
-            <strong>Need it sooner?</strong> Call us at <a className="cf-contact-link" href="tel:+17077413277">707.741.3277</a>.
+            <strong>Need it sooner?</strong> Call us at <a className="cf-contact-link" href="tel:+18885817077">707.741.3277</a>.
             For emergency same-day, lead with <strong>&ldquo;URGENT&rdquo;</strong> on
             the call and we&apos;ll get someone on it. We&apos;ve gotten more than a few
             crews out of a same-day jam.

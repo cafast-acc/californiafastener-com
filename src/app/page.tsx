@@ -445,7 +445,7 @@ export default function HomePage() {
           <Link href="/quote" className="cf-pill cf-pill--blue">
             Request a Quote
           </Link>
-          <a href="tel:+17077413277" className="cf-link">
+          <a href="tel:+18885817077" className="cf-link">
             Call 707.741.3277
           </a>
         </div>
