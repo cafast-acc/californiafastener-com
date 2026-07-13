@@ -102,7 +102,7 @@ export function QuoteFormPlaceholder({ textareaLabel, textareaPlaceholder }: Pro
         </h3>
         <p style={{ color: "var(--mid)", lineHeight: 1.5, margin: 0 }}>
           Thanks — we&apos;ve got your request and a team member will follow up within one business
-          day with pricing and lead time. Need it sooner? Call <a className="cf-contact-link" href="tel:+18885817077">707.741.3277</a>.
+          day with pricing and lead time. Need it sooner? Call <a className="cf-contact-link no-swap" href="tel:+18885817077">707.741.3277</a>.
         </p>
       </div>
     );

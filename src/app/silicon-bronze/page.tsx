@@ -320,7 +320,7 @@ export default function SiliconBronzePage() {
               <Link href="/quote" className="cf-pill cf-pill--bronze-light">
                 Check availability
               </Link>
-              <a href="tel:+18885817077" className="cf-pill cf-pill--ghost-dark">
+              <a href="tel:+18885817077" className="cf-pill cf-pill--ghost-dark no-swap">
                 707.741.3277
               </a>
             </div>
@@ -389,7 +389,7 @@ export default function SiliconBronzePage() {
             </p>
             <div className="pp-quote-contact">
               Talk to a person
-              <b><a className="cf-contact-link" href="tel:+18885817077">707.741.3277</a></b>
+              <b><a className="cf-contact-link no-swap" href="tel:+18885817077">707.741.3277</a></b>
               <b><a className="cf-contact-link" href="mailto:info@californiafastener.com">info@californiafastener.com</a></b>
             </div>
           </div>
@@ -451,7 +451,7 @@ export default function SiliconBronzePage() {
             <Link href="/quote" className="cf-pill cf-pill--bronze-light">
               Request a Quote
             </Link>
-            <a href="tel:+18885817077" className="cf-pill cf-pill--ghost-dark">
+            <a href="tel:+18885817077" className="cf-pill cf-pill--ghost-dark no-swap">
               Call 707.741.3277
             </a>
           </div>

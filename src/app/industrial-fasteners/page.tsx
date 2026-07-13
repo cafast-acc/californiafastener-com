@@ -542,7 +542,7 @@ export default function IndustrialFastenersPage() {
             </p>
             <div className="pp-quote-contact">
               Prefer to talk it through?
-              <b><a className="cf-contact-link" href="tel:+18885817077">707.741.3277</a></b>
+              <b><a className="cf-contact-link no-swap" href="tel:+18885817077">707.741.3277</a></b>
               <b><a className="cf-contact-link" href="mailto:info@californiafastener.com">info@californiafastener.com</a></b>
             </div>
           </div>
@@ -570,7 +570,7 @@ export default function IndustrialFastenersPage() {
             <Link href="/quote" className="cf-pill cf-pill--blue-light">
               Request a Quote
             </Link>
-            <a href="tel:+18885817077" className="cf-pill cf-pill--ghost-dark">
+            <a href="tel:+18885817077" className="cf-pill cf-pill--ghost-dark no-swap">
               Call 707.741.3277
             </a>
           </div>
