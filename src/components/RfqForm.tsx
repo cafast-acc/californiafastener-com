@@ -294,7 +294,18 @@ export function RfqForm() {
       <div className="qf-wrap">
         <div className="qf-grid">
           {/* ── FORM ──────────────────────────────────────── */}
-          <div className="qf-card">
+          {/* A real <form> element (same .qf-card styling) so the submit
+              fires a native submit event WhatConverts' Form Finder can track.
+              The submission logic itself still lives in submit(). */}
+          <form
+            id="cf-rfq-form"
+            className="qf-card"
+            onSubmit={(e) => {
+              e.preventDefault();
+              void submit();
+            }}
+            noValidate
+          >
             <div className="qf-sec">
               <span className="qf-sec-num">01</span> Contact{" "}
               <span className="qf-sec-req">required</span>
@@ -582,9 +593,8 @@ export function RfqForm() {
                 team.
               </div>
               <button
-                type="button"
+                type="submit"
                 className="qf-submit"
-                onClick={submit}
                 disabled={!ready || submitting}
               >
                 {submitting && <span className="qf-submit-spinner" aria-hidden="true" />}
@@ -592,7 +602,7 @@ export function RfqForm() {
                 {!submitting && <span aria-hidden="true">→</span>}
               </button>
             </div>
-          </div>
+          </form>
 
           {/* ── LIVE PANEL ───────────────────────────────── */}
           <aside className="qf-side" aria-label="Your request preview">
