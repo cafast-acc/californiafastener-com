@@ -7,6 +7,7 @@ import "./globals.css";
 
 import { RouteTracker } from "@/components/RouteTracker";
 import { ClickTracker } from "@/components/ClickTracker";
+import { WhatConverts } from "@/components/WhatConverts";
 
 const inter = Inter({
   variable: "--font-inter",
@@ -69,6 +70,7 @@ export default function RootLayout({
         <RouteTracker />
         <ClickTracker />
         {children}
+        <WhatConverts />
         <Analytics />
         <SpeedInsights />
       </body>
