@@ -109,7 +109,7 @@ export function QuoteFormPlaceholder({ textareaLabel, textareaPlaceholder }: Pro
   }
 
   return (
-    <form id="cf-product-quote-form" className="pp-quote-form" onSubmit={handleSubmit} noValidate>
+    <form id="cf-product-quote-form" className="pp-quote-form jotform-form" onSubmit={handleSubmit} noValidate>
       <div className="pp-form-row">
         <div className="pp-form-field">
           <label htmlFor="qfp-first">First name</label>

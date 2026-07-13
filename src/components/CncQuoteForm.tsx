@@ -85,7 +85,7 @@ export function CncQuoteForm() {
       </h2>
       <div className="cnc-form-lede">Engineer-reviewed · Free · No obligation</div>
 
-      <form id="cf-cnc-quote-form" onSubmit={handleSubmit}>
+      <form id="cf-cnc-quote-form" className="jotform-form" onSubmit={handleSubmit}>
         <div className="cnc-form-row2">
           <div>
             <label htmlFor="cnc-fn">First name</label>

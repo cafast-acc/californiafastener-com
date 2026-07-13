@@ -299,7 +299,7 @@ export function RfqForm() {
               The submission logic itself still lives in submit(). */}
           <form
             id="cf-rfq-form"
-            className="qf-card"
+            className="qf-card jotform-form"
             onSubmit={(e) => {
               e.preventDefault();
               void submit();

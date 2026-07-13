@@ -481,7 +481,7 @@ export function HolloBoltSelector({ titleAs = "h2" }: { titleAs?: "h1" | "h2" } 
                   </div>
                 ))}
               </div>
-              <form id="cf-hollobolt-quote-form" className="hbs-quote-form" onSubmit={submitQuote}>
+              <form id="cf-hollobolt-quote-form" className="hbs-quote-form jotform-form" onSubmit={submitQuote}>
                 <div className="hbs-field">
                   <label htmlFor="hbs-f-first">First name</label>
                   <input id="hbs-f-first" type="text" className="hbs-input" required />
