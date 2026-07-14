@@ -380,6 +380,9 @@ export function RfqForm() {
               <span className="qf-sec-num">02</span> What do you need a quote on?
             </div>
             <div className="qf-field qf-field--full">
+              <label htmlFor="rfq-text" className="qf-sr-only">
+                Description
+              </label>
               <textarea
                 id="rfq-text"
                 placeholder='e.g. 500 ea F1554 Gr 55 anchor bolts, 3/4" × 24", HDG, needed by mid-July, shipping to Napa…'
