@@ -4,6 +4,7 @@ import Link from "next/link";
 import "@/styles/cf-about.css";
 import { CfNav } from "@/components/CfNav";
 import { CfFooter } from "@/components/CfFooter";
+import { ConsentMap } from "@/components/ConsentMap";
 
 export const metadata: Metadata = {
   title: "About",
@@ -400,13 +401,10 @@ export default function AboutPage() {
               </div>
             </div>
             <div className="visit-map">
-              <iframe
-                className="visit-map-frame"
+              <ConsentMap
                 title="Map showing California Fastener at 465 Industrial Way, Benicia, CA 94510"
                 src="https://maps.google.com/maps?q=California%20Fastener%2C%20465%20Industrial%20Way%2C%20Benicia%2C%20CA%2094510&z=16&output=embed"
-                loading="lazy"
-                referrerPolicy="no-referrer-when-downgrade"
-                allowFullScreen
+                label="465 Industrial Way, Benicia"
               />
               <a
                 className="visit-map-directions"
