@@ -9,7 +9,7 @@ export const metadata: Metadata = {
     "How California Fastener collects and uses the contact information you share through our quote and contact forms. We use it only to respond to your inquiry — we don't sell data.",
 };
 
-const LAST_UPDATED = "July 1, 2026";
+const LAST_UPDATED = "November 10, 2026";
 
 export default function PrivacyPage() {
   return (
@@ -54,8 +54,8 @@ export default function PrivacyPage() {
             up about your request.
           </p>
           <p>
-            We don&rsquo;t use your information for advertising, and we won&rsquo;t add you to
-            marketing lists without your consent.
+            We don&rsquo;t use the contact information you send us for advertising, and we
+            won&rsquo;t add you to marketing lists without your consent.
           </p>
         </article>
 
@@ -73,19 +73,27 @@ export default function PrivacyPage() {
           <h2>Only with providers who help us operate</h2>
           <p>
             We share your information only with service providers such as JotForm, which processes
-            our form submissions, and our email provider. They may use it only to provide their
-            service to us.
+            our form submissions, our email provider, and the analytics and advertising tools
+            listed under Cookies &amp; analytics. They may use it only to provide their service to
+            us.
           </p>
           <p>We may also disclose information if required by law or to protect our rights.</p>
         </article>
 
         <article className="legal-card">
           <div className="legal-chip">Cookies &amp; analytics</div>
-          <h2>Essential, plus basic analytics</h2>
+          <h2>Only with your OK</h2>
           <p>
-            Our site uses essential cookies to function and may use basic analytics to help us
-            improve it. You can control or block cookies in your browser — that won&rsquo;t stop you
-            from contacting us or requesting a quote.
+            With your permission, we use Google Analytics, Google Ads, Microsoft Clarity (including
+            session recordings), and WhatConverts (call and form tracking) to see how our site is
+            used and which ads bring in inquiries. Google may also use cookies to show you our ads
+            on other sites; you can opt out at{" "}
+            <a href="https://myadcenter.google.com" target="_blank" rel="noopener noreferrer">
+              Google&rsquo;s My Ad Center
+            </a>
+            . Decline, and none of them run. Change your choice anytime under &ldquo;Cookie
+            settings.&rdquo; We don&rsquo;t respond to &ldquo;Do Not Track&rdquo; signals, since
+            there&rsquo;s no common standard for them.
           </p>
         </article>
 
