@@ -2,10 +2,14 @@
 
 import Link from "next/link";
 import { useEffect, useState } from "react";
+import { GoogleTagManager } from "@next/third-parties/google";
 import { WhatConverts } from "@/components/WhatConverts";
 import {
   CONSENT_CHANGE_EVENT,
+  GTM_ID,
   OPEN_SETTINGS_EVENT,
+  clearTrackingCookies,
+  discardPreConsentEvents,
   readConsent,
   updateGoogleConsent,
   writeConsent,
@@ -13,12 +17,13 @@ import {
 } from "@/lib/consent";
 
 /**
- * Opt-in cookie banner. Until the visitor clicks Accept:
- *  - Google Analytics / Google Ads run in Consent Mode "denied" (no cookies),
- *    set by the consent-default script in the root layout;
- *  - Microsoft Clarity doesn't fire (its GTM tag requires analytics_storage);
- *  - WhatConverts isn't loaded at all (rendered below only when granted).
- * Vercel Analytics / Speed Insights are cookieless and run regardless.
+ * Opt-in cookie banner. Until the visitor clicks Accept, none of the
+ * tracking tools load at all:
+ *  - Google Tag Manager isn't loaded, so Google Analytics, Google Ads and
+ *    Microsoft Clarity (all GTM tags) never run and nothing is sent to them;
+ *  - WhatConverts isn't loaded.
+ * Both are rendered below only when consent is granted. Vercel Analytics /
+ * Speed Insights are cookieless, don't identify visitors, and run regardless.
  */
 export function CookieConsent() {
   // null until mounted: the banner is client-only so it never flashes for
@@ -39,21 +44,34 @@ export function CookieConsent() {
   function choose(value: ConsentValue) {
     const previous = consent;
     writeConsent(value);
-    updateGoogleConsent(value);
-    setConsent(value);
     setOpen(false);
     window.dispatchEvent(new CustomEvent(CONSENT_CHANGE_EVENT, { detail: value }));
 
-    // Withdrawing consent: trackers already running on this page can't be
-    // unloaded, so reload to start clean with everything off.
-    if (previous === "granted" && value === "denied") {
+    if (value === "granted") {
+      if (previous !== "granted") discardPreConsentEvents();
+      updateGoogleConsent("granted");
+      setConsent("granted"); // mounts GTM + WhatConverts below
+      return;
+    }
+
+    setConsent("denied");
+    // Withdrawing consent: delete the tools' cookies, and reload because
+    // scripts already running on this page can't be unloaded.
+    if (previous === "granted") {
+      updateGoogleConsent("denied");
+      clearTrackingCookies();
       window.location.reload();
     }
   }
 
   return (
     <>
-      {consent === "granted" && <WhatConverts />}
+      {consent === "granted" && (
+        <>
+          <GoogleTagManager gtmId={GTM_ID} />
+          <WhatConverts />
+        </>
+      )}
 
       {open && (
         <section className="cf-consent" role="region" aria-label="Cookie consent">

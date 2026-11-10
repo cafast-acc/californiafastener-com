@@ -32,10 +32,56 @@ export function writeConsent(value: ConsentValue) {
   document.cookie = `${CONSENT_COOKIE}=${value}; Max-Age=${ONE_YEAR_SECONDS}; Path=/; SameSite=Lax${secure}`;
 }
 
+/** GTM container that's loaded only after the visitor accepts. */
+export const GTM_ID = "GTM-NDRT3DJ5";
+
 /**
- * Google Consent Mode v2 update. Google's own tags in GTM react to this
- * directly; the Microsoft Clarity tag is set in GTM to require
- * `analytics_storage`, so it fires the moment this grants it.
+ * Drop events the site queued in `dataLayer` before the visitor accepted
+ * (phone/email clicks, form submits). GTM isn't loaded until Accept, and on
+ * load it would otherwise replay that pre-consent activity. Consent/config
+ * commands are kept.
+ */
+export function discardPreConsentEvents() {
+  const w = window as unknown as { dataLayer?: unknown[] };
+  if (!w.dataLayer) return;
+  w.dataLayer = w.dataLayer.filter(
+    (entry) =>
+      typeof entry === "object" &&
+      entry !== null &&
+      !Array.isArray(entry) &&
+      Object.prototype.toString.call(entry) === "[object Arguments]",
+  );
+}
+
+/**
+ * First-party cookies set by the consent-gated tools: Google Analytics
+ * (_ga, _gid), Google Ads (_gcl_*), Microsoft Clarity (_clck, _clsk) and
+ * WhatConverts (wc_*). Deleted when a visitor withdraws consent.
+ */
+const TRACKING_COOKIE_PREFIXES = ["_ga", "_gid", "_gat", "_gcl", "_clck", "_clsk", "wc_", "_wc"];
+
+export function clearTrackingCookies() {
+  const host = location.hostname;
+  const parts = host.split(".");
+  // Cookies may be scoped to the exact host or any parent domain
+  // (e.g. .californiafastener.com); try them all.
+  const domains = [""];
+  for (let i = 0; i < parts.length - 1; i++) {
+    const d = parts.slice(i).join(".");
+    domains.push(`; Domain=${d}`, `; Domain=.${d}`);
+  }
+  for (const pair of document.cookie.split("; ")) {
+    const name = pair.split("=")[0];
+    if (!TRACKING_COOKIE_PREFIXES.some((p) => name.startsWith(p))) continue;
+    for (const domain of domains) {
+      document.cookie = `${name}=; Max-Age=0; Path=/${domain}`;
+    }
+  }
+}
+
+/**
+ * Google Consent Mode v2 update, pushed just before GTM loads (on Accept) so
+ * Google's tags start with consent granted.
  */
 export function updateGoogleConsent(value: ConsentValue) {
   const w = window as unknown as { dataLayer?: unknown[] };
