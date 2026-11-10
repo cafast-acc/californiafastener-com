@@ -772,3 +772,66 @@ body.cf-no-scroll { overflow: hidden; }
   .cf-nav-drawer { transition: none; }
   .cf-nav-drawer-backdrop { transition: none; }
 }
+
+/* ── Cookie consent banner ───────────────────────────────── */
+.cf-consent {
+  position: fixed;
+  left: 24px;
+  bottom: 24px;
+  z-index: 300;
+  width: min(460px, calc(100vw - 32px));
+  background: var(--white);
+  border: 1px solid var(--rule);
+  border-radius: 14px;
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.12);
+  padding: 20px 22px;
+  color: var(--ink-soft);
+  font-size: 13px;
+  line-height: 1.55;
+  letter-spacing: -0.01em;
+}
+.cf-consent-title {
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--ink);
+  margin: 0 0 6px;
+  letter-spacing: -0.02em;
+}
+.cf-consent-text { margin: 0 0 16px; }
+.cf-consent-text a { color: var(--blue-dark); text-decoration: underline; }
+.cf-consent-actions { display: flex; gap: 10px; }
+.cf-consent-btn {
+  flex: 1;
+  font: inherit;
+  font-weight: 500;
+  font-size: 14px;
+  padding: 10px 16px;
+  border-radius: 999px;
+  border: 1px solid var(--ink);
+  background: var(--white);
+  color: var(--ink);
+  cursor: pointer;
+  transition: background 0.15s, color 0.15s;
+}
+.cf-consent-btn:hover { background: var(--bg-alt); }
+.cf-consent-btn--primary { background: var(--ink); color: var(--white); }
+.cf-consent-btn--primary:hover { background: var(--ink-soft); }
+.cf-consent-btn:focus-visible { outline: 2px solid var(--blue-dark); outline-offset: 2px; }
+@media (max-width: 640px) {
+  .cf-consent { left: 16px; right: 16px; bottom: 16px; width: auto; padding: 18px; }
+}
+
+/* Footer "Cookie settings" — a button styled like the footer links. */
+.cf-footer-linkbtn {
+  display: block;
+  font: inherit;
+  color: var(--mid);
+  background: none;
+  border: 0;
+  padding: 3px 0;
+  line-height: 1.5;
+  text-align: left;
+  cursor: pointer;
+  transition: color 0.15s;
+}
+.cf-footer-linkbtn:hover { color: var(--ink); }

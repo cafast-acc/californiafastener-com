@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { CookieSettingsButton } from "@/components/CookieConsent";
 
 export function CfFooter() {
   return (
@@ -53,6 +54,7 @@ export function CfFooter() {
           <Link href="/cnc-machining">CNC Machining</Link>
           <Link href="/quote">Request a Quote</Link>
           <Link href="/privacy">Privacy Policy</Link>
+          <CookieSettingsButton />
         </div>
       </div>
       <div className="cf-footer-bottom">

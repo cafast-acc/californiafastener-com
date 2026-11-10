@@ -1,5 +1,6 @@
 import type { Metadata, Viewport } from "next";
 import { Inter, JetBrains_Mono } from "next/font/google";
+import Script from "next/script";
 import { GoogleTagManager } from "@next/third-parties/google";
 import { Analytics } from "@vercel/analytics/next";
 import { SpeedInsights } from "@vercel/speed-insights/next";
@@ -7,7 +8,8 @@ import "./globals.css";
 
 import { RouteTracker } from "@/components/RouteTracker";
 import { ClickTracker } from "@/components/ClickTracker";
-import { WhatConverts } from "@/components/WhatConverts";
+import { CookieConsent } from "@/components/CookieConsent";
+import { CONSENT_DEFAULT_SCRIPT } from "@/lib/consent";
 
 const inter = Inter({
   variable: "--font-inter",
@@ -58,6 +60,11 @@ export default function RootLayout({
     >
       <GoogleTagManager gtmId="GTM-NDRT3DJ5" />
       <body>
+        {/* Consent Mode defaults must be set before GTM loads; beforeInteractive
+            hoists this into <head> ahead of GTM. See src/lib/consent.ts. */}
+        <Script id="consent-default" strategy="beforeInteractive">
+          {CONSENT_DEFAULT_SCRIPT}
+        </Script>
         {/* Google Tag Manager (noscript) fallback for visitors without JS */}
         <noscript>
           <iframe
@@ -70,7 +77,7 @@ export default function RootLayout({
         <RouteTracker />
         <ClickTracker />
         {children}
-        <WhatConverts />
+        <CookieConsent />
         <Analytics />
         <SpeedInsights />
       </body>
