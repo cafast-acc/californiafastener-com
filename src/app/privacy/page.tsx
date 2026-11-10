@@ -50,8 +50,9 @@ export default function PrivacyPage() {
           <div className="legal-chip">How we use it</div>
           <h2>To respond to you</h2>
           <p>
-            We use your details for one purpose: to answer your inquiry, prepare a quote, and follow
-            up about your request.
+            We use your details to answer your inquiry, prepare a quote, and follow up about your
+            request. With your permission, we also measure which ads or searches led to your
+            inquiry (see Cookies &amp; analytics).
           </p>
           <p>
             We don&rsquo;t use the contact information you send us for advertising, and we
